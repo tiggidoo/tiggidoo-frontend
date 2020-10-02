@@ -1,0 +1,19 @@
+section {
+  &:first-child {
+    margin-top: 15rem;
+  }
+  .container {
+    padding: 5rem 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  section {
+    &:first-child {
+      margin-top: 2rem;
+    }
+    .container {
+      padding: 2.5rem 1.5rem;
+    }
+  }
+}

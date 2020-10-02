@@ -1,0 +1,25 @@
+.DPIntro {
+  &__title {
+    margin-bottom: 6rem;
+    max-width: 53.2rem;
+  }
+
+  &__text {
+    margin-bottom: 1.5rem;
+  }
+
+  &__button {
+    margin-top: 6rem;
+    text-align: center;
+  }
+}
+
+@media(max-width: 992px){
+  .DPIntro__title{
+    margin-bottom: 4rem;
+  }
+
+  .DPIntro__button{
+    margin-top: 4rem;
+  }
+}

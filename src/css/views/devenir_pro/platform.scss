@@ -1,0 +1,52 @@
+.DPPlatform {
+  &__button {
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 5rem;
+    max-width: 52.6rem;
+  }
+
+  &__text {
+    list-style: none;
+
+    &--change {
+      font-weight: normal;
+      margin-bottom: 6rem;
+      & > li {
+        display: flex;
+
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+
+        img {
+          max-width: 20px;
+          max-height: 16px;
+          margin-left: -27px;
+          margin-right: 7px;
+        }
+
+        img,
+        h3 {
+          font-weight: normal;
+          display: inline;
+        }
+      }
+    }
+  }
+
+  &__imgTime {
+    max-width: 56.6%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 768px) {
+    .DPPlatform__text--change > li {
+      img {
+        margin-left: 0;
+      }
+    }
+}
