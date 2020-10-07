@@ -15,11 +15,11 @@ export default function QuestionsPro(){
 
         <section className="DPQestionPro">
             <Container>
-                <h1 className="DPQestionPro__title">Les questions que les professionnels se posent</h1>
+                <h2 className="DPQestionPro__title">Les questions que les professionnels se posent</h2>
                 <Accordion defaultActiveKey="0">
                 <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0">
-                            <h2 className="DPQestionPro__subtitle">What things are covered in support?</h2>
+                            <h3 className="DPQestionPro__subtitle">What things are covered in support?</h3>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
@@ -29,7 +29,7 @@ export default function QuestionsPro(){
                     </Card>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="1">
-                            <h2 className="DPQestionPro__subtitle">How many shortcakes/blocks are there in Saasland?</h2>
+                            <h3 className="DPQestionPro__subtitle">How many shortcakes/blocks are there in Saasland?</h3>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
@@ -39,7 +39,7 @@ export default function QuestionsPro(){
                     </Card>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="2">
-                            <h2 className="DPQestionPro__subtitle">Can I use all the Home page demos in a single website?</h2>
+                            <h3 className="DPQestionPro__subtitle">Can I use all the Home page demos in a single website?</h3>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="2">
                             <Card.Body>
@@ -49,7 +49,7 @@ export default function QuestionsPro(){
                     </Card>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="3">
-                            <h2 className="DPQestionPro__subtitle">What happens after my support is expired?</h2>
+                            <h3 className="DPQestionPro__subtitle">What happens after my support is expired?</h3>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="3">
                             <Card.Body>

@@ -18,8 +18,7 @@ export default function DevenirPro(){
         <Platform />
         <HowItWorks />
         <BecomePro />
-        <Services />
- 
+        <Services /> 
         <SubmitMyApplication />
         <Conditions />
         <QuestionsPro />

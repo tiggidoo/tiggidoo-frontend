@@ -11,10 +11,19 @@
         margin-bottom: 3rem;
         color: #fff;
     }
-
-    & .btn-outline-secondary{
-        color: #fff;
-        background: #28CC8B;
-        border: 2px solid #28CC8B;
+    &__button {
+        text-align: center;
+        & .btn-outline-secondary {
+          font-size: 1.8rem;
+          text-transform: uppercase;
+          color: #fff;
+          background: #28CC8B;
+          border: 2px solid #28CC8B;
+        }
+        & .btn-group-lg > .btn,
+        & .btn-lg {
+          padding: 1rem 3rem;
+        }
+    
     }
 }

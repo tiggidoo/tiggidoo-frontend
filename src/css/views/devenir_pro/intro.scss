@@ -1,25 +1,80 @@
 .DPIntro {
+  //background-color: wheat;
   &__title {
-    margin-bottom: 6rem;
-    max-width: 53.2rem;
-  }
-
-  &__text {
-    margin-bottom: 1.5rem;
+    text-align: center;
+    color: black;
   }
 
   &__button {
-    margin-top: 6rem;
     text-align: center;
+    & .btn-outline-secondary {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      color: #2880fb;
+      border: 2px solid #2880fb;
+    }
+    & .btn-group-lg > .btn,
+    & .btn-lg {
+      padding: 1rem 2rem;
+    }
+
   }
 }
 
-@media(max-width: 992px){
-  .DPIntro__title{
-    margin-bottom: 4rem;
+@media (min-width: 1200px) {
+  .DPIntro{
+    &__title {
+      font-size: 3.4rem; /* h1 */
+    }
+
+    &__text{
+      font-size: 2rem; /* p */
+    }
+
+    &__button {
+      text-align: center;
+      & .btn-outline-secondary {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        color: #2880fb;
+        border: 3px solid #2880fb;
+      }
+      & .btn-group-lg > .btn,
+      & .btn-lg {
+        padding: 1.3rem 2.5rem;
+      }
+
+    }
   }
 
-  .DPIntro__button{
-    margin-top: 4rem;
+}
+
+@media (min-width: 1600px) {
+  .DPIntro{
+    &__title {
+      font-size: 40px; /* h1 */
+    }
+    &__text{
+      font-size: 2.3rem; /* p */
+    }
+    &__text:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+
+    &__button {
+      text-align: center;
+      & .btn-outline-secondary {
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: #2880fb;
+        border: 3px solid #2880fb;
+      }
+      & .btn-group-lg > .btn,
+      & .btn-lg {
+        padding: 1.5rem 4rem;
+      }
+  
+    }
+  
   }
 }

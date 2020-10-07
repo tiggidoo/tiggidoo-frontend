@@ -6,9 +6,8 @@
 */
 
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import check from '../../../images/icon_check.png';
-import ButtonWhite from '../../../components/ButtonWhite';
 
 import '../../../css/views/devenir_pro/platform.scss';
 
@@ -18,21 +17,22 @@ export default function Platform(){
             <Container>
                 <Row>
                     <Col md={6} lg={true}>
-                        <div className="DPPlatform__imgTime">
+                        <div className="DPPlatform__imgTime d-none d-md-block">
                             <img src={"images/menage.svg"} alt="" />
                         </div>
                     </Col>          
                     <Col md={6} lg={true}>
-                        <h1 className="DPPlatform__title">Une plateforme qui améliore votre organisation au quotidien</h1>
-                        <ul class="DPPlatform__text DPPlatform__text--change">
-                            <li><img src={check} alt="" /><h3>Inscription gratuite sans engagement</h3></li>
-                            <li><img src={check} alt="" /><h3>Création simple et facile de votre compte prot</h3></li>
-                            <li><img src={check} alt="" /><h3>Gestion de votre calendrier et horairet</h3></li>
-                            <li><img src={check} alt="" /><h3>Facturation automatisée et centraliséet</h3></li>
-                            <li><img src={check} alt="" /><h3>Soutien technique de l’équipe Tiggidoot</h3></li>
+                        <h2 className="DPPlatform__title mb-5 pb-4">Une plateforme qui améliore votre organisation au quotidien</h2>
+
+                        <ul className="DPPlatform__text DPPlatform__text--change ">
+                            <li><img src={check} alt="" /><p>Inscription gratuite sans engagement</p></li>
+                            <li><img src={check} alt="" /><p>Création simple et facile de votre compte prot</p></li>
+                            <li><img src={check} alt="" /><p>Gestion de votre calendrier et horairet</p></li>
+                            <li><img src={check} alt="" /><p>Facturation automatisée et centraliséet</p></li>
+                            <li><img src={check} alt="" /><p>Soutien technique de l’équipe Tiggidoot</p></li>
                         </ul>
-                        <div className="DPPlatform__button">
-                                <ButtonWhite />
+                        <div className="DPPlatform__button mt-5 pt-2">
+                            <Button variant="outline-secondary" size="lg">Devenez un Todoo</Button>
                         </div>
                         {/* <Button variant="outline-secondary" size="lg">Je m’inscris</Button> */}
                     </Col>          

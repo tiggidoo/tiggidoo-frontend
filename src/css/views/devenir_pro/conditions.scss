@@ -4,48 +4,164 @@
         text-align: center;
         margin-bottom: 8rem;
         margin-top: 7rem;
-        &>h1{
-            margin-bottom: 5rem;
-        }
 
     }
 
     &__button{
         margin: 10rem 0 7rem 0;
-        
         text-align: center;
+    }
+
+    &__box {
+        height: 47rem;
+        width: 30rem;
+        color: #eee;
+        font-family: monospace;
+        padding: 3.5rem;
+        margin: 1.5rem auto;
+        background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 10px 15px #00000029;
+    }
+    
+    &__boxImagen{
+        height: 23%;
+        text-align: center;
+        margin: 2rem 0;
+    }
+    
+    &__boxImagen img{
+        width: 86px;
+    }
+    
+    &__boxTitle{
+        height: 18%;
+        text-align: center;
+        & > h3{
+            color: #2880fb;
+            font-weight: 800;
+        }
+    }
+
+    &__boxDescription{
+        color: #000;
+        & > p{
+            font-size: 16px;
+        }
+    }
+
+    &__button {
+        text-align: center;
+        & .btn-outline-secondary {
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            color: #2880fb;
+            border: 2px solid #2880fb;
+        }
+        & .btn-group-lg > .btn,
+        & .btn-lg {
+            padding: 1rem 2rem;
+        }
+
     }
 }
 
-.box {
-    height: 60rem;
-    width: 100%;
-    color: #eee;
-    font-family: monospace;
-    padding: 2.5rem;
-    margin: 1.5rem auto;
-    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 10px 15px #00000029;
+@media (min-width: 768px) {
+
+    .DPConditions__boxDescription p {
+      font-size: 16px;
+    }
 }
 
-.box__imagen{
-    height: 20%;
-    text-align: center;
-    margin: 2rem 0;
+@media (min-width: 1200px) {
+    .DPConditions {
+        &__box {
+            height: 43rem;
+            width: 26rem;
+            padding: 2.2rem;
+        }
+  
+        &__boxImagen {
+            height: 26%;
+        }
+  
+        &__boxTitle {
+            height: 18%;
+            margin-bottom: 0;
+            & > h3{
+                font-size: 1.8rem;
+            }
+        }
+  
+        &__boxDescription p {
+            font-size: 16px;
+        }
+  
+        &__button {
+            text-align: center;
+            & .btn-outline-secondary {
+                font-size: 1.8rem;
+                text-transform: uppercase;
+                color: #2880fb;
+                border: 3px solid #2880fb;
+            }
+            & .btn-group-lg > .btn,
+            & .btn-lg {
+                padding: 1.3rem 2.5rem;
+            }
+
+        }
+      
+
+    }
+  
 }
 
-.box__imagen img{
-    width: 86px;
-}
+@media (min-width: 1600px) {
+    .DPConditions {
+        &__box {
+            height: 57rem;
+            width: 35rem;
+            padding: 3.5rem;
+        }
 
-.box__title{
-    height: 12%;
-    color: black;
-    text-align: center;
-    margin-bottom: 0;
-}
+        &__boxImagen {
+            height: 28%;
 
+            & > img{
+                width: 40%;
+            }
+        }
+
+        &__boxTitle {
+            margin-bottom: 0;
+            & > h3{
+                font-size: 2.1rem;
+            }
+        }
+
+        &__boxDescription p {
+            font-size: 19px;
+        }
+
+        &__button {
+          text-align: center;
+          & .btn-outline-secondary {
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: #2880fb;
+            border: 3px solid #2880fb;
+          }
+          & .btn-group-lg > .btn,
+          & .btn-lg {
+            padding: 1.5rem 4rem;
+          }
+      
+        }
+
+    }
+}
+/*
 @media(max-width: 1200px){
     .box{
         height: 50rem;
@@ -59,19 +175,20 @@
         padding: 2rem;
     }
     
-    .box__imagen{
+    .boxImagen{
         // background-color: #c0f7cd;
         height: 35%;
         margin: 1rem;
     }
 
-    .box__imagen img{
+    .boxImagen img{
         width: 92px;
         margin:0;
     }
     
-    .box__title{
+    .boxTitle{
         // background-color: #ffeaee;
         height: 10%;
     }    
 }
+*/

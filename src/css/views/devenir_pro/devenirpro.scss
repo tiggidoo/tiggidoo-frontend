@@ -1,19 +1,23 @@
 section {
-  &:first-child {
-    margin-top: 15rem;
-  }
-  .container {
-    padding: 5rem 1.5rem;
+  & .container {
+    padding: 5rem 2.5rem;
   }
 }
 
-@media (max-width: 992px) {
-  section {
-    &:first-child {
-      margin-top: 2rem;
-    }
-    .container {
-      padding: 2.5rem 1.5rem;
-    }
-  }
+@media (min-width: 768px){
+  section{
+    & .container {
+      padding: 5rem 0;
+    } 
+  } 
+}
+
+@media (min-width: 1200px){
+
+  section{
+    & .container {
+      padding: 10rem 0;
+    } 
+  } 
+  
 }

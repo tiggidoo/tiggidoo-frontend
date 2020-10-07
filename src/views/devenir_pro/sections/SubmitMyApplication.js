@@ -14,10 +14,11 @@ export default function SubmitMyApplication(){
     return(
         <section className="DPApplication">
             <Container>
-                <h1 className="DPApplication__title">Prêt à augmenter votre revenu?</h1>
+                <h2 className="DPApplication__title">Prêt à augmenter votre revenu?</h2>
                 <p className="DPApplication__description">Débutez dès maintenant le processus de recrutement. Vous obtiendrez une réponse en moins de 48h.</p>
-                
-                <Button variant="outline-secondary" size="lg">COMMENCE</Button>            
+                <div className="DPApplication__button">
+                    <Button variant="outline-secondary" size="lg">COMMENCER</Button>            
+                </div>
             </Container>
         </section>
    );
