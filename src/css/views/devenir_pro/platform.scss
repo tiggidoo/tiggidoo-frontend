@@ -12,12 +12,15 @@
       font-weight: normal;
       & > li {
         display: flex;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         img {
           max-width: 26px;
           max-height: 22px;
           margin-left: -27px;
           margin-right: 7px;
+        }
+        &:last-child{
+          margin-bottom: 9rem;
         }
       }
     }
@@ -35,13 +38,27 @@
       text-transform: uppercase;
       color: #2880fb;
       border: 2px solid #2880fb;
+
     }
     & .btn-group-lg > .btn,
     & .btn-lg {
       padding: 1rem 2rem;
     }
 
-  }  
+    & .btn:hover, 
+    & .btn-outline-secondary:not(:disabled):not(.disabled):active,
+    & .btn-outline-secondary:focus{
+      background-color: #2880fb;
+      border-color: #2880fb;
+      color: #fff;
+    }
+
+    & .btn-outline-secondary:focus,
+    & .btn-outline-secondary:not(:disabled):not(.disabled):active:focus{
+      box-shadow: 0 0 0 0.2rem rgba(40,128,251,.5);
+    }    
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -53,7 +70,19 @@
 }
 
 @media (min-width: 1200px) {
-  
+  .DPPlatform{
+    &__button {
+      text-align: center;
+      & .btn-outline-secondary {
+        font-size: 1.8rem;
+      }
+      & .btn-group-lg > .btn,
+      & .btn-lg {
+        padding: 1.3rem 2.5rem;
+      }
+
+    }
+  }
 }
 
 @media (min-width: 1600px) {
@@ -62,14 +91,12 @@
       text-align: center;
       & .btn-outline-secondary {
         font-size: 2rem;
-        text-transform: uppercase;
-        color: #2880fb;
-        border: 3px solid #2880fb;
       }
       & .btn-group-lg > .btn,
       & .btn-lg {
-        padding: 1.5rem 4rem;
+        padding: 2.1rem 6.2rem;
       }
     }
+
   }
 }

@@ -113,9 +113,9 @@ function BecomePro({ t }){
        <section className="DPBecomePro">
          <Container>
 
-            <h2 className="DPBecomePro__title">Devenez un professionnel du ménage avec Tiggidoo</h2>
+            <h2 className="DPBecomePro__title mb-0 pb-0 mb-xl-5 pb-xl-5">Devenez un professionnel du ménage avec Tiggidoo</h2>
             {/* <h1>Proposez vos services comme aide de ménage avec Tiggidoo</h1> */}
-            <div className="DPBecomePro__carousel mt-6 pt-5">
+            <div className="DPBecomePro__carousel pt-5">
 
             {/* customRightArrow={<CustomRight />} customLeftArrow={<CustomLeft />} */}
                <Carousel responsive={responsive} >

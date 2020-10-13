@@ -17,28 +17,7 @@ body {
 
   /* background-color: aqua; */
 }
-/*
-h1 {
-  font-family: "Righteous", cursive;
-  font-size:  1.823vw;   3.5rem; 
-}
 
-h2{
-  font-size: 1.5625vw;
-}
-
-h3 {
-  font-size: 1.09375vw;   2.1rem; 
-  font-weight: 800;
-}
-
-p {
-  font-family: normal, "Avenir next";
-  font-size: 1.25vw;   2.4rem; 
-  color: #0d0e11;
-  letter-spacing: 0;
-}
-*/
 p,
 h3 {
   font-family: sans-serif;
@@ -47,22 +26,7 @@ h3 {
 .container {
   padding: 0 3rem;
 }
-/*
-h1 {
-  font-size: 2rem;
-}
 
-h2 {
-  font-size: 1.9rem;
-}
-
-h3 {
-  font-size: 1.8rem;
-  font-family: sans-serif;
-}
-
-
-*/
 h3 {
   font-size: 1.9rem;
 }
@@ -75,31 +39,6 @@ p {
   .container{
     max-width: 100%;
   }
-}
-
-@media (min-width: 992px) {
-  
-/*  
-  h1 {
-    font-size: 2.3rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  h3 {
-    font-size: 1.8rem;
-  }
-
-  h4 {
-    font-size: 1.7rem;
-  }
-
-  p {
-    font-size: 1.6rem;
-  }
-*/
 }
 
 @media (min-width: 1200px) {
@@ -118,30 +57,16 @@ p {
   p{
     font-size: 2rem;
   }
-/*
-  h1 {
-    font-family: "Righteous", cursive;
-    font-size: 3.5rem;
-  }
 
-
-  h3 {
-    font-size: 1.7rem; 2.1rem;  
-    font-weight: 800;
-  }
-
-  p {
-    font-family: normal, "Avenir next";
-    font-size: 2rem;
-    color: #0d0e11;
-    letter-spacing: 0;
-  }
-  */
 }
 
 @media (min-width: 1600px) {
   .container {
-    max-width: 1640px;
+    max-width: 1530px;
+  }
+
+  h1 {
+    font-size: 4.5rem;
   }
 
   h2 {

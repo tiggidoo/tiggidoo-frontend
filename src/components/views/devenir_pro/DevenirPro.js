@@ -13,18 +13,16 @@ import '../../../css/views/devenir_pro/devenirpro.scss';
 
 export default function DevenirPro(){
     return(
-    <div>
-        <Intro />
-
-        <Platform />
-        <HowItWorks />
-        <BecomePro />
-        <Services /> 
-        <SubmitMyApplication />
-        <Conditions />
-        <QuestionsPro />
-        <MyQuestions />
-         
-    </div>
+        <div>
+            <Intro />
+            <Platform />
+            <HowItWorks />
+            <BecomePro /> 
+            <Services /> 
+            <SubmitMyApplication />
+            <Conditions />
+            <QuestionsPro />
+            <MyQuestions /> *
+        </div>
     );
 }

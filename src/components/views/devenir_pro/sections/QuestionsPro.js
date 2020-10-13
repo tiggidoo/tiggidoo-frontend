@@ -16,15 +16,15 @@ function QuestionsPro({ t }){
 
         <section className="DPQestionPro">
             <Container>
-                <h2 className="DPQestionPro__title">Les questions que les professionnels se posent</h2>
+                <h2 className="DPQestionPro__title pb-5 mb-5">Les questions que les professionnels se posent</h2>
                 <Accordion defaultActiveKey="0">
-                <Card>
+                    <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0">
                             <h3 className="DPQestionPro__subtitle">What things are covered in support?</h3>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
-                                <p className="DPQestionPro__description">Ut recalcitrantes et rebellis quod tenus rerum tumore et per quid strepit custodiri : - Custodiri quid ut iusserim quodam postulat maiestati et tenus formidine - Inusitato incusat postulat ordo haec ignorare nos tumore incusat - Nos incusat inusitato ut recalcitrantes nimirum quod ignorare. Ut recalcitrantes et rebellis quod tenus rerum tumore et per quid strepit custodiri</p>
+                                <p className="DPQestionPro__description my-5">Ut recalcitrantes et rebellis quod tenus rerum tumore et per quid strepit custodiri : - Custodiri quid ut iusserim quodam postulat maiestati et tenus formidine - Inusitato incusat postulat ordo haec ignorare nos tumore incusat - Nos incusat inusitato ut recalcitrantes nimirum quod ignorare. Ut recalcitrantes et rebellis quod tenus rerum tumore et per quid strepit custodiri</p>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -34,7 +34,7 @@ function QuestionsPro({ t }){
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
-                                <p className="DPQestionPro__description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus dolorum voluptatem recusandae, magni ducimus sequi assumenda ad? Incidunt, illo reprehenderit animi accusantium ullam et eius delectus porro rem modi sapiente.</p>
+                                <p className="DPQestionPro__description my-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus dolorum voluptatem recusandae, magni ducimus sequi assumenda ad? Incidunt, illo reprehenderit animi accusantium ullam et eius delectus porro rem modi sapiente.</p>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -44,7 +44,7 @@ function QuestionsPro({ t }){
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="2">
                             <Card.Body>
-                                <p className="DPQestionPro__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem animi beatae nihil, libero eaque soluta pariatur minima incidunt similique mollitia, fugit maiores nesciunt consectetur perferendis porro ea asperiores provident adipisci!</p>
+                                <p className="DPQestionPro__description my-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem animi beatae nihil, libero eaque soluta pariatur minima incidunt similique mollitia, fugit maiores nesciunt consectetur perferendis porro ea asperiores provident adipisci!</p>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -54,7 +54,7 @@ function QuestionsPro({ t }){
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="3">
                             <Card.Body>
-                                <p className="DPQestionPro__description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt id voluptate cupiditate qui optio. Aspernatur ab impedit, ipsam incidunt consectetur adipisci, reprehenderit dignissimos culpa, tempora error fuga perferendis eius odit!</p>
+                                <p className="DPQestionPro__description my-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt id voluptate cupiditate qui optio. Aspernatur ab impedit, ipsam incidunt consectetur adipisci, reprehenderit dignissimos culpa, tempora error fuga perferendis eius odit!</p>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>

@@ -16,10 +16,10 @@ function Services({ t }) {
   return (
     <section className="DPServices">
       <Container>
-        <h2 className="DPServices__title">
+        <h2 className="DPServices__title mb-4 pb-5 mb-xl-5 pb-xl-5">
           Proposez vos services comme aide de ménage avec Tiggidoo
         </h2>
-        <Row>
+        <Row className="pt-0 pt-xl-4">
           <Col sm={12} md={6} lg={4}>
             <div className="DPServices__box">
               <div className="DPServices__boxImagen">

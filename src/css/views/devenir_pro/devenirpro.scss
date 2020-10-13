@@ -14,10 +14,47 @@ section {
 
 @media (min-width: 1200px){
 
-  section{
-    & .container {
-      padding: 10rem 0;
-    } 
-  } 
-  
+  .DPIntro .container{
+    padding-top:25.3rem;
+    padding-bottom: 10.4rem;
+  }
+
+  .DPPlatform .container{
+    padding-top:10.4rem;
+    padding-bottom: 15.8rem;
+  }
+  .DPWork .container{
+    padding-top: 5.9rem;
+    padding-bottom: 13rem;
+  }
+
+  .DPBecomePro .container{
+    padding-top: 15.2rem;
+    padding-bottom: 13rem;
+  }
+  .DPServices .container{
+    padding-top: 13rem;
+    padding-bottom: 22.7rem;
+  }
+
+  .DPApplication .container{
+    padding-top: 2.2rem;
+    padding-bottom: 3.3rem;
+  }
+
+  .DPConditions .container{
+    padding-top: 15.4rem;
+    padding-bottom: 9.4rem;
+  }
+
+  .DPQestionPro .container{
+    padding-top: 8.7rem;
+    padding-bottom: 13.1rem;
+  }
+
+  .DPMyQuestions .container{
+    padding-top: 11rem;
+    padding-bottom: 5.9rem;
+  }
+
 }

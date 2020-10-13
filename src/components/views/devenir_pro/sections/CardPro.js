@@ -1,4 +1,5 @@
 import React from 'react';
+import { StarFill } from 'react-bootstrap-icons';
 
 export default function CardPro($props){
     const {firstName, lastName, evaluation, prestation, urlImg} = {...$props}
@@ -12,11 +13,14 @@ export default function CardPro($props){
             <div className="DPBecomePro__names">
                 <h4>{firstName}-{lastName}</h4>
             </div>
-            <div className="DPBecomePro__evaluation">
-                <div className="DPBecomePro__evaluation--change d-inline">{evaluation}</div> - Éval moyenne
+            <div className="DPBecomePro__evaluation d-flex flex-row justify-content-around align-items-center">
+                <div className="DPBecomePro__evaluation--change  align-self-center">{evaluation}</div> 
+                <div className="DPBecomePro__start align-self-start mx-2"><StarFill color="#2880fb" size={12} /></div>
+                <div className="DPBecomePro__textEvalPres align-self-center"> - Éval moyenne</div>
             </div>
             <div className="DPBecomePro__presetation">
-                <div className="DPBecomePro__presetation--change d-inline">{prestation}</div> - Prestation(s)
+                <div className="DPBecomePro__presetation--change d-inline">{prestation}</div>
+                <div className="DPBecomePro__textEvalPres d-inline"> - Prestation(s)</div>
             </div>
         </div>
     );

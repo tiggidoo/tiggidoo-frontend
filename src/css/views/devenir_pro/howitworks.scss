@@ -25,11 +25,18 @@
       color: #fff;
       font-weight: 800;
       background-color: #2880fb;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3.8rem;
     }
 
     &__text {
       text-align: center;
     }
+  }
+}
+
+@media (min-width: 1200px)
+{
+  p.DPWork__text {
+    font-size: 2.4rem;
   }
 }

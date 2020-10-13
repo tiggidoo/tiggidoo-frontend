@@ -15,9 +15,9 @@ function Conditions({ t }){
     return(
         <section className="DPConditions">
             <Container>
-                <div className="DPConditions__title mb-5 pb-5">
+                <div className="DPConditions__title mb-5 pb-5 m-xl-5 p-xl-5 pt-xl-0 mt-xl-0">
                     <h2 className="mb-5 pb-5">Les 4 critères essentiels pour intégrer la plateforme Tiggidoo</h2>
-                    <p>La plateforme Tiggidoo est un intermédiaire entre des personnes à la recherche d’un service de ménage de qualité et des travailleurs autonomes experts en entretien ménager. Le lien de confiance, le respect et l’engagement envers la qualité sont les valeurs fondamentales de notre entreprise. C’est pourquoi vous devez répondre à quelques critères pour devenir un Todoo et recevoir des demandes de prestation via notre plateforme.</p>
+                    <p className="DPConditions__desTitle pt-2 mb-xl-3 pb-xl-3">La plateforme Tiggidoo est un intermédiaire entre des personnes à la recherche d’un service de ménage de qualité et des travailleurs autonomes experts en entretien ménager. Le lien de confiance, le respect et l’engagement envers la qualité sont les valeurs fondamentales de notre entreprise. C’est pourquoi vous devez répondre à quelques critères pour devenir un Todoo et recevoir des demandes de prestation via notre plateforme.</p>
                 </div>
                 <Row>
                     <Col sm={12} md={6} xl={3}>

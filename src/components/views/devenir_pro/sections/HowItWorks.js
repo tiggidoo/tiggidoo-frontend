@@ -15,34 +15,34 @@ function HowItWorks({ t }){
     return(
         <section className="DPWork">
             <Container>
-                <div className="DPWork__textarea mb-5 pb-4">
-                    <h2 className="DPWork__title mb-5">Comment ça fonctionne?</h2>
+                <div className="DPWork__textarea mb-5 pb-4 mb-xl-5 pb-xl-5">
+                    <h2 className="DPWork__title mb-4">Comment ça fonctionne?</h2>
                     <p className="DPWork__text">
                         C’est vous le patron! Vous décidez où et quand vous travaillez. Bingo! Votre profil est sélectionné par votre futur client :
                     </p>
                 </div>
-                <Row>
+                <Row className="pt-0 pt-xl-5">
                     <Col md={6} lg={true}>
                         <div className="DPWork__steps">
                             <div className = "DPWork__steps__circle">1</div>
-                            <p className = "DPWork__steps__text mb-5 pb-4">Soyez immédiatement prévenu par courriel lorsqu’une nouvelle offre est arrivée sur votre compte pro</p>
+                            <p className = "DPWork__steps__text mb-5 pb-4 m-xl-0 p-xl-0">Soyez immédiatement prévenu par courriel lorsqu’une nouvelle offre est arrivée sur votre compte pro</p>
                         </div>
                     </Col>
                     <Col md={6} lg={true}>
                         <div className="DPWork__steps">
                             <div className = "DPWork__steps__circle">2</div>
-                            <p className = "DPWork__steps__text mb-5 pb-4">Visualisez l’offre client que vous êtes libre d’accepter ou de refuser</p>
+                            <p className = "DPWork__steps__text mb-5 pb-4 m-xl-0 p-xl-0">Visualisez l’offre client que vous êtes libre d’accepter ou de refuser</p>
                         </div>
                     </Col>
                     <Col md={6} lg={true}>
                         <div className="DPWork__steps">
                             <div className = "DPWork__steps__circle">3</div>
-                            <p className = "DPWork__steps__text mb-5 pb-4">Effectuez un ménage de qualité, obtenez un avis positif sur votre profil</p>
+                            <p className = "DPWork__steps__text mb-5 pb-4 m-xl-0 p-xl-0">Effectuez un ménage de qualité, obtenez un avis positif sur votre profil</p>
                         </div>
                     </Col>
                     <Col md={6} lg={true}>
                         <div className="DPWork__steps">
-                            <div className = "DPWork__steps__circle">4</div>
+                            <div className = "DPWork__steps__circle m-xl-0 p-xl-0">4</div>
                             <p className = "DPWork__steps__text">Obtenez vos honoraires rapidement et de façon sécurisée.</p>
                         </div>
                     </Col>

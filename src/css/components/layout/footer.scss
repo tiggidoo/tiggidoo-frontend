@@ -92,11 +92,26 @@
   .Footer {
     &__section2 {
       & h3 {
-        font-size: 2.4rem;
+        font-size: 2.5rem;
       }
       & ul > li {
         font-size: 1.8rem;
       }
     }
+  }
+}
+
+@media (min-width: 1600px){
+  .Footer__plant2 {
+    float: right;
+    margin-top: 53px;
+  }  
+  .Footer__plant2 > img,
+  .Footer__section1 > img{
+    width: 190px;
+  }
+  .Footer__section3__SN__Icons svg{
+    font-size: 3rem;
+    margin-right: 3rem;
   }
 }
