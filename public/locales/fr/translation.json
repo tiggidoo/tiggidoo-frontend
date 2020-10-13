@@ -1,0 +1,37 @@
+{
+  "Nav": {
+    "menu": {
+      "login": "Connexion"
+    }
+  },
+  "Footer": {
+    "titleIcons": "Suivez-nous",
+    "copiRight": "Copiright 2020 Tout droit réservé",
+    "ul1": {
+      "title": "Découvrir",
+      "li": {
+        "text1": "Découvrez nos services",
+        "text2": "Trouver un professionnel",
+        "text3": "Devenir Pro",
+        "text4": "Connexion"
+      }
+    },
+    "ul2": {
+      "title": "Informations utiles",
+      "li": {
+        "text1": "FAQ",
+        "text2": "Termes & Conditions",
+        "text3": "CGV/CGU"
+      }
+    }
+  },
+  "BecomeProfesional": {
+    "section_1": {
+      "title": "Tiggidoo connecte les professionnels du ménage résidentiel et leurs futurs clients",
+      "paragraph_1": "Sans frais, sans engagement et sans complication, la plateforme Tiggidoo vous permet de recevoir des offres d’emploi et de les gérer comme bon vous semble.",
+      "paragraph_2": "Profitez en plus d’outils de gestion intégrés à votre compte pro conçus spécialement pour vous faciliter la tâche.",
+      "paragraph_3": "Tiggidoo est la solution idéale pour tous les travailleurs autonomes en entretien ménager qui souhaitent augmenter leurs revenus.",
+      "button": "DEVENEZ UN TODOO"
+    }
+  }
+}

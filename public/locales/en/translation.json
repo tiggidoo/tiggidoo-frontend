@@ -1,0 +1,37 @@
+{
+  "Nav": {
+    "menu": {
+      "login": "Log in"
+    }
+  },
+  "Footer": {
+    "titleIcons": "Follow us",
+    "copiRight": "Copiright 2020 All rights reserved",
+    "ul1": {
+      "title": "Discover",
+      "li": {
+        "text1": "Discover our services",
+        "text2": "Find a professional",
+        "text3": "Become Pro",
+        "text4": "Login"
+      }
+    },
+    "ul2": {
+      "title": "Useful information",
+      "li": {
+        "text1": "FAQ",
+        "text2": "Terms & Conditions",
+        "text3": "CGV/CGU"
+      }
+    }
+  },
+  "BecomeProfesional": {
+    "section_1": {
+      "title": "Tiggidoo connects residential cleaning professionals and their future customers",
+      "paragraph_1": "No cost, no obligation and no complications, the Tiggidoo platform allows you to receive job offers and manage them as you see fit.",
+      "paragraph_2": "Take advantage of the management tools integrated into your professional account designed especially to make your job easier.",
+      "paragraph_3": "Tiggidoo is the ideal solution for all self-employed housekeeping workers who want to increase their income.",
+      "button": "BECOME A TODOO"
+    }
+  }
+}

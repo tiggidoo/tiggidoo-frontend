@@ -1,9 +1,15 @@
-import React from 'react';
-import DevenirPro from './views/devenir_pro/DevenirPro';
+import React from "react";
+import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
+import DevenirPro from "./components/views/devenir_pro/DevenirPro";
 
 function App() {
   return (
-    <DevenirPro />
+    <div className="App">
+      <Header />
+      <DevenirPro />
+      <Footer />
+    </div>
   );
 }
 
