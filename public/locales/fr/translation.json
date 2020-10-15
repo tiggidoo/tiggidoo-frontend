@@ -33,5 +33,36 @@
       "paragraph_3": "Tiggidoo est la solution idéale pour tous les travailleurs autonomes en entretien ménager qui souhaitent augmenter leurs revenus.",
       "button": "DEVENEZ UN TODOO"
     }
+  },
+  "ProForm": {
+    "title": "Tu souhaites devenir un professionnel chez Tiggidoo ?",
+    "description": "Pour profiter des services de Tiggidoo, remplissez ce formulaire, nous étudierons votre candidature. En moins de 72H vous recevrez une réponse de la part de nos experts",
+    "firstNameLabel": "Prénom",
+    "firstNameInput": "Ton Prénom",
+    "lastNameLabel": "Nom",
+    "lastNameInput": "Ton Nom",
+    "birthDayLabel": "Date de naissance",
+    "cellPhoneLabel": "Numéro de cellulaire",
+    "emaillLabel": "Courriel",
+    "groupCheckBox_1": {
+      "title": "Quelles langues parles-tu ?",
+      "checkBoxLabel2": "Anglais",
+      "checkBoxLabel1": "Français",
+      "checkBoxLabel3": "Espagnol",
+      "checkBoxLabel4": "Portugais",
+      "checkBoxLabel5": "Arabe"
+    },
+    "groupCheckBox_2": {
+      "title": "As-tu plus de 18 ans, avec une autorisation de travail au canada ?",
+      "checkBoxLabel1": "Oui",
+      "checkBoxLabel2": "No"
+    },
+    "groupCheckBox_3": {
+      "title": "As-tu des antécédents criminels ?",
+      "desctiption": "(Une vérification judiciaire sera effectuée.)",
+      "checkBoxLabel1": "Oui",
+      "checkBoxLabel2": "No"
+    }
+
   }
 }

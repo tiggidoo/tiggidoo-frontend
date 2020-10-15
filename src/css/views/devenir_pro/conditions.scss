@@ -1,169 +1,168 @@
-.DPConditions{
-    
-    &__title{
-        text-align: center;
-        margin-bottom: 8rem;
-    }
-    &__button{
-        margin-top: 10rem;
-        text-align: center;
+.DPConditions {
+  &__title {
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+  &__button {
+    margin-top: 10rem;
+    text-align: center;
+  }
+
+  &__box {
+    height: 47rem;
+    width: 30rem;
+    color: #eee;
+    font-family: monospace;
+    padding: 3.5rem;
+    margin: 1.5rem auto;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 15px #00000029;
+  }
+
+  &__boxImagen {
+    height: 23%;
+    text-align: center;
+    margin: 2rem 0;
+
+    &__imagen_1 {
+      width: 74px;
+      height: 65px;
     }
 
-    &__box {
-        height: 47rem;
-        width: 30rem;
-        color: #eee;
-        font-family: monospace;
-        padding: 3.5rem;
-        margin: 1.5rem auto;
-        background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        box-shadow: 0px 10px 15px #00000029;
-    }
-    
-    &__boxImagen{
-        height: 23%;
-        text-align: center;
-        margin: 2rem 0;
-    }
-    
-    &__boxImagen img{
-        width: 86px;
-    }
-    
-    &__boxTitle{
-        height: 18%;
-        text-align: center;
-        & > h3{
-            color: #2880fb;
-            font-weight: 800;
-        }
+    &__imagen_2 {
+      width: 65px;
+      height: 65px;
     }
 
-    &__boxDescription{
-        color: #000;
-        & > p{
-            font-size: 16px;
-        }
+    &__imagen_3 {
+      width: 65px;
+      height: 49px;
     }
 
-    &__button {
-        text-align: center;
-        & .btn-outline-secondary {
-          font-size: 1.6rem;
-          text-transform: uppercase;
-          color: #2880fb;
-          border: 2px solid #2880fb;
-    
-        }
-        & .btn-group-lg > .btn,
-        & .btn-lg {
-          padding: 1rem 2rem;
-        }
-    
-        & .btn:hover, 
-        & .btn-outline-secondary:not(:disabled):not(.disabled):active,
-        & .btn-outline-secondary:focus{
-          background-color: #2880fb;
-          border-color: #2880fb;
-          color: #fff;
-        }
-    
-        & .btn-outline-secondary:focus,
-        & .btn-outline-secondary:not(:disabled):not(.disabled):active:focus{
-          box-shadow: 0 0 0 0.2rem rgba(40,128,251,.5);
-        }    
+    &__imagen_4 {
+      width: 63px;
+      height: 74px;
     }
-    
+  }
+
+  &__boxTitle {
+    height: 18%;
+    text-align: center;
+    & > h3 {
+      color: #2880fb;
+      font-weight: 800;
+      font-size: 1.9rem;
+    }
+  }
+
+  &__boxDescription {
+    color: #000;
+    & > p {
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+    text-align: center;
+    & .btn-outline-secondary {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      color: #2880fb;
+      border: 2px solid #2880fb;
+    }
+    & .btn-group-lg > .btn,
+    & .btn-lg {
+      padding: 1rem 2rem;
+    }
+
+    & .btn:hover,
+    & .btn-outline-secondary:not(:disabled):not(.disabled):active,
+    & .btn-outline-secondary:focus {
+      background-color: #2880fb;
+      border-color: #2880fb;
+      color: #fff;
+    }
+
+    & .btn-outline-secondary:focus,
+    & .btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
+      box-shadow: 0 0 0 0.2rem rgba(40, 128, 251, 0.5);
+    }
+  }
 }
 
 @media (min-width: 768px) {
-
-    .DPConditions__boxDescription p {
-      font-size: 16px;
-    }
+  .DPConditions__boxDescription p {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 1200px) {
-    .DPConditions {
-        &__box {
-            height: 43rem;
-            width: 26rem;
-            padding: 2.2rem;
-        }
-  
-        &__boxImagen {
-            height: 26%;
-        }
-  
-        &__boxTitle {
-            height: 18%;
-            margin-bottom: 0;
-            & > h3{
-                font-size: 1.8rem;
-            }
-        }
-  
-        &__boxDescription p {
-            font-size: 16px;
-        }
-  
-        &__button {
-            text-align: center;
-            & .btn-outline-secondary {
-              font-size: 1.8rem;
-            }
-            & .btn-group-lg > .btn,
-            & .btn-lg {
-              padding: 1.3rem 2.5rem;
-            }
-      
-        }
+  .DPConditions {
+    &__box {
+      height: 43rem;
+      width: 26rem;
+      padding: 2.2rem;
     }
-  
+
+    &__boxImagen {
+      height: 20%;
+    }
+
+    &__boxTitle {
+      height: 15%;
+      margin-bottom: 0;
+      & > h3 {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__boxDescription p {
+      font-size: 1.4rem;
+    }
+
+    &__button {
+      text-align: center;
+      & .btn-outline-secondary {
+        font-size: 1.8rem;
+      }
+      & .btn-group-lg > .btn,
+      & .btn-lg {
+        padding: 1.3rem 2.5rem;
+      }
+    }
+  }
 }
 
 @media (min-width: 1600px) {
-    .DPConditions {
-        &__box {
-            height: 57rem;
-            width: 35rem;
-            padding: 3.5rem;
-        }
-
-        &__boxImagen {
-            height: 28%;
-
-            & > img{
-                width: 40%;
-            }
-        }
-
-        &__boxTitle {
-            margin-bottom: 0;
-            & > h3{
-                font-size: 2.1rem;
-            }
-        }
-
-        &__desTitle{
-            font-size: 2.4rem;
-        }
-
-        &__boxDescription p {
-            font-size: 19px;
-        }
-
-        &__button {
-            text-align: center;
-            & .btn-outline-secondary {
-              font-size: 2rem;
-            }
-            & .btn-group-lg > .btn,
-            & .btn-lg {
-              padding: 2.1rem 6.2rem;
-            }
-        }
-      
+  .DPConditions {
+    &__box {
+      height: 44.7rem;
+      width: 32.8rem;
+      padding: 3.5rem 2.5rem;
     }
+
+    &__boxTitle {
+      margin-bottom: 0;
+    }
+
+    &__desTitle {
+      font-size: 2.4rem;
+    }
+
+    &__boxDescription p {
+      font-size: 19px;
+    }
+
+    &__button {
+      text-align: center;
+      & .btn-outline-secondary {
+        font-size: 2rem;
+      }
+      & .btn-group-lg > .btn,
+      & .btn-lg {
+        padding: 2.1rem 6.2rem;
+      }
+    }
+  }
 }

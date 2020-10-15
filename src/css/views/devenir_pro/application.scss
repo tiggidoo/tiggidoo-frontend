@@ -1,27 +1,43 @@
-.DPApplication{
+.DPApplication {
+  text-align: center;
+  background-color: #2577ea;
+
+  &__title {
+    color: #fff;
+  }
+
+  &__description {
+    color: #fff;
+  }
+  &__button {
     text-align: center;
-    background-color: #2577EA;
-    
-    &__title{
-        color: #fff;
+    & .btn-outline-secondary {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      color: #fff;
+      background: #28cc8b;
+      border: 2px solid #28cc8b;
+    }
+    & .btn-group-lg > .btn,
+    & .btn-lg {
+      padding: 1rem 3rem;
     }
 
-    &__description{
-        color: #fff;
+    // & .btn-secondary:focus,
+    // & .btn-primary:focus {
+    //   box-shadow: 0 0 0 0.2rem rgba(#28cc8b, 0.5);
+    // }
+
+    & .btn-outline-secondary:not(:disabled):not(.disabled):active,
+    & .btn:hover,
+    & .btn:active {
+      background: var(--unnamed-color-28cc8b) 0% 0% no-repeat padding-box;
+      border: 2px solid #28cc8b;
+      box-shadow: none;
     }
-    &__button {
-        text-align: center;
-        & .btn-outline-secondary {
-          font-size: 1.8rem;
-          text-transform: uppercase;
-          color: #fff;
-          background: #28CC8B;
-          border: 2px solid #28CC8B;
-        }
-        & .btn-group-lg > .btn,
-        & .btn-lg {
-          padding: 1rem 3rem;
-        }
-    
+
+    & .btn-outline-secondary:focus {
+      box-shadow: none;
     }
+  }
 }

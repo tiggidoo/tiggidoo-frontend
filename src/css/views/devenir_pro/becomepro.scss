@@ -1,113 +1,60 @@
-.DPBecomePro{
-    background: transparent linear-gradient(180deg, #D0DEEB 0%, #F6F6F6 100%) 0% 0% no-repeat padding-box;
-    
-    & > .container{
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    &__carousel{
-        padding: 0;
-    }
-    
-    &__title{
-        text-align: center;
-    }
-    &__pro{
-        background-color: #fff;
-        margin: 1.5rem 7rem;
-        padding: 1.5rem;
-        height: 250px;
-    }
-
-    &__img > img{
-        border-radius: 50%;
-    }
-
-    & .react-multiple-carousel__arrow--right {
-        right: 0px;
-    }
-    & .react-multiple-carousel__arrow--left{
-        left: 0px;
-    }
-    & .react-multiple-carousel__arrow{
-        min-width: 2.7rem;
-        min-height: 2.7rem;
-        background-color: #fff;
-        &:before{
-            color: #2880fb;
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
-    }
-    &__evaluation--change,
-    &__presetation--change{
-        color:#237EFA;
-        font-size: 1.6rem;
-        font-weight: bold;
-    }
-    &__names>h4{
-        font-size: 1.8rem;
-    }
+section {
+  & .container {
+    padding: 5rem 2.5rem;
+  }
 }
 
-
-@media(min-width: 465px){
-    .DPBecomePro{
-        &__pro{
-            margin: 1.5rem 3rem;
-        }
-    }
+@media (min-width: 768px){
+  section{
+    & .container {
+      padding: 5rem 0;
+    } 
+  } 
 }
 
-@media(min-width: 992px){
-    .DPBecomePro{
-        &__pro{
-            margin: 1.5rem 5rem;
-        }
-    }
-}
+@media (min-width: 1200px){
 
-@media(min-width: 1024px){
-    .DPBecomePro{
-        &__pro{
-            margin: 1.5rem 1rem;
-        }
-    }
-}
+  .DPIntro .container{
+    padding-top:25.3rem;
+    padding-bottom: 10.4rem;
+  }
 
+  .DPPlatform .container{
+    padding-top:10.4rem;
+    padding-bottom: 15.8rem;
+  }
+  .DPWork .container{
+    padding-top: 5.9rem;
+    padding-bottom: 13rem;
+  }
 
-@media(min-width: 1200px){
-    .DPBecomePro{
-        &__pro{
-            margin: 1.5rem 2.7rem;
-        }
-    }
-}
+  .DPBecomePro .container{
+    padding-top: 15.2rem;
+    padding-bottom: 13rem;
+  }
+  .DPServices .container{
+    padding-top: 13rem;
+    padding-bottom: 22.7rem;
+  }
 
-@media(min-width: 1600px){
-    .DPBecomePro{
-        &__pro{
-            margin: 1.5rem auto;
-            width: 24.6rem;
-            height: 32.5rem;
-        }
-        &__img{
-            width: 9.6rem;
-            height: 9.6rem;
-            & > img{
-                width: 100%;
-            }
-        }
-        &__names h4{
-            font-size: 2.2rem;
-        }
-        &__evaluation--change,
-        &__presetation-change{
-            font-size: 1.9rem;
-        }
-        &__textEvalPres{
-            font-size: 13px;
-        }
-    }
+  .DPApplication .container{
+    padding-top: 2.2rem;
+    padding-bottom: 3.3rem;
+  }
+
+  .DPConditions .container{
+    padding-top: 15.4rem;
+    padding-bottom: 9.4rem;
+  }
+
+  .DPQestionPro .container{
+    padding-top: 8.7rem;
+    padding-bottom: 13.1rem;
+  }
+
+  .DPMyQuestions .container{
+    padding-top: 11rem;
+    padding-bottom: 5.9rem;
+  }
+
 }

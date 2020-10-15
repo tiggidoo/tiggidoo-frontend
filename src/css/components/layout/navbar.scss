@@ -1,54 +1,83 @@
-.NavBar{
-    padding: 1.2rem 0;
-    background: #f6f6f6;
-    box-shadow: 0px 3px 6px #00000029;
+.NavBar {
+  padding: 1.2rem 0;
+  background: #f6f6f6;
+  box-shadow: 0px 3px 6px #00000029;
 
-    & > .container{
-        padding: 0;
-    }
+  // Making nav sticky
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 4;
 
-    &__logo{
-        height: 7rem;
+  font-family: Avenir, sans-serif;
+  &__menu {
+    &__item {
+      font-size: 2.2rem;
+      color: #575757;
+      margin-left: 17.6rem;
+      &:last-child {
+        margin-left: 10rem;
+      }
     }
-    &__groupBtns{
-        float: right;
-        & .btn{
-            font-size: 1.6rem;
-            color: #4d4d4d;
-        }
+    &__item.active {
+      border-bottom: 3px solid #2188ff;
+      font-weight: bold;
     }
-    &__btnLogin.btn{
-        font-size: 2.5rem;
-        margin-right: 10rem;
-        padding: .8rem 4.6rem;
-        background-color: transparent;
-        color: #28cc8b;
-        border: 2px solid #28cc8b;
-        font-size: 2.2rem;
+  }
 
+  &__language {
+    &__item {
+      font-size: 2.1rem;
+      color: #575757;
+      font-weight: bold;
     }
-
-    &__btnLogin.btn:hover, 
-    &__btnLogin.btn-outline-secondary:not(:disabled):not(.disabled):active,
-    &__btnLogin.btn-outline-secondary:focus{
-      background-color: #2880fb;
-      border-color: #2880fb;
-      color: #fff;
+    &__item.active {
+      border-bottom: 3px solid #2188ff;
     }
+  }
 
-    &__btnLogin.btn-outline-secondary:focus,
-    &__btnLogin.btn-outline-secondary:not(:disabled):not(.disabled):active:focus{
-      box-shadow: 0 0 0 0.2rem rgba(40,128,251,.5);
-    }
+  & > .container {
+    padding: 0;
+  }
 
-     
+  &__logo {
+    height: 7rem;
+  }
+
+  &__btnLogin.btn {
+    font-size: 2.5rem;
+    margin-right: 10rem;
+    padding: 0.8rem 4.6rem;
+    background-color: transparent;
+    color: #28cc8b;
+    border: 2px solid #28cc8b;
+    font-size: 2.2rem;
+  }
+
+  &__btnLogin.btn:hover,
+  &__btnLogin.btn-outline-secondary:focus {
+    background-color: #28cc8b;
+    border-color: #28cc8b;
+    color: #fff;
+  }
+
+  &__btnLogin.btn-secondary:focus,
+  &__btnLogin.btn-primary:focus {
+    box-shadow: none; /* 0 0 0 0.2rem rgba(#28cc8b, 0.5); */
+  }
+
+  &__btnLogin.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: #28cc8b;
+    border-color: #28cc8b;
+    box-shadow: none;
+  }
 }
 
-@media(max-width: 768px){
-    .NavBar .container{
-        padding: 0 1.5rem;
-    }
-    .NavBar__logo{
-        height: 4rem;
-    }
+@media (max-width: 768px) {
+  .NavBar .container {
+    padding: 0 1.5rem;
+  }
+  .NavBar__logo {
+    height: 4rem;
+  }
 }

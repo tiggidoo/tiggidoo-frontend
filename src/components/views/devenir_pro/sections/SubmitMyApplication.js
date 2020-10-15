@@ -2,7 +2,7 @@
     This is the sectin 6 of Devenir Pro page.
 
     Metothology CSS: BEM Methodology(Block Element Modifier)
-    Description: The class name start with DP. DP is DevenirPro.
+    Description: The class name start with DP. DP is BecomePro.
 
 */
 import React from 'react';

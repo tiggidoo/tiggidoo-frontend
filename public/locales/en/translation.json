@@ -33,5 +33,36 @@
       "paragraph_3": "Tiggidoo is the ideal solution for all self-employed housekeeping workers who want to increase their income.",
       "button": "BECOME A TODOO"
     }
+  },
+  "ProForm": {
+    "title": "You want to become a professional at Tiggidoo ?",
+    "description": "To take advantage of Tiggidoo's services, complete this form, we will consider your application. In less than 72 hours you will receive a response from our experts",
+    "firstNameLabel": "First name",
+    "firstNameInput": "First name",
+    "lastNameLabel": "Last Name",
+    "lastNameInput": "Last Name",
+    "birthDayLabel": "Date of Birth",
+    "cellPhoneLabel": "Cell number",
+    "emaillLabel": "Email",
+    "groupCheckBox_1": {
+      "title": "What languages ​​do you speak ?",
+      "checkBoxLabel1": "French",
+      "checkBoxLabel2": "English",
+      "checkBoxLabel3": "Spanish",
+      "checkBoxLabel4": "Portuguese",
+      "checkBoxLabel5": "Arab"
+    },
+    "groupCheckBox_2": {
+      "title": "Are you over 18, with a work permit in Canada?",
+      "checkBoxLabel1": "Yes",
+      "checkBoxLabel2": "No"
+    },
+    "groupCheckBox_3": {
+      "title": "Do you have a criminal history?",
+      "desctiption": "(A forensic check will be performed.)",
+      "checkBoxLabel1": "Yes",
+      "checkBoxLabel2": "No"
+    }
+
   }
 }

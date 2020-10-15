@@ -1,5 +1,7 @@
 .DPIntro {
   //background-color: wheat;
+  margin-top: 10rem;
+
   &__title {
     text-align: center;
     color: black;
@@ -12,35 +14,34 @@
       text-transform: uppercase;
       color: #2880fb;
       border: 2px solid #2880fb;
-
     }
     & .btn-group-lg > .btn,
     & .btn-lg {
       padding: 1rem 2rem;
     }
 
-    & .btn:hover, 
+    & .btn:hover,
     & .btn-outline-secondary:not(:disabled):not(.disabled):active,
-    & .btn-outline-secondary:focus{
+    & .btn-outline-secondary:focus {
       background-color: #2880fb;
       border-color: #2880fb;
       color: #fff;
     }
 
     & .btn-outline-secondary:focus,
-    & .btn-outline-secondary:not(:disabled):not(.disabled):active:focus{
-      box-shadow: 0 0 0 0.2rem rgba(40,128,251,.5);
-    }    
+    & .btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
+      box-shadow: 0 0 0 0.2rem rgba(40, 128, 251, 0.5);
+    }
   }
 }
 
 @media (min-width: 1200px) {
-  .DPIntro{
+  .DPIntro {
     &__title {
       font-size: 3.4rem; /* h1 */
     }
 
-    &__text{
+    &__text {
       font-size: 2rem; /* p */
     }
 
@@ -53,18 +54,16 @@
       & .btn-lg {
         padding: 1.3rem 2.5rem;
       }
-
     }
   }
-
 }
 
 @media (min-width: 1600px) {
-  .DPIntro{
+  .DPIntro {
     &__title {
       font-size: 45px; /* h1 */
     }
-    &__text{
+    &__text {
       font-size: 2.4rem; /* p */
     }
     &__text:not(:last-child) {
@@ -81,6 +80,5 @@
         padding: 2.1rem 6.2rem;
       }
     }
-      
   }
 }

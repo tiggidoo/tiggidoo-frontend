@@ -1,5 +1,4 @@
 .DPPlatform {
-
   &__title {
     max-width: 52.6rem;
     text-align: center;
@@ -19,7 +18,7 @@
           margin-left: -27px;
           margin-right: 7px;
         }
-        &:last-child{
+        &:last-child {
           margin-bottom: 9rem;
         }
       }
@@ -38,27 +37,25 @@
       text-transform: uppercase;
       color: #2880fb;
       border: 2px solid #2880fb;
-
     }
     & .btn-group-lg > .btn,
     & .btn-lg {
       padding: 1rem 2rem;
     }
 
-    & .btn:hover, 
+    & .btn:hover,
     & .btn-outline-secondary:not(:disabled):not(.disabled):active,
-    & .btn-outline-secondary:focus{
+    & .btn-outline-secondary:focus {
       background-color: #2880fb;
       border-color: #2880fb;
       color: #fff;
     }
 
     & .btn-outline-secondary:focus,
-    & .btn-outline-secondary:not(:disabled):not(.disabled):active:focus{
-      box-shadow: 0 0 0 0.2rem rgba(40,128,251,.5);
-    }    
+    & .btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
+      box-shadow: 0 0 0 0.2rem rgba(40, 128, 251, 0.5);
+    }
   }
-
 }
 
 @media (max-width: 768px) {
@@ -69,8 +66,16 @@
   }
 }
 
+@media (min-width: 768px) {
+  .DPPlatform {
+    &__title {
+      text-align: left;
+    }
+  }
+}
+
 @media (min-width: 1200px) {
-  .DPPlatform{
+  .DPPlatform {
     &__button {
       text-align: center;
       & .btn-outline-secondary {
@@ -80,13 +85,12 @@
       & .btn-lg {
         padding: 1.3rem 2.5rem;
       }
-
     }
   }
 }
 
 @media (min-width: 1600px) {
-  .DPPlatform{
+  .DPPlatform {
     &__button {
       text-align: center;
       & .btn-outline-secondary {
@@ -97,6 +101,5 @@
         padding: 2.1rem 6.2rem;
       }
     }
-
   }
 }
