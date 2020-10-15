@@ -15,8 +15,8 @@
         img {
           max-width: 26px;
           max-height: 22px;
-          margin-left: -27px;
-          margin-right: 7px;
+          margin-left: -50px;
+          margin-right: 10px;
         }
         &:last-child {
           margin-bottom: 9rem;
@@ -101,5 +101,19 @@
         padding: 2.1rem 6.2rem;
       }
     }
+    &__imgTime{
+      max-width: 83%;
+      width: 83%;
+    }
+    &__title{
+      max-width: 57.6rem;
+    }
+    &__text--change > li img{
+      max-width: none;
+      max-height: none;
+      width: 4.3rem;
+      height: 3.2rem;
+    }
+
   }
 }

@@ -43,14 +43,14 @@ export default function Header() {
               className="NavBar__language__item"
               onClick={() => changeLanguage("en")}
             >
-              EN
+              En
             </Nav.Link>
             <Nav.Link
               href="#link"
               className="NavBar__language__item"
               onClick={() => changeLanguage("fr")}
             >
-              FR
+              Fr
             </Nav.Link>
           </Nav>
 

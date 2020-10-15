@@ -7,6 +7,8 @@ import { Container } from 'react-bootstrap';
 import Carousel from "react-multi-carousel";
 import { withTranslation } from "react-i18next";
 
+import { ChevronRight } from 'react-bootstrap-icons';
+import { ChevronLeft } from 'react-bootstrap-icons';
 
 import "react-multi-carousel/lib/styles.css";
 import '../../../../css/views/devenir_pro/sliderpro.scss';
@@ -106,6 +108,14 @@ const profesionals = [
    },
 ];
 
+const CustomButtonGroup = ({ next, previous, goToSlide, carouselState }) => {
+   return (
+     <div className="custom-button-group">       
+       <button className="btnPrev" onClick={() => previous()}><ChevronLeft color="#2880FB" /></button>
+       <button className="btnNext" onClick={() => next()}><ChevronRight  color="#2880FB" /></button>
+     </div>
+   );
+ };
 
 function SliderPro({ t }){
 
@@ -115,10 +125,11 @@ function SliderPro({ t }){
 
             <h2 className="DPBecomePro__title mb-0 pb-0 mb-xl-5 pb-xl-5">Devenez un professionnel du ménage avec Tiggidoo</h2>
             {/* <h1>Proposez vos services comme aide de ménage avec Tiggidoo</h1> */}
+            
             <div className="DPBecomePro__carousel pt-5">
 
             {/* customRightArrow={<CustomRight />} customLeftArrow={<CustomLeft />} */}
-               <Carousel responsive={responsive} >
+               <Carousel responsive={responsive} arrows={false} renderButtonGroupOutside={true} customButtonGroup={<CustomButtonGroup />}>
 
                   {profesionals.map(dato => { 
                      return(
