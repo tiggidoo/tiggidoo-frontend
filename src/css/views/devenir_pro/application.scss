@@ -11,6 +11,7 @@
   }
   &__button {
     text-align: center;
+    font-family: sans-serif, normal;
     & .btn-outline-secondary {
       font-size: 1.8rem;
       text-transform: uppercase;
@@ -20,6 +21,7 @@
     }
     & .btn-group-lg > .btn,
     & .btn-lg {
+      font-weight: bold;
       padding: 1rem 3rem;
     }
 
@@ -28,16 +30,29 @@
     //   box-shadow: 0 0 0 0.2rem rgba(#28cc8b, 0.5);
     // }
 
-    & .btn-outline-secondary:not(:disabled):not(.disabled):active,
     & .btn:hover,
-    & .btn:active {
-      background: var(--unnamed-color-28cc8b) 0% 0% no-repeat padding-box;
-      border: 2px solid #28cc8b;
-      box-shadow: none;
+    & .btn-outline-secondary:not(:disabled):not(.disabled):active,
+    & .btn-outline-secondary:focus {
+      background-color: #21b9a9;
+      border-color:#21b9a9;
+      color: #fff;
     }
 
-    & .btn-outline-secondary:focus {
-      box-shadow: none;
+    & .btn-outline-secondary:focus,
+    & .btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
+      box-shadow: 0 0 0 0.2rem rgba( #28cc8b, 0.5);
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .DPApplication {
+    &__button {
+      & .btn{
+        width: 25.7rem;
+        height: 6.5rem;
+      }
+
     }
   }
 }

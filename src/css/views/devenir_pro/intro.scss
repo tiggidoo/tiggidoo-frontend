@@ -3,12 +3,13 @@
   margin-top: 10rem;
 
   &__title {
-    text-align: center;
+    text-align: left;
     color: black;
   }
 
   &__button {
     text-align: center;
+    font-family: sans-serif;
     & .btn-outline-secondary {
       font-size: 1.6rem;
       text-transform: uppercase;
@@ -17,15 +18,16 @@
     }
     & .btn-group-lg > .btn,
     & .btn-lg {
+      font-weight: bold;
       padding: 1rem 2rem;
     }
 
     & .btn:hover,
     & .btn-outline-secondary:not(:disabled):not(.disabled):active,
     & .btn-outline-secondary:focus {
-      background-color: #2880fb;
-      border-color: #2880fb;
-      color: #fff;
+      background-color: #abd5f1;
+      border-color: #abd5f1;
+      color: #2880fb;
     }
 
     & .btn-outline-secondary:focus,
@@ -72,12 +74,14 @@
 
     &__button {
       text-align: center;
+
+      & .btn{
+        width: 32.4rem;
+        height: 7.7rem;
+      }
+
       & .btn-outline-secondary {
         font-size: 2rem;
-      }
-      & .btn-group-lg > .btn,
-      & .btn-lg {
-        padding: 2.1rem 6.2rem;
       }
     }
   }

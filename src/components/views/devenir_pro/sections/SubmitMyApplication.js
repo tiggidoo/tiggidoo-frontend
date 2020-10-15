@@ -16,7 +16,8 @@ function SubmitMyApplication({ t }){
         <section className="DPApplication">
             <Container>
                 <h2 className="DPApplication__title mb-3 pb-3">Prêt à augmenter votre revenu?</h2>
-                <p className="DPApplication__description mb-5 pb-3">Débutez dès maintenant le processus de recrutement. Vous obtiendrez une réponse en moins de 48h.</p>
+                <p className="DPApplication__description mb-0 pb-0">Débutez dès maintenant le processus de recrutement.</p>
+                <p className="DPApplication__description mb-5 pb-3">Vous obtiendrez une réponse en moins de 48h.</p>
                 <div className="DPApplication__button">
                     <Button variant="outline-secondary" size="lg">COMMENCER</Button>            
                 </div>

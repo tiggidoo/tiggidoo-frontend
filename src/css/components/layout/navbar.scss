@@ -57,22 +57,18 @@
   }
 
   &__btnLogin.btn:hover,
-  &__btnLogin.btn-outline-secondary:focus {
-    background-color: #28cc8b;
-    border-color: #28cc8b;
+  &__btnLogin.btn-outline-secondary:focus,
+  &__btnLogin.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: #21b9a9;
+    border-color:#21b9a9;
     color: #fff;
-  }
+}
 
   &__btnLogin.btn-secondary:focus,
   &__btnLogin.btn-primary:focus {
     box-shadow: none; /* 0 0 0 0.2rem rgba(#28cc8b, 0.5); */
   }
 
-  &__btnLogin.btn-primary:not(:disabled):not(.disabled):active {
-    background-color: #28cc8b;
-    border-color: #28cc8b;
-    box-shadow: none;
-  }
 }
 
 @media (max-width: 768px) {
