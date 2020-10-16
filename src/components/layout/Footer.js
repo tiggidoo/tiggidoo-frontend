@@ -1,21 +1,20 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 //import { Container } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import InstagramIcon from "@material-ui/icons/Instagram";
 
 import "../../css/components/layout/footer.scss";
 
 function Footer({ t }) {
   return (
-    <footer className="Footer p-5 px-xl-5 py-sm-5">
-      <div className="mx-xl-5 py-xl-5 my-xl-5">
-        <div className="Footer__box d-md-flex justify-content-md-between py-xl-5">
+    <footer className="Footer">
+      <Container>
+      <div className="pt-xl-5">
+        <div className="Footer__box d-md-flex justify-content-md-between pt-xl-5 pb-xl-4">
           {/* Footer__section1 mb-5 mt-5 mr-lg-auto p-2 */}
           <div className="Footer__section1 mb-5 mt-5 mb-xl-0">
             <img
-              src={"images/plante.svg"}
+              src={"images/plante-1.svg"}
               alt=""
               className="Footer__plant1 d-none d-md-block"
             />
@@ -26,13 +25,13 @@ function Footer({ t }) {
             />
           </div>
 
-          <div className="d-none d-xl-flex flex-column justify-content-between mx-xl-5 ">
+          <div className="Footer__copiRightDeskop d-none d-xl-flex flex-column justify-content-between mx-xl-5 ">
             <img
-              src={"images/tiggidoo_man.png"}
+              src={"images/logo-footer.svg"}
               alt=""
               className="tiggidoo_white"
             />
-            <div className="Footer__copiRight">
+            <div className="Footer__copiRightDeskop__text">
               <span>Copiright 2020 {t("Footer.copyRight")}</span>
             </div>
           </div>
@@ -42,7 +41,7 @@ function Footer({ t }) {
               <h3 className="mb-4 mb-xl-5">{t("Footer.ul1.title")} </h3>
               <ul>
                 <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text1")}</li>
-                <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text2")}</li>
+                {/* <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text2")}</li> */}
                 <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text3")}</li>
                 <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text4")}</li>
               </ul>
@@ -63,22 +62,23 @@ function Footer({ t }) {
               <div className="Footer__section3_SN_Title mb-xl-5">
                 <h3>{t("Footer.titleIcons")}</h3>
               </div>
-              <div className="Footer__section3__SN__Icons">
-                <FacebookIcon />
-                <LinkedInIcon />
-                <InstagramIcon />
+              <div className="Footer__section3__SN__Icons d-flex justify-content-between">
+                <img src={"images/facebook-tiggidoo.svg"} alt="" className="iconFacebook" />
+                <img src={"images/linkedin-tiggidoo.svg"} alt="" className="iconLinkedin" />
+                <img src={"images/instgram-tiggidoo.svg"} alt="" className="iconInstagram" />
               </div>
             </div>
           </div>
 
           <div className="Footer__plant2">
-            <img src={"images/Plante2.svg"} alt="" />
+            <img src={"images/plante-2.svg"} alt="" />
           </div>
         </div>
         <div className="Footer__copiRight d-xl-none">
           <span>Copiright 2020 {t("Footer.copyRight")}</span>
         </div>
       </div>
+      </Container>
     </footer>
   );
 }

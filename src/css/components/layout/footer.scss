@@ -1,4 +1,5 @@
 .Footer {
+  
   background-color: #2880fb;
   font-family: sans-serif;
   & > .container {
@@ -49,11 +50,16 @@
     }
 
     &__SN__Icons {
-      svg {
-        background-color: #2880fb;
-        color: white;
-        margin: 5px;
-        font-size: 2.5rem;
+      width: 11rem;
+
+      & > .iconFacebook{
+        width: 1.1rem;
+      }
+      & > .iconLinkedin{
+        width: 2.4rem;
+      }
+      & > .iconInstagram{
+        width: 2.6rem;
       }
     }
 
@@ -69,6 +75,7 @@
 
 @media (min-width: 768px) {
   .Footer {
+
     &__section1 {
       & img {
         width: 80%;
@@ -98,20 +105,65 @@
         font-size: 1.8rem;
       }
     }
+
+    &__copiRightDeskop{
+      height: 36rem;
+      & > img{
+        width: 17.5rem;
+      }
+      &__text{
+        font-size: 1.2rem;
+        color: #fff;
+      }
+    }
+    
   }
 }
 
 @media (min-width: 1600px){
-  .Footer__plant2 {
-    float: right;
-    margin-top: 53px;
-  }  
-  .Footer__plant2 > img,
-  .Footer__section1 > img{
-    width: 190px;
-  }
-  .Footer__section3__SN__Icons svg{
-    font-size: 3rem;
-    margin-right: 3rem;
+  .Footer{
+
+    &__plant2 {
+      float: right;
+      margin-top: 70px;
+    }  
+    &__plant2 > img{
+      width: 20.5rem;
+    }
+    &__section1{
+      margin-top: 80px !important;
+    }
+
+    &__section1 > img{
+      width: 17.8rem;
+    }
+    
+    &__SN__Icons {
+      width: 14.8rem;
+
+      & > .iconFacebook{
+        width: 1.6rem;
+        height: 3rem;
+      }
+      & > .iconLinkedin{
+        width: 2.8rem;
+        height: 2.8rem;
+      }
+      & > .iconInstagram{
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+    }
+
+    &__copiRightDeskop{
+      height: 36rem;
+      & > img{
+        width: 17.5rem;
+      }
+      &__text{
+        font-size: 1.8rem;
+        color: #fff;
+      }
+    }
   }
 }

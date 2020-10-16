@@ -14,7 +14,7 @@ import "../../../../css/views/devenir_pro/services.scss";
 
 function Services({ t }) {
   return (
-    <section className="DPServices">
+    <div className="DPServices">
       <Container>
         <h2 className="DPServices__title mb-4 pb-5 mb-xl-5 pb-xl-5">
           Proposez vos services comme aide de ménage avec Tiggidoo
@@ -75,7 +75,7 @@ function Services({ t }) {
           </Col>
         </Row>
       </Container>
-    </section>
+    </div>
   );
 }
 

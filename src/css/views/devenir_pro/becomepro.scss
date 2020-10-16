@@ -4,57 +4,62 @@ section {
   }
 }
 
-@media (min-width: 768px){
-  section{
-    & .container {
-      padding: 5rem 0;
-    } 
-  } 
+.DPBecomeAndServices {
+  background-image: url("../../../images/arriere-plan-2.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom top;
 }
 
-@media (min-width: 1200px){
+@media (min-width: 768px) {
+  section {
+    & .container {
+      padding: 5rem 0;
+    }
+  }
+}
 
-  .DPIntro .container{
-    padding-top:25.3rem;
+@media (min-width: 1200px) {
+  .DPIntro .container {
+    padding-top: 25.3rem;
     padding-bottom: 10.4rem;
   }
 
-  .DPPlatform .container{
-    padding-top:10.4rem;
+  .DPPlatform .container {
+    padding-top: 10.4rem;
     padding-bottom: 15.8rem;
   }
-  .DPWork .container{
+  .DPWork .container {
     padding-top: 5.9rem;
     padding-bottom: 13rem;
   }
 
-  .DPBecomePro .container{
+  .DPBecomePro .container {
     padding-top: 15.2rem;
     padding-bottom: 13rem;
   }
-  .DPServices .container{
+  .DPServices .container {
     padding-top: 13rem;
     padding-bottom: 22.7rem;
   }
 
-  .DPApplication .container{
+  .DPApplication .container {
     padding-top: 2.2rem;
     padding-bottom: 3.3rem;
   }
 
-  .DPConditions .container{
+  .DPConditions .container {
     padding-top: 15.4rem;
     padding-bottom: 9.4rem;
   }
 
-  .DPQestionPro .container{
+  .DPQestionPro .container {
     padding-top: 8.7rem;
     padding-bottom: 13.1rem;
   }
 
-  .DPMyQuestions .container{
+  .DPMyQuestions .container {
     padding-top: 11rem;
     padding-bottom: 5.9rem;
   }
-
 }
