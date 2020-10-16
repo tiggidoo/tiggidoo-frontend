@@ -54,21 +54,21 @@
     font-size: 2.2rem;
     width: 20rem;
     height: 5.2rem;
+    font-weight: bold;
   }
 
   &__btnLogin.btn:hover,
   &__btnLogin.btn-outline-secondary:focus,
   &__btnLogin.btn-primary:not(:disabled):not(.disabled):active {
     background-color: #21b9a9;
-    border-color:#21b9a9;
+    border-color: #21b9a9;
     color: #fff;
-}
+  }
 
   &__btnLogin.btn-secondary:focus,
   &__btnLogin.btn-primary:focus {
     box-shadow: none; /* 0 0 0 0.2rem rgba(#28cc8b, 0.5); */
   }
-
 }
 
 @media (max-width: 768px) {

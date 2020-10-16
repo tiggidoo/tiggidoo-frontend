@@ -1,9 +1,8 @@
 .Footer {
-  
   background-color: #2880fb;
   font-family: sans-serif;
   & > .container {
-    padding: 15px;
+    padding: 25px;
   }
 
   &__copiRight {
@@ -52,13 +51,13 @@
     &__SN__Icons {
       width: 11rem;
 
-      & > .iconFacebook{
+      & > .iconFacebook {
         width: 1.1rem;
       }
-      & > .iconLinkedin{
+      & > .iconLinkedin {
         width: 2.4rem;
       }
-      & > .iconInstagram{
+      & > .iconInstagram {
         width: 2.6rem;
       }
     }
@@ -75,7 +74,6 @@
 
 @media (min-width: 768px) {
   .Footer {
-
     &__section1 {
       & img {
         width: 80%;
@@ -106,61 +104,59 @@
       }
     }
 
-    &__copiRightDeskop{
+    &__copiRightDeskop {
       height: 36rem;
-      & > img{
+      & > img {
         width: 17.5rem;
       }
-      &__text{
+      &__text {
         font-size: 1.2rem;
         color: #fff;
       }
     }
-    
   }
 }
 
-@media (min-width: 1600px){
-  .Footer{
-
+@media (min-width: 1600px) {
+  .Footer {
     &__plant2 {
       float: right;
       margin-top: 70px;
-    }  
-    &__plant2 > img{
+    }
+    &__plant2 > img {
       width: 20.5rem;
     }
-    &__section1{
+    &__section1 {
       margin-top: 80px !important;
     }
 
-    &__section1 > img{
+    &__section1 > img {
       width: 17.8rem;
     }
-    
+
     &__SN__Icons {
       width: 14.8rem;
 
-      & > .iconFacebook{
+      & > .iconFacebook {
         width: 1.6rem;
         height: 3rem;
       }
-      & > .iconLinkedin{
+      & > .iconLinkedin {
         width: 2.8rem;
         height: 2.8rem;
       }
-      & > .iconInstagram{
+      & > .iconInstagram {
         width: 3.2rem;
         height: 3.2rem;
       }
     }
 
-    &__copiRightDeskop{
+    &__copiRightDeskop {
       height: 36rem;
-      & > img{
+      & > img {
         width: 17.5rem;
       }
-      &__text{
+      &__text {
         font-size: 1.8rem;
         color: #fff;
       }
