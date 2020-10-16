@@ -60,9 +60,13 @@
   &__btnLogin.btn:hover,
   &__btnLogin.btn-outline-secondary:focus,
   &__btnLogin.btn-primary:not(:disabled):not(.disabled):active {
-    background-color: #21b9a9;
-    border-color: #21b9a9;
+    background-color: #28cc8b;
+    border-color: #28cc8b;
     color: #fff;
+  }
+
+  &__btnLogin.btn-primary:not(:disabled):not(.disabled):active:focus{
+    box-shadow: 0 0 0 0.2rem rgba(40, 204, 139, 0.5);
   }
 
   &__btnLogin.btn-secondary:focus,

@@ -33,14 +33,18 @@
     & .btn:hover,
     & .btn-outline-secondary:not(:disabled):not(.disabled):active,
     & .btn-outline-secondary:focus {
-      background-color: #21b9a9;
-      border-color:#21b9a9;
-      color: #fff;
+      background-color: #fff;
+      border-color:#fff;
+      color: #28cc8b;
     }
 
+    &__btnLogin.btn-primary:not(:disabled):not(.disabled):active:focus{
+      box-shadow: 0 0 0 0.2rem rgba(#fff, 0.5);
+    }
+  
     & .btn-outline-secondary:focus,
     & .btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
-      box-shadow: 0 0 0 0.2rem rgba( #28cc8b, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba( #fff, 0.5);
     }
   }
 }
