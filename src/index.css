@@ -7,11 +7,15 @@ html {
   font-size: 62.5%; /* 62.5 */
 }
 
+.App {
+  font-size: 20px;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
   background-color: #f6f6f6;
-  font-family: Righteous, "Roboto", "Avenir", sans-serif;
+  font-family: "Roboto", "Avenir", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 

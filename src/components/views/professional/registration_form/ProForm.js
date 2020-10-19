@@ -1,211 +1,193 @@
-import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import { Box, Button, Checkbox, FormControlLabel, InputLabel } from '@material-ui/core';
-import { withTranslation } from "react-i18next";
-//import FormControlLabel from '@material-ui/core/FormControlLabel';
-//import Checkbox from '@material-ui/core/Checkbox';
+import React, { Component } from 'react'
+import { withStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import FormPersonalDetails from './FormPersonalDetails';
+import FormPersonalBackground from './FormPersonalBackground';
+import FormAdditionalInformation from './FormAdditionalInformation';
+import Confirm from './Confirm';
+//import Success from './Success';
 
 
 class ProForm extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      firstName: '',
-      lastName:'',
-      birthDay:'',
-      birthMonth:'',
-      birthYear:'',
-      cellPhone:'',
-      email:'',
-      chkFrench: false,
-      chkEnglish: false,
-      chkSpanish: false,
-      chkPortuguese: false,
-      chkArab: false
-    };
-  }
+    state = {
+        step: 1,
+        firstName: '',
+        lastName: '',
+        //date_of_birth: '',
+        birthDay: '',
+        birthMonth: '',
+        birthYear: '',
+        telephone: '',
+        email: '',
+        en: false,
+        fr:false,
+        es: false,
+        po: false,
+        ar: false,
+        authorization: false,
+        criminal: false,
 
-  handleChange = (e) => {
-    console.log(e.target.type);
-    console.log(this.state);
-    switch (e.target.type) {
-      case 'text':
-        this.setState({  
-          [e.target.name]: e.target.value 
-        });
-        break;            
-      case 'checkbox':
-        this.setState({ 
-          ...this.state, 
-          [e.target.name]: e.target.checked 
-        });
-        break;            
-      
-      default:
-        break;
+        experience: false,
+        referFirstName1: '',
+        referLastName1: '',
+        referEmail1: '',
+        referTelephone1: '',
+        referCompany1: '',
+        referPosition1: '',
+        referDepartureDate1: '',
+        referFirstName2: '',
+        referLastName2: '',
+        referEmail2: '',
+        referTelephone2: '',
+        referCompany2: '',
+        referPosition2: '',
+        referDepartureDate2: '',
+        workRegurary:false,
+        workExtra:false,
+        extraIncome:false,
+        visibility:false,
+        concept:false,
+
+
     }
-  };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state);
-  }
-  render(){
-    const { t } = this.props;
-    return (
+    //Go to next step 
+    nextStep = () => {
+        const { step } = this.state;
+        this.setState({
+            step: step + 1
+        });
+    }
+
+    //Go back 
+    prevStep = () => {
+        const { step } = this.state;
+        this.setState({
+            step: step - 1
+        });
+    }
+
+    //Handle fields changes
+
+    //handleChange = input => e => {
+    //this.setState({ [input]: e.target.value });
+    handleChange = (e) => {
+
+        switch (e.target.type) {
+            case "text":
+            case "select-one":
+              this.setState({
+                [e.target.name]: e.target.value,
+              });
+              break;
+            case "checkbox":
+              this.setState({
+                ...this.state,
+                [e.target.name]: e.target.checked,
+              });
+              break;
+            default:
+              break;
+          }
       
-      <form onSubmit={this.handleSubmit}>
-      <React.Fragment>
-        <Typography variant="h3" gutterBottom>
-          {t("ProForm.title")}
-        </Typography>
-        
-        <p>
-          { t("ProForm.description") }
-        </p>
-
-        <Grid container spacing={3}>
-          <Grid item sm={6}>
-              
-            <InputLabel shrink htmlFor="bootstrap-input">
-              { t("ProForm.firstNameLabel") }
-            </InputLabel>
-            <TextField
-              
-              id="firstName"
-              name="firstName"
-              placeholder={ t("ProForm.firstNameLabel") }
-              autoComplete="given-name"
-              variant="outlined"
-              onChange={this.handleChange}
-              
-            />
-
-            <InputLabel shrink htmlFor="bootstrap-input">
-              { t("ProForm.lastNameLabel") }
-            </InputLabel>
-            <TextField
-
-              id="lastName"
-              name="lastName"
-              placeholder={ t("ProForm.lastNameInput") }
-              autoComplete="given-name"
-              variant="outlined"
-              onChange={this.handleChange}
-            />
-
-            <InputLabel shrink htmlFor="bootstrap-input">
-              { t("ProForm.birthDayLabel") }
-            </InputLabel>
-            
-            <Box component="span">
-              <TextField 
-                id="birthDay"
-                name="birthDay"
-                autoComplete="given-name"
-                variant="outlined"
-                onChange={this.handleChange}
-              />
-              <TextField 
-
-                id="birthMonth"
-                name="birthMonth"
-                autoComplete="given-name"
-                variant="outlined"
-                onChange={this.handleChange}
-              />
-              <TextField 
-
-                id="birthYear"
-                name="birthYear"
-                autoComplete="given-name"
-                variant="outlined"
-                onChange={this.handleChange}
-
-              />
-            </Box>
-
-            <InputLabel shrink htmlFor="bootstrap-input">
-              { t("ProForm.cellPhoneLabel") }
-            </InputLabel>
-            <TextField
-
-              id="cellPhone"
-              name="cellPhone"
-              placeholder={ t("ProForm.cellPhoneLabel") }
-              autoComplete="given-name"
-              variant="outlined"
-              onChange={this.handleChange}
-            />
-
-            <InputLabel shrink htmlFor="bootstrap-input">
-              { t("ProForm.emaillLabel") }
-            </InputLabel>
-            <TextField
-
-              id="email"
-              name="email"
-              placeholder={ t("ProForm.emaillLabel") }
-              autoComplete="given-name"
-              variant="outlined"
-              onChange={this.handleChange}
-
-            />
-
-          </Grid>
-
-          <Grid item sm={6}>
-
-            <InputLabel shrink htmlFor="bootstrap-input">
-              { t("ProForm.groupCheckBox_1.title") }
-            </InputLabel>
-
-            <FormControlLabel
-              control={<Checkbox onChange={this.handleChange} name="chkFrench" color="primary" />}
-              label={ t("ProForm.groupCheckBox_1.checkBoxLabel1") }
-            />
-
-            <FormControlLabel
-              control={<Checkbox onChange={this.handleChange} name="chkEnglish" color="primary" />}
-              label={ t("ProForm.groupCheckBox_1.checkBoxLabel2") }
-            />
-
-            <FormControlLabel
-              control={<Checkbox onChange={this.handleChange} name="chkSpanish" color="primary" />}
-              label={ t("ProForm.groupCheckBox_1.checkBoxLabel3") }
-            />
-
-            <FormControlLabel
-              control={<Checkbox onChange={this.handleChange} name="chkPortuguese" color="primary" />}
-              label={ t("ProForm.groupCheckBox_1.checkBoxLabel4") }
-            />
-
-            <FormControlLabel
-              control={<Checkbox onChange={this.handleChange} name="chkArab" color="primary" />}
-              label={ t("ProForm.groupCheckBox_1.checkBoxLabel5") }
-            />
-
-            <InputLabel shrink htmlFor="bootstrap-input">
-              { t("ProForm.groupCheckBox_2.title") }
-            </InputLabel>
+    }
 
 
-          </Grid>
+    
 
-        </Grid>
-        
-      </React.Fragment>
+    getStepContent = () => {
+        const { step } = this.state;
+        const { firstName, lastName, date_of_birth, telephone, 
+                email, en, fr, es, po, ar, authorization, criminal, experience,
+                referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1, 
+                referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
+                referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
+                workExtra, extraIncome, visibility, concept            
+            } = this.state;
+
+        const values = { firstName, lastName, date_of_birth, telephone, 
+                email, en, fr, es, po, ar, authorization, criminal, experience,
+                referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1, 
+                referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
+                referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
+                workExtra, extraIncome, visibility, concept };
+
+        switch (step) {
+            case 1:
+                return (
+                    <FormPersonalDetails
+                        nextStep={this.nextStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+
+                );
+            case 2:
+                return (
+                    <FormPersonalBackground
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
+            case 3:
+                return (
+                    <FormAdditionalInformation
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
+            case 4:
+                return (<Confirm />);
+            default:
+                throw new Error("Unknown step");
+        }
+    }
       
-      <Button type="submit" variant="outlined" color="primary">
-            Check Answer
-          </Button>
-      </form>
-      
-    );
-  }
+    render() {
+        const { classes } = this.props;
+        return(        
+            <main className={classes.layout}>
+                <Paper className={classes.paper}>
+                <React.Fragment>
+                    { this.getStepContent() }
+                </React.Fragment>
+                </Paper>
+            </main>
+        );
+
+    }
 }
 
-export default withTranslation()(ProForm);
+const styles = (theme) => ({
+    layout: {
+      width: "auto",
+      marginTop: theme.spacing(20),
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
+      [theme.breakpoints.up(1530 + theme.spacing(2) * 2)]: {
+        width: 1530,
+        marginLeft: "auto",
+        marginRight: "auto",
+      },
+    },
+    paper: {
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3),
+      padding: theme.spacing(2),
+      [theme.breakpoints.up(1530 + theme.spacing(3) * 2)]: {
+        marginTop: theme.spacing(6),
+        marginBottom: theme.spacing(6),
+        padding: theme.spacing(3),
+      },
+    },
+    stepper: {
+      padding: theme.spacing(3, 0, 5),
+    },
+  });
+
+export default withStyles(styles)(ProForm);

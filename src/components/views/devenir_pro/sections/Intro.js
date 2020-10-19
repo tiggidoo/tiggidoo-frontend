@@ -6,6 +6,7 @@
 */
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
 
@@ -22,11 +23,7 @@ function Intro({ t }) {
               alt=""
               className="DPIntro__imgMenage d-sm-block d-md-none mt-5 mb-5"
             />
-            {/* 
-            <h1 className="DPIntro__title pb-xl-5 mb-xl-5">
-              {t("BecomeProfesional.section_1.title")}
-            </h1>
- */}
+           
           </Col>
           <Col md={6} lg={5}>
             <div className="DPIntro__box d-flex flex-column h-100 mt-5">
@@ -45,9 +42,11 @@ function Intro({ t }) {
                 </p>
               </div>
               <div className="DPIntro__button mt-5 pt-2 mt-md-0 pt-md-0 ">
-                <Button variant="outline-secondary" size="lg">
-                  {t("BecomeProfesional.section_1.button")}
-                </Button>
+                <Link to="/proform">
+                  <Button variant="outline-secondary" size="lg">
+                    {t("BecomeProfesional.section_1.button")}
+                  </Button>
+                </Link>
               </div>
             </div>
           </Col>

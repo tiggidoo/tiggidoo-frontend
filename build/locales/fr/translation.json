@@ -36,7 +36,7 @@
   },
   "ProForm": {
     "title": "Tu souhaites devenir un professionnel chez Tiggidoo ?",
-    "description": "Pour profiter des services de Tiggidoo, remplissez ce formulaire, nous étudierons votre candidature. En moins de 72H vous recevrez une réponse de la part de nos experts",
+    "description": "<p>Pour profiter des services de Tiggidoo, remplissez ce formulaire, nous étudierons votre</p><p>candidature. En moins de 72H vous recevrez une réponse de la part de nos experts</p>",
     "firstNameLabel": "Prénom",
     "firstNameInput": "Ton Prénom",
     "lastNameLabel": "Nom",

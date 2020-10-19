@@ -35,34 +35,85 @@
     }
   },
   "ProForm": {
-    "title": "You want to become a professional at Tiggidoo ?",
-    "description": "To take advantage of Tiggidoo's services, complete this form, we will consider your application. In less than 72 hours you will receive a response from our experts",
-    "firstNameLabel": "First name",
-    "firstNameInput": "First name",
-    "lastNameLabel": "Last Name",
-    "lastNameInput": "Last Name",
-    "birthDayLabel": "Date of Birth",
-    "cellPhoneLabel": "Cell number",
-    "emaillLabel": "Email",
-    "groupCheckBox_1": {
-      "title": "What languages ​​do you speak ?",
-      "checkBoxLabel1": "French",
-      "checkBoxLabel2": "English",
-      "checkBoxLabel3": "Spanish",
-      "checkBoxLabel4": "Portuguese",
-      "checkBoxLabel5": "Arab"
+    "FormPersonalDetails":{
+      "title": "You want to become a professional at Tiggidoo ?",
+      "description": "To take advantage of Tiggidoo's services, complete this form, we will consider your application. In less than 72 hours you will receive a response from our experts",
+      "firstNameLabel": "First name",
+      "firstNameInput": "First name",
+      "lastNameLabel": "Last Name",
+      "lastNameInput": "Last Name",
+      "birthDayLabel": "Date of Birth",
+      "cellPhoneLabel": "Cell number",
+      "emaillLabel": "Email",
+      "groupCheckBox_1": {
+        "title": "What languages ​​do you speak ?",
+        "checkBoxLabel1": "French",
+        "checkBoxLabel2": "English",
+        "checkBoxLabel3": "Spanish",
+        "checkBoxLabel4": "Portuguese",
+        "checkBoxLabel5": "Arab"
+      },
+      "groupCheckBox_2": {
+        "title": "Are you over 18, with a work permit in Canada?",
+        "checkBoxLabel1": "Yes",
+        "checkBoxLabel2": "No"
+      },
+      "groupCheckBox_3": {
+        "title": "Do you have a criminal history?",
+        "desctiption": "(A forensic check will be performed.)",
+        "checkBoxLabel1": "Yes",
+        "checkBoxLabel2": "No"
+      }
     },
-    "groupCheckBox_2": {
-      "title": "Are you over 18, with a work permit in Canada?",
-      "checkBoxLabel1": "Yes",
-      "checkBoxLabel2": "No"
+    "FormPersonalBackground": {
+      "title": "Quels est ton parcours ?",
+      "groupCheckBox_1": {
+        "title": "As-tu déjà travaillé en tant que préposé à l’entretien ménager ?",
+        "checkBoxLabel1": "Oui",
+        "checkBoxLabel2": "No"
+      },
+      "referencesTitle": "Indique les coordonnées de deux personnes référentes pour qui tu as travaillé :",
+      "referencesSubTitle": "Nous contacterons ces deux références",
+      "firstContactTitle": "Premier contact",
+      "secondContactTitle": "Deuxième contact",
+      "firstNameLabel": "Nom",
+      "lastNamelabel": "Prénom",
+      "email": "Courriel",
+      "cellPhone": "Cellulaire",
+      "company": "Entreprise",
+      "jobName": "Poste occupé",
+      "finishDate": "Date de départ",
+      "groupCheckBox_2": {
+        "title": "Pourquoi souhaites-tu intégrer la plateforme de Tiggidoo ?",
+        "checkBoxLabel1": "Travail régulier",
+        "checkBoxLabel2": "Travail d’appoint",
+        "checkBoxLabel3": "Revenus supplémentaires",
+        "checkBoxLabel4": "Visibilité",
+        "checkBoxLabel5": "Concept"
+      },
+      "knowUsLabel": "Comment nous as-tu connu?"
     },
-    "groupCheckBox_3": {
-      "title": "Do you have a criminal history?",
-      "desctiption": "(A forensic check will be performed.)",
-      "checkBoxLabel1": "Yes",
-      "checkBoxLabel2": "No"
+    "FormAdditionalInformation":{
+      "title": "Quelques informations te concernant",
+      "subtitle": "Nous avons besoin de quelques informations te concernant",
+      "groupCheckBox_1":{
+        "title": "As-tu un smartphone avec un accès aux données ?",
+        "checkBoxLabel1": "Oui",
+        "checkBoxLabel2": "Non"
+      },
+      "paragraph": "Chez Tiggidoo, la communication est primordiale. On doit pouvoir se joindre a n’importe quel moment. C’est pourquoi nous insistons sur la nécessité d’avoir un cellulaire intelligent avec des données",
+      "groupCheckBox_2":{
+        "title": "As-tu des allergies quelconques ou des problèmes de santé ?",
+        "checkBoxLabel1": "Oui",
+        "checkBoxLabel2": "Non"
+      },
+      "sicksLabel":"Si oui, préciser ici…",
+      "paragraph_2": "Ne pas préciser l’allergie ou le problème de santé pourrait entraîner un refus d’inscription de notre part. Tiggidoo se réserve le droit de ne pas valider une inscription si le “oui” a été sélectionné",
+      "titlePhoto": "Pour terminer, nous avons besoin de ta photo",
+      "paragraphPhoto": "Joins une photo professionnelle de toi. Elle sera utilisée pour mettre à jour ton profil. Elle sera le premier contact avec le potentiel client. L’administration de Tiggidoo valide les photos, nous nous voyons lue droit de pas accepter celle-ci, si elle ne correspond pas à la charte de nos services",
+      "photoType": "Formats de fichier : png, jpg, jpeg",
+      "titleButton": "Joindre un fichier",
+      "example": "Pour exemple"
     }
-
   }
 }
