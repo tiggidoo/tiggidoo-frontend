@@ -28,7 +28,7 @@ export default function Header() {
             <Nav.Link href="#home" className="NavBar__menu__item">
               Services
             </Nav.Link>
-            <Nav.Link href="#link" className="NavBar__menu__item">
+            <Nav.Link href="/" className="NavBar__menu__item">
               Devenir ToDoo
             </Nav.Link>
           </Nav>
