@@ -25,10 +25,10 @@ class ProForm extends Component {
         es: false,
         po: false,
         ar: false,
-        authorization: false,
-        criminal: false,
+        authorization: '0',
+        criminal: '0',
 
-        experience: false,
+        experience: "0",
         referFirstName1: '',
         referLastName1: '',
         referEmail1: '',
@@ -48,6 +48,9 @@ class ProForm extends Component {
         extraIncome:false,
         visibility:false,
         concept:false,
+        smartphoneWithData: '0',
+        health: '0',
+        healthDescription:'0'
 
 
     }
@@ -73,10 +76,12 @@ class ProForm extends Component {
     //handleChange = input => e => {
     //this.setState({ [input]: e.target.value });
     handleChange = (e) => {
+        
 
         switch (e.target.type) {
             case "text":
             case "select-one":
+            case "radio":
               this.setState({
                 [e.target.name]: e.target.value,
               });
@@ -93,9 +98,6 @@ class ProForm extends Component {
       
     }
 
-
-    
-
     getStepContent = () => {
         const { step } = this.state;
         const { firstName, lastName, date_of_birth, telephone, 
@@ -103,7 +105,7 @@ class ProForm extends Component {
                 referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1, 
                 referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
                 referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-                workExtra, extraIncome, visibility, concept            
+                workExtra, extraIncome, visibility, concept, smartphoneWithData, health, healthDescription            
             } = this.state;
 
         const values = { firstName, lastName, date_of_birth, telephone, 
@@ -111,7 +113,7 @@ class ProForm extends Component {
                 referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1, 
                 referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
                 referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-                workExtra, extraIncome, visibility, concept };
+                workExtra, extraIncome, visibility, concept, smartphoneWithData, health, healthDescription };
 
         switch (step) {
             case 1:

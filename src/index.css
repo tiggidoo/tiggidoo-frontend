@@ -7,10 +7,6 @@ html {
   font-size: 62.5%; /* 62.5 */
 }
 
-.App {
-  font-size: 20px;
-}
-
 body {
   margin: 0;
   box-sizing: border-box;
@@ -22,17 +18,24 @@ body {
   /* background-color: aqua; */
 }
 
-p,
-h3 {
+h1 {
+  font-family: Righteous;
+}
+
+h2 {
+  font-family: Righteous;
+}
+
+p, h3, h4, h5, h6 {
   font-family: sans-serif;
+}
+
+.App{
+  font-size: 1.6rem;
 }
 
 .container {
   padding: 0 3rem;
-}
-
-h3 {
-  font-size: 1.9rem;
 }
 
 p {
@@ -75,4 +78,31 @@ p {
   h2 {
     font-size: 3.5rem;
   }
+
+  h3 {
+    font-size: 3rem;
+  }
+
+  h4 {
+    font-size: 2.5rem;
+  }
+
+  h5 {
+    font-size: 2.1rem;
+  }
+
+  h6 {
+    font-size: 1.5rem;
+  }
 }
+/* 
+  Selon le design de la page deviner pro et le fichier DevenirProSEO, les titres seront comme ceci:
+  h1=45px. h2=35px. h3=30px. 
+  
+  Dans le formulaire d'inscription, je n'ai vu qu'un titre h1
+
+  en el diseno del formulario de inscripcion solo veo un titulo h1. Lo demas son textos en algunos caos 20 y otros 24. La fuente de los textfild
+  y checkbox son de 17px
+
+  pregunta, el tamano del la letra que compone el parrafo pude variar?
+*/

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 //import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
-import { Box, Checkbox, FormControlLabel, NativeSelect } from "@material-ui/core";
+import { Box, Checkbox, FormControlLabel, NativeSelect, RadioGroup, Radio } from "@material-ui/core";
 import InputBase from '@material-ui/core/InputBase';
 import ButtonBlue from '../../../share/buttons/ButtonBlue';
 import ButtonIcon from '../../../share/buttons/ButtonIcon';
@@ -38,15 +38,10 @@ class FormPersonalBackground extends Component {
                 <Box mb={6}>
                     <Box mb={1}>{t("ProForm.FormPersonalBackground.groupCheckBox_1.title")}</Box>
 
-                    <FormControlLabel 
-                        control={ <Checkbox onChange={this.handleChange} name="chkFrench" color="primary" /> }
-                        label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel1")}
-                    />
-
-                    <FormControlLabel 
-                        control={ <Checkbox onChange={this.handleChange} name="chkFrench" color="primary" /> }
-                        label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel2")}
-                    />
+                    <RadioGroup row aria-label="gender" name="experience" value={values.experience} onChange={handleChange}>
+                        <FormControlLabel labelPlacement = "end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel1")} />
+                        <FormControlLabel labelPlacement = "end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel2")} />
+                    </RadioGroup>
                 </Box>
 
                 <Box>
@@ -218,24 +213,24 @@ class FormPersonalBackground extends Component {
                     <Box>
                         <Box mb={6}>{t("ProForm.FormPersonalBackground.groupCheckBox_2.title")}</Box>
                         <FormControlLabel 
-                            control={ <Checkbox onChange={this.handleChange} name="workRegurary" color="primary" /> }
+                            control={ <Checkbox onChange={handleChange} name="workRegurary" color="primary" checked={ values.workRegurary } /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel1")}
                         />
                         <FormControlLabel 
-                            control={ <Checkbox onChange={this.handleChange} name="workExtra" color="primary" /> }
+                            control={ <Checkbox onChange={handleChange} name="workExtra" color="primary" checked={ values.workExtra }  /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel2")}
                         />
 
                         <FormControlLabel 
-                            control={ <Checkbox onChange={this.handleChange} name="extraIncome" color="primary" /> }
+                            control={ <Checkbox onChange={handleChange} name="extraIncome" color="primary" checked={ values.extraIncome }  /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel3")}
                         />
                         <FormControlLabel 
-                            control={ <Checkbox onChange={this.handleChange} name="visibility" color="primary" /> }
+                            control={ <Checkbox onChange={handleChange} name="visibility" color="primary" checked={ values.visibility }  /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel4")}
                         />
                         <FormControlLabel 
-                            control={ <Checkbox onChange={this.handleChange} name="concept" color="primary" /> }
+                            control={ <Checkbox onChange={handleChange} name="concept" color="primary" checked={ values.concept }  /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel5")}
                         />
                     </Box>

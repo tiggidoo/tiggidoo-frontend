@@ -24,12 +24,18 @@ const theme = createMuiTheme({
       margin: 0,
     },
     h5: {
-      fontSize: "2rem",
+      fontSize: "2.1rem",
       fontFamily: "sans-serif",
       fontWeight: 'bold',
       margin: 0,
-    }
-  },
+    },
+    h6: {
+      fontSize: '1.5rem',
+    },
+    p: {
+      fontSize: '8rem',
+    },
+  }
 });
 
 export default theme;

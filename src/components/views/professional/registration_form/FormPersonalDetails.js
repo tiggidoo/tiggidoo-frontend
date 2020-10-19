@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 //import TextField from "@material-ui/core/TextField";
-import { Box, Checkbox, FormControlLabel, NativeSelect } from "@material-ui/core";
+import { Box, Checkbox, FormControlLabel, NativeSelect, RadioGroup, Radio } from "@material-ui/core";
 import InputBase from '@material-ui/core/InputBase';
 import ButtonBlue from '../../../share/buttons/ButtonBlue';
 import Input from '../../../share/inputs/Input';
@@ -163,59 +163,61 @@ class FormPersonalDetails extends Component {
                         <Box className={classes.groupLabelInput}>
                             <Box>{t("ProForm.FormPersonalDetails.groupCheckBox_1.title")}</Box>
                             <FormControlLabel
-                                control={<Checkbox onChange={handleChange} name="fr" color="primary" />}
+                                control={<Checkbox onChange={handleChange} name="fr" color="primary" checked={ values.fr } />}
                                 label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel1")}
                             />
 
                             <FormControlLabel
-                                control={<Checkbox onChange={handleChange} name="en" color="primary" />}
+                                control={<Checkbox onChange={handleChange} name="en" color="primary" checked={ values.en } />}
                                 label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel2")}
                             />
 
                             <FormControlLabel
-                                control={<Checkbox onChange={handleChange} name="es" color="primary" />}
+                                control={<Checkbox onChange={handleChange} name="es" color="primary"  checked={ values.es } />}
                                 label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel3")}
                             />
 
                             <FormControlLabel
-                                control={<Checkbox onChange={handleChange} name="po" color="primary" />}
+                                control={<Checkbox onChange={handleChange} name="po" color="primary" checked={ values.po } />}
                                 label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel4")}
                             />
 
                             <FormControlLabel
-                                control={<Checkbox onChange={handleChange} name="ar" color="primary" />}
+                                control={<Checkbox onChange={handleChange} name="ar" color="primary" checked={ values.ar } />}
                                 label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel5")}
                             />
                         </Box>
 
                         <Box className={classes.groupLabelInput}>
                             <Box>{t("ProForm.FormPersonalDetails.groupCheckBox_2.title")}</Box>
-
+                            
+                            <RadioGroup row aria-label="gender" name="authorization" value={values.authorization} onChange={handleChange}>
+                                <FormControlLabel labelPlacement = "end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel1")} />
+                                <FormControlLabel labelPlacement = "end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel2")} />
+                            </RadioGroup>
+{/* 
                             <FormControlLabel 
-                                control={ <Checkbox onChange={this.handleChange} name="chkFrench" color="primary" /> }
+                                control={ <Checkbox onClick={handleChange} id="authorization_yes" name="authorization" value="1" color="primary" /> }
                                 label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel1")}
                             />
 
                             <FormControlLabel 
-                                control={ <Checkbox onChange={this.handleChange} name="chkFrench" color="primary" /> }
+                                control={ <Checkbox onClick={handleChange} id="authorization_no" name="authorization" value="0" color="primary" /> }
                                 label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel2")}
                             />
+ */}
+
                         </Box>
 
                         <Box className={classes.groupLabelInput}>
                             <Box>{t("ProForm.FormPersonalDetails.groupCheckBox_3.title")}</Box>
                             <Box>{t("ProForm.FormPersonalDetails.groupCheckBox_3.desctiption")}</Box>
 
-                            <FormControlLabel 
-                                control={ <Checkbox onChange={this.handleChange} name="chkFrench" color="primary" /> }
-                                label={t("ProForm.FormPersonalDetails.groupCheckBox_3.checkBoxLabel1")}
-                            />
+                            <RadioGroup row aria-label="gender" name="criminal" value={values.criminal} onChange={handleChange}>
+                                <FormControlLabel labelPlacement = "end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel1")} />
+                                <FormControlLabel labelPlacement = "end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel2")} />
+                            </RadioGroup>
 
-                            <FormControlLabel 
-                                control={ <Checkbox onChange={this.handleChange} name="chkFrench" color="primary" /> }
-                                label={t("ProForm.FormPersonalDetails.groupCheckBox_3.checkBoxLabel2")}
-                            />
-                    
                         </Box>
                     </Grid>
                 </Grid>

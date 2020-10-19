@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { Box, Checkbox, FormControlLabel, Button } from "@material-ui/core";
+import { Box, FormControlLabel, Button, RadioGroup, Radio } from "@material-ui/core";
 import ButtonBlue from '../../../share/buttons/ButtonBlue';
 import ButtonIcon from '../../../share/buttons/ButtonIcon';
 import Input from '../../../share/inputs/Input';
@@ -41,15 +41,12 @@ class FormAdditionalInformation extends Component {
                         <Typography variant="h5">{t("ProForm.FormAdditionalInformation.groupCheckBox_1.title")}</Typography>
                     </Box>   
 
-                    <FormControlLabel 
-                        control={ <Checkbox onChange={this.handleChange} name="chkFrench" color="primary" /> }
-                        label={t("ProForm.FormAdditionalInformation.groupCheckBox_1.checkBoxLabel1")}
-                    />
 
-                    <FormControlLabel 
-                        control={ <Checkbox onChange={this.handleChange} name="chkFrench" color="primary" /> }
-                        label={t("ProForm.FormAdditionalInformation.groupCheckBox_1.checkBoxLabel2")}
-                    />
+                    <RadioGroup row aria-label="gender" name="smartphoneWithData" value={values.smartphoneWithData} onChange={handleChange}>
+                        <FormControlLabel labelPlacement = "end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormAdditionalInformation.groupCheckBox_1.checkBoxLabel1")} />
+                        <FormControlLabel labelPlacement = "end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormAdditionalInformation.groupCheckBox_1.checkBoxLabel2")} />
+                    </RadioGroup>
+
                     <Box mt={3}>
                         <p>{t("ProForm.FormAdditionalInformation.paragraph")}</p>
                     </Box>
@@ -60,15 +57,12 @@ class FormAdditionalInformation extends Component {
                         <Box mb={2}>
                             <Typography variant="h5">{t("ProForm.FormAdditionalInformation.groupCheckBox_2.title")}</Typography>
                         </Box>   
-                        <FormControlLabel 
-                            control={ <Checkbox onChange={this.handleChange} name="workRegurary" color="primary" /> }
-                            label={t("ProForm.FormAdditionalInformation.groupCheckBox_2.checkBoxLabel1")}
-                        />
-                        <FormControlLabel 
-                            control={ <Checkbox onChange={this.handleChange} name="workExtra" color="primary" /> }
-                            label={t("ProForm.FormAdditionalInformation.groupCheckBox_2.checkBoxLabel2")}
-                        />
-                        <Input id="siks" label={t("ProForm.FormAdditionalInformation.sicksLabel")} size="small" onChange={handleChange} defaultValue={values.firstName}/>
+                        <RadioGroup row aria-label="gender" name="health" value={values.health} onChange={handleChange}>
+                            <FormControlLabel labelPlacement = "end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormAdditionalInformation.groupCheckBox_2.checkBoxLabel1")} />
+                            <FormControlLabel labelPlacement = "end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormAdditionalInformation.groupCheckBox_2.checkBoxLabel2")} />
+                        </RadioGroup>
+
+                        <Input name="healthDescription" label={t("ProForm.FormAdditionalInformation.sicksLabel")} size="small" onChange={handleChange} defaultValue={values.healthDescription}/>
                     </Box>
 
                     <Box mt={1}>
