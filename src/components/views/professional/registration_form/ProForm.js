@@ -46,9 +46,9 @@ class ProForm extends Component {
             step: 1,
             firstName: '',
             lastName: '',
-            birthDay: '',
-            birthMonth: '',
-            birthYear: '',
+            birthDay: '1',
+            birthMonth: '1',
+            birthYear: '1980',
             telephone: '',
             email: '',
             en: false,
@@ -78,12 +78,11 @@ class ProForm extends Component {
             extraIncome:false,
             visibility:false,
             concept:false,
+            how_know_us:'0',
             smartphoneWithData: '0',
             health: '0',
             healthDescription:'',
-            file: '',
-            fileName:'',
-            images:[],
+            files:[],
             numberSpokenLanguages: 0,
             numberIntegrationPlatform:0,
             formErrors: {
@@ -92,16 +91,7 @@ class ProForm extends Component {
                     lastName: 'Last Name is required',
                     email: 'The email is required',
                     spokenLanguages: "Choose at least one language.",
-                    // birthDay: 'Tha',
-                    // birthMonth: '',
-                    // birthYear: '',
                     telephone: 'The Telephone is required.',
-                    //date_of_birth: '',
-                    //birthDay: '',
-                    //birthMonth: '',
-                    //birthYear: '',
-                    //telephone: '',
-                    //email: '',
                 },
                 step2: {
                     referFirstName1: 'The First Name is required',
@@ -118,9 +108,12 @@ class ProForm extends Component {
                     referCompany2: 'The Company is required',
                     referPosition2: 'The Position is required',
                     referDepartureDate2: 'The Final Date is required',
-                    integrationPlatform: 'Choose at least one option'
+                    integrationPlatform: 'Choose at least one option',
+                    how_know_us: 'Choose one'
+                },
+                step3: {
+                    files: "An Image is required."
                 }
-                
             }
         }
     
@@ -139,7 +132,7 @@ class ProForm extends Component {
                 formErrors = this.state.formErrors.step2;
                 break;
             case 3:
-                //formErrors = this.state.formErrors.step3;
+                formErrors = this.state.formErrors.step3;
                 break;
             default: 
                 break;
@@ -176,203 +169,193 @@ class ProForm extends Component {
     handleChange = (e) => {
         
         const formErrors = this.state.formErrors;
-        
         switch (e.target.type) {
-        case "text":
-        case "select-one":
-        case "radio":
+
+            case "text":
+            case "select-one":
+            case "radio":
         
-            e.preventDefault();
-            this.setState({
-                [e.target.name]: e.target.value,
-            });
+                e.preventDefault();
+                this.setState({
+                    [e.target.name]: e.target.value,
+                });
+                            
+                let value = e.target.value;
+
+                switch (e.target.name){
+                    case 'firstName':
+                        formErrors.step1.firstName = value.length === 0 ? "The First Name is required" : "";
+                        break;
+                    case 'lastName':
+                        formErrors.step1.lastName = value.length === 0 ? "The Last Name is required" : "";
+                        break;
+                    case 'email':
+                        formErrors.step1.email = 
+                            emailRegex.test(value)
+                                ? ""
+                                : "Invalid email address.";
+                        break;
+                    case 'telephone':
+                        let ex = value.replace('(', '');
+                            ex = ex.replace(')', '');
+                            ex = ex.replace('-', '');
+                            ex = ex.replace(' ', '');
+                            ex = ex.trim();
+                        formErrors.step1.telephone = 
+                            ex.length < 10 ? "The phone must have a minimum of 10 digits" : "";
+                        break;
+                    case 'referFirstName1':
+                        formErrors.step2.referFirstName1 = value.length === 0 ? "The First Name is required" : "";
+                        break;
+                    case 'referLastName1':
+                        formErrors.step2.referLastName1 = value.length === 0 ? "The Last Name is required" : "";
+                        break;
+                    case 'referEmail1':
+                        formErrors.step2.referEmail1 = 
+                            emailRegex.test(value)
+                                ? ""
+                                : "Invalid email address.";
+                        break;
+                    case 'referTelephone1':
+                        formErrors.step2.referTelephone1 = value.length === 0 ? "The Telefone is required" : "";
+                        break;
+                    case 'referCompany1':
+                        formErrors.step2.referCompany1 = value.length === 0 ? "The Company is required" : "";
+                        break;
+                    case 'referPosition1':
+                        formErrors.step2.referPosition1 = value.length === 0 ? "The Position is required" : "";
+                        break;
+                    case 'referDepartureDate1':
+                        formErrors.step2.referDepartureDate1 = value.length === 0 ? "The End Date is required" : "";
+                        break;
+                    case 'referFirstName2':
+                        formErrors.step2.referFirstName2 = value.length === 0 ? "The First Name is required" : "";
+                        break;
+                    case 'referLastName2':
+                        formErrors.step2.referLastName2 = value.length === 0 ? "The Last Name is required" : "";
+                        break;
+                    case 'referEmail2':
+                        formErrors.step2.referEmail2 = 
+                            emailRegex.test(value)
+                                ? ""
+                                : "Invalid email address.";
+                        break;
+                    case 'referTelephone2':
+                        formErrors.step2.referTelephone2 = value.length === 0 ? "The Telefone is required" : "";
+                        break;
+                    case 'referCompany2':
+                        formErrors.step2.referCompany2 = value.length === 0 ? "The Company is required" : "";
+                        break;
+                    case 'referPosition2':
+                        formErrors.step2.referPosition2 = value.length === 0 ? "The Position is required" : "";
+                        break;
+                    case 'referDepartureDate2':
+                        formErrors.step2.referDepartureDate2 = value.length === 0 ? "The End Date is required" : "";
+                        break;
+                    case 'how_know_us':
+                        formErrors.step2.how_know_us = value.length === 0 ? "Choose one" : "";
+                        break;
+                    default:
+                        break;
+                }
+
+                break;
+
+            case "checkbox":
+                //const formErrors = this.state.formErrors;
+                let canitdad = 0;
+                this.setState({
+                ...this.state,
+                    [e.target.name]: e.target.checked,
+                });
+
+                switch (e.target.name) {
+
+                    case 'es':
+                    case 'fr':
+                    case 'en':
+                    case 'po':
+                    case 'ar':
                         
-            let value = e.target.value;
-
-            switch (e.target.name){
-                case 'firstName':
-                    formErrors.step1.firstName = value.length === 0 ? "The First Name is required" : "";
-                    break;
-                case 'lastName':
-                    formErrors.step1.lastName = value.length === 0 ? "The Last Name is required" : "";
-                    break;
-                case 'email':
-                    formErrors.step1.email = 
-                        emailRegex.test(value)
-                            ? ""
-                            : "Invalid email address.";
-                    break;
-                case 'telephone':
-                    let ex = value.replace('(', '');
-                        ex = ex.replace(')', '');
-                        ex = ex.replace('-', '');
-                        ex = ex.replace(' ', '');
-                        ex = ex.trim();
-                    formErrors.step1.telephone = 
-                        ex.length < 10 ? "The phone must have a minimum of 10 digits" : "";
-                    break;
-                case 'referFirstName1':
-                    formErrors.step2.referFirstName1 = value.length === 0 ? "The First Name is required" : "";
-                    break;
-                case 'referLastName1':
-                    formErrors.step2.referLastName1 = value.length === 0 ? "The Last Name is required" : "";
-                    break;
-                case 'referEmail1':
-                    formErrors.step2.referEmail1 = 
-                        emailRegex.test(value)
-                            ? ""
-                            : "Invalid email address.";
-                    break;
-                case 'referTelephone1':
-                    formErrors.step2.referTelephone1 = value.length === 0 ? "The Telefone is required" : "";
-                    break;
-                case 'referCompany1':
-                    formErrors.step2.referCompany1 = value.length === 0 ? "The Company is required" : "";
-                    break;
-                case 'referPosition1':
-                    formErrors.step2.referPosition1 = value.length === 0 ? "The Position is required" : "";
-                    break;
-                case 'referDepartureDate1':
-                    formErrors.step2.referDepartureDate1 = value.length === 0 ? "The End Date is required" : "";
-                    break;
-                case 'referFirstName2':
-                    formErrors.step2.referFirstName2 = value.length === 0 ? "The First Name is required" : "";
-                    break;
-                case 'referLastName2':
-                    formErrors.step2.referLastName2 = value.length === 0 ? "The Last Name is required" : "";
-                    break;
-                case 'referEmail2':
-                    formErrors.step2.referEmail2 = 
-                        emailRegex.test(value)
-                            ? ""
-                            : "Invalid email address.";
-                    break;
-                case 'referTelephone2':
-                    formErrors.step2.referTelephone2 = value.length === 0 ? "The Telefone is required" : "";
-                    break;
-                case 'referCompany2':
-                    formErrors.step2.referCompany2 = value.length === 0 ? "The Company is required" : "";
-                    break;
-                case 'referPosition2':
-                    formErrors.step2.referPosition2 = value.length === 0 ? "The Position is required" : "";
-                    break;
-                case 'referDepartureDate2':
-                    formErrors.step2.referDepartureDate2 = value.length === 0 ? "The End Date is required" : "";
-                    break;
-    
-    
-
-
-                default:
-                    break;
-            }
-
-            break;
-
-        case "checkbox":
-            //const formErrors = this.state.formErrors;
-            let canitdad = 0;
-            this.setState({
-            ...this.state,
-                [e.target.name]: e.target.checked,
-            });
-
-            switch (e.target.name) {
-
-                case 'es':
-                case 'fr':
-                case 'en':
-                case 'po':
-                case 'ar':
+                        canitdad  = this.state.numberSpokenLanguages;
+                        if(e.target.checked){
+                            canitdad++;
+                            this.setState({
+                                numberSpokenLanguages: canitdad
+                            });
+                        }else{
+                            canitdad--;
+                            this.setState({
+                                numberSpokenLanguages: canitdad
+                            });
+                        }
+                        
+                        formErrors.step1.spokenLanguages = canitdad === 0 ? "Choose at least one language." : "";
                     
-                    canitdad  = this.state.numberSpokenLanguages;
-                    if(e.target.checked){
-                        canitdad++;
-                        this.setState({
-                            numberSpokenLanguages: canitdad
-                        });
-                    }else{
-                        canitdad--;
-                        this.setState({
-                             numberSpokenLanguages: canitdad
-                        });
-                    }
-                    
-                    formErrors.step1.spokenLanguages = canitdad === 0 ? "Choose at least one language." : "";
-                   
-                    break;
-                case 'workRegurary':
-                case 'workExtra':
-                case 'extraIncome':
-                case 'visibility':
-                case 'concept':
+                        break;
+                    case 'workRegurary':
+                    case 'workExtra':
+                    case 'extraIncome':
+                    case 'visibility':
+                    case 'concept':
 
-                    canitdad  = this.state.numberIntegrationPlatform;
-                    if(e.target.checked){
-                        canitdad++;
-                        this.setState({
-                            numberIntegrationPlatform: canitdad
-                        });
-                    }else{
-                        canitdad--;
-                        this.setState({
-                            numberIntegrationPlatform: canitdad
-                        });
-                    }
-                    formErrors.step2.integrationPlatform = canitdad === 0 ? "Choose at least one language." : "";
+                        canitdad  = this.state.numberIntegrationPlatform;
+                        if(e.target.checked){
+                            canitdad++;
+                            this.setState({
+                                numberIntegrationPlatform: canitdad
+                            });
+                        }else{
+                            canitdad--;
+                            this.setState({
+                                numberIntegrationPlatform: canitdad
+                            });
+                        }
+                        formErrors.step2.integrationPlatform = canitdad === 0 ? "Choose at least one language." : "";
 
-                    break;
-                default:
-                    break;
-            }
+                        break;
+                    default:
+                        break;
+                }
 
-            break;
-        default:
-            break;
+                break;
+            default:
+                break;
         }
       
     }
 
+    setImage2 = (e) => {
+        
+    }
+
     setImages = (e) => {
-        e.preventDefault();
-        //console.log(e.target.files[0].name);
-        let self = this; // unsure if this is needed
-        self.setState({ images: [] }); // empty out current images array
-        const imageFiles = e.target.files; // document.getElementById("image"); // You may want to avoid querying the dom yourself, try and rely on react as much as possible
-        const filesLength = imageFiles.length; // imageFiles.files.length;
-        // const temp = null;
-
-        for(var i = 0; i < filesLength; i++) {
-            let reader = new FileReader();
-            let file = imageFiles[i];
-
-            //console.log(file);
-            reader.onloadend = () => {
-                self.setState({ images: self.state.images.concat(reader.result), fileName: file.name  });
-            }
-
-            reader.readAsDataURL(file);
-        }
+        const formErrors = this.state.formErrors.step3;
+        this.setState({
+            [e.target.name]: e.target.files,
+        })
+        formErrors.files= "";
     }
 
     getStepContent = () => {
         const { step } = this.state;
-        const { firstName, lastName, date_of_birth, telephone, 
+
+        const { firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone, 
                 email, en, fr, es, po, ar, authorization, criminal, experience,
                 referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1, 
                 referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
                 referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-                workExtra, extraIncome, visibility, concept, smartphoneWithData, health, 
-                healthDescription, file, images,fileName, formErrors
+                workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health, 
+                healthDescription, files, formErrors
             } = this.state;
 
-        const values = { firstName, lastName, date_of_birth, telephone, 
+        const values = { firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone, 
                 email, en, fr, es, po, ar, authorization, criminal, experience,
                 referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1, 
                 referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
                 referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-                workExtra, extraIncome, visibility, concept, smartphoneWithData, health, 
-                healthDescription, file, images,fileName, formErrors };
+                workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health, 
+                healthDescription, files, formErrors };
 
         switch (step) {
             case 1:

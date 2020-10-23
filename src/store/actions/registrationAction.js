@@ -10,24 +10,28 @@ export const registrationAction = (registration) => async dispatch => {
             type: "REGISTRATION_PROCESSING"
         });
 
-/*        console.log(registration.images[0]);
+        let day = registration.birthDay.length === 1 ? "0" + registration.birthDay : registration.birthDay;
+        let month = registration.birthMonth.length === 1 ? "0" + registration.birthMonth : registration.birthMonth;
+        let birtdDayFull = registration.birthYear + "-" + month + "-" + day;
+        
+        console.log(birtdDayFull);
 
         const profesional = {
             "firstName": registration.firstName,
             "lastName": registration.lastName,
-            "date_of_birth": "1981-12-13",
+            "date_of_birth": birtdDayFull,
             "telephone": registration.telephone,
             "email": registration.email,
             "lag_talk": {
-                "en": registration.en,
-                "fr": registration.fr,
-                "es": registration.es,
-                "po": registration.po,
-                "ar": registration.ar
+                "en": registration.en ? 1 : 0,
+                "fr": registration.fr ? 1 : 0,
+                "es": registration.es ? 1 : 0,
+                "po": registration.po ? 1 : 0,
+                "ar": registration.ar ? 1 : 0
             },
-            "authorization": registration.authorization,
-            "criminal": registration.criminal,
-            "experience": registration.experience,
+            "authorization": registration.authorization ? 1 : 0,
+            "criminal": registration.criminal ? 1 : 0,
+            "experience": registration.experience ? 1 : 0,
             "reference": [{
                 "last_name": registration.referLastName1,
                 "first_name": registration.referFirstName1,
@@ -46,93 +50,50 @@ export const registrationAction = (registration) => async dispatch => {
                 "date_start": registration.referDepartureDate2
             }],
             "motivation": {
-                "work_regularly": registration.workRegurary,
-                "work_extra": registration.workExtra,
-                "extra_income": registration.extraIncome,
-                "visibility": registration.visibility,
-                "concept": registration.concept
+                "work_regularly": registration.workRegurary ? 1 : 0,
+                "work_extra": registration.workExtra ? 1 : 0,
+                "extra_income": registration.extraIncome ? 1 : 0,
+                "visibility": registration.visibility ? 1 : 0,
+                "concept": registration.concept ? 1 : 0
             },
-            "how_know_us": "1",
+            "how_know_us": registration.how_know_us,
             "smartphone_with_data": registration.smartphoneWithData,
             "health": registration.health,
             "health_description": registration.healthDescription
-        }        
-*/
-const profesional = {
-    "firstName": "zhiqiang",
-    "lastName": "yang",
-    "date_of_birth": "1981-12-21",
-    "telephone": "514-555-4577",
-    "email": "joniermh21@hotmail.com",
-    "lag_talk": {
-        "en": 1,
-        "fr": 1,
-        "es": 0,
-        "po": 0,
-        "ar": 0
-    },
-    "authorization": 1,
-    "criminal": 0,
-    "experience": 0,
-    "reference": [{
-        "last_name": "peng",
-        "first_name": "na",
-        "email": "pengnaa@gmail.com",
-        "telephone": "513-666-6666",
-        "company": "tiggidoo",
-        "postion": "translator",
-        "date_start": "2020-10-10"
-    }, {
-        "last_name": "nicola",
-        "first_name": "beri",
-        "email": "nicolwe@tiggidoo.com",
-        "telephone": "523-333-3333",
-        "company": "tiggidoo",
-        "postion": "ceo",
-        "date_start": "2018-9-9"
-    }],
-    "motivation": {
-        "work_regularly": 1,
-        "work_extra": 1,
-        "extra_income": 0,
-        "visibility": 0,
-        "concept": 0
-    },
-    "how_know_us": 1,
-    "smartphone_with_data": 1,
-    "health": 1,
-    "health_description": ""
-}        
-        //const fs = require('fs');
-//        const ma = new fs();
+        }
 
+        console.log(profesional);
+        const content = JSON.stringify(profesional);
+        //const content = `{"firstName":"Jonier","lastName":"Murillo","date_of_birth":"1981-07-07","telephone":"(438) 499-7081","email":"jonierm@gmail.com","lag_talk":{"en":1,"fr":0,"es":0,"po":0,"ar":0},"authorization":1,"criminal":1,"experience":1,"reference":[{"last_name":"Perez","first_name":"Carola","email":"carola@gmail.com","telephone":"4258793621","company":"NAPLICA","postion":"Enfermera","date_start":"2019-01-01"},{"last_name":"Guevara","first_name":"Carlos","email":"mirta@gmail.com","telephone":"3216363664","company":"NAPLICA","postion":"Medica","date_start":"2020-01-01"}],"motivation":{"work_regularly":1,"work_extra":0,"extra_income":0,"visibility":0,"concept":0},"how_know_us":"1","smartphone_with_data":"1","health":"0","health_description":""}`;
+        //Get the image
+        const archivos = registration.files;
+
+        //Put the image in the FormData
+        const f = new FormData();
+        for(let index = 0; index < archivos.length; index++){
+            f.append("avatar", archivos[index]);
+        }
+        f.append('content', content);
+        f.append('lag', 'En');
         
-        console.log(registration);
-        const form = new FormData();
-        form.append('avatar', registration.images);
-        form.append('content', profesional);
-        form.append('lag', 'en');
-        
-        await axios.post('https://www.api-tiggidoo.com/api/register/pro', form, {headers: {'Content-Type': 'multipart/form-data'}})
+        await axios.post('https://www.api-tiggidoo.com/api/register/pro', f, {headers: {'Content-Type': 'multipart/form-data'}})
         .then(res => {
-            console.log(res);
-            console.log(res.data);
-
             dispatch({
                 type: "REGISTRATION_SUCCESS",
-                payload: registration
+                payload: res.data
             })
         }).catch((error) => {
-            console.log(error);
             dispatch({
                 type: "REGISTRATION_FAIL",
+                payload: registration,
+                error,
             })
         });
 
     }catch (e) {
-        console.log(e);
         dispatch({
-            type: "REGISTRATION_FAIL1",
+            type: "REGISTRATION_FAIL",
+            payload: registration
         })
     }
 };

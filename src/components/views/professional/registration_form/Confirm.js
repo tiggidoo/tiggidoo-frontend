@@ -48,10 +48,6 @@ export default function Confirm(props) {
                     <Typography className={classes.textBlue} variant="h2">Wait & Clean</Typography>
                 </Box>           
 
-                <Box mb={4}>
-                    <Typography variant="h3">Merci</Typography>
-                </Box>           
-
                 <Box mb={8}>
                     <Typography className={classes.textItalic}  variant="h3">Merci L’équipe de recrutement de Tiggidoo</Typography>
                 </Box>           

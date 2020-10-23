@@ -36,10 +36,9 @@ export default function Input(props) {
                 autoComplete = "given-name"
                 variant = "outlined"
                 size = { size }
-                onChange = { onChange }
+                onBlur = { onChange }
                 defaultValue = { defaultValue }
                 className = { customizedClass }
-                
             />
         </div>
     );

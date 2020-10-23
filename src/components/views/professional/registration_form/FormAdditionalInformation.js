@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { Box, FormControlLabel, RadioGroup, Radio } from "@material-ui/core";
+import { Box, FormControlLabel, RadioGroup, Radio, Button } from "@material-ui/core";
 import ButtonBlue from '../../../share/buttons/ButtonBlue';
 import ButtonIcon from '../../../share/buttons/ButtonIcon';
 import Input from '../../../share/inputs/Input';
@@ -30,7 +30,6 @@ class FormAdditionalInformation extends Component {
         const { t } = this.props;
         const { classes } = this.props;
         const { values, handleChange, setImages } = this.props;
-        
         
         return (
             <React.Fragment>
@@ -83,9 +82,9 @@ class FormAdditionalInformation extends Component {
 
 
                     <Box display="flex" mt={5}>
-                        <Box>
-                            <input type="file" name="images" onChange={setImages}  />
-                            {/* <Button htmlFor="sampleFile" component="label" name="images" type="submit">{t("ProForm.FormAdditionalInformation.titleButton")}</Button>  */}
+                        <Box mr={5}>
+                            <input id="sampleFile" type="file" name="files" style={{ display: 'none' }}  multiple onChange={setImages}  />
+                            <Button htmlFor="sampleFile" component="label" name="images" type="submit">{t("ProForm.FormAdditionalInformation.titleButton")}</Button>
                         </Box>
                         <Box>
                             <Box mb={1}>

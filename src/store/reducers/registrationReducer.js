@@ -8,6 +8,7 @@ const DefaultState = {
 //El primer parametro de este reducer debe ser STATE
 //El segundo parametro debe ser la ACTION
 const registrationReducer = (state = DefaultState, action) => {
+    
     switch (action.type) {
         case "REGISTRATION_PROCESSING":
           return {
@@ -16,18 +17,14 @@ const registrationReducer = (state = DefaultState, action) => {
             errorMsg: ""
           };
         case "REGISTRATION_FAIL":
+          console.log(action.error.response.data.error);
           return {
             ...state,
             loading: false,
             errorMsg: "unable to upload the information"
           };
-          case "REGISTRATION_FAIL1":
-            return {
-              ...state,
-              loading: false,
-              errorMsg: "TRY_CATCH"
-            };
           case "REGISTRATION_SUCCESS":
+            console.log(action.payload);
           return {
             ...state,
             loading: false,

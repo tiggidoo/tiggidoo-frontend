@@ -78,11 +78,52 @@ class FormPersonalDetails extends Component {
         this.props.nextStep();
     }
 
+    buildOptions(startOrYear, endOrMonth, type) {
+
+        if(type === 'day'){
+            switch (endOrMonth) {
+                case '1':
+                case '3':
+                case '5':
+                case '7':
+                case '8':
+                case '10':
+                case '12':
+                    endOrMonth = 31;
+                    break;
+                case '4':
+                case '6':
+                case '9':
+                case '11':
+                    endOrMonth = 30;
+                    break;
+                default:
+                    if(startOrYear % 4 === 0){
+                        endOrMonth = 29;
+                    }else{
+                        endOrMonth = 28;
+                    }
+                        
+                    break;
+            }
+            startOrYear = 1;
+        }
+
+        var arr = [];
+
+        for (let i = startOrYear; i <= endOrMonth; i++) {
+            arr.push(<option key={i} value={i}>{i}</option>)
+        }
+
+        return arr; 
+    }
+
     render() {
         const { t } = this.props;
         const { classes } = this.props;
         const { values, handleChange } = this.props;
         const formErrors = values.formErrors;
+
         return (
 
             <React.Fragment>
@@ -132,9 +173,7 @@ class FormPersonalDetails extends Component {
                                         onChange={handleChange}
                                         input={<BootstrapInput />}
                                     >
-                                        <option value={1968}>1968</option>
-                                        <option value={1969}>1969</option>
-                                        <option value={1970}>1970</option>
+                                        { this.buildOptions(1930, 2020, 'year') }
                                     </NativeSelect>
                                 </Box>
 
@@ -150,13 +189,13 @@ class FormPersonalDetails extends Component {
                                         <option value={2}>February</option>
                                         <option value={3}>March</option>
                                         <option value={4}>April</option>
-                                        <option value={5}>Mars</option>
-                                        <option value={6}>Juin</option>
+                                        <option value={5}>May</option>
+                                        <option value={6}>June</option>
                                         <option value={7}>July</option>
-                                        <option value={8}>Auguest</option>
-                                        <option value={9}>Septembre</option>
+                                        <option value={8}>August</option>
+                                        <option value={9}>September</option>
                                         <option value={10}>October</option>
-                                        <option value={11}>Novembre</option>
+                                        <option value={11}>November</option>
                                         <option value={12}>December</option>
                                     </NativeSelect>
                                 </Box>
@@ -169,9 +208,14 @@ class FormPersonalDetails extends Component {
                                         onChange={handleChange}
                                         input={<BootstrapInput />}
                                     >
-                                        <option value={1}>1</option>
-                                        <option value={2}>2</option>
-                                        <option value={3}>3</option>
+{/* 
+                                        {((values.birthMonth.length > 0 && values.birthYear.length > 0 ) &&(
+                                            <option value=""></option>
+                                        )}
+ */}
+
+                                         { this.buildOptions(values.birthYear, values.birthMonth, 'day') } 
+
                                     </NativeSelect>
                                 </Box>
                             </Box>

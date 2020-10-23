@@ -207,25 +207,21 @@ class FormPersonalBackground extends Component {
                     <Box mt={5} mb={1}><Typography variant="h5">{t("ProForm.FormPersonalBackground.knowUsLabel")}</Typography></Box>
                     <Box mr={2}>
                         <NativeSelect
-                            id="birthMonth"
-                            name="birthMonth"
-                            //value={values.birthMonth}
-                            //onChange={handleChange}
+                            id="how_know_us"
+                            name="how_know_us"
+                            value={values.how_know_us}
+                            onChange={handleChange}
                             input={<BootstrapInput />}
                         >
-                            <option value={1}>January</option>
-                            <option value={2}>February</option>
-                            <option value={3}>March</option>
-                            <option value={4}>April</option>
-                            <option value={5}>Mars</option>
-                            <option value={6}>Juin</option>
-                            <option value={7}>July</option>
-                            <option value={8}>Auguest</option>
-                            <option value={9}>Septembre</option>
-                            <option value={10}>October</option>
-                            <option value={11}>Novembre</option>
-                            <option value={12}>December</option>
+                            <option value={0}></option>
+                            <option value={1}>Le Journal</option>
+                            <option value={2}>La Radio</option>
+                            <option value={3}>La télé</option>
+                            <option value={4}>Youtube</option>
                         </NativeSelect>
+                        {formErrors.step2.how_know_us.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.how_know_us}</span>
+                            )} 
                     </Box>
                 </Box>
 
