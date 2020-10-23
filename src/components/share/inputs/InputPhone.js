@@ -1,20 +1,40 @@
 import React from 'react';
 import TextField from "@material-ui/core/TextField";
+import PropTypes from 'prop-types';
+import MaskedInput from 'react-text-mask';
 import { makeStyles } from '@material-ui/core/styles';
 
-export default function Input(props) {
-    //console.log(props.error);
-    const useStyles = makeStyles((theme) => ({
+const TextMaskCustom = (props) => {
+    const { inputRef, ...other } = props;
+  
+    return (
+      <MaskedInput
+        {...other}
+        ref={(ref) => {
+          inputRef(ref ? ref.inputElement : null);
+        }}
+        mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+        placeholderChar={'\u2000'}
+        showMask
+      />
+    );
+}
 
+TextMaskCustom.propTypes = {
+    inputRef: PropTypes.func.isRequired,
+};
+  
+
+export default function InputPhone(props) {
+
+    const useStyles = makeStyles((theme) => ({
         inputWidth: {
-            maxWidth: '517px',
-            width: '100%',
-            paddingRight: '15px'
+            maxWidth: '200px',
+            width: '100%'
         },
         errors: {
-            maxWidth: '517px',
+            maxWidth: '200px',
             width: '100%',
-            paddingRight: '15px',
             '& .MuiOutlinedInput-root': {
                 '& fieldset': {
                   borderColor: 'red',
@@ -23,8 +43,8 @@ export default function Input(props) {
         }
     }));
 
-
     const classes = useStyles();
+
     const { id, label, size, onChange, defaultValue, error } = props;
     const customizedClass = error.length === 0 ? classes.inputWidth : classes.errors;
     return (
@@ -39,8 +59,11 @@ export default function Input(props) {
                 onChange = { onChange }
                 defaultValue = { defaultValue }
                 className = { customizedClass }
-                
+                InputProps={{
+                    inputComponent:TextMaskCustom
+                }}
             />
+            
         </div>
     );
 }

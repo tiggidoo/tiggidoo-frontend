@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { Box, FormControlLabel, Button, RadioGroup, Radio } from "@material-ui/core";
+import { Box, FormControlLabel, RadioGroup, Radio } from "@material-ui/core";
 import ButtonBlue from '../../../share/buttons/ButtonBlue';
 import ButtonIcon from '../../../share/buttons/ButtonIcon';
 import Input from '../../../share/inputs/Input';
@@ -15,20 +15,23 @@ import { compose } from "redux";
 
 class FormAdditionalInformation extends Component {
 
-    continue = (e) => {
-        e.preventDefault();
-        this.props.nextStep();
-    }
 
     back = (e) => {
         e.preventDefault();
         this.props.prevStep();
     }
 
+    valRegistration = (e) => {
+        e.preventDefault();
+        this.props.addRegistration();
+        this.props.nextStep();
+    }
     render() {
         const { t } = this.props;
         const { classes } = this.props;
-        const { values, handleChange } = this.props;
+        const { values, handleChange, setImages } = this.props;
+        
+        
         return (
             <React.Fragment>
                 <Box mb={5}>
@@ -47,7 +50,7 @@ class FormAdditionalInformation extends Component {
                         <FormControlLabel labelPlacement = "end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormAdditionalInformation.groupCheckBox_1.checkBoxLabel2")} />
                     </RadioGroup>
 
-                    <Box mt={3}>
+                    <Box mt={3} mb={4}>
                         <p>{t("ProForm.FormAdditionalInformation.paragraph")}</p>
                     </Box>
                 </Box>
@@ -62,7 +65,7 @@ class FormAdditionalInformation extends Component {
                             <FormControlLabel labelPlacement = "end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormAdditionalInformation.groupCheckBox_2.checkBoxLabel2")} />
                         </RadioGroup>
 
-                        <Input name="healthDescription" label={t("ProForm.FormAdditionalInformation.sicksLabel")} size="small" onChange={handleChange} defaultValue={values.healthDescription}/>
+                        <Input error="" id="healthDescription" label={t("ProForm.FormAdditionalInformation.sicksLabel")} size="small" onChange={handleChange} defaultValue={values.healthDescription}/>
                     </Box>
 
                     <Box mt={1}>
@@ -78,9 +81,21 @@ class FormAdditionalInformation extends Component {
 
 
 
-                    <input type="file" id="sampleFile" hidden />
-                    <Button htmlFor="sampleFile" component="label" type="submit">{t("ProForm.FormAdditionalInformation.titleButton")}</Button> 
 
+                    <Box display="flex" mt={5}>
+                        <Box>
+                            <input type="file" name="images" onChange={setImages}  />
+                            {/* <Button htmlFor="sampleFile" component="label" name="images" type="submit">{t("ProForm.FormAdditionalInformation.titleButton")}</Button>  */}
+                        </Box>
+                        <Box>
+                            <Box mb={1}>
+                                <Typography variant="h5">Pour Exemple</Typography>
+                            </Box>
+                            <Box>
+                                <img src="images/img_seccion1.png" alt=""/>
+                            </Box>
+                        </Box>
+                    </Box>
                         
                 </Box>
 
@@ -89,7 +104,7 @@ class FormAdditionalInformation extends Component {
                         <ButtonIcon onClick={this.back} label="BACK" />
                     </Box>
                     <Box>
-                        <ButtonBlue onClick={this.continue} label="CONTINUE" />
+                        <ButtonBlue onClick={this.valRegistration} label="VALIDER L'INSCRIPTION" />
                     </Box>
                 </Box>
             </React.Fragment>

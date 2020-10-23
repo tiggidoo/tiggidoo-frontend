@@ -24,7 +24,8 @@ const theme = createMuiTheme({
       margin: 0,
     },
     h5: {
-      fontSize: "2.1rem",
+      fontSize: "2rem",
+      color: "#4D4D4D",
       fontFamily: "sans-serif",
       fontWeight: 'bold',
       margin: 0,

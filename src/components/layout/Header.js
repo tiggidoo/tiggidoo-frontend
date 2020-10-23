@@ -4,13 +4,16 @@ import { useTranslation } from "react-i18next";
 
 import "../../css/components/layout/navbar.scss";
 
+
+
 export default function Header() {
+
   const { t, i18n } = useTranslation();
   function changeLanguage(lang) {
     //When the user click on the button to change the language, this function is reached and the language is changed.
     i18n.changeLanguage(lang);
   }
-
+  
   return (
     <Navbar bg="light" expand="xl" className="NavBar">
       <Container>

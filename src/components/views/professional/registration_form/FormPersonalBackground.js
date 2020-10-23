@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 //import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
+//import TextField from "@material-ui/core/TextField";
 import { Box, Checkbox, FormControlLabel, NativeSelect, RadioGroup, Radio } from "@material-ui/core";
 import InputBase from '@material-ui/core/InputBase';
 import ButtonBlue from '../../../share/buttons/ButtonBlue';
 import ButtonIcon from '../../../share/buttons/ButtonIcon';
 import { withStyles } from "@material-ui/core/styles";
+import Input from '../../../share/inputs/Input';
 
 //import { makeStyles } from '@material-ui/core/styles';
 import { withTranslation } from "react-i18next";
@@ -29,6 +30,7 @@ class FormPersonalBackground extends Component {
         const { t } = this.props;
         const { classes } = this.props;
         const { values, handleChange } = this.props;
+        const formErrors = values.formErrors;
         return (
             <React.Fragment>
                 <Box mb={5}>
@@ -36,7 +38,7 @@ class FormPersonalBackground extends Component {
                 </Box>
 
                 <Box mb={6}>
-                    <Box mb={1}>{t("ProForm.FormPersonalBackground.groupCheckBox_1.title")}</Box>
+                    <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalBackground.groupCheckBox_1.title")}</Typography></Box>
 
                     <RadioGroup row aria-label="gender" name="experience" value={values.experience} onChange={handleChange}>
                         <FormControlLabel labelPlacement = "end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel1")} />
@@ -48,195 +50,161 @@ class FormPersonalBackground extends Component {
                     <Typography variant="h3">{t("ProForm.FormPersonalBackground.referencesTitle")}</Typography>
                     <Typography variant="h4">{t("ProForm.FormPersonalBackground.referencesSubTitle")}</Typography>
 
-                    <Box mt={2} mb={1}>{t("ProForm.FormPersonalBackground.firstContactTitle")}</Box>
-                    <Box>
-                        <TextField
-                            id="referFirstName1"
-                            name="referFirstName1"
-                            placeholder={t("ProForm.FormPersonalBackground.firstNameLabel")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referFirstName1}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referLastName1"
-                            name="referLastName1"
-                            placeholder={t("ProForm.FormPersonalBackground.lastNamelabel")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referLastName1}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referEmail1"
-                            name="referEmail1"
-                            placeholder={t("ProForm.FormPersonalBackground.email")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referEmail1}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referTelephone1"
-                            name="referTelephone1"
-                            placeholder={t("ProForm.FormPersonalBackground.cellPhone")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referTelephone1}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referCompany1"
-                            name="referCompany1"
-                            placeholder={t("ProForm.FormPersonalBackground.company")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referCompany1}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referPosition1"
-                            name="referPosition1"
-                            placeholder={t("ProForm.FormPersonalBackground.jobName")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referPosition1}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referDepartureDate1"
-                            name="referDepartureDate1"
-                            placeholder={t("ProForm.FormPersonalBackground.finishDate")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referDepartureDate1}
-                            className={classes.inputWidth}
-                        />
+                    <Box mt={2} mb={1}><Typography variant="h5">{t("ProForm.FormPersonalBackground.firstContactTitle")}</Typography></Box>
+                    <Box  className={classes.reference}>
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referFirstName1.length === 0 ? "" : formErrors.step2.referFirstName1}  
+                                id="referFirstName1" label={t("ProForm.FormPersonalBackground.firstNameLabel")} size="small" onChange={handleChange} defaultValue={values.referFirstName1} />
+
+                            {formErrors.step2.referFirstName1.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referFirstName1}</span>
+                            )} 
+                        </Box>   
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referLastName1.length === 0 ? "" : formErrors.step2.referLastName1}  
+                                id="referLastName1" label={t("ProForm.FormPersonalBackground.lastNamelabel")} size="small" onChange={handleChange} defaultValue={values.referLastName1} />
+
+                            {formErrors.step2.referLastName1.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referLastName1}</span>
+                            )}
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referEmail1.length === 0 ? "" : formErrors.step2.referEmail1}  
+                                id="referEmail1" label={t("ProForm.FormPersonalBackground.email")} size="small" onChange={handleChange} defaultValue={values.referEmail1} />
+
+                            {formErrors.step2.referEmail1.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referEmail1}</span>
+                            )}                        
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referTelephone1.length === 0 ? "" : formErrors.step2.referTelephone1}  
+                                id="referTelephone1" label={t("ProForm.FormPersonalBackground.cellPhone")} size="small" onChange={handleChange} defaultValue={values.referTelephone1} />
+
+                            {formErrors.step2.referTelephone1.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referTelephone1}</span>
+                            )}                        
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referCompany1.length === 0 ? "" : formErrors.step2.referCompany1}  
+                                id="referCompany1" label={t("ProForm.FormPersonalBackground.company")} size="small" onChange={handleChange} defaultValue={values.referCompany1} />
+                            {formErrors.step2.referCompany1.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referCompany1}</span>
+                            )}                        
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referPosition1.length === 0 ? "" : formErrors.step2.referPosition1}  
+                                id="referPosition1" label={t("ProForm.FormPersonalBackground.jobName")} size="small" onChange={handleChange} defaultValue={values.referPosition1} />
+                            {formErrors.step2.referPosition1.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referPosition1}</span>
+                            )}                        
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referDepartureDate1.length === 0 ? "" : formErrors.step2.referDepartureDate1}  
+                                id="referDepartureDate1" label={t("ProForm.FormPersonalBackground.finishDate")} size="small" onChange={handleChange} defaultValue={values.referDepartureDate1} />
+                            {formErrors.step2.referDepartureDate1.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referDepartureDate1}</span>
+                            )}                        
+                        </Box>                        
                     </Box>
 
-                    <Box mb={1}>{t("ProForm.FormPersonalBackground.secondContactTitle")}</Box>
-                    <Box mb={7}>
-                        <TextField
-                            id="referFirstName2"
-                            name="referFirstName2"
-                            placeholder={t("ProForm.FormPersonalBackground.firstNameLabel")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referFirstName2}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referLastName2"
-                            name="referLastName2"
-                            placeholder={t("ProForm.FormPersonalBackground.lastNamelabel")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referLastName2}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referEmail2"
-                            name="referEmail2"
-                            placeholder={t("ProForm.FormPersonalBackground.email")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referEmail2}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referTelephone2"
-                            name="referTelephone2"
-                            placeholder={t("ProForm.FormPersonalBackground.cellPhone")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referTelephone2}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referCompany2"
-                            name="referCompany2"
-                            placeholder={t("ProForm.FormPersonalBackground.company")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referCompany2}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referPosition2"
-                            name="referPosition2"
-                            placeholder={t("ProForm.FormPersonalBackground.jobName")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referPosition2}
-                            className={classes.inputWidth}
-                        />
-                        <TextField
-                            id="referDepartureDate2"
-                            name="referDepartureDate2"
-                            placeholder={t("ProForm.FormPersonalBackground.finishDate")}
-                            autoComplete="given-name"
-                            variant="outlined"
-                            size="small"
-                            onChange={handleChange}
-                            defaultValue={values.referDepartureDate2}
-                            className={classes.inputWidth}
-                        />
+                    <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalBackground.secondContactTitle")}</Typography></Box>
+                    <Box  className={classes.reference}>
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referFirstName2.length === 0 ? "" : formErrors.step2.referFirstName2}  
+                                id="referFirstName2" label={t("ProForm.FormPersonalBackground.firstNameLabel")} size="small" onChange={handleChange} defaultValue={values.referFirstName2} />
+                            
+                            {formErrors.step2.referFirstName2.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referFirstName2}</span>
+                            )}                        
+                        </Box>
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referLastName2.length === 0 ? "" : formErrors.step2.referLastName2}  
+                                id="referLastName2" label={t("ProForm.FormPersonalBackground.lastNamelabel")} size="small" onChange={handleChange} defaultValue={values.referLastName2} />
+                            {formErrors.step2.referLastName2.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referLastName2}</span>
+                            )}                        
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referEmail2.length === 0 ? "" : formErrors.step2.referEmail2}  
+                                id="referEmail2" label={t("ProForm.FormPersonalBackground.email")} size="small" onChange={handleChange} defaultValue={values.referEmail2} />
+                            
+                            {formErrors.step2.referEmail2.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referEmail2}</span>
+                            )}                        
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referTelephone2.length === 0 ? "" : formErrors.step2.referTelephone2}  
+                                id="referTelephone2" label={t("ProForm.FormPersonalBackground.cellPhone")} size="small" onChange={handleChange} defaultValue={values.referTelephone2} />
+                            {formErrors.step2.referTelephone2.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referTelephone2}</span>
+                            )}                        
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referCompany2.length === 0 ? "" : formErrors.step2.referCompany2}  
+                                id="referCompany2" label={t("ProForm.FormPersonalBackground.company")} size="small" onChange={handleChange} defaultValue={values.referCompany2} />
+                            {formErrors.step2.referCompany2.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referCompany2}</span>
+                            )}                        
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referPosition2.length === 0 ? "" : formErrors.step2.referPosition2}  
+                                id="referPosition2" label={t("ProForm.FormPersonalBackground.jobName")} size="small" onChange={handleChange} defaultValue={values.referPosition2} />
+                            {formErrors.step2.referPosition2.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referPosition2}</span>
+                            )}                        
+                        </Box>                        
+                        <Box className={classes.boxReferences}>
+                            <Input  
+                                error={formErrors.step2.referDepartureDate2.length === 0 ? "" : formErrors.step2.referDepartureDate2}  
+                                id="referDepartureDate2" label={t("ProForm.FormPersonalBackground.finishDate")} size="small" onChange={handleChange} defaultValue={values.referDepartureDate2} />
+                            {formErrors.step2.referDepartureDate2.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.referDepartureDate2}</span>
+                            )}                        
+                        </Box>
                     </Box>
 
                     <Box>
-                        <Box mb={6}>{t("ProForm.FormPersonalBackground.groupCheckBox_2.title")}</Box>
+                        <Box my={6}><Typography variant="h5">{t("ProForm.FormPersonalBackground.groupCheckBox_2.title")}</Typography></Box>
                         <FormControlLabel 
-                            control={ <Checkbox onChange={handleChange} name="workRegurary" color="primary" checked={ values.workRegurary } /> }
+                            control={ <Checkbox onClick={handleChange} name="workRegurary" color="primary" checked={ values.workRegurary } /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel1")}
                         />
                         <FormControlLabel 
-                            control={ <Checkbox onChange={handleChange} name="workExtra" color="primary" checked={ values.workExtra }  /> }
+                            control={ <Checkbox onClick={handleChange} name="workExtra" color="primary" checked={ values.workExtra }  /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel2")}
                         />
 
                         <FormControlLabel 
-                            control={ <Checkbox onChange={handleChange} name="extraIncome" color="primary" checked={ values.extraIncome }  /> }
+                            control={ <Checkbox onClick={handleChange} name="extraIncome" color="primary" checked={ values.extraIncome }  /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel3")}
                         />
                         <FormControlLabel 
-                            control={ <Checkbox onChange={handleChange} name="visibility" color="primary" checked={ values.visibility }  /> }
+                            control={ <Checkbox onClick={handleChange} name="visibility" color="primary" checked={ values.visibility }  /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel4")}
                         />
                         <FormControlLabel 
-                            control={ <Checkbox onChange={handleChange} name="concept" color="primary" checked={ values.concept }  /> }
+                            control={ <Checkbox onClick={handleChange} name="concept" color="primary" checked={ values.concept }  /> }
                             label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel5")}
                         />
+                        {formErrors.step2.integrationPlatform.length > 0 && (
+                                    <span className={classes.errorMessage}>{formErrors.step2.integrationPlatform}</span>
+                            )} 
                     </Box>
 
-                    <Box mt={5} mb={1}>{t("ProForm.FormPersonalBackground.knowUsLabel")}</Box>
-
+                    <Box mt={5} mb={1}><Typography variant="h5">{t("ProForm.FormPersonalBackground.knowUsLabel")}</Typography></Box>
                     <Box mr={2}>
                         <NativeSelect
                             id="birthMonth"
@@ -313,6 +281,7 @@ const BootstrapInput = withStyles((theme) => ({
 }))(InputBase);
 
 const styles = (theme) => ({
+
     groupLabelInput: {
         height: "75px",
         marginBottom: '56px',
@@ -321,13 +290,28 @@ const styles = (theme) => ({
         maxWidth: '160px',
         width: '100%',
         marginRight: '23px',
-        marginBottom: '24px'
+        marginBottom: '0px'
     },
     groupButtons: {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         textAlign: 'center',
+    },
+    errorMessage: {
+        color: '#dc3545',
+        paddingTop: '5px',
+        fontSize: '14px'
+    },
+    boxReferences: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexFlow: 'row',
+        maxWidth: '200px',
+        width: '100%'
+    },
+    reference: {
+        display: 'flex'
     }
 });
 
