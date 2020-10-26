@@ -14,6 +14,11 @@ export default function Header() {
     i18n.changeLanguage(lang);
   }
   
+  const lang = i18n.language;
+  let langLabel = "En";
+  if(lang === 'en'){
+    langLabel = "Fr";
+  }
   return (
     <Navbar bg="light" expand="xl" className="NavBar">
       <Container>
@@ -41,32 +46,14 @@ export default function Header() {
           </Button>
 
           <Nav className="NavBar__language">
-            <Nav.Link
-              href="#home"
-              className="NavBar__language__item"
-              onClick={() => changeLanguage("en")}
-            >
-              En
-            </Nav.Link>
-            <Nav.Link
-              href="#link"
-              className="NavBar__language__item"
-              onClick={() => changeLanguage("fr")}
-            >
-              Fr
-            </Nav.Link>
+              <Nav.Link
+                href="#home"
+                className="NavBar__language__item"
+                onClick={() => changeLanguage(langLabel.toLowerCase())}
+              >
+                {langLabel}
+              </Nav.Link>
           </Nav>
-
-          {/* 
-          <ButtonGroup className="NavBar__groupBtns">
-            <Button variant="Link" onClick={() => changeLanguage("en")}>
-              EN
-            </Button>
-            <Button variant="Link" onClick={() => changeLanguage("fr")}>
-              FR
-            </Button>
-          </ButtonGroup>
- */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

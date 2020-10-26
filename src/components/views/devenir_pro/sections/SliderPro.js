@@ -125,10 +125,8 @@ function SliderPro({ t }) {
     <div className="DPBecomePro">
       <Container>
         <h2 className="DPBecomePro__title mb-0 pb-0 mb-xl-5 pb-xl-5">
-          Devenez un professionnel du ménage avec Tiggidoo
+          {t("BecomeProfesional.section_4.title")}
         </h2>
-        {/* <h1>Proposez vos services comme aide de ménage avec Tiggidoo</h1> */}
-
         <div className="DPBecomePro__carousel pt-5">
           <Carousel
             responsive={responsive}
@@ -144,6 +142,8 @@ function SliderPro({ t }) {
                   lastName={dato.lastName}
                   evaluation={dato.evaluation}
                   prestation={dato.presentation}
+                  evaluationLabel={t(("BecomeProfesional.section_4.evaluaton"))}
+                  serviceLabel={t(("BecomeProfesional.section_4.service"))}
                   urlImg={dato.urlImg}
                 />
               );

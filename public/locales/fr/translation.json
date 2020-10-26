@@ -29,9 +29,77 @@
     "section_1": {
       "title": "Tiggidoo connecte les professionnels du ménage résidentiel et leurs futurs clients",
       "paragraph_1": "Sans frais, sans engagement et sans complication, la plateforme Tiggidoo vous permet de recevoir des offres d’emploi et de les gérer comme bon vous semble.",
-      "paragraph_2": "Profitez en plus d’outils de gestion intégrés à votre compte pro conçus spécialement pour vous faciliter la tâche.",
+      "paragraph_2": "Profitez en plus d’outils de gestion intégrés à votre compte pro conçus spécialement pour vous faciliter la tâche. ",
       "paragraph_3": "Tiggidoo est la solution idéale pour tous les travailleurs autonomes en entretien ménager qui souhaitent augmenter leurs revenus.",
-      "button": "DEVENEZ UN TODOO"
+      "button": "Devenez un Todoo"
+    },
+    "section_2": {
+      "title": "Une plateforme qui améliore votre organisation au quotidien",
+      "li1":"Inscription gratuite sans engagement",
+      "li2":"Création simple et facile de votre compte pro",
+      "li3":"Gestion de votre calendrier et horaire",
+      "li4":"Facturation automatisée et centralisée",
+      "li5":"Soutien technique de l’équipe Tiggidoo",
+      "button": "Je m’inscris"
+    },
+    "section_3":{
+      "title": "Comment ça fonctionne?",
+      "description": "C’est vous le patron! Vous décidez où et quand vous travaillez. Bingo! Votre profil est sélectionné par votre futur client :",
+      "step_1": "Soyez immédiatement prévenu par courriel lorsqu’une nouvelle offre est arrivée sur votre compte pro",
+      "step_2": "Visualisez l’offre client que vous êtes libre d’accepter ou de refuser",
+      "step_3": "Effectuez un ménage de qualité, obtenez un avis positif sur votre profil",
+      "step_4": "Obtenez vos honoraires rapidement et de façon sécurisée. "
+    },
+    "section_4": {
+      "title": "Proposez vos services comme aide de ménage avec Tiggidoo",
+      "evaluaton": "Éval moyenne",
+      "service": "Prestation(s)"
+    },
+    "section_5": {
+      "title": "En 3 étapes simples",
+      "step_1": {
+        "title":"Répondez à quelques questions",
+        "description": "Complétez le formulaire d’inscription en ligne. Simple et rapide, il permet à l’équipe Tiggidoo de faire une pré-sélection des futurs Todoo. "
+      },
+      "step_2": {
+        "title":"Participez à une entrevue à distance",
+        "description": "À ce stade ci, une entrevue par vidéoconférence de quelques minutes nous permet de bien préciser les attentes d’un côté comme de l’autre. Nous validons aussi toutes vos informations et répondons à vos questions. "
+      },
+      "step_3": {
+        "title":"Rejoignez enfin la gang des Todoo",
+        "description": "Votre profil est mis en ligne aussitôt que votre inscription est complète. Vous recevez désormais chaque notification par courriel dès qu’une offre de prestation correspond à vos critères de sélection."
+      }
+    },
+    "section_6": {
+      "title": "Prêt à augmenter votre revenu?",
+      "description": "Débutez dès maintenant le processus de recrutement. Vous obtiendrez une réponse en moins de 48h.",
+      "button": "Devenez un Todoo"
+    },
+    "section_7": {
+      "title": "Les 4 critères essentiels pour intégrer la plateforme Tiggidoo",
+      "paragraph_1": "La plateforme Tiggidoo est un intermédiaire entre des personnes à la recherche d’un service de ménage de qualité et des travailleurs autonomes experts en entretien ménager. Le lien de confiance, le respect et l’engagement envers la qualité sont les valeurs fondamentales de notre entreprise. C’est pourquoi vous devez répondre à quelques critères pour devenir un Todoo et recevoir des demandes de prestation via notre plateforme. ",
+      "button": "Devenez un Todoo",
+      "step_1": {
+        "title":"Une identité vérifiée",
+        "description": "Pour des raisons de sécurité évidentes, nous procédons à la vérification de l’identité de tous les travailleurs autonomes qui s’inscrivent sur la plateforme Tiggidoo."
+      },
+      "step_2": {
+        "title":"Un compte bancaire valide",
+        "description": "Vous devez posséder un compte bancaire à votre nom pour le versement de vos honoraires suite à la réalisation de vos prestations d’entretien ménager."
+      },
+      "step_3": {
+        "title":"Un accès à Internet",
+        "description": "D’un ordinateur ou d’un cellulaire, une connexion internet est primordiale pour le bon déroulement de vos activités sur la plateforme Tiggidoo."
+      },
+      "step_4": {
+        "title":"Le respect de notre charte de qualité",
+        "description": "Afin d’offrir un service impeccable à chaque client, vous devez vous engager à respecter nos conditions générales, les termes de chaque prestation et notre charte de qualité."
+      }
+    },
+    "section_8": {
+      "title": "Un service 100% humain",
+      "description": "Vous avez besoin de quelques informations supplémentaires? N’hésitez surtout pas à nous poser vos questions, un humain vous répond avec rapidité et bonne humeur.",
+      "button": "Contactez-nous"
     }
   },
   "ProForm": {

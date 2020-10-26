@@ -12,12 +12,16 @@ function MyQuestions({ t }){
             <Container>
                 <Row>
                     <Col lg={5}>
-                        <h2 className="DPMyQuestions__title mb-5">Un service 100% humain</h2>
+                        <h2 className="DPMyQuestions__title mb-5">
+                            {t("BecomeProfesional.section_8.title")}
+                        </h2>
                     </Col>
                     <Col lg="7">
-                        <p className="DPMyQuestions__descripton  mb-5 pb-1">Vous avez besoin de quelques informations supplémentaires? N’hésitez surtout pas à nous poser vos questions, un humain vous répond avec rapidité et bonne humeur.</p>
+                        <p className="DPMyQuestions__descripton  mb-5 pb-1">
+                            {t("BecomeProfesional.section_8.description")}
+                        </p>
                         <div  className="DPMyQuestions__button">
-                            <Button variant="outline-secondary" size="lg">Contactez-nous</Button>
+                            <Button variant="outline-secondary" size="lg">{t("BecomeProfesional.section_8.button")}</Button>
                         </div>
                     </Col>
                 </Row>

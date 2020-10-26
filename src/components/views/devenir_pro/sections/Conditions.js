@@ -17,16 +17,10 @@ function Conditions({ t }) {
       <Container>
         <div className="DPConditions__title mb-5 pb-5 m-xl-5 p-xl-5 pt-xl-0 mt-xl-0">
           <h2 className="mb-5 pb-5">
-            Les 4 critères essentiels pour intégrer la plateforme Tiggidoo
+            { t("BecomeProfesional.section_7.title") }
           </h2>
           <p className="DPConditions__desTitle pt-2 mb-xl-3 pb-xl-3">
-            La plateforme Tiggidoo est un intermédiaire entre des personnes à la
-            recherche d’un service de ménage de qualité et des travailleurs
-            autonomes experts en entretien ménager. Le lien de confiance, le
-            respect et l’engagement envers la qualité sont les valeurs
-            fondamentales de notre entreprise. C’est pourquoi vous devez
-            répondre à quelques critères pour devenir un Todoo et recevoir des
-            demandes de prestation via notre plateforme.
+            { t("BecomeProfesional.section_7.paragraph_1") }
           </p>
         </div>
         <Row>
@@ -40,13 +34,11 @@ function Conditions({ t }) {
                 />
               </div>
               <div className="DPConditions__boxTitle">
-                <h3>Une identité vérifiée</h3>
+                <h3>{ t("BecomeProfesional.section_7.step_1.title") }</h3>
               </div>
               <div className="DPConditions__boxDescription">
                 <p>
-                  Pour des raisons de sécurité évidentes, nous procédons à la
-                  vérification de l’identité de tous les travailleurs autonomes
-                  qui s’inscrivent sur la plateforme Tiggidoo.
+                  { t("BecomeProfesional.section_7.step_1.description") }
                 </p>
               </div>
             </div>
@@ -61,13 +53,11 @@ function Conditions({ t }) {
                 />
               </div>
               <div className="DPConditions__boxTitle">
-                <h3>Un compte bancaire valide</h3>
+                <h3>{ t("BecomeProfesional.section_7.step_2.title") }</h3>
               </div>
               <div className="DPConditions__boxDescription">
                 <p>
-                  Vous devez posséder un compte bancaire à votre nom pour le
-                  versement de vos honoraires suite à la réalisation de vos
-                  prestations d’entretien ménager.
+                  { t("BecomeProfesional.section_7.step_2.description") }
                 </p>
               </div>
             </div>
@@ -83,13 +73,11 @@ function Conditions({ t }) {
                 />
               </div>
               <div className="DPConditions__boxTitle">
-                <h3>Un accès à Internet</h3>
+                <h3>{ t("BecomeProfesional.section_7.step_3.title") }</h3>
               </div>
               <div className="DPConditions__boxDescription">
                 <p>
-                  D’un ordinateur ou d’un cellulaire, une connexion internet est
-                  primordiale pour le bon déroulement de vos activités sur la
-                  plateforme Tiggidoo.
+                  { t("BecomeProfesional.section_7.step_3.description") }
                 </p>
               </div>
             </div>
@@ -105,13 +93,11 @@ function Conditions({ t }) {
                 />
               </div>
               <div className="DPConditions__boxTitle">
-                <h3>Le respect de notre charte de qualité</h3>
+                <h3>{ t("BecomeProfesional.section_7.step_4.title") }</h3>
               </div>
               <div className="DPConditions__boxDescription">
                 <p>
-                  Afin d’offrir un service impeccable à chaque client, vous
-                  devez vous engager à respecter nos conditions générales, les
-                  termes de chaque prestation et notre charte de qualité.
+                  { t("BecomeProfesional.section_7.step_4.description") }
                 </p>
               </div>
             </div>
@@ -119,7 +105,7 @@ function Conditions({ t }) {
         </Row>
         <div className="DPConditions__button">
           <Button variant="outline-secondary" size="lg">
-            DEVENIR PRO
+            { t("BecomeProfesional.section_7.button") }
           </Button>
         </div>
       </Container>

@@ -15,11 +15,11 @@ function SubmitMyApplication({ t }){
     return(
         <section className="DPApplication">
             <Container>
-                <h2 className="DPApplication__title mb-3 pb-3">Prêt à augmenter votre revenu?</h2>
-                <p className="DPApplication__description mb-0 pb-0">Débutez dès maintenant le processus de recrutement.</p>
-                <p className="DPApplication__description mb-5 pb-3">Vous obtiendrez une réponse en moins de 48h.</p>
+                <h2 className="DPApplication__title mb-3 pb-3">{ t("BecomeProfesional.section_6.title") }</h2>
+                {/* <p className="DPApplication__description mb-0 pb-0">{ t("BecomeProfesional.section_6.description") }</p> */}
+                <p className="DPApplication__description mb-5 pb-3">{ t("BecomeProfesional.section_6.description") }</p>
                 <div className="DPApplication__button">
-                    <Button variant="outline-secondary" size="lg">COMMENCER</Button>            
+                    <Button variant="outline-secondary" size="lg">{ t("BecomeProfesional.section_6.button") }</Button>            
                 </div>
             </Container>
         </section>

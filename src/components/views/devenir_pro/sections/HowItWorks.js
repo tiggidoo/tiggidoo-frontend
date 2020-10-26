@@ -16,10 +16,11 @@ function HowItWorks({ t }) {
     <section className="DPWork">
       <Container>
         <div className="DPWork__textarea mb-5 pb-4 mb-xl-5 pb-xl-5">
-          <h2 className="DPWork__title mb-4">Comment ça fonctionne?</h2>
+          <h2 className="DPWork__title mb-4">
+            {t("BecomeProfesional.section_3.title")}
+          </h2>
           <p className="DPWork__text">
-            C’est vous le patron! Vous décidez où et quand vous travaillez.
-            Bingo! Votre profil est sélectionné par votre futur client :
+            {t("BecomeProfesional.section_3.description")}
           </p>
         </div>
         <Row className="pt-0 pt-xl-5">
@@ -27,8 +28,7 @@ function HowItWorks({ t }) {
             <div className="DPWork__steps">
               <div className="DPWork__steps__circle">1</div>
               <p className="DPWork__steps__text mb-5 pb-4 m-xl-0 p-xl-0">
-                Soyez immédiatement prévenu par courriel lorsqu’une nouvelle
-                offre est arrivée sur votre compte pro
+                {t("BecomeProfesional.section_3.step_1")}
               </p>
             </div>
           </Col>
@@ -36,8 +36,7 @@ function HowItWorks({ t }) {
             <div className="DPWork__steps">
               <div className="DPWork__steps__circle">2</div>
               <p className="DPWork__steps__text mb-5 pb-4 m-xl-0 p-xl-0">
-                Visualisez l’offre client que vous êtes libre d’accepter ou de
-                refuser
+                {t("BecomeProfesional.section_3.step_2")}
               </p>
             </div>
           </Col>
@@ -45,8 +44,7 @@ function HowItWorks({ t }) {
             <div className="DPWork__steps">
               <div className="DPWork__steps__circle">3</div>
               <p className="DPWork__steps__text mb-5 pb-4 m-xl-0 p-xl-0">
-                Effectuez un ménage de qualité, obtenez un avis positif sur
-                votre profil
+                {t("BecomeProfesional.section_3.step_3")}
               </p>
             </div>
           </Col>
@@ -54,7 +52,7 @@ function HowItWorks({ t }) {
             <div className="DPWork__steps">
               <div className="DPWork__steps__circle">4</div>
               <p className="DPWork__steps__text">
-                Obtenez vos honoraires rapidement et de façon sécurisée.
+                {t("BecomeProfesional.section_3.step_4")}
               </p>
             </div>
           </Col>

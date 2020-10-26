@@ -23,19 +23,20 @@ function Platform({ t }){
                         </div>
                     </Col>          
                     <Col md={6} lg={true}>
-                        <h2 className="DPPlatform__title mb-5 pb-4 pt-xl-5 mt-xl-4 ml-xl-5 pl-xl-5">Une plateforme qui améliore votre organisation au quotidien</h2>
+                        <h2 className="DPPlatform__title mb-5 pb-4 pt-xl-5 mt-xl-4 ml-xl-5 pl-xl-5">
+                            {t("BecomeProfesional.section_2.title")}
+                        </h2>
 
                         <ul className="DPPlatform__text DPPlatform__text--change mt-2 pt-xl-5 mt-xl-4 ml-xl-5 pl-xl-5">
-                            <li><img src={check} alt="" /><p>Inscription gratuite sans engagement</p></li>
-                            <li><img src={check} alt="" /><p>Création simple et facile de votre compte prot</p></li>
-                            <li><img src={check} alt="" /><p>Gestion de votre calendrier et horairet</p></li>
-                            <li><img src={check} alt="" /><p>Facturation automatisée et centraliséet</p></li>
-                            <li><img src={check} alt="" /><p>Soutien technique de l’équipe Tiggidoot</p></li>
+                            <li><img src={check} alt="" /><p>{t("BecomeProfesional.section_2.li1")}</p></li>
+                            <li><img src={check} alt="" /><p>{t("BecomeProfesional.section_2.li2")}</p></li>
+                            <li><img src={check} alt="" /><p>{t("BecomeProfesional.section_2.li3")}</p></li>
+                            <li><img src={check} alt="" /><p>{t("BecomeProfesional.section_2.li4")}</p></li>
+                            <li><img src={check} alt="" /><p>{t("BecomeProfesional.section_2.li5")}</p></li>
                         </ul>
                         <div className="DPPlatform__button mt-5 pt-2">
-                            <Button variant="outline-secondary" size="lg">Devenez un Todoo</Button>
+                            <Button variant="outline-secondary" size="lg">{t("BecomeProfesional.section_2.button")}</Button>
                         </div>
-                        {/* <Button variant="outline-secondary" size="lg">Je m’inscris</Button> */}
                     </Col>          
                 </Row>
             </Container>
