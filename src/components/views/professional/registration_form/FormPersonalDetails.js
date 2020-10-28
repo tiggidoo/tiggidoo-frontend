@@ -30,7 +30,29 @@ const styles = (theme) => ({
     },
     groupLabelInput: {
         marginBottom: '56px',
-        paddingRight: '30px'
+        paddingRight: '30px',
+        '@media (max-width:768px)': { 
+            paddingRight: '20px',
+            marginBottom: '56px',
+        },
+        '@media (max-width:600px)': { 
+            paddingRight: '0'
+        }
+    },
+    groupLabelCheck: {
+        marginBottom: '56px',
+        paddingRight: '30px',
+        '@media (max-width:1600px)': { 
+            marginBottom: '5px'
+        },
+        '@media (max-width:1200px)': { 
+            marginBottom: '15px',
+            paddingRight: '10px'
+        },
+        '@media (max-width:768px)': { 
+            //maxWidth: '100%',
+            marginBottom: '56px',
+        }
     },
     groupLabelSelect: {
         maxWidth: '517px',
@@ -47,7 +69,12 @@ const styles = (theme) => ({
         flexWrap: "wrap"
     },
     classCheckBox: {
-        width: "140px"
+        width: "140px",
+        '@media (max-width:1200px)': { 
+            '& span':{
+                fontSize: '16px'
+            }
+        }
     },
     sectionImg: {
         display: 'flex',
@@ -55,13 +82,41 @@ const styles = (theme) => ({
         '& > img': {
             maxWidth: '303px',
             width: '100%',
-            marginTop: '-140px'
+            marginTop: '-140px',
+            '@media (max-width:1600px)':{
+                marginTop: '-50px',
+            },
+            '@media (max-width:768px)':{
+                display: 'none'
+            },
         }
     },
     noBold: {
         fontWeight: 'normal',
         fontSize: '20px',
         margin: '0px'
+    },
+    buttonBlue: {
+        display:"flex", 
+        justifyContent:"flex-end",
+        '@media (max-width:768px)':{
+            justifyContent:"center"
+        }
+    },
+    NativeSelect:{
+        display: 'flex',
+        justifyContent: 'space-between',
+        '& .MuiInputBase-root':{
+            boxShadow: '-1px 4px 6px 3px #80808047',
+            borderRadius: '4px'
+        },
+        '& .Mui-focused': {
+            //backgroundColor: '#2880fb'
+        },
+        '& svg.MuiNativeSelect-icon': {
+            color: theme.palette.primary.main,
+        }
+
     }
 });
 
@@ -164,7 +219,7 @@ class FormPersonalDetails extends Component {
                 </Box>
 
                 <Grid container >
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} sm={5} md={6}>
                         <Box className={classes.groupLabelInput}>
                             <Box mb={1}>
                                 <Typography variant="h5">{t("ProForm.FormPersonalDetails.firstNameLabel")}</Typography>
@@ -191,7 +246,7 @@ class FormPersonalDetails extends Component {
 
                         <Box className={classes.groupLabelSelect}>
                             <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.birthDayLabel")}</Typography></Box>
-                            <Box display="flex" justifyContent="space-between">
+                            <Box className={classes.NativeSelect}>
                                 <Box mr={2}>
 
                                     <NativeSelect
@@ -266,8 +321,8 @@ class FormPersonalDetails extends Component {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
-                        <Box className={classes.groupLabelInput}>
+                    <Grid item xs={12} sm={7} md={6}>
+                        <Box className={classes.groupLabelCheck}>
                             <Box>
                                 <Box><Typography variant="h5">{t("ProForm.FormPersonalDetails.groupCheckBox_1.title")}</Typography></Box>
                                 <Box className={classes.groupCheckBoxes}>
@@ -310,7 +365,7 @@ class FormPersonalDetails extends Component {
 
                         </Box>
 
-                        <Box className={classes.groupLabelInput}>
+                        <Box className={classes.groupLabelCheck}>
                             <Box><Typography variant="h5">{t("ProForm.FormPersonalDetails.groupCheckBox_2.title")}</Typography></Box>
 
                             <RadioGroup row aria-label="gender" name="authorization" value={values.authorization} onChange={handleChange}>
@@ -320,7 +375,7 @@ class FormPersonalDetails extends Component {
 
                         </Box>
 
-                        <Box className={classes.groupLabelInput}>
+                        <Box className={classes.groupLabelCheck}>
                             <Box><Typography variant="h5">{t("ProForm.FormPersonalDetails.groupCheckBox_3.title")}</Typography></Box>
                             <Box>{t("ProForm.FormPersonalDetails.groupCheckBox_3.desctiption")}</Box>
 
@@ -336,7 +391,7 @@ class FormPersonalDetails extends Component {
                     </Grid>
                 </Grid>
 
-                <Box display="flex" justifyContent="flex-end">
+                <Box className={classes.buttonBlue}>
                     <ButtonBlue onClick={this.continue} label="CONTINUE" />
                 </Box>
 

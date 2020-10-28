@@ -15,11 +15,9 @@ export default function Input(props) {
             marginRight: '15px',
             //boxShadow: '-1px 3px 6px 2px #80808047',
             boxShadow: '-1px 4px 6px 3px #80808047',
-            borderRadius: '0',
+            borderRadius: '4px',
             '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderRadius: '0'
-                }
+                borderRadius: '4px'
               },
         },
         errors: {
@@ -30,7 +28,7 @@ export default function Input(props) {
             '& .MuiOutlinedInput-root': {
                 '& fieldset': {
                   borderColor: 'red',
-                  borderRadius: '0'
+                  borderRadius: '4px'
                 }
               },
         }

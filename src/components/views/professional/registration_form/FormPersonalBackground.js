@@ -194,37 +194,45 @@ class FormPersonalBackground extends Component {
 
                     <Box>
                         <Box my={6}><Typography variant="h5">{t("ProForm.FormPersonalBackground.groupCheckBox_2.title")}</Typography></Box>
-                        <FormControlLabel
-                            control={<Checkbox onClick={handleChange} name="workRegurary" color="primary" checked={values.workRegurary} className={classes.root} />}
-                            label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel1")}
-                        />
-                        <FormControlLabel
-                            control={<Checkbox onClick={handleChange} name="workExtra" color="primary" checked={values.workExtra} className={classes.root} />}
-                            label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel2")}
-                        />
-
-                        <FormControlLabel
-                            control={<Checkbox onClick={handleChange} name="extraIncome" color="primary" checked={values.extraIncome} className={classes.root} />}
-                            label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel3")}
-                        />
-                        <FormControlLabel
-                            control={<Checkbox onClick={handleChange} name="visibility" color="primary" checked={values.visibility} className={classes.root} />}
-                            label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel4")}
-                        />
-                        <FormControlLabel
-                            control={<Checkbox onClick={handleChange} name="concept" color="primary" checked={values.concept} />}
-                            label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel5")}
-                        />
-
+                        <Box className={classes.groupCheckBoxes}>
+                            <Box className={classes.classCheckBox}>
+                                <FormControlLabel
+                                    control={<Checkbox onClick={handleChange} name="workRegurary" color="primary" checked={values.workRegurary} className={classes.root} />}
+                                    label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel1")}
+                                />
+                            </Box>
+                            <Box className={classes.classCheckBox}>
+                                <FormControlLabel
+                                    control={<Checkbox onClick={handleChange} name="workExtra" color="primary" checked={values.workExtra} className={classes.root} />}
+                                    label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel2")}
+                                />
+                            </Box>
+                            <Box className={classes.classCheckBox}>
+                                <FormControlLabel
+                                    control={<Checkbox onClick={handleChange} name="extraIncome" color="primary" checked={values.extraIncome} className={classes.root} />}
+                                    label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel3")}
+                                />
+                            </Box>
+                            <Box className={classes.classCheckBox}>
+                                <FormControlLabel
+                                    control={<Checkbox onClick={handleChange} name="visibility" color="primary" checked={values.visibility} className={classes.root} />}
+                                    label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel4")}
+                                />
+                            </Box>
+                            <Box className={classes.classCheckBox}>
+                                <FormControlLabel
+                                    control={<Checkbox onClick={handleChange} name="concept" color="primary" checked={values.concept} className={classes.root} />}
+                                    label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel5")}
+                                />
+                            </Box>
+                        </Box>
                         {(formErrors.step2.integrationPlatform.length > 0 && values.validate === 1) && (
                             <span className={classes.errorMessage}>{formErrors.step2.integrationPlatform}</span>
                         )}
-
-
                     </Box>
 
                     <Box mt={5} mb={1}><Typography variant="h5">{t("ProForm.FormPersonalBackground.knowUsLabel")}</Typography></Box>
-                    <Box mr={2}>
+                    <Box mr={2} className={classes.howToKnowUs}>
                         <NativeSelect
                             id="how_know_us"
                             name="how_know_us"
@@ -291,7 +299,7 @@ const BootstrapInput = withStyles((theme) => ({
         '&:focus': {
             borderRadius: 4,
             borderColor: '#80bdff',
-            boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+            boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)'
         },
     },
 }))(InputBase);
@@ -339,6 +347,9 @@ const styles = (theme) => ({
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         textAlign: 'center',
+        '@media (max-width:768px)': { 
+            justifyContent: 'center',
+        }
     },
     errorMessage: {
         color: '#dc3545',
@@ -347,16 +358,60 @@ const styles = (theme) => ({
     },
     boxReferences: {
         display: 'flex',
-        flexWrap: 'wrap',
-        flexFlow: 'row',
-        maxWidth: '200px',
-        width: '100%'
+        flexFlow: 'column',
+        justifyContent: "space-between",
+        maxWidth: '190px',
+        width: '100%',
+        marginRight: '15px',
+        marginBottom: '15px',
+        '@media (max-width:768px)': { 
+            maxWidth: '768px',
+            width: '100%',
+            marginRight: '0',
+            marginBottom: '30px',
+            '& .MuiFormControl-root':{
+                maxWidth: '768px'
+            }
+        }
     },
     reference: {
-        display: 'flex'
+        display: 'flex',
+        flexWrap: 'wrap'
     },
     customizedText: {
         fontSize: '17px'
+    },
+    groupCheckBoxes: {
+        display: "flex",
+        flexWrap: "wrap"
+    },
+    classCheckBox: {
+        width: "291px",
+        '& > .MuiFormControlLabel-root':{
+            marginLeft: '0',
+            marginRight: '0'
+        },
+        '@media (max-width:1200px)': { 
+            '& span':{
+                fontSize: '16px'
+            }
+        }
+    },
+    howToKnowUs: {
+        width: '270px',
+        display: 'flex',
+        flexDirection: 'column',
+        '& .MuiInputBase-root':{
+            boxShadow: '-1px 4px 6px 3px #80808047',
+            borderRadius: '4px'
+        },
+        '& .Mui-focused': {
+            //backgroundColor: '#2880fb'
+        },
+        '& svg.MuiNativeSelect-icon': {
+            color: theme.palette.primary.main,
+        }
+
     }
 });
 

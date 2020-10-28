@@ -2,7 +2,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette:{
-    primary:{
+      primary:{
       main: '#2880fb'
     }
   },
@@ -12,21 +12,42 @@ const theme = createMuiTheme({
     h1: {
       fontSize: "4.5rem",
       fontFamily: "Righteous",
+      '@media (max-width:1600px)': { 
+        fontSize: "3.4rem",
+      },
+      '@media (max-width:1200px)': { 
+        fontSize: "2.5rem",
+      }
     },
     h2: {
       fontSize: "3.5rem",
       fontFamily: "Righteous",
       margin: 0,
+      '@media (max-width:1600px)': { 
+        fontSize: "3rem",
+      },
+      '@media (max-width:1200px)': { 
+        fontSize: "2rem",
+      }
     },
     h3: {
       fontSize: "3rem",
       fontFamily: "sans-serif",
       margin: 0,
+      '@media (max-width:1600px)': { 
+        fontSize: "2.5rem",
+      },
+      '@media (max-width:1200px)': { 
+        fontSize: "2.1rem",
+      }
     },
     h4: {
       fontSize: "2.5rem",
       fontFamily: "sans-serif",
       margin: 0,
+      '@media (max-width:1600px)': { 
+        fontSize: "1.8rem",
+      }
     },
     h5: {
       fontSize: "2rem",
@@ -34,12 +55,24 @@ const theme = createMuiTheme({
       fontFamily: "sans-serif",
       fontWeight: 'bold',
       margin: 0,
+      '@media (max-width:768px)': { 
+        fontSize: "1.6rem",
+      }
     },
     h6: {
       fontSize: '1.5rem',
+      '@media (max-width:768px)': { 
+        fontSize: "1rem",
+      }
     },
     p: {
-      fontSize: '8rem',
+      fontSize: '2.4rem',
+      '@media (max-width:1600px)': { 
+        fontSize: "2rem",
+        },
+      '@media (max-width:1200px)': { 
+        fontSize: "1.6rem",
+      }
     },
   }
 });

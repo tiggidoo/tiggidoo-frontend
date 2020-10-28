@@ -32,10 +32,10 @@ export default function InputPhone(props) {
       maxWidth: '517px',
       width: '100%',
       boxShadow: '-1px 4px 6px 3px #80808047',
-      borderRadius: '0',
+      borderRadius: '4px',
       '& .MuiOutlinedInput-root': {
         '& fieldset': {
-          borderRadius: '0'
+          borderRadius: '4px'
         }
       },
     },
@@ -43,11 +43,11 @@ export default function InputPhone(props) {
       maxWidth: '517px',
       width: '100%',
       boxShadow: '-1px 4px 6px 3px #80808047',
-      borderRadius: '0',
+      borderRadius: '4px',
       '& .MuiOutlinedInput-root': {
         '& fieldset': {
           borderColor: 'red',
-          borderRadius: '0'
+          borderRadius: '4px'
         }
       },
     }

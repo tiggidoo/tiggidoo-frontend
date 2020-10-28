@@ -6,6 +6,7 @@ import FormPersonalBackground from './FormPersonalBackground';
 import FormAdditionalInformation from './FormAdditionalInformation';
 import Confirm from './Confirm';
 //import Success from './Success';
+import axios from 'axios';
 
 //REDUX FUNCTIONS
 import { compose } from "redux"; /* bindActionCreators */
@@ -79,11 +80,12 @@ class ProForm extends Component {
             extraIncome: false,
             visibility: false,
             concept: false,
-            how_know_us: '0',
+            how_know_us: '',
             smartphoneWithData: '0',
             health: '0',
             healthDescription: '',
             files: [],
+            preview:'',
             numberSpokenLanguages: 0,
             numberIntegrationPlatform: 0,
             validate: 0,
@@ -118,6 +120,21 @@ class ProForm extends Component {
             }
         }
 
+        console.log(this.howKnowUsAPI());
+
+
+    }
+
+    howKnowUsAPI() {
+        axios.get(`https://www.api-tiggidoo.com/api/howknowus/fr`)
+          .then(res => {
+            //const howYouKnowUs = res.data;
+            //console.log(howYouKnowUs);
+            return res.data;
+            //this.setState({ 
+            //    how_know_us: res.data
+            //});
+        })
     }
 
     //Go to next step 
@@ -335,6 +352,7 @@ class ProForm extends Component {
         const formErrors = this.state.formErrors.step3;
         this.setState({
             [e.target.name]: e.target.files,
+            preview: URL.createObjectURL(e.target.files[0]),
         })
         formErrors.files = "";
     }
@@ -348,7 +366,7 @@ class ProForm extends Component {
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health,
-            healthDescription, files, validate, formErrors, formErrorsNoValidaton
+            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton
         } = this.state;
 
         const values = {
@@ -358,7 +376,7 @@ class ProForm extends Component {
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health,
-            healthDescription, files, validate, formErrors, formErrorsNoValidaton
+            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton
         };
 
         switch (step) {
@@ -381,8 +399,6 @@ class ProForm extends Component {
                     />
                 );
             case 3:
-
-
                 return (
                     <FormAdditionalInformation
                         addRegistration={this.addRegistration}

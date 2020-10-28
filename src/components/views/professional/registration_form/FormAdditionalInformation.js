@@ -5,6 +5,7 @@ import { Box, FormControlLabel, RadioGroup, Radio, Button } from "@material-ui/c
 import ButtonBlue from '../../../share/buttons/ButtonBlue';
 import ButtonIcon from '../../../share/buttons/ButtonIcon';
 import Input from '../../../share/inputs/Input';
+import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
 
 import { withStyles } from "@material-ui/core/styles";
 
@@ -83,9 +84,29 @@ class FormAdditionalInformation extends Component {
 
                     <Box display="flex" mt={5}>
                         <Box mr={5}>
-                            <input id="sampleFile" type="file" name="files" style={{ display: 'none' }}  multiple onChange={setImages}  />
-                            <Button htmlFor="sampleFile" component="label" name="images" type="submit">{t("ProForm.FormAdditionalInformation.titleButton")}</Button>
+                            {/* <Button htmlFor="sampleFile" component="label" name="images" type="submit">{t("ProForm.FormAdditionalInformation.titleButton")}</Button> */}
+                            <Button htmlFor="sampleFile" component="label" variant="contained" type="submit">{t("ProForm.FormAdditionalInformation.titleButton")}</Button>
+                            <input id="sampleFile" type="file" name="files" style={{display:'none'}} multiple onChange={setImages}  />
+                            <Box mt={2}>Formats de fichier: png, jpg, jpeg</Box>
+
                         </Box>
+
+                        <Box mr={6}>
+                            <Box mb={1}>
+                                <Typography variant="h5">My Photo</Typography>
+                            </Box>
+                            <label htmlFor="upload-button">
+                                {values.preview ? (
+                                    <img src={values.preview} alt="dummy" width="113" height="127" />
+                                ) : (
+                                    <Box className={classes.myPhoto}>
+                                        <InsertPhotoIcon />
+                                    </Box>
+                                )}
+                            </label>
+                        </Box>
+
+
                         <Box>
                             <Box mb={1}>
                                 <Typography variant="h5">Pour Exemple</Typography>
@@ -127,6 +148,19 @@ const styles = (theme) => ({
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         textAlign: 'center',
+        '@media (max-width:768px)': { 
+            justifyContent: 'center',
+        }
+    },
+    myPhoto:{
+        width:"113px", 
+        height:"127px",
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        '& .MuiSvgIcon-root': {
+            fontSize: '10rem'
+        }
     }
 });
 
