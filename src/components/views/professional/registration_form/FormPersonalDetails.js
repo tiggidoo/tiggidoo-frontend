@@ -18,24 +18,53 @@ import { compose } from "redux";
 //import { FileX } from 'react-bootstrap-icons';
 
 const styles = (theme) => ({
+    root: {
+        border: '1px',
+        color: '#2880fb',
+        '& svg': {
+            fontSize: '3.3rem'
+        },
+        '& .MuiCheckbox-colorPrimary.Mui-checked': {
+            color: "#fff"
+        }
+    },
     groupLabelInput: {
         marginBottom: '56px',
+        paddingRight: '30px'
+    },
+    groupLabelSelect: {
+        maxWidth: '517px',
+        width: '100%',
+        marginBottom: '56px',
+        paddingRight: '30px'
     },
     errorMessage: {
         color: '#dc3545',
         paddingTop: '5px'
     },
+    groupCheckBoxes: {
+        display: "flex",
+        flexWrap: "wrap"
+    },
+    classCheckBox: {
+        width: "140px"
+    },
     sectionImg: {
         display: 'flex',
         justifyContent: 'flex-end',
-        '& > img':{
+        '& > img': {
             maxWidth: '303px',
             width: '100%',
             marginTop: '-140px'
         }
+    },
+    noBold: {
+        fontWeight: 'normal',
+        fontSize: '20px',
+        margin: '0px'
     }
 });
-  
+
 const BootstrapInput = withStyles((theme) => ({
     root: {
         'label + &': {
@@ -80,7 +109,7 @@ class FormPersonalDetails extends Component {
 
     buildOptions(startOrYear, endOrMonth, type) {
 
-        if(type === 'day'){
+        if (type === 'day') {
             switch (endOrMonth) {
                 case '1':
                 case '3':
@@ -98,12 +127,12 @@ class FormPersonalDetails extends Component {
                     endOrMonth = 30;
                     break;
                 default:
-                    if(startOrYear % 4 === 0){
+                    if (startOrYear % 4 === 0) {
                         endOrMonth = 29;
-                    }else{
+                    } else {
                         endOrMonth = 28;
                     }
-                        
+
                     break;
             }
             startOrYear = 1;
@@ -115,7 +144,7 @@ class FormPersonalDetails extends Component {
             arr.push(<option key={i} value={i}>{i}</option>)
         }
 
-        return arr; 
+        return arr;
     }
 
     render() {
@@ -123,7 +152,6 @@ class FormPersonalDetails extends Component {
         const { classes } = this.props;
         const { values, handleChange } = this.props;
         const formErrors = values.formErrors;
-
         return (
 
             <React.Fragment>
@@ -131,8 +159,8 @@ class FormPersonalDetails extends Component {
                     <Typography variant="h1">{t("ProForm.FormPersonalDetails.title")}</Typography>
                 </Box>
                 <Box mb={8}>
-                    <Typography variant="h4">{t("ProForm.FormPersonalDetails.description1")}</Typography>
-                    <Typography variant="h4">{t("ProForm.FormPersonalDetails.description2")}</Typography>
+                    <p className={classes.noBold}>{t("ProForm.FormPersonalDetails.description1")}</p>
+                    <p className={classes.noBold}>{t("ProForm.FormPersonalDetails.description2")}</p>
                 </Box>
 
                 <Grid container >
@@ -141,29 +169,29 @@ class FormPersonalDetails extends Component {
                             <Box mb={1}>
                                 <Typography variant="h5">{t("ProForm.FormPersonalDetails.firstNameLabel")}</Typography>
                             </Box>
-                            <Input 
-                                error={formErrors.step1.firstName.length === 0 ? "" : formErrors.step1.firstName} 
+                            <Input
+                                error={(formErrors.step1.firstName.length > 0 && values.validate === 1) ? formErrors.step1.firstName : ""}
                                 id="firstName" label={t("ProForm.FormPersonalDetails.firstNameLabel")} size="small" onChange={handleChange} defaultValue={values.firstName} />
-                            
-                            {formErrors.step1.firstName.length > 0 && (
+
+                            {(formErrors.step1.firstName.length > 0 && values.validate === 1) && (
                                 <span className={classes.errorMessage}>{formErrors.step1.firstName}</span>
                             )}
-                            
+
                         </Box>
 
                         <Box className={classes.groupLabelInput}>
                             <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.lastNameLabel")}</Typography></Box>
-                            <Input  
-                                error={formErrors.step1.lastName.length === 0 ? "" : formErrors.step1.lastName}  
+                            <Input
+                                error={(formErrors.step1.lastName.length > 0 && values.validate === 1) ? formErrors.step1.lastName : ""}
                                 id="lastName" label={t("ProForm.FormPersonalDetails.lastNameInput")} size="small" onChange={handleChange} defaultValue={values.lastName} />
-                                {formErrors.step1.lastName.length > 0 && (
-                                    <span className={classes.errorMessage}>{formErrors.step1.lastName}</span>
-                                )}
+                            {(formErrors.step1.lastName.length > 0 && values.validate === 1) && (
+                                <span className={classes.errorMessage}>{formErrors.step1.lastName}</span>
+                            )}
                         </Box>
 
-                        <Box className={classes.groupLabelInput}>
+                        <Box className={classes.groupLabelSelect}>
                             <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.birthDayLabel")}</Typography></Box>
-                            <Box display="flex">
+                            <Box display="flex" justifyContent="space-between">
                                 <Box mr={2}>
 
                                     <NativeSelect
@@ -173,7 +201,7 @@ class FormPersonalDetails extends Component {
                                         onChange={handleChange}
                                         input={<BootstrapInput />}
                                     >
-                                        { this.buildOptions(1930, 2020, 'year') }
+                                        {this.buildOptions(1930, 2020, 'year')}
                                     </NativeSelect>
                                 </Box>
 
@@ -208,13 +236,7 @@ class FormPersonalDetails extends Component {
                                         onChange={handleChange}
                                         input={<BootstrapInput />}
                                     >
-{/* 
-                                        {((values.birthMonth.length > 0 && values.birthYear.length > 0 ) &&(
-                                            <option value=""></option>
-                                        )}
- */}
-
-                                         { this.buildOptions(values.birthYear, values.birthMonth, 'day') } 
+                                        {this.buildOptions(values.birthYear, values.birthMonth, 'day')}
 
                                     </NativeSelect>
                                 </Box>
@@ -223,20 +245,24 @@ class FormPersonalDetails extends Component {
 
                         <Box className={classes.groupLabelInput}>
                             <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.cellPhoneLabel")}</Typography></Box>
-                            <InputPhone 
-                                error={formErrors.step1.telephone.length === 0 ? "" : formErrors.step1.telephone}  
+                            <InputPhone
+                                error={(formErrors.step1.telephone.length > 0 && values.validate === 1) ? formErrors.step1.telephone : ""}
                                 id="telephone" label={t("ProForm.FormPersonalDetails.cellPhoneLabel")} size="small" onChange={handleChange} defaultValue={values.telephone} />
-                                {formErrors.step1.telephone.length > 0 && (
-                                    <span className={classes.errorMessage}>{formErrors.step1.telephone}</span>
-                                )}
+
+                            {(formErrors.step1.telephone.length > 0 && values.validate === 1) && (
+                                <span className={classes.errorMessage}>{formErrors.step1.telephone}</span>
+                            )}
                         </Box>
 
                         <Box className={classes.groupLabelInput}>
-                        <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.emaillLabel")}</Typography></Box>
-                            <Input error={formErrors.step1.email} id="email" label={t("ProForm.FormPersonalDetails.emaillLabel")} size="small" onChange={handleChange} defaultValue={values.email} />
-                            {formErrors.step1.email.length > 0 && (
+                            <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.emaillLabel")}</Typography></Box>
+                            <Input error={(formErrors.step1.email.length > 0 && values.validate === 1) ? formErrors.step1.email : ""}
+                                id="email" label={t("ProForm.FormPersonalDetails.emaillLabel")} size="small" onChange={handleChange} defaultValue={values.email} />
+
+                            {(formErrors.step1.email.length > 0 && values.validate === 1) && (
                                 <span className={classes.errorMessage}>{formErrors.step1.email}</span>
                             )}
+
                         </Box>
                     </Grid>
 
@@ -244,42 +270,52 @@ class FormPersonalDetails extends Component {
                         <Box className={classes.groupLabelInput}>
                             <Box>
                                 <Box><Typography variant="h5">{t("ProForm.FormPersonalDetails.groupCheckBox_1.title")}</Typography></Box>
-                                <FormControlLabel
-                                    control={<Checkbox onClick={handleChange} name="fr" color="primary" checked={ values.fr } />}
-                                    label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel1")}
-                                />
-
-                                <FormControlLabel
-                                    control={<Checkbox onClick={handleChange} name="en" color="primary" checked={ values.en } />}
-                                    label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel2")}
-                                />
-
-                                <FormControlLabel
-                                    control={<Checkbox onClick={handleChange} name="es" color="primary"  checked={ values.es } />}
-                                    label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel3")}
-                                />
-
-                                <FormControlLabel
-                                    control={<Checkbox onClick={handleChange} name="po" color="primary" checked={ values.po } />}
-                                    label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel4")}
-                                />
-
-                                <FormControlLabel
-                                    control={<Checkbox onClick={handleChange} name="ar" color="primary" checked={ values.ar } />}
-                                    label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel5")}
-                                />
+                                <Box className={classes.groupCheckBoxes}>
+                                    <Box className={classes.classCheckBox}>
+                                        <FormControlLabel
+                                            control={<Checkbox onClick={handleChange} name="fr" color="primary" checked={values.fr} className={classes.root} />}
+                                            label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel1")}
+                                        />
+                                    </Box>
+                                    <Box className={classes.classCheckBox}>
+                                        <FormControlLabel
+                                            control={<Checkbox onClick={handleChange} name="en" color="primary" checked={values.en} className={classes.root} />}
+                                            label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel2")}
+                                        />
+                                    </Box>
+                                    <Box className={classes.classCheckBox}>
+                                        <FormControlLabel
+                                            control={<Checkbox onClick={handleChange} name="es" color="primary" checked={values.es} className={classes.root} />}
+                                            label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel3")}
+                                        />
+                                    </Box>
+                                    <Box className={classes.classCheckBox}>
+                                        <FormControlLabel
+                                            control={<Checkbox onClick={handleChange} name="ar" color="primary" checked={values.ar} className={classes.root} />}
+                                            label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel5")}
+                                        />
+                                    </Box>
+                                    <Box className={classes.classCheckBox}>
+                                        <FormControlLabel
+                                            control={<Checkbox onClick={handleChange} name="po" color="primary" checked={values.po} className={classes.root} />}
+                                            label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel4")}
+                                        />
+                                    </Box>
+                                </Box>
                             </Box>
-                            {formErrors.step1.spokenLanguages.length > 0 && (
-                                    <span className={classes.errorMessage}>{formErrors.step1.spokenLanguages}</span>
+                            {(formErrors.step1.spokenLanguages.length > 0 && values.validate === 1) && (
+                                <span className={classes.errorMessage}>{formErrors.step1.spokenLanguages}</span>
                             )}
+
+
                         </Box>
 
                         <Box className={classes.groupLabelInput}>
                             <Box><Typography variant="h5">{t("ProForm.FormPersonalDetails.groupCheckBox_2.title")}</Typography></Box>
-                            
+
                             <RadioGroup row aria-label="gender" name="authorization" value={values.authorization} onChange={handleChange}>
-                                <FormControlLabel labelPlacement = "end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel1")} />
-                                <FormControlLabel labelPlacement = "end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel2")} />
+                                <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel1")} />
+                                <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel2")} />
                             </RadioGroup>
 
                         </Box>
@@ -289,13 +325,13 @@ class FormPersonalDetails extends Component {
                             <Box>{t("ProForm.FormPersonalDetails.groupCheckBox_3.desctiption")}</Box>
 
                             <RadioGroup row aria-label="gender" name="criminal" value={values.criminal} onChange={handleChange}>
-                                <FormControlLabel labelPlacement = "end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel1")} />
-                                <FormControlLabel labelPlacement = "end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel2")} />
+                                <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel1")} />
+                                <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalDetails.groupCheckBox_2.checkBoxLabel2")} />
                             </RadioGroup>
 
                         </Box>
                         <Box className={classes.sectionImg}>
-                            <img src="images/prepose-menage.svg" alt=""/>
+                            <img src="images/prepose-menage.svg" alt="" />
                         </Box>
                     </Grid>
                 </Grid>
@@ -312,4 +348,4 @@ class FormPersonalDetails extends Component {
 export default compose(
     withStyles(styles),
     withTranslation()
-  )(FormPersonalDetails);
+)(FormPersonalDetails);

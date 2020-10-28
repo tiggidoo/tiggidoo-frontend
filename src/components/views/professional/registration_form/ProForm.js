@@ -24,24 +24,25 @@ const formValid = formErrors => {
 
 const emailRegex = RegExp(
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-  );
+);
 
 const formValid = (formErrors) => {
-    
+
     let valid = true;
     Object.values(formErrors).forEach(val => {
-        if(val.length > 0){
-            valid=false;
+        if (val.length > 0) {
+            valid = false;
         }
     });
+
     return valid;
 };
 
 class ProForm extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        
+
         this.state = {
             step: 1,
             firstName: '',
@@ -52,7 +53,7 @@ class ProForm extends Component {
             telephone: '',
             email: '',
             en: false,
-            fr:false,
+            fr: false,
             es: false,
             po: false,
             ar: false,
@@ -65,7 +66,7 @@ class ProForm extends Component {
             referTelephone1: '',
             referCompany1: '',
             referPosition1: '',
-            referDepartureDate1: '',
+            referDepartureDate1: '2020-07-21',
             referFirstName2: '',
             referLastName2: '',
             referEmail2: '',
@@ -73,18 +74,19 @@ class ProForm extends Component {
             referCompany2: '',
             referPosition2: '',
             referDepartureDate2: '',
-            workRegurary:false,
-            workExtra:false,
-            extraIncome:false,
-            visibility:false,
-            concept:false,
-            how_know_us:'0',
+            workRegurary: false,
+            workExtra: false,
+            extraIncome: false,
+            visibility: false,
+            concept: false,
+            how_know_us: '0',
             smartphoneWithData: '0',
             health: '0',
-            healthDescription:'',
-            files:[],
+            healthDescription: '',
+            files: [],
             numberSpokenLanguages: 0,
-            numberIntegrationPlatform:0,
+            numberIntegrationPlatform: 0,
+            validate: 0,
             formErrors: {
                 step1: {
                     firstName: 'First Name is required',
@@ -101,22 +103,21 @@ class ProForm extends Component {
                     referCompany1: 'The Company is required',
                     referPosition1: 'The Position is required',
                     referDepartureDate1: 'The Final Date is required',
-                    referFirstName2: 'The First Name is required',
-                    referLastName2: 'The Last Name is required',
-                    referEmail2: 'The Emial is required',
-                    referTelephone2: 'The Telephone is required',
-                    referCompany2: 'The Company is required',
-                    referPosition2: 'The Position is required',
-                    referDepartureDate2: 'The Final Date is required',
                     integrationPlatform: 'Choose at least one option',
                     how_know_us: 'Choose one'
                 },
                 step3: {
                     files: "An Image is required."
                 }
+            },
+            formErrorsNoValidaton: {
+                step2: {
+                    referEmail2: '',
+                    referTelephone2: ''
+                }
             }
         }
-    
+
     }
 
     //Go to next step 
@@ -124,7 +125,7 @@ class ProForm extends Component {
         const { step } = this.state;
         let formErrors = {};
 
-        switch (step){
+        switch (step) {
             case 1:
                 formErrors = this.state.formErrors.step1;
                 break;
@@ -134,14 +135,20 @@ class ProForm extends Component {
             case 3:
                 formErrors = this.state.formErrors.step3;
                 break;
-            default: 
+            default:
                 break;
         }
 
-        if(formValid(formErrors)){
+        if (formValid(formErrors)) {
             this.setState({
-                step: step + 1
+                step: step + 1,
+                validate: 0
+
             });
+        } else {
+            this.setState({
+                validate: 1
+            })
         }
     }
 
@@ -155,34 +162,28 @@ class ProForm extends Component {
 
     addRegistration = e => {
         this.props.registrationAction(this.state);
-        /*
-        this.props.dispatch(
-            { 
-                type: 'CREATE_REGISTER_PRO', 
-                payload:  this.state
-            }
-        );
-        */
     }
 
 
     handleChange = (e) => {
-        
+
         const formErrors = this.state.formErrors;
+        const formErrorsNoValidaton = this.state.formErrorsNoValidaton;
         switch (e.target.type) {
 
+            case "date":
             case "text":
             case "select-one":
             case "radio":
-        
+
                 e.preventDefault();
                 this.setState({
                     [e.target.name]: e.target.value,
                 });
-                            
+
                 let value = e.target.value;
 
-                switch (e.target.name){
+                switch (e.target.name) {
                     case 'firstName':
                         formErrors.step1.firstName = value.length === 0 ? "The First Name is required" : "";
                         break;
@@ -190,18 +191,18 @@ class ProForm extends Component {
                         formErrors.step1.lastName = value.length === 0 ? "The Last Name is required" : "";
                         break;
                     case 'email':
-                        formErrors.step1.email = 
+                        formErrors.step1.email =
                             emailRegex.test(value)
                                 ? ""
                                 : "Invalid email address.";
                         break;
                     case 'telephone':
                         let ex = value.replace('(', '');
-                            ex = ex.replace(')', '');
-                            ex = ex.replace('-', '');
-                            ex = ex.replace(' ', '');
-                            ex = ex.trim();
-                        formErrors.step1.telephone = 
+                        ex = ex.replace(')', '');
+                        ex = ex.replace('-', '');
+                        ex = ex.replace(' ', '');
+                        ex = ex.trim();
+                        formErrors.step1.telephone =
                             ex.length < 10 ? "The phone must have a minimum of 10 digits" : "";
                         break;
                     case 'referFirstName1':
@@ -211,13 +212,19 @@ class ProForm extends Component {
                         formErrors.step2.referLastName1 = value.length === 0 ? "The Last Name is required" : "";
                         break;
                     case 'referEmail1':
-                        formErrors.step2.referEmail1 = 
+                        formErrors.step2.referEmail1 =
                             emailRegex.test(value)
                                 ? ""
                                 : "Invalid email address.";
                         break;
                     case 'referTelephone1':
-                        formErrors.step2.referTelephone1 = value.length === 0 ? "The Telefone is required" : "";
+                        let ter = value.replace('(', '');
+                        ter = ter.replace(')', '');
+                        ter = ter.replace('-', '');
+                        ter = ter.replace(' ', '');
+                        ter = ter.trim();
+                        formErrors.step2.referTelephone1 =
+                            ter.length < 10 ? "The phone must have a minimum of 10 digits" : "";
                         break;
                     case 'referCompany1':
                         formErrors.step2.referCompany1 = value.length === 0 ? "The Company is required" : "";
@@ -228,30 +235,25 @@ class ProForm extends Component {
                     case 'referDepartureDate1':
                         formErrors.step2.referDepartureDate1 = value.length === 0 ? "The End Date is required" : "";
                         break;
-                    case 'referFirstName2':
-                        formErrors.step2.referFirstName2 = value.length === 0 ? "The First Name is required" : "";
-                        break;
-                    case 'referLastName2':
-                        formErrors.step2.referLastName2 = value.length === 0 ? "The Last Name is required" : "";
-                        break;
+
+
                     case 'referEmail2':
-                        formErrors.step2.referEmail2 = 
+                        formErrorsNoValidaton.step2.referEmail2 =
                             emailRegex.test(value)
                                 ? ""
                                 : "Invalid email address.";
                         break;
                     case 'referTelephone2':
-                        formErrors.step2.referTelephone2 = value.length === 0 ? "The Telefone is required" : "";
+                        let tel = value.replace('(', '');
+                        tel = tel.replace(')', '');
+                        tel = tel.replace('-', '');
+                        tel = tel.replace(' ', '');
+                        tel = tel.trim();
+                        formErrorsNoValidaton.step2.referTelephone2 =
+                            tel.length < 10 ? "The phone must have a minimum of 10 digits" : "";
                         break;
-                    case 'referCompany2':
-                        formErrors.step2.referCompany2 = value.length === 0 ? "The Company is required" : "";
-                        break;
-                    case 'referPosition2':
-                        formErrors.step2.referPosition2 = value.length === 0 ? "The Position is required" : "";
-                        break;
-                    case 'referDepartureDate2':
-                        formErrors.step2.referDepartureDate2 = value.length === 0 ? "The End Date is required" : "";
-                        break;
+
+
                     case 'how_know_us':
                         formErrors.step2.how_know_us = value.length === 0 ? "Choose one" : "";
                         break;
@@ -265,7 +267,7 @@ class ProForm extends Component {
                 //const formErrors = this.state.formErrors;
                 let canitdad = 0;
                 this.setState({
-                ...this.state,
+                    ...this.state,
                     [e.target.name]: e.target.checked,
                 });
 
@@ -276,22 +278,22 @@ class ProForm extends Component {
                     case 'en':
                     case 'po':
                     case 'ar':
-                        
-                        canitdad  = this.state.numberSpokenLanguages;
-                        if(e.target.checked){
+
+                        canitdad = this.state.numberSpokenLanguages;
+                        if (e.target.checked) {
                             canitdad++;
                             this.setState({
                                 numberSpokenLanguages: canitdad
                             });
-                        }else{
+                        } else {
                             canitdad--;
                             this.setState({
                                 numberSpokenLanguages: canitdad
                             });
                         }
-                        
+
                         formErrors.step1.spokenLanguages = canitdad === 0 ? "Choose at least one language." : "";
-                    
+
                         break;
                     case 'workRegurary':
                     case 'workExtra':
@@ -299,13 +301,13 @@ class ProForm extends Component {
                     case 'visibility':
                     case 'concept':
 
-                        canitdad  = this.state.numberIntegrationPlatform;
-                        if(e.target.checked){
+                        canitdad = this.state.numberIntegrationPlatform;
+                        if (e.target.checked) {
                             canitdad++;
                             this.setState({
                                 numberIntegrationPlatform: canitdad
                             });
-                        }else{
+                        } else {
                             canitdad--;
                             this.setState({
                                 numberIntegrationPlatform: canitdad
@@ -322,11 +324,11 @@ class ProForm extends Component {
             default:
                 break;
         }
-      
+
     }
 
     setImage2 = (e) => {
-        
+
     }
 
     setImages = (e) => {
@@ -334,28 +336,30 @@ class ProForm extends Component {
         this.setState({
             [e.target.name]: e.target.files,
         })
-        formErrors.files= "";
+        formErrors.files = "";
     }
 
     getStepContent = () => {
         const { step } = this.state;
 
-        const { firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone, 
-                email, en, fr, es, po, ar, authorization, criminal, experience,
-                referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1, 
-                referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
-                referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-                workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health, 
-                healthDescription, files, formErrors
-            } = this.state;
+        const { firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone,
+            email, en, fr, es, po, ar, authorization, criminal, experience,
+            referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1,
+            referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
+            referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
+            workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health,
+            healthDescription, files, validate, formErrors, formErrorsNoValidaton
+        } = this.state;
 
-        const values = { firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone, 
-                email, en, fr, es, po, ar, authorization, criminal, experience,
-                referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1, 
-                referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
-                referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-                workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health, 
-                healthDescription, files, formErrors };
+        const values = {
+            firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone,
+            email, en, fr, es, po, ar, authorization, criminal, experience,
+            referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1,
+            referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
+            referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
+            workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health,
+            healthDescription, files, validate, formErrors, formErrorsNoValidaton
+        };
 
         switch (step) {
             case 1:
@@ -378,34 +382,34 @@ class ProForm extends Component {
                 );
             case 3:
 
-                
+
                 return (
                     <FormAdditionalInformation
                         addRegistration={this.addRegistration}
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
-                        setImages = { this.setImages }
+                        setImages={this.setImages}
                         values={values}
                     />
                 );
             case 4:
-                return (<Confirm 
-                            firstName={values.firstName}
-                        />);
+                return (<Confirm
+                    firstName={values.firstName}
+                />);
             default:
                 throw new Error("Unknown step");
         }
     }
-      
+
     render() {
         const { classes } = this.props;
-        return(        
+        return (
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
-                <React.Fragment>
-                    { this.getStepContent() }
-                </React.Fragment>
+                    <React.Fragment>
+                        {this.getStepContent()}
+                    </React.Fragment>
                 </Paper>
             </main>
         );
@@ -415,33 +419,33 @@ class ProForm extends Component {
 
 const styles = (theme) => ({
     layout: {
-      width: "auto",
-      marginTop: theme.spacing(20),
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.up(1530 + theme.spacing(2) * 2)]: {
-        width: 1530,
-        marginLeft: "auto",
-        marginRight: "auto",
-      },
+        width: "auto",
+        marginTop: theme.spacing(20),
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up(1530 + theme.spacing(2) * 2)]: {
+            width: 1530,
+            marginLeft: "auto",
+            marginRight: "auto",
+        },
     },
     paper: {
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(3),
-      padding: theme.spacing(2),
-      [theme.breakpoints.up(1530 + theme.spacing(3) * 2)]: {
-        marginTop: theme.spacing(6),
-        marginBottom: theme.spacing(6),
-        padding: theme.spacing(3),
-      },
+        marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(3),
+        padding: theme.spacing(2),
+        [theme.breakpoints.up(1530 + theme.spacing(3) * 2)]: {
+            marginTop: theme.spacing(6),
+            marginBottom: theme.spacing(6),
+            padding: theme.spacing(3),
+        },
     },
     stepper: {
-      padding: theme.spacing(3, 0, 5),
+        padding: theme.spacing(3, 0, 5),
     },
-  });
+});
 
 const mapDispathcToProps = (dispatch) => {
-    return{
+    return {
         registrationAction: (reg) => dispatch(registrationAction(reg))
     }
 }

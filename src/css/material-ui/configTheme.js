@@ -1,6 +1,11 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
+  palette:{
+    primary:{
+      main: '#2880fb'
+    }
+  },
   typography: {
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 8,
