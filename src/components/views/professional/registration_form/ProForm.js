@@ -12,16 +12,6 @@ import axios from 'axios';
 import { compose } from "redux"; /* bindActionCreators */
 import { connect } from 'react-redux';
 import { registrationAction } from '../../../../store/actions/registrationAction';
-/*
-const formValid = formErrors => {
-
-    let valid = true;
-    Object.values(formErrors).forEach(val => {
-        val.length > 0 && (valid = false)
-    });
-    return valid;
-}
-*/
 
 const emailRegex = RegExp(
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -117,23 +107,24 @@ class ProForm extends Component {
                     referEmail2: '',
                     referTelephone2: ''
                 }
-            }
+            },
+            how_know_us_list: null
         }
-
-        console.log(this.howKnowUsAPI());
-
-
     }
 
-    howKnowUsAPI() {
-        axios.get(`https://www.api-tiggidoo.com/api/howknowus/fr`)
-          .then(res => {
-            //const howYouKnowUs = res.data;
-            //console.log(howYouKnowUs);
-            return res.data;
-            //this.setState({ 
-            //    how_know_us: res.data
-            //});
+    componentWillMount(){
+        this.howKnowUsAPI();
+    }
+
+    howKnowUsAPI = async () => {
+        await axios.get('https://www.api-tiggidoo.com/api/howknowus/fr')
+        .then(res => {
+ 
+            this.setState({
+                how_know_us_list: res.data.data
+            })
+        }).catch((error) => {
+            console.log(error)
         })
     }
 
@@ -365,7 +356,7 @@ class ProForm extends Component {
             referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1,
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-            workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health,
+            workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton
         } = this.state;
 
@@ -375,12 +366,13 @@ class ProForm extends Component {
             referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1,
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-            workExtra, extraIncome, visibility, concept, how_know_us, smartphoneWithData, health,
+            workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton
         };
-
+        //console.log("esto es una pruebA");
+        
         switch (step) {
-            case 1:
+            case 2:
                 return (
                     <FormPersonalDetails
                         nextStep={this.nextStep}
@@ -389,7 +381,7 @@ class ProForm extends Component {
                     />
 
                 );
-            case 2:
+            case 1:
                 return (
                     <FormPersonalBackground
                         nextStep={this.nextStep}

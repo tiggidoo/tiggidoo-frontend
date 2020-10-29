@@ -30,12 +30,21 @@ class FormPersonalBackground extends Component {
         this.props.prevStep();
     }
 
+    buildOptions(obj) {
+        var arr = [];
+        for(const value in obj){
+            arr.push(<option key={value} value={value}>{obj[value]}</option>)
+        }
+        return arr;
+    }
+
     render() {
         const { t } = this.props;
         const { classes } = this.props;
         const { values, handleChange } = this.props;
         const formErrors = values.formErrors;
         const formErrorsNoValidaton = values.formErrorsNoValidaton;
+        //console.log(values.how_know_us_list);
         return (
             <React.Fragment>
                 <Box mb={5}>
@@ -240,11 +249,14 @@ class FormPersonalBackground extends Component {
                             onChange={handleChange}
                             input={<BootstrapInput />}
                         >
+                            { this.buildOptions(values.how_know_us_list) }
+{/* 
                             <option value={0}></option>
                             <option value={1}>Le Journal</option>
                             <option value={2}>La Radio</option>
                             <option value={3}>La télé</option>
                             <option value={4}>Youtube</option>
+                             */}
                         </NativeSelect>
 
                         {(formErrors.step2.how_know_us.length > 0 && values.validate === 1) && (
