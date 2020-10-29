@@ -24,7 +24,12 @@ class FormAdditionalInformation extends Component {
 
     valRegistration = (e) => {
         e.preventDefault();
-        this.props.addRegistration();
+        const { values } = this.props;
+        const formErrors = values.formErrors;
+        if((formErrors.step3.files.length === 0 && values.validate === 0)){
+            this.props.addRegistration();
+        }
+        
         this.props.nextStep();
     }
     render() {
@@ -106,11 +111,7 @@ class FormAdditionalInformation extends Component {
                                     </Box>
                                 )}
                             </label>
-                            {(formErrors.step3.files.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step3.files}</span>
-                            )}                            
                         </Box>
-
 
                         <Box>
                             <Box mb={1}>
@@ -121,6 +122,9 @@ class FormAdditionalInformation extends Component {
                             </Box>
                         </Box>
                     </Box>
+                    {(formErrors.step3.files.length > 0 && values.validate === 1) && (
+                            <span className={classes.errorMessage}><Typography variant="h4">{formErrors.step3.files}</Typography></span>
+                    )}                            
                         
                 </Box>
 
@@ -166,6 +170,11 @@ const styles = (theme) => ({
         '& .MuiSvgIcon-root': {
             fontSize: '10rem'
         }
+    },
+    errorMessage: {
+        color: '#dc3545',
+        paddingTop: '5px',
+        fontSize: '14px'
     }
 });
 
