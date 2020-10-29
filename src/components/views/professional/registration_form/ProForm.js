@@ -7,6 +7,7 @@ import FormAdditionalInformation from './FormAdditionalInformation';
 import Confirm from './Confirm';
 //import Success from './Success';
 import axios from 'axios';
+import { withTranslation } from "react-i18next";
 
 //REDUX FUNCTIONS
 import { compose } from "redux"; /* bindActionCreators */
@@ -108,17 +109,21 @@ class ProForm extends Component {
                     referTelephone2: ''
                 }
             },
-            how_know_us_list: null
+            how_know_us_list: null,
+            emailAndPhoneExist: 0,
+            emailAndPhoneMessage: "The email and number phone are already exist."
         }
     }
 
     componentWillMount(){
         this.howKnowUsAPI();
-        //this.verifyCredential();
     }
 
+
     howKnowUsAPI = async () => {
-        await axios.get('https://www.api-tiggidoo.com/api/howknowus/fr')
+        //console.log(this.props.i18n.language);
+        const lang = this.props.i18n.language
+        await axios.get(`https://www.api-tiggidoo.com/api/howknowus/${lang}`)
         .then(res => {
  
             this.setState({
@@ -128,60 +133,32 @@ class ProForm extends Component {
             console.log(error)
         })
     }
+    //Go to next step 
 
-    verifyCredential = async () => {
-
-        const { email, telephone, formErrors } = this.state;
-        if(email.length > 0 && telephone.length > 0){
-
-            console.log(email);
-            console.log(telephone);
-
-            let varTelephone = telephone;
-            varTelephone = varTelephone.replace('(', '');
-            varTelephone = varTelephone.replace(')', '');
-            varTelephone = varTelephone.replace('-', '');
-            varTelephone = varTelephone.replace(' ', '');
-            varTelephone = varTelephone.trim();
-
-            const f = new FormData();
-            let canCreateUser = false;
-            f.append('email', email);
-            f.append('telephone', varTelephone);
-            //, {headers: {'Content-Type': 'multipart/form-data'}}
-            await axios.post('https://www.api-tiggidoo.com/api/verifyCredential', f, {headers: {'Content-Type': 'multipart/form-data'}})    
-            .then(res => {
-                console.log("INgreso");
-                console.log(res);
-
-                if(res.status === 200){
-                    canCreateUser = true;
-                }
-            }).catch((error) => {
-                console.log(error)
+    validateMailAndNextStep = (emailAndPhoneExist) => {
+        if(emailAndPhoneExist === 1){
+            this.setState({
+                emailAndPhoneExist: 1,
+                emailAndPhoneMessage: "The email and number phone are already exist."
             })
-
-            if(canCreateUser){
-                formErrors.step1.email = "";
-                formErrors.step1.telephone = "";
-            }else{
-                formErrors.step1.email = "You cannot continue because your phone or email already exists in the database";
-                formErrors.step1.telephone = "You cannot continue because your phone or email already exists in the database";
-            }
-            
+        }else{
+            this.setState({
+                emailAndPhoneExist: 0,
+                emailAndPhoneMessage: ""
+            })
+            this.nextStep();
         }
+     
     }
 
-    //Go to next step 
     nextStep = () => {
+
         const { step } = this.state;
         let formErrors = {};
-
+        
         switch (step) {
             case 1:
-                this.verifyCredential();
                 formErrors = this.state.formErrors.step1;
-                console.log(formErrors);
                 break;
             case 2:
                 formErrors = this.state.formErrors.step2;
@@ -192,7 +169,7 @@ class ProForm extends Component {
             default:
                 break;
         }
-
+        // && emailAndPhoneExist === 0
         if (formValid(formErrors)) {
             this.setState({
                 step: step + 1,
@@ -405,7 +382,7 @@ class ProForm extends Component {
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
-            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton
+            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage
         } = this.state;
 
         const values = {
@@ -415,7 +392,7 @@ class ProForm extends Component {
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
-            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton
+            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage
         };
         //console.log("esto es una pruebA");
         
@@ -423,6 +400,7 @@ class ProForm extends Component {
             case 1:
                 return (
                     <FormPersonalDetails
+                        validateMailAndNextStep={this.validateMailAndNextStep}
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
@@ -460,6 +438,7 @@ class ProForm extends Component {
 
     render() {
         const { classes } = this.props;
+        
         return (
             <main className={classes.layout}>
                 <Paper className={classes.paper}>
@@ -509,5 +488,5 @@ const mapDispathcToProps = (dispatch) => {
 export default compose(
     connect(null, mapDispathcToProps),
     withStyles(styles),
+    withTranslation()
 )(ProForm);
-

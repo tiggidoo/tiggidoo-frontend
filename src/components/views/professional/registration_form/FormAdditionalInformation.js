@@ -31,7 +31,9 @@ class FormAdditionalInformation extends Component {
         const { t } = this.props;
         const { classes } = this.props;
         const { values, handleChange, setImages } = this.props;
-        
+        const formErrors = values.formErrors;
+        console.log(formErrors.step3.files);
+        console.log(formErrors.step3.files.length);
         return (
             <React.Fragment>
                 <Box mb={5}>
@@ -104,6 +106,9 @@ class FormAdditionalInformation extends Component {
                                     </Box>
                                 )}
                             </label>
+                            {(formErrors.step3.files.length > 0 && values.validate === 1) && (
+                                <span className={classes.errorMessage}>{formErrors.step3.files}</span>
+                            )}                            
                         </Box>
 
 

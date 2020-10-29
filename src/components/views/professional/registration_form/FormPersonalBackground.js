@@ -250,13 +250,7 @@ class FormPersonalBackground extends Component {
                             input={<BootstrapInput />}
                         >
                             { this.buildOptions(values.how_know_us_list) }
-{/* 
-                            <option value={0}></option>
-                            <option value={1}>Le Journal</option>
-                            <option value={2}>La Radio</option>
-                            <option value={3}>La télé</option>
-                            <option value={4}>Youtube</option>
-                             */}
+
                         </NativeSelect>
 
                         {(formErrors.step2.how_know_us.length > 0 && values.validate === 1) && (

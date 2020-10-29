@@ -16,6 +16,7 @@ import { withStyles } from "@material-ui/core/styles";
 //REDUX FUNCTIONS
 import { compose } from "redux";
 //import { FileX } from 'react-bootstrap-icons';
+import axios from 'axios';
 
 const styles = (theme) => ({
     root: {
@@ -159,7 +160,47 @@ class FormPersonalDetails extends Component {
 
     continue = (e) => {
         e.preventDefault();
-        this.props.nextStep();
+        //this.props.validateMailAndNextStep();
+        this.verifyCredential();
+        
+    }
+
+    verifyCredential = async () => {
+        let emailAndPhoneExiste = 1;
+        const { email, telephone } = this.props.values;
+        if(email.length > 0 && telephone.length > 0){
+            //console.log(email);
+            //console.log(telephone);
+
+            let varTelephone = telephone;
+            varTelephone = varTelephone.replace('(', '');
+            varTelephone = varTelephone.replace(')', '');
+            varTelephone = varTelephone.replace('-', '');
+            varTelephone = varTelephone.replace(' ', '');
+            varTelephone = varTelephone.trim();
+
+            const f = new FormData();
+            
+            f.append('email', email);
+            f.append('telephone', varTelephone);
+            //, {headers: {'Content-Type': 'multipart/form-data'}}
+            await axios.post('https://www.api-tiggidoo.com/api/verifyCredential', f, {headers: {'Content-Type': 'multipart/form-data'}})    
+            .then(res => {
+
+                if(res.status === 200){
+                    emailAndPhoneExiste = 0;
+                }
+                
+            }).catch((error) => {
+                console.log(error)
+            })
+
+            this.props.validateMailAndNextStep(emailAndPhoneExiste);
+
+        }else{
+            console.log("Paso por qui");
+            this.props.nextStep();
+        }
     }
 
     buildOptions(startOrYear, endOrMonth, type) {
@@ -207,10 +248,14 @@ class FormPersonalDetails extends Component {
         const { classes } = this.props;
         const { values, handleChange } = this.props;
         const formErrors = values.formErrors;
+        //console.log(values);
         return (
 
             <React.Fragment>
                 <Box mb={2}>
+                    {(values.emailAndPhoneExist === 1) && (
+                        <span className={classes.errorMessage}><Typography variant="h1">{values.emailAndPhoneMessage}</Typography></span>
+                    )}
                     <Typography variant="h1">{t("ProForm.FormPersonalDetails.title")}</Typography>
                 </Box>
                 <Box mb={8}>
