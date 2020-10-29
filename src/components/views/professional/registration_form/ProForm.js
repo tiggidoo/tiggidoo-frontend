@@ -114,6 +114,7 @@ class ProForm extends Component {
 
     componentWillMount(){
         this.howKnowUsAPI();
+        //this.verifyCredential();
     }
 
     howKnowUsAPI = async () => {
@@ -128,6 +129,49 @@ class ProForm extends Component {
         })
     }
 
+    verifyCredential = async () => {
+
+        const { email, telephone, formErrors } = this.state;
+        if(email.length > 0 && telephone.length > 0){
+
+            console.log(email);
+            console.log(telephone);
+
+            let varTelephone = telephone;
+            varTelephone = varTelephone.replace('(', '');
+            varTelephone = varTelephone.replace(')', '');
+            varTelephone = varTelephone.replace('-', '');
+            varTelephone = varTelephone.replace(' ', '');
+            varTelephone = varTelephone.trim();
+
+            const f = new FormData();
+            let canCreateUser = false;
+            f.append('email', email);
+            f.append('telephone', varTelephone);
+            //, {headers: {'Content-Type': 'multipart/form-data'}}
+            await axios.post('https://www.api-tiggidoo.com/api/verifyCredential', f, {headers: {'Content-Type': 'multipart/form-data'}})    
+            .then(res => {
+                console.log("INgreso");
+                console.log(res);
+
+                if(res.status === 200){
+                    canCreateUser = true;
+                }
+            }).catch((error) => {
+                console.log(error)
+            })
+
+            if(canCreateUser){
+                formErrors.step1.email = "";
+                formErrors.step1.telephone = "";
+            }else{
+                formErrors.step1.email = "You cannot continue because your phone or email already exists in the database";
+                formErrors.step1.telephone = "You cannot continue because your phone or email already exists in the database";
+            }
+            
+        }
+    }
+
     //Go to next step 
     nextStep = () => {
         const { step } = this.state;
@@ -135,7 +179,9 @@ class ProForm extends Component {
 
         switch (step) {
             case 1:
+                this.verifyCredential();
                 formErrors = this.state.formErrors.step1;
+                console.log(formErrors);
                 break;
             case 2:
                 formErrors = this.state.formErrors.step2;
@@ -203,6 +249,8 @@ class ProForm extends Component {
                             emailRegex.test(value)
                                 ? ""
                                 : "Invalid email address.";
+//                        console.log();
+                        //
                         break;
                     case 'telephone':
                         let ex = value.replace('(', '');
@@ -462,3 +510,4 @@ export default compose(
     connect(null, mapDispathcToProps),
     withStyles(styles),
 )(ProForm);
+
