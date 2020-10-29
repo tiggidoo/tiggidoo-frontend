@@ -372,7 +372,7 @@ class ProForm extends Component {
         //console.log("esto es una pruebA");
         
         switch (step) {
-            case 2:
+            case 1:
                 return (
                     <FormPersonalDetails
                         nextStep={this.nextStep}
@@ -381,7 +381,7 @@ class ProForm extends Component {
                     />
 
                 );
-            case 1:
+            case 2:
                 return (
                     <FormPersonalBackground
                         nextStep={this.nextStep}
