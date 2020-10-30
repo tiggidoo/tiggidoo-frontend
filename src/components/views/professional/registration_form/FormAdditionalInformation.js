@@ -37,8 +37,8 @@ class FormAdditionalInformation extends Component {
         const { classes } = this.props;
         const { values, handleChange, setImages } = this.props;
         const formErrors = values.formErrors;
-        console.log(formErrors.step3.files);
-        console.log(formErrors.step3.files.length);
+        //console.log(formErrors.step3.files);
+        //console.log(formErrors.step3.files.length);
         return (
             <React.Fragment>
                 <Box mb={5}>

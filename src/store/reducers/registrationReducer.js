@@ -17,6 +17,7 @@ const registrationReducer = (state = DefaultState, action) => {
             errorMsg: ""
           };
         case "REGISTRATION_FAIL":
+          console.log(action.error);
           console.log(action.error.response.data.error);
           return {
             ...state,

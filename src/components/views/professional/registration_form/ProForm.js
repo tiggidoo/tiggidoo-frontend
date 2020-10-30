@@ -35,6 +35,15 @@ class ProForm extends Component {
     constructor(props) {
         super(props);
 
+        /* This portions of lines orgenize the date with "2020-09-30" */
+
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth()+1;
+        let day = today.getDate();
+        let formDate =year+"-"+month+"-"+day;
+
+        //console.log(fecha);
         this.state = {
             step: 1,
             firstName: '',
@@ -58,20 +67,20 @@ class ProForm extends Component {
             referTelephone1: '',
             referCompany1: '',
             referPosition1: '',
-            referDepartureDate1: '2020-07-21',
+            referDepartureDate1: formDate,
             referFirstName2: '',
             referLastName2: '',
             referEmail2: '',
             referTelephone2: '',
             referCompany2: '',
             referPosition2: '',
-            referDepartureDate2: '',
+            referDepartureDate2: formDate,
             workRegurary: false,
             workExtra: false,
             extraIncome: false,
             visibility: false,
             concept: false,
-            how_know_us: '',
+            how_know_us: '2',
             smartphoneWithData: '0',
             health: '0',
             healthDescription: '',
@@ -95,9 +104,9 @@ class ProForm extends Component {
                     referTelephone1: 'The Telephone is required',
                     referCompany1: 'The Company is required',
                     referPosition1: 'The Position is required',
-                    referDepartureDate1: 'The Final Date is required',
+                    referDepartureDate1: '',
                     integrationPlatform: 'Choose at least one option',
-                    how_know_us: 'Choose one'
+                    how_know_us: ''
                 },
                 step3: {
                     files: "An Image is required."
