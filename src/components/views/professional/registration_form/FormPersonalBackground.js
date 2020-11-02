@@ -262,10 +262,10 @@ class FormPersonalBackground extends Component {
 
                 <Box mt={3} className={classes.groupButtons}>
                     <Box>
-                        <ButtonIcon onClick={this.back} label="BACK" />
+                        <ButtonIcon onClick={this.back} label={ t("ProForm.FormPersonalBackground.buttonBack") } />
                     </Box>
                     <Box>
-                        <ButtonBlue onClick={this.continue} label="CONTINUE" />
+                        <ButtonBlue onClick={this.continue}  label={ t("ProForm.FormPersonalBackground.buttonNext") } />
                     </Box>
                 </Box>
 

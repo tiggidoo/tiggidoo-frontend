@@ -4,6 +4,11 @@ import ButtonBlue from '../../../share/buttons/ButtonBlue';
 import { Link } from "react-router-dom";
 /* , Checkbox, FormControlLabel, NativeSelect, RadioGroup, Radio */
 
+//import { makeStyles } from '@material-ui/core/styles';
+import { withTranslation } from "react-i18next";
+//REDUX FUNCTIONS
+import { compose } from "redux";
+
 //STYLES
 import { makeStyles } from '@material-ui/core/styles';
  
@@ -35,8 +40,9 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-export default function Confirm(props) {
+function Confirm(props) {
     const classes = useStyles();
+    const { t } = props;
     //console.log(props);
     const firstName = props.firstName;
     return (
@@ -46,25 +52,25 @@ export default function Confirm(props) {
                     <img className={classes.widthImg} src="images/section4-check.jpg" alt=""/>
                 </Box>
                 <Box mb={3}>
-                    <Typography variant="h1">Merci {firstName}</Typography>
-                    <Typography variant="h1">Votre candidature est déjà à l’étude par notre service recrutement</Typography>
+                    <Typography variant="h1">{ t("ProForm.Confirmation.title") } {firstName}</Typography>
+                    <Typography variant="h1">{ t("ProForm.Confirmation.subTitle") }</Typography>
                 </Box>           
                 <Box mb={3}>
-                    <Typography variant="h4">L’humain est au coeur de nos valeurs, nous mettons un point d’honneur à étudier minutieusement chaque candidature</Typography>
+                    <Typography variant="h4">{ t("ProForm.Confirmation.description1") }</Typography>
                 </Box>           
                 <Box mb={3}>
-                    <Typography variant="h4">Nous vous contacterons dès qu’une décision sera effective concernant votre dossier</Typography>
+                    <Typography variant="h4">{ t("ProForm.Confirmation.description2") }</Typography>
                 </Box>           
                 <Box mb={4}>
-                    <Typography className={classes.textBlue} variant="h2">Wait & Clean</Typography>
+                    <Typography className={classes.textBlue} variant="h2">{ t("ProForm.Confirmation.description3") }</Typography>
                 </Box>           
 
                 <Box mb={8}>
-                    <Typography className={classes.textItalic}  variant="h4">Merci L’équipe de recrutement de Tiggidoo</Typography>
+                    <Typography className={classes.textItalic}  variant="h4">{ t("ProForm.Confirmation.description4") }</Typography>
                 </Box>           
                 <Box>
                     <Link to="/">
-                        <ButtonBlue label="ACCUEIL" />
+                        <ButtonBlue label={ t("ProForm.Confirmation.button") } />
                     </Link>
                 </Box>
             </Box>
@@ -72,3 +78,7 @@ export default function Confirm(props) {
     )
 }
 
+export default compose(
+    withTranslation()
+)
+(Confirm);

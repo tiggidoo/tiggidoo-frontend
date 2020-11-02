@@ -104,13 +104,13 @@
   },
   "ProForm": {
     "FormPersonalDetails": {
-      "title": "Tu souhaites devenir un professionnel chez Tiggidoo ?",
-      "description1": "Pour profiter des services de Tiggidoo, remplissez ce formulaire, nous étudierons votre",
-      "description2": "candidature. En moins de 72H vous recevrez une réponse de la part de nos experts",
+      "title": "Rejoins dès aujourd'hui la gang des Todoo!",
+      "description1": "Pour intégrer la plateforme Tiggidoo, merci de remplir ce formulaire. Nous étudierons ta",
+      "description2": "candidature et en moins de 48H tu recevras une réponse de la part de notre équipe",
       "firstNameLabel": "Prénom",
-      "firstNameInput": "Ton Prénom",
+      "firstNameInput": "Prénom",
       "lastNameLabel": "Nom",
-      "lastNameInput": "Ton Nom",
+      "lastNameInput": "Nom",
       "birthDayLabel": "Date de naissance",
       "cellPhoneLabel": "Numéro de cellulaire",
       "emaillLabel": "Courriel",
@@ -132,7 +132,8 @@
         "desctiption": "(Une vérification judiciaire sera effectuée.)",
         "checkBoxLabel1": "Oui",
         "checkBoxLabel2": "No"
-      }
+      },
+      "button": "CONTINUE"
     },
     "FormPersonalBackground": {
       "title": "Quels est ton parcours ?",
@@ -160,7 +161,9 @@
         "checkBoxLabel4": "Visibilité",
         "checkBoxLabel5": "Concept"
       },
-      "knowUsLabel": "Comment nous as-tu connu?"
+      "knowUsLabel": "Comment nous as-tu connu?",
+      "buttonBack": "RETOUR",
+      "buttonNext": "CONTINUE"
     },
     "FormAdditionalInformation":{
       "title": "Quelques informations te concernant",
@@ -170,19 +173,31 @@
         "checkBoxLabel1": "Oui",
         "checkBoxLabel2": "Non"
       },
-      "paragraph": "Chez Tiggidoo, la communication est primordiale. On doit pouvoir se joindre a n’importe quel moment. C’est pourquoi nous insistons sur la nécessité d’avoir un cellulaire intelligent avec des données",
+      "paragraph": "Chez Tiggidoo, la communication est primordiale. On doit pouvoir se joindre à n’importe quel moment. C’est pourquoi nous insistons sur la nécessité d’avoir un cellulaire intelligent avec des données",
       "groupCheckBox_2":{
         "title": "As-tu des allergies quelconques ou des problèmes de santé ?",
         "checkBoxLabel1": "Oui",
         "checkBoxLabel2": "Non"
       },
       "sicksLabel":"Si oui, préciser ici…",
-      "paragraph_2": "Ne pas préciser l’allergie ou le problème de santé pourrait entraîner un refus d’inscription de notre part. Tiggidoo se réserve le droit de ne pas valider une inscription si le “oui” a été sélectionné",
+      "paragraph_2": "Ne pas préciser l’allergie ou le problème de santé pourrait entraîner un refus d’inscription de notre part",
       "titlePhoto": "Pour terminer, nous avons besoin de ta photo",
-      "paragraphPhoto": "Joins une photo professionnelle de toi. Elle sera utilisée pour mettre à jour ton profil. Elle sera le premier contact avec le potentiel client. L’administration de Tiggidoo valide les photos, nous nous voyons lue droit de pas accepter celle-ci, si elle ne correspond pas à la charte de nos services",
+      "paragraphPhoto": "Joins une photo professionnelle. Elle sera utilisée pour créer ton profil dans ton compte et sur la plateforme",
       "photoType": "Formats de fichier : png, jpg, jpeg",
       "titleButton": "Joindre un fichier",
-      "example": "Pour exemple"
+      "MyPhoto": "Ma photo",
+      "example": "Pour exemple",
+      "buttonBack": "Retour",
+      "buttonNext": "VALIDER L'INSCRIPTION"
+    },
+    "Confirmation": {
+      "title": "Merci",
+      "subTitle": "Votre candidature est déjà à l’étude par notre service recrutement",
+      "description1":"L’humain est au coeur de nos valeurs, nous mettons un point d’honneur à étudier minutieusement chaque candidature",
+      "description2":"Nous vous contacterons dès qu’une décision sera effective concernant votre dossier",
+      "description3":"Wait & Clean",
+      "description4":"Merci L’équipe de recrutement de Tiggidoo",
+      "button": "Accueil"
     }
   }
 }

@@ -104,15 +104,16 @@
   },
   "ProForm": {
     "FormPersonalDetails":{
-      "title": "You want to become a professional at Tiggidoo ?",
-      "description": "To take advantage of Tiggidoo's services, complete this form, we will consider your application. In less than 72 hours you will receive a response from our experts",
-      "firstNameLabel": "First name",
-      "firstNameInput": "First name",
-      "lastNameLabel": "Last Name",
-      "lastNameInput": "Last Name",
+      "title": "Join the Todoo team today!",
+      "description1": "To join the Tiggidoo platform, please fill out this form. We will review your",
+      "description2": "application and get back to you within 48 hours",
+      "firstNameLabel": "Name",
+      "firstNameInput": "Name",
+      "lastNameLabel": "Surname",
+      "lastNameInput": "Surname",
       "birthDayLabel": "Date of Birth",
-      "cellPhoneLabel": "Cell number",
-      "emaillLabel": "Email",
+      "cellPhoneLabel": "Cell phone number",
+      "emaillLabel": "Email address",
       "groupCheckBox_1": {
         "title": "What languages ​​do you speak ?",
         "checkBoxLabel1": "French",
@@ -122,66 +123,81 @@
         "checkBoxLabel5": "Arab"
       },
       "groupCheckBox_2": {
-        "title": "Are you over 18, with a work permit in Canada?",
+        "title": "Are you over 18 years old and legally authorized to work in Canada?",
         "checkBoxLabel1": "Yes",
         "checkBoxLabel2": "No"
       },
       "groupCheckBox_3": {
         "title": "Do you have a criminal history?",
-        "desctiption": "(A forensic check will be performed.)",
+        "desctiption": "(A background check will be performed.)",
         "checkBoxLabel1": "Yes",
         "checkBoxLabel2": "No"
-      }
+      },
+      "button": "Next"
     },
     "FormPersonalBackground": {
-      "title": "Quels est ton parcours ?",
+      "title": "What is your story?",
       "groupCheckBox_1": {
-        "title": "As-tu déjà travaillé en tant que préposé à l’entretien ménager ?",
-        "checkBoxLabel1": "Oui",
+        "title": "Have you ever worked as a housekeeper?",
+        "checkBoxLabel1": "Yes",
         "checkBoxLabel2": "No"
       },
-      "referencesTitle": "Indique les coordonnées de deux personnes référentes pour qui tu as travaillé :",
-      "referencesSubTitle": "Nous contacterons ces deux références",
-      "firstContactTitle": "Premier contact",
-      "secondContactTitle": "Deuxième contact",
-      "firstNameLabel": "Nom",
-      "lastNamelabel": "Prénom",
-      "email": "Courriel",
-      "cellPhone": "Cellulaire",
-      "company": "Entreprise",
-      "jobName": "Poste occupé",
-      "finishDate": "Date de départ",
+      "referencesTitle": "Please fill in the contact information of two of your previous employers",
+      "referencesSubTitle": "We will contact these references",
+      "firstContactTitle": "First reference",
+      "secondContactTitle": "Second reference",
+      "firstNameLabel": "Surname",
+      "lastNamelabel": "Name",
+      "email": "Email address",
+      "cellPhone": "Phone number",
+      "company": "Company",
+      "jobName": "Your position",
+      "finishDate": "Date of departure",
       "groupCheckBox_2": {
-        "title": "Pourquoi souhaites-tu intégrer la plateforme de Tiggidoo ?",
-        "checkBoxLabel1": "Travail régulier",
-        "checkBoxLabel2": "Travail d’appoint",
-        "checkBoxLabel3": "Revenus supplémentaires",
-        "checkBoxLabel4": "Visibilité",
+        "title": "Why do you wish to be a part of the Tiggidoo platform?",
+        "checkBoxLabel1": "Regular work",
+        "checkBoxLabel2": "Extra work",
+        "checkBoxLabel3": "Additional income",
+        "checkBoxLabel4": "Visibility",
         "checkBoxLabel5": "Concept"
       },
-      "knowUsLabel": "Comment nous as-tu connu?"
+      "knowUsLabel": "How did you find us?",
+      "buttonBack": "Back",
+      "buttonNext": "Next"
     },
     "FormAdditionalInformation":{
-      "title": "Quelques informations te concernant",
-      "subtitle": "Nous avons besoin de quelques informations te concernant",
+      "title": "A few things about you",
+      "subtitle": "We need a little bit more information about you",
       "groupCheckBox_1":{
-        "title": "As-tu un smartphone avec un accès aux données ?",
-        "checkBoxLabel1": "Oui",
-        "checkBoxLabel2": "Non"
+        "title": "Do you have a smartphone with access to data?",
+        "checkBoxLabel1": "Yes",
+        "checkBoxLabel2": "No"
       },
-      "paragraph": "Chez Tiggidoo, la communication est primordiale. On doit pouvoir se joindre a n’importe quel moment. C’est pourquoi nous insistons sur la nécessité d’avoir un cellulaire intelligent avec des données",
+      "paragraph": "At Tiggidoo, communication is essential. We have to be able to reach each other at any moment. This is why we insist that having a smartphone with data is a necessity",
       "groupCheckBox_2":{
-        "title": "As-tu des allergies quelconques ou des problèmes de santé ?",
-        "checkBoxLabel1": "Oui",
-        "checkBoxLabel2": "Non"
+        "title": "Do you have any allergies or health problems?",
+        "checkBoxLabel1": "Yes",
+        "checkBoxLabel2": "No"
       },
-      "sicksLabel":"Si oui, préciser ici…",
-      "paragraph_2": "Ne pas préciser l’allergie ou le problème de santé pourrait entraîner un refus d’inscription de notre part. Tiggidoo se réserve le droit de ne pas valider une inscription si le “oui” a été sélectionné",
-      "titlePhoto": "Pour terminer, nous avons besoin de ta photo",
-      "paragraphPhoto": "Joins une photo professionnelle de toi. Elle sera utilisée pour mettre à jour ton profil. Elle sera le premier contact avec le potentiel client. L’administration de Tiggidoo valide les photos, nous nous voyons lue droit de pas accepter celle-ci, si elle ne correspond pas à la charte de nos services",
-      "photoType": "Formats de fichier : png, jpg, jpeg",
-      "titleButton": "Joindre un fichier",
-      "example": "Pour exemple"
+      "sicksLabel":"If yes, please specify here…",
+      "paragraph_2": "Not specifying the allergy or health issue can result in your application being rejected",
+      "titlePhoto": "Finally, we need your picture",
+      "paragraphPhoto": "Attach a professional photo of yourself. This will be used to create your user profile on the platform",
+      "photoType": "File formats: png, jpg, jpeg",
+      "titleButton": "Attach an image",
+      "MyPhoto": "My photo",
+      "example": "Example",
+      "buttonBack": "Back",
+      "buttonNext": "Complete registration"
+    },
+    "Confirmation": {
+      "title": "Thank you",
+      "subTitle": "Your application is already being reviewed by our recruiters",
+      "description1":"Humans are at the core of our values and we pride ourselves in carefully studying each application",
+      "description2":"We will contact you once a decision has been made regarding your file",
+      "description3":"Wait & Clean",
+      "description4":"Thank you The Tiggidoo recruitment team",
+      "button": "Home"
     }
   }
 }

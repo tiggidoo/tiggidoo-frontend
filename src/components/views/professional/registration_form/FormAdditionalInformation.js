@@ -94,13 +94,13 @@ class FormAdditionalInformation extends Component {
                             {/* <Button htmlFor="sampleFile" component="label" name="images" type="submit">{t("ProForm.FormAdditionalInformation.titleButton")}</Button> */}
                             <Button htmlFor="sampleFile" component="label" variant="contained" type="submit">{t("ProForm.FormAdditionalInformation.titleButton")}</Button>
                             <input id="sampleFile" type="file" name="files" style={{display:'none'}} multiple onChange={setImages}  />
-                            <Box mt={2}>Formats de fichier: png, jpg, jpeg</Box>
+                            <Box mt={2}>{t("ProForm.FormAdditionalInformation.photoType")}</Box>
 
                         </Box>
 
                         <Box mr={6}>
                             <Box mb={1}>
-                                <Typography variant="h5">My Photo</Typography>
+                                <Typography variant="h5">{t("ProForm.FormAdditionalInformation.MyPhoto")}</Typography>
                             </Box>
                             <label htmlFor="upload-button">
                                 {values.preview ? (
@@ -115,7 +115,7 @@ class FormAdditionalInformation extends Component {
 
                         <Box>
                             <Box mb={1}>
-                                <Typography variant="h5">Pour Exemple</Typography>
+                                <Typography variant="h5">{t("ProForm.FormAdditionalInformation.example")}</Typography>
                             </Box>
                             <Box>
                                 <img src="images/img_seccion1.png" alt=""/>
@@ -130,10 +130,10 @@ class FormAdditionalInformation extends Component {
 
                 <Box mt={3} className={classes.groupButtons}>
                     <Box>
-                        <ButtonIcon onClick={this.back} label="BACK" />
+                        <ButtonIcon onClick={this.back} label={t("ProForm.FormAdditionalInformation.buttonBack")} />
                     </Box>
                     <Box>
-                        <ButtonBlue onClick={this.valRegistration} label="VALIDER L'INSCRIPTION" />
+                        <ButtonBlue onClick={this.valRegistration} label={t("ProForm.FormAdditionalInformation.buttonNext")} />
                     </Box>
                 </Box>
             </React.Fragment>

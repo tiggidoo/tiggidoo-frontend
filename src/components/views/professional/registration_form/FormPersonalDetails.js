@@ -437,7 +437,7 @@ class FormPersonalDetails extends Component {
                 </Grid>
 
                 <Box className={classes.buttonBlue}>
-                    <ButtonBlue onClick={this.continue} label="CONTINUE" />
+                    <ButtonBlue onClick={this.continue} label={ t("ProForm.FormPersonalDetails.button") } />
                 </Box>
 
             </React.Fragment>
