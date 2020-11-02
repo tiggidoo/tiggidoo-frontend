@@ -28,28 +28,3 @@ function App() {
 }
 
 export default App;
-
-/*
-  	//Nueva rutina
-	import React from "react";
-	import { ThemeProvider } from "@material-ui/core/styles";
-	import theme from "./css/material-ui/configTheme";
-	//import { BrowserRouter, Route, Switch } from "react-router-dom";
-
-	import Dashboard from './components/dashboard/index';
-
-
-	function App() {
-	  return (
-	    <ThemeProvider theme={theme}>
-		<div className="App">
-		    <Dashboard />
-		</div>
-	    </ThemeProvider>
-	  );
-	}
-
-	export default App;
-
-  
-*/

@@ -33,10 +33,10 @@ export default function Header() {
 
         <Navbar.Collapse className="justify-content-end">
           <Nav className="mr-auto NavBar__menu">
-            <Nav.Link href="#home" className="NavBar__menu__item">
+            <Nav.Link style={{fontSize: '20px'}} href="#home" className="NavBar__menu__item">
               Services
             </Nav.Link>
-            <Nav.Link href="/" className="NavBar__menu__item">
+            <Nav.Link style={{fontSize: '20px'}} href="/" className="NavBar__menu__item">
               Devenir ToDoo
             </Nav.Link>
           </Nav>
