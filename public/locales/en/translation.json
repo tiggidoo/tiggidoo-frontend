@@ -6,7 +6,7 @@
   },
   "Footer": {
     "titleIcons": "Follow us",
-    "copiRight": "Copiright 2020 All rights reserved",
+    "copyRight": "Copyright 2020 All rights reserved",
     "ul1": {
       "title": "Discover",
       "li": {
@@ -44,7 +44,8 @@
     },
     "section_3":{
       "title": "How does it work?",
-      "description": "You are the boss! You decide where and when you work. Bingo! Your profile has been selected by your future client:",
+      "description_1": "You are the boss! You decide where and when you work.",
+      "description_2": "Bingo! Your profile has been selected by your future client:",
       "step_1": "Be immediately notified by email when a new offer has arrived on your ToDoo account.",
       "step_2": "View the client’s offer which you can accept or refuse.",
       "step_3": "Perform a quality cleaning service and receive a positive rating on your profile.",
@@ -113,6 +114,7 @@
       "lastNameInput": "Surname",
       "birthDayLabel": "Date of Birth",
       "cellPhoneLabel": "Cell phone number",
+      "cellPhoneLabelError": "This email and phone number already exists",
       "emaillLabel": "Email address",
       "groupCheckBox_1": {
         "title": "What languages ​​do you speak ?",

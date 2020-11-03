@@ -6,6 +6,7 @@
 
 */
 import React from 'react';
+import { Link } from "react-router-dom";
 import { Button, Container } from 'react-bootstrap';
 import { withTranslation } from "react-i18next";
 
@@ -19,7 +20,9 @@ function SubmitMyApplication({ t }){
                 {/* <p className="DPApplication__description mb-0 pb-0">{ t("BecomeProfesional.section_6.description") }</p> */}
                 <p className="DPApplication__description mb-5 pb-3">{ t("BecomeProfesional.section_6.description") }</p>
                 <div className="DPApplication__button">
-                    <Button variant="outline-secondary" size="lg">{ t("BecomeProfesional.section_6.button") }</Button>            
+                    <Link to="/proform">
+                        <Button variant="outline-secondary" size="lg">{ t("BecomeProfesional.section_6.button") }</Button>            
+                    </Link>
                 </div>
             </Container>
         </section>

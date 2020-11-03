@@ -198,7 +198,7 @@ class FormPersonalDetails extends Component {
             this.props.validateMailAndNextStep(emailAndPhoneExiste);
 
         }else{
-            console.log("Paso por qui");
+            //console.log("Paso por qui");
             this.props.nextStep();
         }
     }
@@ -253,9 +253,6 @@ class FormPersonalDetails extends Component {
 
             <React.Fragment>
                 <Box mb={2}>
-                    {(values.emailAndPhoneExist === 1) && (
-                        <span className={classes.errorMessage}><Typography variant="h1">{values.emailAndPhoneMessage}</Typography></span>
-                    )}
                     <Typography variant="h1">{t("ProForm.FormPersonalDetails.title")}</Typography>
                 </Box>
                 <Box mb={8}>
@@ -435,9 +432,13 @@ class FormPersonalDetails extends Component {
                         </Box>
                     </Grid>
                 </Grid>
-
-                <Box className={classes.buttonBlue}>
-                    <ButtonBlue onClick={this.continue} label={ t("ProForm.FormPersonalDetails.button") } />
+                <Box>
+                    {(values.emailAndPhoneExist === 1) && (
+                            <span className={classes.errorMessage}><Typography variant="h4">{t("ProForm.FormPersonalDetails.cellPhoneLabelError")}</Typography></span>
+                        )}
+                    <Box className={classes.buttonBlue}>
+                        <ButtonBlue onClick={this.continue} label={ t("ProForm.FormPersonalDetails.button") } />
+                    </Box>
                 </Box>
 
             </React.Fragment>

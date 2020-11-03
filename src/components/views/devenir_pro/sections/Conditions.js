@@ -6,6 +6,7 @@
 
 */
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
 
@@ -104,9 +105,11 @@ function Conditions({ t }) {
           </Col>
         </Row>
         <div className="DPConditions__button">
-          <Button variant="outline-secondary" size="lg">
-            { t("BecomeProfesional.section_7.button") }
-          </Button>
+          <Link to="/proform">
+            <Button variant="outline-secondary" size="lg">
+              { t("BecomeProfesional.section_7.button") }
+            </Button>
+          </Link>
         </div>
       </Container>
     </section>

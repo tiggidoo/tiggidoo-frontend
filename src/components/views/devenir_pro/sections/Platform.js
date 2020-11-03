@@ -6,6 +6,7 @@
 */
 
 import React from 'react';
+import { Link } from "react-router-dom";
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import check from '../../../../images/icon_check.png';
 import { withTranslation } from "react-i18next";
@@ -35,7 +36,9 @@ function Platform({ t }){
                             <li><img src={check} alt="" /><p>{t("BecomeProfesional.section_2.li5")}</p></li>
                         </ul>
                         <div className="DPPlatform__button mt-5 pt-2">
-                            <Button variant="outline-secondary" size="lg">{t("BecomeProfesional.section_2.button")}</Button>
+                            <Link to="/proform">
+                                <Button variant="outline-secondary" size="lg">{t("BecomeProfesional.section_2.button")}</Button>
+                            </Link>
                         </div>
                     </Col>          
                 </Row>

@@ -32,7 +32,7 @@ function Footer({ t }) {
               className="tiggidoo_white"
             />
             <div className="Footer__copiRightDeskop__text">
-              <span>Copiright 2020 {t("Footer.copyRight")}</span>
+              <span>{t("Footer.copyRight")}</span>
             </div>
           </div>
 
@@ -75,7 +75,7 @@ function Footer({ t }) {
           </div>
         </div>
         <div className="Footer__copiRight d-xl-none">
-          <span>Copiright 2020 {t("Footer.copyRight")}</span>
+          <span>{t("Footer.copyRight")}</span>
         </div>
       </div>
       </Container>

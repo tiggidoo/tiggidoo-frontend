@@ -19,8 +19,11 @@ function HowItWorks({ t }) {
           <h2 className="DPWork__title mb-4">
             {t("BecomeProfesional.section_3.title")}
           </h2>
-          <p className="DPWork__text">
-            {t("BecomeProfesional.section_3.description")}
+          <p className="DPWork__text mb-0">
+            {t("BecomeProfesional.section_3.description_1")}
+          </p>
+          <p>
+            {t("BecomeProfesional.section_3.description_2")}
           </p>
         </div>
         <Row className="pt-0 pt-xl-5">

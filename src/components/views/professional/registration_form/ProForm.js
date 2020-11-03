@@ -40,8 +40,8 @@ class ProForm extends Component {
         let today = new Date();
         let year = today.getFullYear();
         let month = today.getMonth()+1;
-        let day = today.getDate();
-        let formDate =year+"-"+month+"-"+day;
+        let day = (today.getDate() < 10) ? "0" + today.getDate() : today.getDate();
+        let formDate =year+"-"+month+"-"+ day;
 
         //console.log(fecha);
         this.state = {
@@ -95,13 +95,13 @@ class ProForm extends Component {
                     lastName: 'Last Name is required',
                     email: 'The email is required',
                     spokenLanguages: "Choose at least one language.",
-                    telephone: 'The Telephone is required.',
+                    telephone: 'Phone number is required.',
                 },
                 step2: {
                     referFirstName1: 'The First Name is required',
                     referLastName1: 'The Last Name is required',
                     referEmail1: 'The Emial is required',
-                    referTelephone1: 'The Telephone is required',
+                    referTelephone1: 'Phone number is required',
                     referCompany1: 'The Company is required',
                     referPosition1: 'The Position is required',
                     referDepartureDate1: '',

@@ -15,7 +15,7 @@
         img {
           max-width: 26px;
           max-height: 22px;
-          margin-left: -50px;
+          margin-left: -35px;
           margin-right: 10px;
         }
         &:last-child {
@@ -113,12 +113,20 @@
     &__title{
       max-width: 57.6rem;
     }
-    &__text--change > li img{
-      max-width: none;
-      max-height: none;
-      width: 4.3rem;
-      height: 3.2rem;
-    }
+
+    &__text {
+      &--change {
+        & > li {
+          img {
+            margin-left: -50px;
+            max-width: none;
+            max-height: none;
+            width: 4.3rem;
+            height: 3.2rem;
+                }
+        }
+      }
+    }    
 
   }
 }
