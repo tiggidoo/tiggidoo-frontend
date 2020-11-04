@@ -14,6 +14,7 @@ const TextMaskCustom = (props) => {
         inputRef(ref ? ref.inputElement : null);
       }}
       mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+//      mask={['(', /[1-9]/, ')','-',/\d/]}
       placeholderChar={'\u2000'}
       showMask
     />
@@ -36,6 +37,10 @@ export default function InputPhone(props) {
       '& .MuiOutlinedInput-root': {
         '& fieldset': {
           borderRadius: '4px'
+        },
+        '& .MuiOutlinedInput-inputMarginDense':{
+          paddingTop: '11px',
+          paddingBottom: '11px',
         }
       },
     },
@@ -48,6 +53,10 @@ export default function InputPhone(props) {
         '& fieldset': {
           borderColor: 'red',
           borderRadius: '4px'
+        },
+        '& .MuiOutlinedInput-inputMarginDense':{
+          paddingTop: '11px',
+          paddingBottom: '11px',
         }
       },
     }

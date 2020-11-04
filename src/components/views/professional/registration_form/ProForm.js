@@ -217,9 +217,25 @@ class ProForm extends Component {
             case "radio":
 
                 e.preventDefault();
-                this.setState({
-                    [e.target.name]: e.target.value,
-                });
+                console.log(e.target.value);
+                if(e.type === 'change'){
+                    
+                    if(e.target.name === 'telephone'){
+                        if(e.target.value.length ===1){
+                            e.target.value = '(' + e.target.value;
+                        }
+                        if(e.target.value.length ===4){
+                            e.target.value = e.target.value + ') ';
+                        }
+                        if(e.target.value.length ===9){
+                            e.target.value = e.target.value + '-';
+                        }
+                    }
+                }else{
+                    this.setState({
+                        [e.target.name]: e.target.value,
+                    });
+                }
 
                 let value = e.target.value;
 
@@ -260,6 +276,10 @@ class ProForm extends Component {
                                 : "Invalid email address.";
                         break;
                     case 'referTelephone1':
+                        if(value.length === 1){
+                            value = '(' + value;
+                        }
+
                         let ter = value.replace('(', '');
                         ter = ter.replace(')', '');
                         ter = ter.replace('-', '');

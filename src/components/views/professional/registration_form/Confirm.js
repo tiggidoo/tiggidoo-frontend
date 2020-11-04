@@ -37,6 +37,14 @@ const useStyles = makeStyles((theme) => ({
     },
     widthImg:{
         width: '160px'
+    },
+    btnHome:{
+        fontWeight: 'bold'
+    },
+    link:{
+    '& a':{
+            textDecoration: 'none'
+        }
     }
   }));
 
@@ -66,11 +74,16 @@ function Confirm(props) {
                 </Box>           
 
                 <Box mb={8}>
-                    <Typography className={classes.textItalic}  variant="h4">{ t("ProForm.Confirmation.description4") }</Typography>
+                        <Box className="mb-0">
+                            <Typography variant="h3">{ t("ProForm.Confirmation.description4") }</Typography>
+                        </Box>
+                        <Box>
+                            <Typography className={classes.textItalic}  variant="h4">{ t("ProForm.Confirmation.description5") }</Typography>
+                        </Box>
                 </Box>           
-                <Box>
+                <Box className={classes.link}>
                     <Link to="/">
-                        <ButtonBlue label={ t("ProForm.Confirmation.button") } />
+                        <ButtonBlue className={classes.btnHome} label={ t("ProForm.Confirmation.button") } />
                     </Link>
                 </Box>
             </Box>

@@ -25,6 +25,20 @@
       }
     }
   },
+  "months": {
+    "January": "janvier",
+    "February": "février",
+    "March": "Mars",
+    "April": "avril",
+    "May": "Mai",
+    "June": "juin",
+    "July": "juillet",
+    "August": "août",
+    "September": "septembre",
+    "October": "octobre",
+    "November": "novembre",
+    "December": "décembre"
+  },
   "BecomeProfesional": {
     "section_1": {
       "title": "Tiggidoo connecte les professionnels du ménage résidentiel et leurs futurs clients",
@@ -135,7 +149,7 @@
         "checkBoxLabel1": "Oui",
         "checkBoxLabel2": "Non"
       },
-      "button": "CONTINUE"
+      "button": "SUIVANT"
     },
     "FormPersonalBackground": {
       "title": "Quel est ton parcours ?",
@@ -148,8 +162,8 @@
       "referencesSubTitle": "Nous contacterons ces deux références",
       "firstContactTitle": "Premier contact",
       "secondContactTitle": "Deuxième contact",
-      "firstNameLabel": "Nom",
-      "lastNamelabel": "Prénom",
+      "firstNameLabel": "Prénom",
+      "lastNamelabel": "Nom",
       "email": "Courriel",
       "cellPhone": "Cellulaire",
       "company": "Entreprise",
@@ -165,7 +179,7 @@
       },
       "knowUsLabel": "Comment nous as-tu connu?",
       "buttonBack": "RETOUR",
-      "buttonNext": "CONTINUE"
+      "buttonNext": "SUIVANT"
     },
     "FormAdditionalInformation":{
       "title": "Quelques informations te concernant",
@@ -198,8 +212,9 @@
       "description1":"L’humain est au coeur de nos valeurs, nous mettons un point d’honneur à étudier minutieusement chaque candidature",
       "description2":"Nous vous contacterons dès qu’une décision sera effective concernant votre dossier",
       "description3":"Wait & Clean",
-      "description4":"Merci L’équipe de recrutement de Tiggidoo",
-      "button": "Accueil"
+      "description4":"Merci",
+      "description5":"L’équipe de recrutement de Tiggidoo",
+      "button": "ACCUEIL"
     }
   }
 }

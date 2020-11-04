@@ -244,6 +244,8 @@ class FormPersonalDetails extends Component {
     }
 
     render() {
+        const lang  = this.props.i18n.language;
+        console.log(lang);
         const { t } = this.props;
         const { classes } = this.props;
         const { values, handleChange } = this.props;
@@ -310,18 +312,18 @@ class FormPersonalDetails extends Component {
                                         onChange={handleChange}
                                         input={<BootstrapInput />}
                                     >
-                                        <option value={1}>January</option>
-                                        <option value={2}>February</option>
-                                        <option value={3}>March</option>
-                                        <option value={4}>April</option>
-                                        <option value={5}>May</option>
-                                        <option value={6}>June</option>
-                                        <option value={7}>July</option>
-                                        <option value={8}>August</option>
-                                        <option value={9}>September</option>
-                                        <option value={10}>October</option>
-                                        <option value={11}>November</option>
-                                        <option value={12}>December</option>
+                                        <option value={1}>{t("months.January")}</option>
+                                        <option value={2}>{t("months.February")}</option>
+                                        <option value={3}>{t("months.March")}</option>
+                                        <option value={4}>{t("months.April")}</option>
+                                        <option value={5}>{t("months.May")}</option>
+                                        <option value={6}>{t("months.June")}</option>
+                                        <option value={7}>{t("months.July")}</option>
+                                        <option value={8}>{t("months.August")}</option>
+                                        <option value={9}>{t("months.September")}</option>
+                                        <option value={10}>{t("months.October")}</option>
+                                        <option value={11}>{t("months.November")}</option>
+                                        <option value={12}>{t("months.December")}</option>
                                     </NativeSelect>
                                 </Box>
 

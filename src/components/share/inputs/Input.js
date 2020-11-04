@@ -19,6 +19,10 @@ export default function Input(props) {
             '& .MuiOutlinedInput-root': {
                 borderRadius: '4px'
               },
+              '& .MuiOutlinedInput-inputMarginDense':{
+                paddingTop: '11px',
+                paddingBottom: '11px',
+            }
         },
         errors: {
             maxWidth: '517px',
@@ -31,6 +35,10 @@ export default function Input(props) {
                   borderRadius: '4px'
                 }
               },
+            '& .MuiOutlinedInput-inputMarginDense':{
+                paddingTop: '11px',
+                paddingBottom: '11px',
+            }
         }
     }));
 

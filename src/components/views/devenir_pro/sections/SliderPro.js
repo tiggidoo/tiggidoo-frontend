@@ -16,17 +16,32 @@ import CardPro from "./CardPro";
 
 const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1024 }, //max: 3000, min: 1024
+    breakpoint: { max: 3000, min: 1600 }, //max: 3000, min: 1024
     items: 5,
     slidesToSlide: 3, // optional, default to 1.
   },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 }, //max: 1024, min: 464
-    items: 2,
+  xldesktop: {
+    breakpoint: { max: 1599, min: 1024 }, //max: 1024, min: 464
+    items: 4,
     slidesToSlide: 2, // optional, default to 1.
   },
-  mobile: {
-    breakpoint: { max: 464, min: 0 }, //max: 464, min: 0
+  lgtablet: {
+    breakpoint: { max: 1023, min: 992 }, //max: 1024, min: 464
+    items: 3,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+  mdtablet: {
+    breakpoint: { max: 991, min: 768 }, //max: 1024, min: 464
+    items: 2,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+  smmobile: {
+    breakpoint: { max: 767, min: 605 }, //max: 464, min: 0
+    items: 2,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+  xsmobile: {
+    breakpoint: { max: 604, min: 0 }, //max: 464, min: 0
     items: 1,
     slidesToSlide: 1, // optional, default to 1.
   },
@@ -37,15 +52,15 @@ const profesionals = [
     id: 0,
     firstName: "John",
     lastName: "Clavijo",
-    evaluation: "3,9",
-    presentation: "32",
+    evaluation: "5",
+    presentation: "25",
     urlImg: "img1",
   },
   {
     id: 1,
     firstName: "Mark",
     lastName: "Kram",
-    evaluation: "4,5",
+    evaluation: "5",
     presentation: "25",
     urlImg: "img2",
   },
@@ -53,10 +68,11 @@ const profesionals = [
     id: 2,
     firstName: "Kim",
     lastName: "Humnis",
-    evaluation: "45,2",
+    evaluation: "5",
     presentation: "25",
     urlImg: "img3",
   },
+  /*
   {
     id: 3,
     firstName: "NN",
@@ -65,22 +81,24 @@ const profesionals = [
     presentation: "25",
     urlImg: "nn",
   },
+  */
   {
     id: 4,
     firstName: "Melisa",
     lastName: "Asilem",
-    evaluation: "2,5",
-    presentation: "14",
+    evaluation: "5",
+    presentation: "25",
     urlImg: "img4",
   },
   {
     id: 5,
     firstName: "Alice",
     lastName: "Ecila",
-    evaluation: "1.89",
-    presentation: "34",
+    evaluation: "5",
+    presentation: "25",
     urlImg: "img5",
   },
+  /*
   {
     id: 6,
     firstName: "Thomas",
@@ -89,6 +107,7 @@ const profesionals = [
     presentation: "45",
     urlImg: "nn",
   },
+  
   {
     id: 7,
     firstName: "Luis",
@@ -97,6 +116,7 @@ const profesionals = [
     presentation: "99",
     urlImg: "nn",
   },
+  
   {
     id: 8,
     firstName: "Thomas",
@@ -105,6 +125,7 @@ const profesionals = [
     presentation: "45",
     urlImg: "nn",
   },
+  */
 ];
 
 const CustomButtonGroup = ({ next, previous, goToSlide, carouselState }) => {

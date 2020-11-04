@@ -4,24 +4,27 @@ import Button from '@material-ui/core/Button';
 
 const BootstrapButton = withStyles({
   root: {
-    width: '28.1rem',
+    //maxWidth: '32rem',
+    width: '32rem',
     height: '6.1rem',
     boxShadow: 'none',
     textTransform: 'none',
-    fontSize: 16,
-    padding: '6px 12px',
+    fontSize: 20,
+    padding: '3.3rem 0rem', //3.3rem 2rem
     border: '1px solid',
     lineHeight: 1.5,
     backgroundColor: '#2880fb',
     borderColor: '#2880fb',
+    fontWeight: 'bold',
+    borderRadius: '0',
     fontFamily: [
+      'sans-serif',
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
       'Roboto',
       '"Helvetica Neue"',
       'Arial',
-      'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',

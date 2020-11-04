@@ -25,6 +25,20 @@
       }
     }
   },
+  "months": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
+  },
   "BecomeProfesional": {
     "section_1": {
       "title": "Tiggidoo connects professional residential housekeepers and their future clients",
@@ -135,7 +149,7 @@
         "checkBoxLabel1": "Yes",
         "checkBoxLabel2": "No"
       },
-      "button": "Next"
+      "button": "NEXT"
     },
     "FormPersonalBackground": {
       "title": "What is your story?",
@@ -148,8 +162,8 @@
       "referencesSubTitle": "We will contact these references",
       "firstContactTitle": "First reference",
       "secondContactTitle": "Second reference",
-      "firstNameLabel": "Surname",
-      "lastNamelabel": "Name",
+      "firstNameLabel": "Name",
+      "lastNamelabel": "Surname",
       "email": "Email address",
       "cellPhone": "Phone number",
       "company": "Company",
@@ -165,7 +179,7 @@
       },
       "knowUsLabel": "How did you find us?",
       "buttonBack": "Back",
-      "buttonNext": "Next"
+      "buttonNext": "NEXT"
     },
     "FormAdditionalInformation":{
       "title": "A few things about you",
@@ -190,7 +204,7 @@
       "MyPhoto": "My photo",
       "example": "Example",
       "buttonBack": "Back",
-      "buttonNext": "Complete registration"
+      "buttonNext": "COMPLETE REGISTRATION"
     },
     "Confirmation": {
       "title": "Thank you",
@@ -198,8 +212,9 @@
       "description1":"Humans are at the core of our values and we pride ourselves in carefully studying each application",
       "description2":"We will contact you once a decision has been made regarding your file",
       "description3":"Wait & Clean",
-      "description4":"Thank you The Tiggidoo recruitment team",
-      "button": "Home"
+      "description4":"Thank you",
+      "description5":"The Tiggidoo recruitment team",
+      "button": "HOME"
     }
   }
 }
