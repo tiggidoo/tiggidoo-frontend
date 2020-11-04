@@ -217,6 +217,7 @@ class ProForm extends Component {
             case "radio":
 
                 e.preventDefault();
+/*                
                 console.log(e.target.value);
                 if(e.type === 'change'){
                     
@@ -232,10 +233,11 @@ class ProForm extends Component {
                         }
                     }
                 }else{
-                    this.setState({
-                        [e.target.name]: e.target.value,
-                    });
                 }
+*/
+		this.setState({
+		    [e.target.name]: e.target.value,
+		});
 
                 let value = e.target.value;
 
