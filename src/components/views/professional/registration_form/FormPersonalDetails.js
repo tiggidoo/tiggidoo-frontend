@@ -244,8 +244,6 @@ class FormPersonalDetails extends Component {
     }
 
     render() {
-        const lang  = this.props.i18n.language;
-        console.log(lang);
         const { t } = this.props;
         const { classes } = this.props;
         const { values, handleChange } = this.props;

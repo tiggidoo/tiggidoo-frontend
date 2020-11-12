@@ -10,12 +10,12 @@ export const registrationAction = (registration) => async dispatch => {
             type: "REGISTRATION_PROCESSING"
         });
 
+        const lag = registration.lang;
+
         let day = registration.birthDay.length === 1 ? "0" + registration.birthDay : registration.birthDay;
         let month = registration.birthMonth.length === 1 ? "0" + registration.birthMonth : registration.birthMonth;
         let birtdDayFull = registration.birthYear + "-" + month + "-" + day;
         
-        console.log(birtdDayFull);
-
         let varTelephone = registration.telephone;
         varTelephone = varTelephone.replace('(', '');
         varTelephone = varTelephone.replace(')', '');
@@ -94,7 +94,7 @@ export const registrationAction = (registration) => async dispatch => {
             f.append("avatar", archivos[index]);
         }
         f.append('content', content);
-        f.append('lag', 'En');
+        f.append('lag', lag);
         
         await axios.post('https://www.api-tiggidoo.com/api/register/pro', f, {headers: {'Content-Type': 'multipart/form-data'}})
         .then(res => {

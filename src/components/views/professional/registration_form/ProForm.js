@@ -14,8 +14,11 @@ import { compose } from "redux"; /* bindActionCreators */
 import { connect } from 'react-redux';
 import { registrationAction } from '../../../../store/actions/registrationAction';
 
+
+    
+
 const emailRegex = RegExp(
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    /^[ ]*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})[ ]*$/i
 );
 
 const formValid = (formErrors) => {
@@ -46,6 +49,7 @@ class ProForm extends Component {
         //console.log(fecha);
         this.state = {
             step: 1,
+            lang: '',
             firstName: '',
             lastName: '',
             birthDay: '1',
@@ -124,10 +128,9 @@ class ProForm extends Component {
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.howKnowUsAPI();
     }
-
 
     howKnowUsAPI = async () => {
         //console.log(this.props.i18n.language);
@@ -162,6 +165,7 @@ class ProForm extends Component {
 
     nextStep = () => {
 
+        const lang = this.props.i18n.language;
         const { step } = this.state;
         let formErrors = {};
         
@@ -182,8 +186,8 @@ class ProForm extends Component {
         if (formValid(formErrors)) {
             this.setState({
                 step: step + 1,
-                validate: 0
-
+                validate: 0,
+                lang: lang
             });
         } else {
             this.setState({
@@ -217,27 +221,9 @@ class ProForm extends Component {
             case "radio":
 
                 e.preventDefault();
-/*                
-                console.log(e.target.value);
-                if(e.type === 'change'){
-                    
-                    if(e.target.name === 'telephone'){
-                        if(e.target.value.length ===1){
-                            e.target.value = '(' + e.target.value;
-                        }
-                        if(e.target.value.length ===4){
-                            e.target.value = e.target.value + ') ';
-                        }
-                        if(e.target.value.length ===9){
-                            e.target.value = e.target.value + '-';
-                        }
-                    }
-                }else{
-                }
-*/
-		this.setState({
-		    [e.target.name]: e.target.value,
-		});
+		        this.setState({
+		            [e.target.name]: e.target.value,
+		        });
 
                 let value = e.target.value;
 
@@ -394,10 +380,6 @@ class ProForm extends Component {
 
     }
 
-    setImage2 = (e) => {
-
-    }
-
     setImages = (e) => {
         const formErrors = this.state.formErrors.step3;
         this.setState({
@@ -408,6 +390,7 @@ class ProForm extends Component {
     }
 
     getStepContent = () => {
+
         const { step } = this.state;
 
         const { firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone,
@@ -471,6 +454,7 @@ class ProForm extends Component {
     }
 
     render() {
+        //this.state.lang  = this.props.i18n.language;
         const { classes } = this.props;
         
         return (
