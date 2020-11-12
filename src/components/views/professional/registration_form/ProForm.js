@@ -261,7 +261,7 @@ class ProForm extends Component {
                         ex = ex.replace(')', '');
                         ex = ex.replace('-', '');
                         ex = ex.replace(' ', '');
-                        ex = ex.replace(/ /g, '');
+                        ex = ex.replace(/\s+/g, '');
                         ex = ex.trim();
                         formErrors.step1.telephone =
                             ex.length < 10 ? "The phone must have a minimum of 10 digits" : "";
@@ -287,7 +287,7 @@ class ProForm extends Component {
                         ter = ter.replace(')', '');
                         ter = ter.replace('-', '');
                         ter = ter.replace(' ', '');
-                        ter = ter.replace(/ /g, '');
+                        ter = ter.replace(/\s+/g, '');
                         ter = ter.trim();
                         formErrors.step2.referTelephone1 =
                             ter.length < 10 ? "The phone must have a minimum of 10 digits" : "";
@@ -314,7 +314,7 @@ class ProForm extends Component {
                         tel = tel.replace(')', '');
                         tel = tel.replace('-', '');
                         tel = tel.replace(' ', '');
-                        tel = tel.replace(/ /g, '');
+                        tel = tel.replace(/\s+/g, '');
                         tel = tel.trim();
                         formErrorsNoValidaton.step2.referTelephone2 =
                             tel.length < 10 ? "The phone must have a minimum of 10 digits" : "";
