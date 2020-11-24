@@ -1,4 +1,11 @@
 {
+  "SEO": {
+    "title":"Tiggidoo : la plateforme des préposés à l'entretien ménager",
+    "meta":{
+      "description": "Tiggidoo, nouvelle plateforme de service de ménage résidentiel! Trouvez une aide ménagère, parmi les professionnels qualifiés en entretien ménager",
+      "keywords": "Tiggidoo, service de ménage, une aide ménagère, un entretien ménager"
+    }
+  },
   "Nav": {
     "menu": {
       "login": "Connexion"

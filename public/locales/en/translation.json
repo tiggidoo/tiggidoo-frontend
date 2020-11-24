@@ -1,4 +1,12 @@
 {
+  "SEO": {
+    "title":"Tiggidoo : the plateform for houskeepers",
+    "meta":{
+      "description": "Tiggidoo, new residential cleaning service platform! Find a housekeeper, among qualified professionals in housekeeping",
+      "keywords": "Tiggidoo, clean service, housekeeping"
+
+    }
+  },
   "Nav": {
     "menu": {
       "login": "Log in"
