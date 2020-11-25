@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
 
-import "../../../../css/views/devenir_pro/conditions.scss";
+import "../css/conditions.scss";
 
 function Conditions({ t }) {
   return (

@@ -73,7 +73,7 @@ class FormPersonalBackground extends Component {
                                 id="referFirstName1" label={t("ProForm.FormPersonalBackground.firstNameLabel")} size="small" onChange={handleChange} defaultValue={values.referFirstName1} />
 
                             {(formErrors.step2.referFirstName1.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step2.referFirstName1}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.refer")}</span>
                             )}
 
                         </Box>
@@ -83,7 +83,7 @@ class FormPersonalBackground extends Component {
                                 id="referLastName1" label={t("ProForm.FormPersonalBackground.lastNamelabel")} size="small" onChange={handleChange} defaultValue={values.referLastName1} />
 
                             {(formErrors.step2.referLastName1.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step2.referLastName1}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.refer")}</span>
                             )}
 
                         </Box>
@@ -93,7 +93,7 @@ class FormPersonalBackground extends Component {
                                 id="referEmail1" label={t("ProForm.FormPersonalBackground.email")} size="small" onChange={handleChange} defaultValue={values.referEmail1} />
 
                             {(formErrors.step2.referEmail1.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step2.referEmail1}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.email")}</span>
                             )}
 
                         </Box>
@@ -103,7 +103,7 @@ class FormPersonalBackground extends Component {
                                 id="referTelephone1" label={t("ProForm.FormPersonalBackground.cellPhone")} size="small" onChange={handleChange} defaultValue={values.referTelephone1} />
 
                             {(formErrors.step2.referTelephone1.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step2.referTelephone1}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.telephoneFilds")}</span>
                             )}
 
                         </Box>
@@ -113,7 +113,7 @@ class FormPersonalBackground extends Component {
                                 id="referCompany1" label={t("ProForm.FormPersonalBackground.company")} size="small" onChange={handleChange} defaultValue={values.referCompany1} />
 
                             {(formErrors.step2.referCompany1.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step2.referCompany1}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.refer")}</span>
                             )}
 
                         </Box>
@@ -123,7 +123,7 @@ class FormPersonalBackground extends Component {
                                 id="referPosition1" label={t("ProForm.FormPersonalBackground.jobName")} size="small" onChange={handleChange} defaultValue={values.referPosition1} />
 
                             {(formErrors.step2.referPosition1.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step2.referPosition1}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.refer")}</span>
                             )}
 
                         </Box>
@@ -164,13 +164,13 @@ class FormPersonalBackground extends Component {
                         <Box className={classes.boxReferences}>
                             <Input error={formErrorsNoValidaton.step2.referEmail2.length === 0 ? "" : formErrorsNoValidaton.step2.referEmail2} id="referEmail2" label={t("ProForm.FormPersonalBackground.email")} size="small" onChange={handleChange} defaultValue={values.referEmail2} />
                             {formErrorsNoValidaton.step2.referEmail2.length > 0 && (
-                                <span className={classes.errorMessage}>{formErrorsNoValidaton.step2.referEmail2}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.email")}</span>
                             )}
                         </Box>
                         <Box className={classes.boxReferences}>
                             <InputPhone error={formErrorsNoValidaton.step2.referTelephone2.length === 0 ? "" : formErrorsNoValidaton.step2.referTelephone2} id="referTelephone2" label={t("ProForm.FormPersonalBackground.cellPhone")} size="small" onChange={handleChange} defaultValue={values.referTelephone2} />
                             {formErrorsNoValidaton.step2.referTelephone2.length > 0 && (
-                                <span className={classes.errorMessage}>{formErrorsNoValidaton.step2.referTelephone2}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.telephoneFilds")}</span>
                             )}
                         </Box>
                         <Box className={classes.boxReferences}>
@@ -236,7 +236,7 @@ class FormPersonalBackground extends Component {
                             </Box>
                         </Box>
                         {(formErrors.step2.integrationPlatform.length > 0 && values.validate === 1) && (
-                            <span className={classes.errorMessage}>{formErrors.step2.integrationPlatform}</span>
+                            <span className={classes.errorMessage}>{t("ProForm.validations.integrationPlatform")}</span>
                         )}
                     </Box>
 

@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 //import { Container } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
 
-import "../../css/components/layout/footer.scss";
+import "./css/footer.scss";
 
 function Footer({ t }) {
   return (

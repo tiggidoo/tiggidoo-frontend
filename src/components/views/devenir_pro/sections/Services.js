@@ -10,7 +10,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
 
-import "../../../../css/views/devenir_pro/services.scss";
+import "../css/services.scss";
 
 function Services({ t }) {
   return (

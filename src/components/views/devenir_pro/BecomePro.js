@@ -9,7 +9,7 @@ import Conditions from "./sections/Conditions";
 //import QuestionsPro from "./sections/QuestionsPro";
 import MyQuestions from "./sections/MyQuestions";
 
-import "../../../css/views/devenir_pro/becomepro.scss";
+import "./css/becomepro.scss";
 
 export default function BecomePro() {
   return (

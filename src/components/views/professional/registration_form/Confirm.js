@@ -53,6 +53,11 @@ function Confirm(props) {
     const { t } = props;
     //console.log(props);
     const firstName = props.firstName;
+
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <div>
             <Box className={classes.confirmation} >

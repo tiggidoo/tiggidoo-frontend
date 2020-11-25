@@ -9,12 +9,13 @@
   },
   "Nav": {
     "menu": {
-      "login": "Log in"
+      "login": "Log in",
+      "becomeTodo" : "Become a Todoo"
     }
   },
   "Footer": {
     "titleIcons": "Follow us",
-    "copyRight": "Copyright 2020 All rights reserved",
+    "copyRight": "2020 Tiggidoo - @ All rights reserved",
     "ul1": {
       "title": "Discover",
       "li": {
@@ -126,6 +127,19 @@
     }
   },
   "ProForm": {
+    "validations": {
+      "firstName": "The name is required",
+      "lastName": "The surname is required",
+      "telephoneFilds": "The phone must have a minimum of 10 digits",
+      "telephoneEmpty": "Choose at least one language",
+      "email": "Invalid email address.",
+      "languages": "Choose at least one language",
+      "refer": "This field is required",
+      "emailConfirmation": "Email de confirmation non reçu",
+      "integrationPlatform":"Choose at least one option",
+      "photo": "A photo is required for registration",
+      "cellPhoneLabelError": "This email and phone number already exists"
+    },
     "FormPersonalDetails":{
       "title": "Join the Todoo team today!",
       "description1": "To join the Tiggidoo platform, please fill out this form. We will review your",
@@ -136,7 +150,6 @@
       "lastNameInput": "Surname",
       "birthDayLabel": "Date of Birth",
       "cellPhoneLabel": "Cell phone number",
-      "cellPhoneLabelError": "This email and phone number already exists",
       "emaillLabel": "Email address",
       "groupCheckBox_1": {
         "title": "What languages ​​do you speak ?",

@@ -11,7 +11,7 @@ import { ChevronRight } from "react-bootstrap-icons";
 import { ChevronLeft } from "react-bootstrap-icons";
 
 import "react-multi-carousel/lib/styles.css";
-import "../../../../css/views/devenir_pro/sliderpro.scss";
+import "../css/sliderpro.scss";
 import CardPro from "./CardPro";
 
 const responsive = {

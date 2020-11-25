@@ -11,7 +11,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import check from '../../../../images/icon_check.png';
 import { withTranslation } from "react-i18next";
 
-import '../../../../css/views/devenir_pro/platform.scss';
+import '../css/platform.scss';
 
 function Platform({ t }){
     return(
@@ -24,11 +24,11 @@ function Platform({ t }){
                         </div>
                     </Col>          
                     <Col md={6} lg={true}>
-                        <h2 className="DPPlatform__title mb-5 pb-4 pt-xl-5 mt-xl-4 ml-xl-5 pl-xl-5">
+                        <h2 className="DPPlatform__title mb-5 pb-4 pt-xl-5 mt-xl-4 ml-xl-5">
                             {t("BecomeProfesional.section_2.title")}
                         </h2>
 
-                        <ul className="DPPlatform__text DPPlatform__text--change mt-2 pt-xl-5 mt-xl-4 ml-xl-5 pl-xl-5">
+                        <ul className="DPPlatform__text DPPlatform__text--change mt-2 pt-xl-5 mt-xl-4 ml-xl-5">
                             <li><img src={check} alt="" /><p>{t("BecomeProfesional.section_2.li1")}</p></li>
                             <li><img src={check} alt="" /><p>{t("BecomeProfesional.section_2.li2")}</p></li>
                             <li><img src={check} alt="" /><p>{t("BecomeProfesional.section_2.li3")}</p></li>

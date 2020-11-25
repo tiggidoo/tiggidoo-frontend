@@ -8,12 +8,13 @@
   },
   "Nav": {
     "menu": {
-      "login": "Connexion"
+      "login": "Connexion",
+      "becomeTodo" : "Devenez un Todoo"
     }
   },
   "Footer": {
     "titleIcons": "Suivez-nous",
-    "copyRight": "Copyright 2020 Tout droit réservé",
+    "copyRight": "2020 Tiggidoo - @ Tous droits réservés",
     "ul1": {
       "title": "Découvrir",
       "li": {
@@ -65,8 +66,8 @@
     },
     "section_3":{
       "title": "Comment ça fonctionne?",
-      "description_1": "C’est vous le patron! Vous décidez où et quand vous travaillez.",
-      "description_2": "Bingo! Votre profil est sélectionné par votre futur client :",
+      "description_1": "C’est vous le patron! Vous décidez où et quand vous travaillez",
+      "description_2": "Bingo! Votre profil est sélectionné par votre futur client",
       "step_1": "Soyez immédiatement prévenu par courriel lorsqu’une nouvelle offre est arrivée sur votre compte pro",
       "step_2": "Visualisez l’offre client que vous êtes libre d’accepter ou de refuser",
       "step_3": "Effectuez un ménage de qualité, obtenez un avis positif sur votre profil",
@@ -125,6 +126,19 @@
     }
   },
   "ProForm": {
+    "validations": {
+      "firstName": "Le prénom est requis",
+      "lastName": "Le nom est requis",
+      "telephoneFilds": "Le numéro de téléphone doit avoir 10 chiffres",
+      "telephoneEmpty": "Le numéro de téléphone est requis",
+      "email": "Le courriel n'est pas valide",
+      "languages": "Choisir au moins une langue",
+      "refer": "Ce champ est obligatoire",
+      "emailConfirmation": "Email de confirmation non reçu",
+      "integrationPlatform":"Choisir au moins une option",
+      "photo": "Une photo est requise pour l'inscription",
+      "cellPhoneLabelError": "Ce courriel et numéro de téléphone existe déjà"
+    },
     "FormPersonalDetails": {
       "title": "Rejoins dès aujourd'hui la gang des Todoo!",
       "description1": "Pour intégrer la plateforme Tiggidoo, merci de remplir ce formulaire. Nous étudierons ta",
@@ -135,7 +149,6 @@
       "lastNameInput": "Nom",
       "birthDayLabel": "Date de naissance",
       "cellPhoneLabel": "Numéro de cellulaire",
-      "cellPhoneLabelError": "Ce courriel et numéro de téléphone existe déjà",
       "emaillLabel": "Courriel",
       "groupCheckBox_1": {
         "title": "Quelles langues parles-tu ?",

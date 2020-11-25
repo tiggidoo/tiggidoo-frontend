@@ -9,7 +9,7 @@ import React from 'react';
 import { Container, Accordion, Card } from 'react-bootstrap'
 import { withTranslation } from "react-i18next";
 
-import '../../../../css/views/devenir_pro/questionpro.scss';
+import '../css/questionpro.scss';
 
 function QuestionsPro({ t }){
     return(

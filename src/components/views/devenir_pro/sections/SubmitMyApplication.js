@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { Button, Container } from 'react-bootstrap';
 import { withTranslation } from "react-i18next";
 
-import '../../../../css/views/devenir_pro/application.scss';
+import '../css/application.scss';
 
 function SubmitMyApplication({ t }){
     return(

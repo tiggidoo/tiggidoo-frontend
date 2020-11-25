@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Button, Container, Navbar, Nav } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
-import "../../css/components/layout/navbar.scss";
+import "./css/navbar.scss";
 
 
 
@@ -48,7 +48,7 @@ export default function Header() {
                 Services
               </Nav.Link>
               <Nav.Link style={{fontSize: '20px'}} href="/" className="NavBar__menu__item">
-                Devenir ToDoo
+                {t("Nav.menu.becomeTodo")}
               </Nav.Link>
             </Nav>
 

@@ -98,7 +98,7 @@ class ProForm extends Component {
                     firstName: 'First Name is required',
                     lastName: 'Last Name is required',
                     email: 'The email is required',
-                    spokenLanguages: "Choose at least one language.",
+                    spokenLanguages: "Choose at least one language",
                     telephone: 'Phone number is required.',
                 },
                 step2: {
@@ -129,6 +129,7 @@ class ProForm extends Component {
     }
 
     componentDidMount(){
+        window.scrollTo(0, 0);
         this.howKnowUsAPI();
     }
 

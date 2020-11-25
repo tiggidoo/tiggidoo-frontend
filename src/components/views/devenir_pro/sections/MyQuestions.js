@@ -4,7 +4,7 @@ import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { withTranslation } from "react-i18next";
 
-import '../../../../css/views/devenir_pro/myquestions.scss';
+import '../css/myquestions.scss';
 
 function MyQuestions({ t }){
     return(

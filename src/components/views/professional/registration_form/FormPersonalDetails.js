@@ -188,6 +188,7 @@ class FormPersonalDetails extends Component {
             .then(res => {
 
                 if(res.status === 200){
+                    //console.log(res);
                     emailAndPhoneExiste = 0;
                 }
                 
@@ -271,7 +272,7 @@ class FormPersonalDetails extends Component {
                                 id="firstName" label={t("ProForm.FormPersonalDetails.firstNameLabel")} size="small" onChange={handleChange} defaultValue={values.firstName} />
 
                             {(formErrors.step1.firstName.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step1.firstName}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.firstName")}</span>
                             )}
 
                         </Box>
@@ -282,7 +283,7 @@ class FormPersonalDetails extends Component {
                                 error={(formErrors.step1.lastName.length > 0 && values.validate === 1) ? formErrors.step1.lastName : ""}
                                 id="lastName" label={t("ProForm.FormPersonalDetails.lastNameInput")} size="small" onChange={handleChange} defaultValue={values.lastName} />
                             {(formErrors.step1.lastName.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step1.lastName}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.lastName")}</span>
                             )}
                         </Box>
 
@@ -347,7 +348,7 @@ class FormPersonalDetails extends Component {
                                 id="telephone" label={t("ProForm.FormPersonalDetails.cellPhoneLabel")} size="small" onChange={handleChange} defaultValue={values.telephone} />
 
                             {(formErrors.step1.telephone.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step1.telephone}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.telephoneFilds")}</span>
                             )}
                         </Box>
 
@@ -357,7 +358,7 @@ class FormPersonalDetails extends Component {
                                 id="email" label={t("ProForm.FormPersonalDetails.emaillLabel")} size="small" onChange={handleChange} defaultValue={values.email} />
 
                             {(formErrors.step1.email.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step1.email}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.email")}</span>
                             )}
 
                         </Box>
@@ -401,7 +402,7 @@ class FormPersonalDetails extends Component {
                                 </Box>
                             </Box>
                             {(formErrors.step1.spokenLanguages.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{formErrors.step1.spokenLanguages}</span>
+                                <span className={classes.errorMessage}>{t("ProForm.validations.languages")}</span>
                             )}
 
 
@@ -434,7 +435,7 @@ class FormPersonalDetails extends Component {
                 </Grid>
                 <Box>
                     {(values.emailAndPhoneExist === 1) && (
-                            <span className={classes.errorMessage}><Typography variant="h4">{t("ProForm.FormPersonalDetails.cellPhoneLabelError")}</Typography></span>
+                            <span className={classes.errorMessage}><Typography variant="h4">{t("ProForm.validations.cellPhoneLabelError")}</Typography></span>
                         )}
                     <Box className={classes.buttonBlue}>
                         <ButtonBlue onClick={this.continue} label={ t("ProForm.FormPersonalDetails.button") } />

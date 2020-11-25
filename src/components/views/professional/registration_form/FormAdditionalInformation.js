@@ -123,7 +123,7 @@ class FormAdditionalInformation extends Component {
                         </Box>
                     </Box>
                     {(formErrors.step3.files.length > 0 && values.validate === 1) && (
-                            <span className={classes.errorMessage}><Typography variant="h4">{formErrors.step3.files}</Typography></span>
+                        <span className={classes.errorMessage}><Typography variant="h4">{t("ProForm.validations.photo")}</Typography></span>
                     )}                            
                         
                 </Box>
