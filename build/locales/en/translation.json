@@ -1,12 +1,21 @@
 {
+  "SEO": {
+    "title":"Tiggidoo : the plateform for houskeepers",
+    "meta":{
+      "description": "Tiggidoo, new residential cleaning service platform! Find a housekeeper, among qualified professionals in housekeeping",
+      "keywords": "Tiggidoo, clean service, housekeeping"
+
+    }
+  },
   "Nav": {
     "menu": {
-      "login": "Log in"
+      "login": "Log in",
+      "becomeTodo" : "Become a Todoo"
     }
   },
   "Footer": {
     "titleIcons": "Follow us",
-    "copiRight": "Copiright 2020 All rights reserved",
+    "copyRight": "2020 Tiggidoo - @ All rights reserved",
     "ul1": {
       "title": "Discover",
       "li": {
@@ -25,44 +34,208 @@
       }
     }
   },
+  "months": {
+    "January": "January",
+    "February": "February",
+    "March": "March",
+    "April": "April",
+    "May": "May",
+    "June": "June",
+    "July": "July",
+    "August": "August",
+    "September": "September",
+    "October": "October",
+    "November": "November",
+    "December": "December"
+  },
   "BecomeProfesional": {
     "section_1": {
-      "title": "Tiggidoo connects residential cleaning professionals and their future customers",
-      "paragraph_1": "No cost, no obligation and no complications, the Tiggidoo platform allows you to receive job offers and manage them as you see fit.",
-      "paragraph_2": "Take advantage of the management tools integrated into your professional account designed especially to make your job easier.",
-      "paragraph_3": "Tiggidoo is the ideal solution for all self-employed housekeeping workers who want to increase their income.",
-      "button": "BECOME A TODOO"
+      "title": "Tiggidoo connects professional residential housekeepers and their future clients",
+      "paragraph_1": "Free of charge, without commitment or complications, the Tiggidoo platform allows you to receive job offers and manage them as you see fit.",
+      "paragraph_2": "Enjoy integrated management tools on your ToDoo account specially designed to make your job easier.",
+      "paragraph_3": "Tiggidoo is the ideal solution for all self-employed workers in residential housekeeping who are looking to increase their income.",
+      "button": "Become a ToDoo"
+    },
+    "section_2": {
+      "title": "A platform that improves your organization on a daily basis",
+      "li1":"Free registration without commitment",
+      "li2":"Simple and easy creation of your ToDoo account",
+      "li3":"Manage your calendar and schedule",
+      "li4":"Automated and centralized invoicing",
+      "li5":"Technical support from the Tiggidoo team",
+      "button": "Sign up"
+    },
+    "section_3":{
+      "title": "How does it work?",
+      "description_1": "You are the boss! You decide where and when you work.",
+      "description_2": "Bingo! Your profile has been selected by your future client:",
+      "step_1": "Be immediately notified by email when a new offer has arrived on your ToDoo account.",
+      "step_2": "View the client’s offer which you can accept or refuse.",
+      "step_3": "Perform a quality cleaning service and receive a positive rating on your profile.",
+      "step_4": "Claim your payment quickly and securely."
+    },
+    "section_4": {
+      "title": "Offer your housekeeping services with Tiggidoo",
+      "evaluaton": "Average val",
+      "service": "Service (s)"
+    },
+    "section_5": {
+      "title": "In 3 easy steps",
+      "step_1": {
+        "title":"Answer a few questions",
+        "description": "Complete the online registration form. Quick and simple, this allows the Tiggidoo team to pre-select future ToDoo. "
+      },
+      "step_2": {
+        "title":"Participate in a remote interview",
+        "description": "At this stage, a virtual interview of a few minutes allows us to define both sides’ expectations. We will also validate your information and respond to your questions. "
+      },
+      "step_3": {
+        "title":"Join the ToDoo squad",
+        "description": "Your profile will be online as soon as your registration is complete. You will receive email notifications as soon as an offer matches your selected criteria."
+      }
+    },
+    "section_6": {
+      "title": "Ready to increase your income?",
+      "description": "Start the recruitment process now. You will get an answer in less than 48 hours.",
+      "button": "Become a ToDoo"
+    },
+    "section_7": {
+      "title": "The 4 essential criteria to integrate the Tiggidoo platform",
+      "paragraph_1": "The Tiggidoo platform connects people looking for quality cleaning services and self-employed housekeeping experts. Trust, respect and commitment to quality are the core values of our company. This is why you must meet a few criteria to become a ToDoo and receive service requests on our platform.",
+      "button": "Become a Todoo",
+      "step_1": {
+        "title":"A verified identity",
+        "description": "For obvious security reasons, we verify the identity of all self-employed workers who register on the Tiggidoo platform."
+      },
+      "step_2": {
+        "title":"A valid bank account",
+        "description": "You must have a bank account in your name to receive payment for carrying out your housekeeping services."
+      },
+      "step_3": {
+        "title":"Access to the Internet",
+        "description": "Whether from a computer or a smartphone, an internet connection is essential to operate smoothly on the Tiggidoo platform."
+      },
+      "step_4": {
+        "title":"Respect our code of conduct",
+        "description": "In order to provide impeccable service to each customer, you must agree to respect our general conditions, the terms of each service and our code of conduct."
+      }
+    },
+    "section_8": {
+      "title": "A 100% human service",
+      "description": "Do you need additional information? Don’t hesitate to ask us your questions, a human will happily answer you as fast as possible. ",
+      "button": "Contact us"
     }
   },
   "ProForm": {
-    "title": "You want to become a professional at Tiggidoo ?",
-    "description": "To take advantage of Tiggidoo's services, complete this form, we will consider your application. In less than 72 hours you will receive a response from our experts",
-    "firstNameLabel": "First name",
-    "firstNameInput": "First name",
-    "lastNameLabel": "Last Name",
-    "lastNameInput": "Last Name",
-    "birthDayLabel": "Date of Birth",
-    "cellPhoneLabel": "Cell number",
-    "emaillLabel": "Email",
-    "groupCheckBox_1": {
-      "title": "What languages ​​do you speak ?",
-      "checkBoxLabel1": "French",
-      "checkBoxLabel2": "English",
-      "checkBoxLabel3": "Spanish",
-      "checkBoxLabel4": "Portuguese",
-      "checkBoxLabel5": "Arab"
+    "validations": {
+      "firstName": "The name is required",
+      "lastName": "The surname is required",
+      "telephoneFilds": "The phone must have a minimum of 10 digits",
+      "telephoneEmpty": "Choose at least one language",
+      "email": "Invalid email address.",
+      "languages": "Choose at least one language",
+      "refer": "This field is required",
+      "emailConfirmation": "Email de confirmation non reçu",
+      "integrationPlatform":"Choose at least one option",
+      "photo": "A photo is required for registration",
+      "cellPhoneLabelError": "This email and phone number already exists"
     },
-    "groupCheckBox_2": {
-      "title": "Are you over 18, with a work permit in Canada?",
-      "checkBoxLabel1": "Yes",
-      "checkBoxLabel2": "No"
+    "FormPersonalDetails":{
+      "title": "Join the Todoo team today!",
+      "description1": "To join the Tiggidoo platform, please fill out this form. We will review your",
+      "description2": "application and get back to you within 48 hours",
+      "firstNameLabel": "Name",
+      "firstNameInput": "Name",
+      "lastNameLabel": "Surname",
+      "lastNameInput": "Surname",
+      "birthDayLabel": "Date of Birth",
+      "cellPhoneLabel": "Cell phone number",
+      "emaillLabel": "Email address",
+      "groupCheckBox_1": {
+        "title": "What languages ​​do you speak ?",
+        "checkBoxLabel1": "French",
+        "checkBoxLabel2": "English",
+        "checkBoxLabel3": "Spanish",
+        "checkBoxLabel4": "Portuguese",
+        "checkBoxLabel5": "Arab"
+      },
+      "groupCheckBox_2": {
+        "title": "Are you over 18 years old and legally authorized to work in Canada?",
+        "checkBoxLabel1": "Yes",
+        "checkBoxLabel2": "No"
+      },
+      "groupCheckBox_3": {
+        "title": "Do you have a criminal history?",
+        "desctiption": "(A background check will be performed.)",
+        "checkBoxLabel1": "Yes",
+        "checkBoxLabel2": "No"
+      },
+      "button": "NEXT"
     },
-    "groupCheckBox_3": {
-      "title": "Do you have a criminal history?",
-      "desctiption": "(A forensic check will be performed.)",
-      "checkBoxLabel1": "Yes",
-      "checkBoxLabel2": "No"
+    "FormPersonalBackground": {
+      "title": "What is your story?",
+      "groupCheckBox_1": {
+        "title": "Have you ever worked as a housekeeper?",
+        "checkBoxLabel1": "Yes",
+        "checkBoxLabel2": "No"
+      },
+      "referencesTitle": "Please fill in the contact information of two of your previous employers",
+      "referencesSubTitle": "We will contact these references",
+      "firstContactTitle": "First reference",
+      "secondContactTitle": "Second reference",
+      "firstNameLabel": "Name",
+      "lastNamelabel": "Surname",
+      "email": "Email address",
+      "cellPhone": "Phone number",
+      "company": "Company",
+      "jobName": "Your position",
+      "finishDate": "Date of departure",
+      "groupCheckBox_2": {
+        "title": "Why do you wish to be a part of the Tiggidoo platform?",
+        "checkBoxLabel1": "Regular work",
+        "checkBoxLabel2": "Extra work",
+        "checkBoxLabel3": "Additional income",
+        "checkBoxLabel4": "Visibility",
+        "checkBoxLabel5": "Concept"
+      },
+      "knowUsLabel": "How did you find us?",
+      "buttonBack": "Back",
+      "buttonNext": "NEXT"
+    },
+    "FormAdditionalInformation":{
+      "title": "A few things about you",
+      "subtitle": "We need a little bit more information about you",
+      "groupCheckBox_1":{
+        "title": "Do you have a smartphone with access to data?",
+        "checkBoxLabel1": "Yes",
+        "checkBoxLabel2": "No"
+      },
+      "paragraph": "At Tiggidoo, communication is essential. We have to be able to reach each other at any moment. This is why we insist that having a smartphone with data is a necessity",
+      "groupCheckBox_2":{
+        "title": "Do you have any allergies or health problems?",
+        "checkBoxLabel1": "Yes",
+        "checkBoxLabel2": "No"
+      },
+      "sicksLabel":"If yes, please specify here…",
+      "paragraph_2": "Not specifying the allergy or health issue can result in your application being rejected",
+      "titlePhoto": "Finally, we need your picture",
+      "paragraphPhoto": "Attach a professional photo of yourself. This will be used to create your user profile on the platform",
+      "photoType": "File formats: png, jpg, jpeg",
+      "titleButton": "Attach an image",
+      "MyPhoto": "My photo",
+      "example": "Example",
+      "buttonBack": "Back",
+      "buttonNext": "COMPLETE REGISTRATION"
+    },
+    "Confirmation": {
+      "title": "Thank you",
+      "subTitle": "Your application is already being reviewed by our recruiters",
+      "description1":"Humans are at the core of our values and we pride ourselves in carefully studying each application",
+      "description2":"We will contact you once a decision has been made regarding your file",
+      "description3":"Wait & Clean",
+      "description4":"Thank you",
+      "description5":"The Tiggidoo recruitment team",
+      "button": "HOME"
     }
-
   }
 }
