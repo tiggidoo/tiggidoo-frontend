@@ -11,6 +11,7 @@ export const registrationAction = (registration) => async dispatch => {
         });
 
         let lag = registration.lang;
+        //lag = (lag === 'en') ? lag[0].toUpperCase() + lag.slice(1) : lag;
         lag = (lag === 'en') ? lag[0].toUpperCase() + lag.slice(1) : lag;
 
         //console.log(lag);
@@ -102,21 +103,21 @@ export const registrationAction = (registration) => async dispatch => {
         .then(res => {
             dispatch({
                 type: "REGISTRATION_SUCCESS",
-                payload: res.data
-            })
+                payload: res
+            });
         }).catch((error) => {
             dispatch({
                 type: "REGISTRATION_FAIL",
-                payload: registration,
                 error,
+                payload: 400
             })
         });
 
     }catch (error) {
         dispatch({
             type: "REGISTRATION_FAIL",
-            payload: registration,
             error,
+            payload: 400
         })
     }
 };

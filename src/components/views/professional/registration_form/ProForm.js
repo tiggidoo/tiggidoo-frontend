@@ -47,6 +47,7 @@ class ProForm extends Component {
         let formDate =year+"-"+month+"-"+ day;
 
         //console.log(fecha);
+        
         this.state = {
             step: 1,
             lang: '',
@@ -413,7 +414,8 @@ class ProForm extends Component {
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage
         };
         //console.log("esto es una pruebA");
-        
+        const statusCandidate = this.props.registration.status;
+        //console.log(statusCandidate);
         switch (step) {
             case 1:
                 return (
@@ -443,12 +445,30 @@ class ProForm extends Component {
                         handleChange={this.handleChange}
                         setImages={this.setImages}
                         values={values}
+                        statusCandidate={0}
                     />
                 );
             case 4:
-                return (<Confirm
-                    firstName={values.firstName}
-                />);
+                console.log(statusCandidate);
+                if(statusCandidate === 200){
+                    return (<Confirm
+                        firstName={values.firstName}
+                    />);
+                }else{
+                    return (
+                        <FormAdditionalInformation
+                            addRegistration={this.addRegistration}
+                            nextStep={this.nextStep}
+                            prevStep={this.prevStep}
+                            handleChange={this.handleChange}
+                            setImages={this.setImages}
+                            values={values}
+                            statusCandidate={1}
+                        />
+                    );
+                    }
+//                break;
+                
             default:
                 throw new Error("Unknown step");
         }
@@ -504,8 +524,12 @@ const mapDispathcToProps = (dispatch) => {
     }
 }
 
+const mapStateToProps = (state) => {
+    return { registration: state.registration  };
+};
+
 export default compose(
-    connect(null, mapDispathcToProps),
+    connect(mapStateToProps, mapDispathcToProps),
     withStyles(styles),
     withTranslation()
 )(ProForm);

@@ -1,8 +1,9 @@
 const DefaultState = {
-    loading: false,
-    data: [],
-    errorMsg: "",
-    //count: 0
+  loading: false,
+  pro: [],
+  errorMsg: "",
+  status: 0
+  //count: 0
 };
 
 //El primer parametro de este reducer debe ser STATE
@@ -22,48 +23,22 @@ const registrationReducer = (state = DefaultState, action) => {
           return {
             ...state,
             loading: false,
-            errorMsg: "unable to upload the information"
+            errorMsg: "unable to upload the information",
+            status: action.payload
           };
           case "REGISTRATION_SUCCESS":
             console.log(action.payload);
-          return {
-            ...state,
-            loading: false,
-            data: action.payload,
-            errorMsg: "",
-            count: action.payload.count
-          };
+            localStorage.setItem("status", action.payload.status);
+            return {
+              ...state,
+              loading: false,
+              pro: action.payload.data.pro,
+              status: action.payload.status,
+              errorMsg: ""
+            };
         default:
           return state
       }
 }
 
 export default registrationReducer;
-
-/**
-     switch (action.type) {
-        case "POKEMON_LIST_LOADING":
-          return {
-            ...state,
-            loading: true,
-            errorMsg: ""
-          };
-        case "POKEMON_LIST_FAIL":
-          return {
-            ...state,
-            loading: false,
-            errorMsg: "unable to get pokemon"
-          };
-        case "POKEMON_LIST_SUCCESS":
-          return {
-            ...state,
-            loading: false,
-            data: action.payload.results,
-            errorMsg: "",
-            count: action.payload.count
-          };
-        default:
-          return state
-      }
-
- */

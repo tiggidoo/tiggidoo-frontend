@@ -28,14 +28,15 @@ class FormAdditionalInformation extends Component {
         const formErrors = values.formErrors;
         if((formErrors.step3.files.length === 0 && values.validate === 0)){
             this.props.addRegistration();
+            this.props.nextStep();
         }
         
-        this.props.nextStep();
+        
     }
     render() {
         const { t } = this.props;
         const { classes } = this.props;
-        const { values, handleChange, setImages } = this.props;
+        const { values, handleChange, setImages, statusCandidate } = this.props;
         const formErrors = values.formErrors;
         //console.log(formErrors.step3.files);
         //console.log(formErrors.step3.files.length);
@@ -124,6 +125,10 @@ class FormAdditionalInformation extends Component {
                     </Box>
                     {(formErrors.step3.files.length > 0 && values.validate === 1) && (
                         <span className={classes.errorMessage}><Typography variant="h4">{t("ProForm.validations.photo")}</Typography></span>
+                    )}                            
+                        
+                    {(statusCandidate === 1) && (
+                        <span className={classes.errorMessage}><Typography variant="h4">Unable to upload the information</Typography></span>
                     )}                            
                         
                 </Box>
