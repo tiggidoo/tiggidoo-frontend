@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import FormPersonalDetails from './FormPersonalDetails';
 import FormPersonalBackground from './FormPersonalBackground';
 import FormAdditionalInformation from './FormAdditionalInformation';
+import CircularStatic from './CircularStatic';
 import Confirm from './Confirm';
 //import Success from './Success';
 import axios from 'axios';
@@ -13,9 +14,6 @@ import { withTranslation } from "react-i18next";
 import { compose } from "redux"; /* bindActionCreators */
 import { connect } from 'react-redux';
 import { registrationAction } from '../../../../store/actions/registrationAction';
-
-
-    
 
 const emailRegex = RegExp(
     /^[ ]*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})[ ]*$/i
@@ -59,7 +57,7 @@ class ProForm extends Component {
             telephone: '',
             email: '',
             en: false,
-            fr: false,
+            fr: true,
             es: false,
             po: false,
             ar: false,
@@ -91,7 +89,7 @@ class ProForm extends Component {
             healthDescription: '',
             files: [],
             preview:'',
-            numberSpokenLanguages: 0,
+            numberSpokenLanguages: 1,
             numberIntegrationPlatform: 0,
             validate: 0,
             formErrors: {
@@ -99,7 +97,7 @@ class ProForm extends Component {
                     firstName: 'First Name is required',
                     lastName: 'Last Name is required',
                     email: 'The email is required',
-                    spokenLanguages: "Choose at least one language",
+                    spokenLanguages: "",
                     telephone: 'Phone number is required.',
                 },
                 step2: {
@@ -173,12 +171,16 @@ class ProForm extends Component {
         
         switch (step) {
             case 1:
+                console.log(step);
                 formErrors = this.state.formErrors.step1;
                 break;
             case 2:
+                console.log(step);
                 formErrors = this.state.formErrors.step2;
                 break;
             case 3:
+                console.log(step);
+                console.log(this.props);
                 formErrors = this.state.formErrors.step3;
                 break;
             default:
@@ -186,12 +188,22 @@ class ProForm extends Component {
         }
         // && emailAndPhoneExist === 0
         if (formValid(formErrors)) {
+
+
+            // console.log("VACIO");
+            // if(step === 3){
+            //     this.addRegistration();
+            // }
+            // console.log(this.props);
+
+
             this.setState({
                 step: step + 1,
                 validate: 0,
                 lang: lang
             });
         } else {
+            console.log("LLENO");
             this.setState({
                 validate: 1
             })
@@ -449,25 +461,14 @@ class ProForm extends Component {
                     />
                 );
             case 4:
-                console.log(statusCandidate);
-                if(statusCandidate === 200){
-                    return (<Confirm
-                        firstName={values.firstName}
-                    />);
-                }else{
-                    return (
-                        <FormAdditionalInformation
-                            addRegistration={this.addRegistration}
-                            nextStep={this.nextStep}
-                            prevStep={this.prevStep}
-                            handleChange={this.handleChange}
-                            setImages={this.setImages}
-                            values={values}
-                            statusCandidate={1}
-                        />
-                    );
-                    }
-//                break;
+               console.log(statusCandidate);
+               if(statusCandidate === 200){
+                   return (<Confirm
+                       firstName={values.firstName}
+                   />);
+               }else{
+                    return(<CircularStatic />);
+               }
                 
             default:
                 throw new Error("Unknown step");

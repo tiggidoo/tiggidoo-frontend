@@ -34,18 +34,18 @@
     }
   },
   "months": {
-    "January": "janvier",
-    "February": "février",
-    "March": "Mars",
-    "April": "avril",
-    "May": "Mai",
-    "June": "juin",
-    "July": "juillet",
-    "August": "août",
-    "September": "septembre",
-    "October": "octobre",
-    "November": "novembre",
-    "December": "décembre"
+    "January": "JANVIER",
+    "February": "FÉVRIER",
+    "March": "MARS",
+    "April": "AVRIL",
+    "May": "MAI",
+    "June": "JUIN",
+    "July": "JUILLET",
+    "August": "AOÛT",
+    "September": "SEPTEMBRE",
+    "October": "OCTOBRE",
+    "November": "NOVEMBRE",
+    "December": "DÉCEMBRE"
   },
   "BecomeProfesional": {
     "section_1": {

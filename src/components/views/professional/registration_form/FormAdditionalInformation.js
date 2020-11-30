@@ -28,15 +28,13 @@ class FormAdditionalInformation extends Component {
         const formErrors = values.formErrors;
         if((formErrors.step3.files.length === 0 && values.validate === 0)){
             this.props.addRegistration();
-            this.props.nextStep();
         }
-        
-        
+        this.props.nextStep();
     }
     render() {
         const { t } = this.props;
         const { classes } = this.props;
-        const { values, handleChange, setImages, statusCandidate } = this.props;
+        const { values, handleChange, setImages } = this.props;
         const formErrors = values.formErrors;
         //console.log(formErrors.step3.files);
         //console.log(formErrors.step3.files.length);
@@ -44,7 +42,7 @@ class FormAdditionalInformation extends Component {
             <React.Fragment>
                 <Box mb={5}>
                     <Typography variant="h1">{t("ProForm.FormAdditionalInformation.title")}</Typography>
-                    <Typography variant="h3">{t("ProForm.FormAdditionalInformation.subtitle")}</Typography>
+                    {/* <Typography variant="h3">{t("ProForm.FormAdditionalInformation.subtitle")}</Typography> */}
                 </Box>
 
                 <Box mb={4}>
@@ -126,11 +124,7 @@ class FormAdditionalInformation extends Component {
                     {(formErrors.step3.files.length > 0 && values.validate === 1) && (
                         <span className={classes.errorMessage}><Typography variant="h4">{t("ProForm.validations.photo")}</Typography></span>
                     )}                            
-                        
-                    {(statusCandidate === 1) && (
-                        <span className={classes.errorMessage}><Typography variant="h4">Unable to upload the information</Typography></span>
-                    )}                            
-                        
+
                 </Box>
 
                 <Box mt={3} className={classes.groupButtons}>

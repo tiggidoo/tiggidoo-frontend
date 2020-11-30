@@ -218,12 +218,6 @@ class FormPersonalBackground extends Component {
                             </Box>
                             <Box className={classes.classCheckBox}>
                                 <FormControlLabel
-                                    control={<Checkbox onClick={handleChange} name="extraIncome" color="primary" checked={values.extraIncome} className={classes.root} />}
-                                    label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel3")}
-                                />
-                            </Box>
-                            <Box className={classes.classCheckBox}>
-                                <FormControlLabel
                                     control={<Checkbox onClick={handleChange} name="visibility" color="primary" checked={values.visibility} className={classes.root} />}
                                     label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel4")}
                                 />
@@ -232,6 +226,12 @@ class FormPersonalBackground extends Component {
                                 <FormControlLabel
                                     control={<Checkbox onClick={handleChange} name="concept" color="primary" checked={values.concept} className={classes.root} />}
                                     label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel5")}
+                                />
+                            </Box>
+                            <Box className={classes.classCheckBox}>
+                                <FormControlLabel
+                                    control={<Checkbox onClick={handleChange} name="extraIncome" color="primary" checked={values.extraIncome} className={classes.root} />}
+                                    label={t("ProForm.FormPersonalBackground.groupCheckBox_2.checkBoxLabel3")}
                                 />
                             </Box>
                         </Box>

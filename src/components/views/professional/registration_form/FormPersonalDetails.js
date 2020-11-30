@@ -183,12 +183,9 @@ class FormPersonalDetails extends Component {
             
             f.append('email', email);
             f.append('telephone', varTelephone);
-            //, {headers: {'Content-Type': 'multipart/form-data'}}
             await axios.post('https://www.api-tiggidoo.com/api/verifyCredential', f, {headers: {'Content-Type': 'multipart/form-data'}})    
             .then(res => {
-
                 if(res.status === 200){
-                    //console.log(res);
                     emailAndPhoneExiste = 0;
                 }
                 
@@ -381,6 +378,8 @@ class FormPersonalDetails extends Component {
                                             label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel2")}
                                         />
                                     </Box>
+
+{/* 
                                     <Box className={classes.classCheckBox}>
                                         <FormControlLabel
                                             control={<Checkbox onClick={handleChange} name="es" color="primary" checked={values.es} className={classes.root} />}
@@ -399,6 +398,8 @@ class FormPersonalDetails extends Component {
                                             label={t("ProForm.FormPersonalDetails.groupCheckBox_1.checkBoxLabel4")}
                                         />
                                     </Box>
+ */}
+
                                 </Box>
                             </Box>
                             {(formErrors.step1.spokenLanguages.length > 0 && values.validate === 1) && (
