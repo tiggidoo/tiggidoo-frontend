@@ -45,7 +45,7 @@
     "August": "AUGUST",
     "September": "SEPTEMBER",
     "October": "OCTOBER",
-    "November": "NOVEMBER",
+    "November": "NOVEMBRE",
     "December": "DECEMBER"
   },
   "BecomeProfesional": {
@@ -229,7 +229,7 @@
     },
     "Confirmation": {
       "title": "Thank you",
-      "subTitle": "Your application is already being reviewed by our recruiters",
+      "subTitle": "Your from is being reviewed by our team",
       "description1":"Humans are at the core of our values and we pride ourselves in carefully studying each application",
       "description2":"We will contact you once a decision has been made regarding your file",
       "description3":"Wait & Clean",
