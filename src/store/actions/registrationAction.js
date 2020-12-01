@@ -10,9 +10,9 @@ export const registrationAction = (registration) => async dispatch => {
             type: "REGISTRATION_PROCESSING"
         });
 
-        let lag = registration.lang;
+        const lag = registration.lang;
         //lag = (lag === 'en') ? lag[0].toUpperCase() + lag.slice(1) : lag;
-        lag = (lag === 'en') ? lag[0].toUpperCase() + lag.slice(1) : lag;
+        //lag = (lag === 'en') ? lag[0].toUpperCase() + lag.slice(1) : lag;
 
         //console.log(lag);
         let day = registration.birthDay.length === 1 ? "0" + registration.birthDay : registration.birthDay;
