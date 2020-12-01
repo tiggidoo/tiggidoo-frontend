@@ -14,7 +14,8 @@ export const registrationAction = (registration) => async dispatch => {
         //lag = (lag === 'en') ? lag[0].toUpperCase() + lag.slice(1) : lag;
         //lag = (lag === 'en') ? lag[0].toUpperCase() + lag.slice(1) : lag;
 
-        //console.log(lag);
+        console.log("Change: ");
+        console.log(lag);
         let day = registration.birthDay.length === 1 ? "0" + registration.birthDay : registration.birthDay;
         let month = registration.birthMonth.length === 1 ? "0" + registration.birthMonth : registration.birthMonth;
         let birtdDayFull = registration.birthYear + "-" + month + "-" + day;
