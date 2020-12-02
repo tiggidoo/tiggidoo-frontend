@@ -64,9 +64,9 @@ export const registrationAction = (registration) => async dispatch => {
                 "po": registration.po ? 1 : 0,
                 "ar": registration.ar ? 1 : 0
             },
-            "authorization": registration.authorization,
-            "criminal": registration.criminal,
-            "experience": registration.experience,
+            "authorization_status": registration.authorization,
+            "criminal_status": registration.criminal,
+            "experience_status": registration.experience,
             "reference": $reference,
             "motivation": {
                 "work_regularly": registration.workRegurary ? 1 : 0,
@@ -76,8 +76,8 @@ export const registrationAction = (registration) => async dispatch => {
                 "concept": registration.concept ? 1 : 0
             },
             "how_know_us": registration.how_know_us,
-            "smartphone_with_data": registration.smartphoneWithData,
-            "health": registration.health,
+            "smartphone_status": registration.smartphoneWithData,
+            "health_status": registration.health,
             "health_description": registration.healthDescription
         }
 
