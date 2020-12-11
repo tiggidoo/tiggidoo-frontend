@@ -34,7 +34,7 @@ export const registrationAction = (registration) => async dispatch => {
             "email": registration.referEmail1,
             "telephone": registration.referTelephone1,
             "company": registration.referCompany1,
-            "postion": registration.referPosition1,
+            "position": registration.referPosition1,
             "date_start": registration.referDepartureDate1
         }];
 
@@ -45,7 +45,7 @@ export const registrationAction = (registration) => async dispatch => {
                 "email": registration.referEmail2,
                 "telephone": registration.referTelephone2,
                 "company": registration.referCompany2,
-                "postion": registration.referPosition2,
+                "position": registration.referPosition2,
                 "date_start": registration.referDepartureDate2
             }
             $reference.push($reference2);
