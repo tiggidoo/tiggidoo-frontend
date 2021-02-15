@@ -50,13 +50,14 @@ export const registrationAction = (registration) => async dispatch => {
             }
             $reference.push($reference2);
         }
-
+        const resolvedOptions = Intl.DateTimeFormat().resolvedOptions()
         const profesional = {
             "firstName": registration.firstName,
             "lastName": registration.lastName,
             "date_of_birth": birtdDayFull,
             "telephone": varTelephone,
             "email": registration.email,
+            "timezone": resolvedOptions.timeZone,
             "lag_talk": {
                 "en": registration.en ? 1 : 0,
                 "fr": registration.fr ? 1 : 0,

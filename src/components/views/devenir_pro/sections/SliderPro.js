@@ -72,16 +72,7 @@ const profesionals = [
     presentation: "25",
     urlImg: "img3",
   },
-  /*
-  {
-    id: 3,
-    firstName: "NN",
-    lastName: "NN",
-    evaluation: "45,2",
-    presentation: "25",
-    urlImg: "nn",
-  },
-  */
+
   {
     id: 4,
     firstName: "Melisa",
@@ -98,34 +89,6 @@ const profesionals = [
     presentation: "25",
     urlImg: "img5",
   },
-  /*
-  {
-    id: 6,
-    firstName: "Thomas",
-    lastName: "Samoht",
-    evaluation: "6,8",
-    presentation: "45",
-    urlImg: "nn",
-  },
-  
-  {
-    id: 7,
-    firstName: "Luis",
-    lastName: "Siul",
-    evaluation: "3,8",
-    presentation: "99",
-    urlImg: "nn",
-  },
-  
-  {
-    id: 8,
-    firstName: "Thomas",
-    lastName: "Samoht",
-    evaluation: "6,8",
-    presentation: "45",
-    urlImg: "nn",
-  },
-  */
 ];
 
 const CustomButtonGroup = ({ next, previous, goToSlide, carouselState }) => {
