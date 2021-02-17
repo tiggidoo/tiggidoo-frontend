@@ -61,7 +61,7 @@ export const registrationAction = (registration) => async dispatch => {
             "address": {
                 "rue": registration.street,
                 "city": registration.city,
-                "province": registration.province.trim() !== '' ? registration.province : registration.city,
+                "province": registration.province,
                 "country": registration.country,
                 "postcode": registration.postCode
             },
