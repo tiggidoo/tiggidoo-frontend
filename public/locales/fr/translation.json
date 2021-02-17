@@ -137,7 +137,12 @@
       "emailConfirmation": "Email de confirmation non reçu",
       "integrationPlatform":"Choisir au moins une option",
       "photo": "Une photo est requise pour l'inscription",
-      "cellPhoneLabelError": "Ce courriel et numéro de téléphone existe déjà"
+      "cellPhoneLabelError": "Ce courriel et numéro de téléphone existe déjà",
+      "street": "La rue est obligatoire",
+      "city": "La ville est obligatoire",
+      "province": "La province est obligatoire",
+      "country": "Le pays est obligatoire",
+      "postCode": "Le code postal est obligatoire"
     },
     "FormPersonalDetails": {
       "title": "Rejoins dès aujourd'hui la gang des Todoo!",
@@ -150,6 +155,14 @@
       "birthDayLabel": "Date de naissance",
       "cellPhoneLabel": "Numéro de cellulaire",
       "emaillLabel": "Courriel",
+      "address": {
+        "title": "Adresse",
+        "street": "Rue",
+        "city": "Ville",
+        "province": "Province",
+        "country": "Pays",
+        "postCode": "Code postal"
+      },
       "groupCheckBox_1": {
         "title": "Quelles langues parles-tu ?",
         "checkBoxLabel2": "Anglais",

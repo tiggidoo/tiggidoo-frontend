@@ -58,6 +58,13 @@ export const registrationAction = (registration) => async dispatch => {
             "telephone": varTelephone,
             "email": registration.email,
             "timezone": resolvedOptions.timeZone,
+            "address": {
+                "rue": registration.street,
+                "city": registration.city,
+                "province": registration.province.trim() !== '' ? registration.province : registration.city,
+                "country": registration.country,
+                "postcode": registration.postCode
+            },
             "lag_talk": {
                 "en": registration.en ? 1 : 0,
                 "fr": registration.fr ? 1 : 0,

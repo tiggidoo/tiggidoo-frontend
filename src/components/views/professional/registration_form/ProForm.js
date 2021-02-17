@@ -43,8 +43,6 @@ class ProForm extends Component {
         let month = today.getMonth()+1;
         let day = (today.getDate() < 10) ? "0" + today.getDate() : today.getDate();
         let formDate =year+"-"+month+"-"+ day;
-
-        //console.log(fecha);
         
         this.state = {
             step: 1,
@@ -91,6 +89,11 @@ class ProForm extends Component {
             preview:'',
             numberSpokenLanguages: 1,
             numberIntegrationPlatform: 0,
+            street: '',
+            city: '',
+            province: '',
+            country: '',
+            postCode: '',
             validate: 0,
             formErrors: {
                 step1: {
@@ -98,7 +101,12 @@ class ProForm extends Component {
                     lastName: 'Last Name is required',
                     email: 'The email is required',
                     spokenLanguages: "",
-                    telephone: 'Phone number is required.',
+                    telephone: 'Phone number is required.',                    
+                    street: "The street is required",
+                    city: "The city is required",
+                    province: "The privince is required",
+                    country: "The country is required",
+                    postCode: "The post code is required"                    
                 },
                 step2: {
                     referFirstName1: 'The First Name is required',
@@ -133,7 +141,6 @@ class ProForm extends Component {
     }
 
     howKnowUsAPI = async () => {
-        //console.log(this.props.i18n.language);
         const lang = this.props.i18n.language
         await axios.get(`https://www.api-tiggidoo.com/api/howknowus/${lang}`)
         .then(res => {
@@ -147,6 +154,7 @@ class ProForm extends Component {
     }
     //Go to next step 
 
+    
     validateMailAndNextStep = (emailAndPhoneExist) => {
         if(emailAndPhoneExist === 1){
             this.setState({
@@ -171,16 +179,12 @@ class ProForm extends Component {
         
         switch (step) {
             case 1:
-                console.log(step);
                 formErrors = this.state.formErrors.step1;
                 break;
             case 2:
-                console.log(step);
                 formErrors = this.state.formErrors.step2;
                 break;
             case 3:
-                console.log(step);
-                console.log(this.props);
                 formErrors = this.state.formErrors.step3;
                 break;
             default:
@@ -189,21 +193,12 @@ class ProForm extends Component {
         // && emailAndPhoneExist === 0
         if (formValid(formErrors)) {
 
-
-            // console.log("VACIO");
-            // if(step === 3){
-            //     this.addRegistration();
-            // }
-            // console.log(this.props);
-
-
             this.setState({
                 step: step + 1,
                 validate: 0,
                 lang: lang
             });
         } else {
-            console.log("LLENO");
             this.setState({
                 validate: 1
             })
@@ -222,6 +217,62 @@ class ProForm extends Component {
         this.props.registrationAction(this.state);
     }
 
+    handleAddressGoogleApi = address => {
+        const arrayAddress = address.address_components;
+
+        let street = '';
+        let city = '';
+        let province = '';
+        let country = '';
+        let postCode = '';
+
+        for(let index in arrayAddress){
+
+            switch (arrayAddress[index].types[0]) {
+                case 'street_number':
+                    street= arrayAddress[index].long_name
+                    this.state.formErrors.step1.steet = '';
+                    break;
+                case 'route':
+                    street= street + ' ' + arrayAddress[index].long_name
+                    this.state.formErrors.step1.street = '';
+                    break;
+                case 'locality':
+                    city= arrayAddress[index].long_name
+                    this.state.formErrors.step1.city = '';
+                    break;
+                case 'political':
+                    city= arrayAddress[index].long_name
+                    this.state.formErrors.step1.city = '';
+                    break;
+                case 'administrative_area_level_1':
+                    province= arrayAddress[index].long_name
+                    this.state.formErrors.step1.province = '';
+                    break;
+                case 'country':
+                    country= arrayAddress[index].long_name
+                    this.state.formErrors.step1.country = '';
+                    break;
+                case 'postal_code':
+                    postCode= arrayAddress[index].long_name
+                    this.state.formErrors.step1.postCode = '';
+                    break;
+                                                    
+                default:
+                    break;
+            }
+
+        }
+
+        this.setState({
+            street: street,
+            city: city,
+            province: province,
+            country: country,
+            postCode: postCode
+        });            
+        
+    }
 
     handleChange = (e) => {
 
@@ -248,13 +299,14 @@ class ProForm extends Component {
                     case 'lastName':
                         formErrors.step1.lastName = value.length === 0 ? "The Last Name is required" : "";
                         break;
+                    case 'street':
+                        formErrors.step1.street = value.length === 0 ? "The Steet is required" : "";
+                        break;
                     case 'email':
                         formErrors.step1.email =
                             emailRegex.test(value)
                                 ? ""
                                 : "Invalid email address.";
-//                        console.log();
-                        //
                         break;
                     case 'telephone':
                         let ex = value.replace('(', '');
@@ -339,13 +391,11 @@ class ProForm extends Component {
                 });
 
                 switch (e.target.name) {
-
                     case 'es':
                     case 'fr':
                     case 'en':
                     case 'po':
                     case 'ar':
-
                         canitdad = this.state.numberSpokenLanguages;
                         if (e.target.checked) {
                             canitdad++;
@@ -358,9 +408,7 @@ class ProForm extends Component {
                                 numberSpokenLanguages: canitdad
                             });
                         }
-
                         formErrors.step1.spokenLanguages = canitdad === 0 ? "Choose at least one language." : "";
-
                         break;
                     case 'workRegurary':
                     case 'workExtra':
@@ -413,8 +461,8 @@ class ProForm extends Component {
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
-            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage
-        } = this.state;
+            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
+            street, city, province, country, postCode } = this.state;
 
         const values = {
             firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone,
@@ -423,11 +471,10 @@ class ProForm extends Component {
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
-            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage
+            healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
+            street, city, province, country, postCode 
         };
-        //console.log("esto es una pruebA");
         const statusCandidate = this.props.registration.status;
-        //console.log(statusCandidate);
         switch (step) {
             case 1:
                 return (
@@ -435,6 +482,7 @@ class ProForm extends Component {
                         validateMailAndNextStep={this.validateMailAndNextStep}
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
+                        handleAddressGoogleApi={this.handleAddressGoogleApi}
                         values={values}
                     />
 
@@ -461,7 +509,6 @@ class ProForm extends Component {
                     />
                 );
             case 4:
-               console.log(statusCandidate);
                if(statusCandidate === 200){
                    return (<Confirm
                        firstName={values.firstName}
@@ -476,9 +523,7 @@ class ProForm extends Component {
     }
 
     render() {
-        //this.state.lang  = this.props.i18n.language;
         const { classes } = this.props;
-        
         return (
             <main className={classes.layout}>
                 <Paper className={classes.paper}>

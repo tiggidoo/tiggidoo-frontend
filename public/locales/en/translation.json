@@ -138,8 +138,13 @@
       "emailConfirmation": "Email de confirmation non reçu",
       "integrationPlatform":"Choose at least one option",
       "photo": "A photo is required for registration",
-      "cellPhoneLabelError": "This email and phone number already exists"
-    },
+      "cellPhoneLabelError": "This email and phone number already exists",
+      "street": "The street is required",
+      "city": "The city is required",
+      "province": "The privince is required",
+      "country": "The country is required",
+      "postCode": "The post code is required"
+  },
     "FormPersonalDetails":{
       "title": "Join the Todoo team today!",
       "description1": "To join the Tiggidoo platform, please fill out this form. We will review your",
@@ -151,6 +156,14 @@
       "birthDayLabel": "Date of Birth",
       "cellPhoneLabel": "Cell phone number",
       "emaillLabel": "Email address",
+      "address": {
+        "title": "Address",
+        "street": "Street",
+        "city": "City",
+        "province": "Province",
+        "country": "Country",
+        "postCode": "Post Code"
+      },
       "groupCheckBox_1": {
         "title": "What languages ​​do you speak ?",
         "checkBoxLabel1": "French",

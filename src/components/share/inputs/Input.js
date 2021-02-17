@@ -10,7 +10,7 @@ export default function Input(props) {
         //.MuiCheckbox-colorPrimary.Mui-checked { color: white
 
         inputWidth: {
-            maxWidth: '517px',
+            //maxWidth: '517px',
             width: '100%',
             marginRight: '15px',
             //boxShadow: '-1px 3px 6px 2px #80808047',
@@ -25,7 +25,7 @@ export default function Input(props) {
             }
         },
         errors: {
-            maxWidth: '517px',
+            //maxWidth: '517px',
             width: '100%',
             marginRight: '15px',
             boxShadow: '-1px 4px 6px 3px #80808047',
@@ -53,8 +53,8 @@ export default function Input(props) {
                 placeholder = { label }
                 variant = "outlined"
                 size = { size }
-                onBlur = { onChange }
-                defaultValue = { defaultValue }
+                onChange = { onChange }
+                value = { defaultValue }
                 className = { customizedClass }
                 inputProps={{
                     autoComplete: 'off'

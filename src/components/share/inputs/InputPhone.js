@@ -28,7 +28,7 @@ export default function InputPhone(props) {
 
   const useStyles = makeStyles((theme) => ({
     inputWidth: {
-      maxWidth: '517px',
+      //maxWidth: '517px',
       width: '100%',
       boxShadow: '-1px 4px 6px 3px #80808047',
       borderRadius: '4px',
@@ -43,7 +43,7 @@ export default function InputPhone(props) {
       },
     },
     errors: {
-      maxWidth: '517px',
+      //maxWidth: '517px',
       width: '100%',
       boxShadow: '-1px 4px 6px 3px #80808047',
       borderRadius: '4px',

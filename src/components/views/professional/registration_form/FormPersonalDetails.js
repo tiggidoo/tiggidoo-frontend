@@ -7,6 +7,9 @@ import InputBase from '@material-ui/core/InputBase';
 import ButtonBlue from '../../../share/buttons/ButtonBlue';
 import Input from '../../../share/inputs/Input';
 import InputPhone from '../../../share/inputs/InputPhone';
+import PlacesAutocomplete, {
+    geocodeByAddress
+  } from 'react-places-autocomplete';
 
 //import { makeStyles } from '@material-ui/core/styles';
 import { withTranslation } from "react-i18next";
@@ -30,6 +33,28 @@ const styles = (theme) => ({
         }
     },
     groupLabelInput: {
+        marginBottom: '32px',
+        paddingRight: '30px',
+        '@media (max-width:768px)': { 
+            paddingRight: '20px',
+            marginBottom: '56px',
+        },
+        '@media (max-width:600px)': { 
+            paddingRight: '0'
+        }
+    },
+    groupLabelInputAddress:{
+        marginBottom: '20px',
+        paddingRight: '10px',
+        '@media (max-width:768px)': { 
+            paddingRight: '20px',
+            marginBottom: '56px',
+        },
+        '@media (max-width:600px)': { 
+            paddingRight: '0'
+        }
+    },
+    groupLabelInputPhoneAndMail: {
         marginBottom: '56px',
         paddingRight: '30px',
         '@media (max-width:768px)': { 
@@ -41,13 +66,13 @@ const styles = (theme) => ({
         }
     },
     groupLabelCheck: {
-        marginBottom: '56px',
+        marginBottom: '40px',
         paddingRight: '30px',
         '@media (max-width:1600px)': { 
             marginBottom: '5px'
         },
         '@media (max-width:1200px)': { 
-            marginBottom: '15px',
+            marginBottom: '40px',
             paddingRight: '10px'
         },
         '@media (max-width:768px)': { 
@@ -118,6 +143,18 @@ const styles = (theme) => ({
             color: theme.palette.primary.main,
         }
 
+    },
+    addressSearch:{
+        '& input':{
+            'width': '100%',
+            'padding': '11px',
+            'border': '1px solid #32cc8c',
+            'color': '#2880fb',
+            'borderRadius': '4px'
+        },
+        '& input:focus': {
+            'border': '1px solid #2880fb',
+        }
     }
 });
 
@@ -158,6 +195,13 @@ const BootstrapInput = withStyles((theme) => ({
 
 class FormPersonalDetails extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = { 
+            address: ''
+        };
+    }
+
     continue = (e) => {
         e.preventDefault();
         //this.props.validateMailAndNextStep();
@@ -169,8 +213,6 @@ class FormPersonalDetails extends Component {
         let emailAndPhoneExiste = 1;
         const { email, telephone } = this.props.values;
         if(email.length > 0 && telephone.length > 0){
-            //console.log(email);
-            //console.log(telephone);
 
             let varTelephone = telephone;
             varTelephone = varTelephone.replace('(', '');
@@ -196,10 +238,24 @@ class FormPersonalDetails extends Component {
             this.props.validateMailAndNextStep(emailAndPhoneExiste);
 
         }else{
-            //console.log("Paso por qui");
             this.props.nextStep();
         }
     }
+
+    handleChangeAddress = address => {
+        this.setState({ address });
+    };
+    
+    handleSelectAddress = async address => {
+        const { handleAddressGoogleApi } = this.props;
+
+        geocodeByAddress(address)
+        .then(results =>{
+            handleAddressGoogleApi(results[0]);
+        })
+        .catch(error => console.error('Error', error));
+        
+    };
 
     buildOptions(startOrYear, endOrMonth, type) {
 
@@ -242,11 +298,11 @@ class FormPersonalDetails extends Component {
     }
 
     render() {
-        const { t } = this.props;
-        const { classes } = this.props;
-        const { values, handleChange } = this.props;
+        //const { t } = this.props;
+        //const { classes } = this.props;
+        const { t, classes, values, handleChange } = this.props;
+
         const formErrors = values.formErrors;
-        //console.log(values);
         return (
 
             <React.Fragment>
@@ -259,31 +315,160 @@ class FormPersonalDetails extends Component {
                 </Box>
 
                 <Grid container >
-                    <Grid item xs={12} sm={5} md={6}>
-                        <Box className={classes.groupLabelInput}>
-                            <Box mb={1}>
-                                <Typography variant="h5">{t("ProForm.FormPersonalDetails.firstNameLabel")}</Typography>
-                            </Box>
-                            <Input
-                                error={(formErrors.step1.firstName.length > 0 && values.validate === 1) ? formErrors.step1.firstName : ""}
-                                id="firstName" label={t("ProForm.FormPersonalDetails.firstNameLabel")} size="small" onChange={handleChange} defaultValue={values.firstName} />
+                    <Grid item xs={12} sm={12} md={6}>
+                        <Grid container >
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Box className={classes.groupLabelInput}>
+                                    <Box mb={1}>
+                                        <Typography variant="h5">{t("ProForm.FormPersonalDetails.firstNameLabel")}</Typography>
+                                    </Box>
+                                    <Input
+                                        error={(formErrors.step1.firstName.length > 0 && values.validate === 1) ? formErrors.step1.firstName : ""}
+                                        id="firstName" label={t("ProForm.FormPersonalDetails.firstNameLabel")} size="small" onChange={handleChange} defaultValue={values.firstName} />
 
-                            {(formErrors.step1.firstName.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.firstName")}</span>
+                                    {(formErrors.step1.firstName.length > 0 && values.validate === 1) && (
+                                        <span className={classes.errorMessage}>{t("ProForm.validations.firstName")}</span>
+                                    )}
+
+                                </Box>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Box className={classes.groupLabelInput}>
+                                    <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.lastNameLabel")}</Typography></Box>
+                                    <Input
+                                        error={(formErrors.step1.lastName.length > 0 && values.validate === 1) ? formErrors.step1.lastName : ""}
+                                        id="lastName" label={t("ProForm.FormPersonalDetails.lastNameInput")} size="small" onChange={handleChange} defaultValue={values.lastName} />
+                                    {(formErrors.step1.lastName.length > 0 && values.validate === 1) && (
+                                        <span className={classes.errorMessage}>{t("ProForm.validations.lastName")}</span>
+                                    )}
+                                </Box>
+                            </Grid>
+                        </Grid>
+                        <Box className={classes.groupLabelInput}>
+                            <Grid container >
+                                <Grid item xs={12}>
+                                    <Box mb={1}>
+                                        <Typography variant="h5">{t("ProForm.FormPersonalDetails.address.title")}</Typography>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={12} sm={12} md={12}>
+                                    <Box className={classes.groupLabelInputAddress}>
+                                        <PlacesAutocomplete
+                                            value={this.state.address}
+                                            onChange={this.handleChangeAddress}
+                                            onClick={this.handleSelectAddress}
+                                            onSelect={this.handleSelectAddress}
+                                        >
+                                            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                                                <Box className={classes.addressSearch}>
+                                                    <input {...getInputProps({placeholder: "Type an address and choose one"})} />
+                                                    <div>
+                                                        {loading ? <div>...loading</div> : null}
+                                                        {suggestions.map((suggestion, index) => {
+
+                                                            const style = {
+                                                                backgroundColor: suggestion.active ? "#2880fb" : "#fff",
+                                                                color: suggestion.active ? "#fff" : "#000"
+                                                            };
+
+                                                            return(
+                                                                <div key={index} {...getSuggestionItemProps(suggestion, { style })}>
+                                                                    {suggestion.description}
+                                                                </div>
+                                                            );    
+                                                        })}
+                                                    </div>
+                                                </Box>
+                                            )}
+
+                                        </PlacesAutocomplete>
+                                    </Box>
+                                </Grid>
+
+                                <Grid item xs={12} sm={12} md={6}>
+                                    <Box className={classes.groupLabelInputAddress}>
+                                        
+                                        <Input
+                                            error={(formErrors.step1.street.length > 0 && values.validate === 1) ? formErrors.step1.street : ""}
+                                            id="street" label={t("ProForm.FormPersonalDetails.address.street")} size="small" defaultValue={values.street} />
+
+                                        {(formErrors.step1.street.length > 0 && values.validate === 1) && (
+                                            <span className={classes.errorMessage}>{t("ProForm.validations.street")}</span>
+                                        )}
+                                    </Box>
+                                </Grid>
+
+                                
+                                <Grid item xs={12} sm={12} md={6}>
+                                    <Box className={classes.groupLabelInputAddress}>
+                                        <Input
+                                            error={(formErrors.step1.city.length > 0 && values.validate === 1) ? formErrors.step1.city : ""}
+                                            id="city" label={t("ProForm.FormPersonalDetails.address.city")} size="small" defaultValue={values.city} />
+                                        {(formErrors.step1.city.length > 0 && values.validate === 1) && (
+                                            <span className={classes.errorMessage}>{t("ProForm.validations.city")}</span>
+                                        )}
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={12} sm={12} md={4}>
+                                    <Box className={classes.groupLabelInputAddress}>
+                                        <Input
+                                            error={(formErrors.step1.province.length > 0 && values.validate === 1) ? formErrors.step1.province : ""}
+                                            id="province" label={t("ProForm.FormPersonalDetails.address.province")} size="small" defaultValue={values.province} />
+
+                                        {(formErrors.step1.province.length > 0 && values.validate === 1) && (
+                                            <span className={classes.errorMessage}>{t("ProForm.validations.province")}</span>
+                                        )}
+
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={12} sm={12} md={4}>
+                                    <Box className={classes.groupLabelInputAddress}>
+                                        <Input
+                                            error={(formErrors.step1.country.length > 0 && values.validate === 1) ? formErrors.step1.country : ""}
+                                            id="country" label={t("ProForm.FormPersonalDetails.address.country")} size="small" defaultValue={values.country} />
+                                        {(formErrors.step1.country.length > 0 && values.validate === 1) && (
+                                            <span className={classes.errorMessage}>{t("ProForm.validations.country")}</span>
+                                        )}
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={12} sm={12} md={4}>
+                                    <Box className={classes.groupLabelInputAddress}>
+                                        <Input
+                                            error={(formErrors.step1.postCode.length > 0 && values.validate === 1) ? formErrors.step1.postCode : ""}
+                                            id="postCode" label={t("ProForm.FormPersonalDetails.address.postCode")} size="small" defaultValue={values.postCode} />
+
+                                        {(formErrors.step1.postCode.length > 0 && values.validate === 1) && (
+                                            <span className={classes.errorMessage}>{t("ProForm.validations.postCode")}</span>
+                                        )}
+
+                                    </Box>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                        <Box className={classes.groupLabelInput}>
+                            <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.cellPhoneLabel")}</Typography></Box>
+                            <InputPhone
+                                error={(formErrors.step1.telephone.length > 0 && values.validate === 1) ? formErrors.step1.telephone : ""}
+                                id="telephone" label={t("ProForm.FormPersonalDetails.cellPhoneLabel")} size="small" onChange={handleChange} defaultValue={values.telephone} />
+
+                            {(formErrors.step1.telephone.length > 0 && values.validate === 1) && (
+                                <span className={classes.errorMessage}>{t("ProForm.validations.telephoneFilds")}</span>
+                            )}
+                        </Box>
+                        <Box className={classes.groupLabelInput}>
+                            <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.emaillLabel")}</Typography></Box>
+                            <Input error={(formErrors.step1.email.length > 0 && values.validate === 1) ? formErrors.step1.email : ""}
+                                id="email" label={t("ProForm.FormPersonalDetails.emaillLabel")} size="small" onChange={handleChange} defaultValue={values.email} />
+
+                            {(formErrors.step1.email.length > 0 && values.validate === 1) && (
+                                <span className={classes.errorMessage}>{t("ProForm.validations.email")}</span>
                             )}
 
                         </Box>
 
-                        <Box className={classes.groupLabelInput}>
-                            <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.lastNameLabel")}</Typography></Box>
-                            <Input
-                                error={(formErrors.step1.lastName.length > 0 && values.validate === 1) ? formErrors.step1.lastName : ""}
-                                id="lastName" label={t("ProForm.FormPersonalDetails.lastNameInput")} size="small" onChange={handleChange} defaultValue={values.lastName} />
-                            {(formErrors.step1.lastName.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.lastName")}</span>
-                            )}
-                        </Box>
+                    </Grid>
 
+                    <Grid item xs={12} sm={12} md={6}>
                         <Box className={classes.groupLabelSelect}>
                             <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.birthDayLabel")}</Typography></Box>
                             <Box className={classes.NativeSelect}>
@@ -338,30 +523,7 @@ class FormPersonalDetails extends Component {
                             </Box>
                         </Box>
 
-                        <Box className={classes.groupLabelInput}>
-                            <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.cellPhoneLabel")}</Typography></Box>
-                            <InputPhone
-                                error={(formErrors.step1.telephone.length > 0 && values.validate === 1) ? formErrors.step1.telephone : ""}
-                                id="telephone" label={t("ProForm.FormPersonalDetails.cellPhoneLabel")} size="small" onChange={handleChange} defaultValue={values.telephone} />
 
-                            {(formErrors.step1.telephone.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.telephoneFilds")}</span>
-                            )}
-                        </Box>
-
-                        <Box className={classes.groupLabelInput}>
-                            <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.emaillLabel")}</Typography></Box>
-                            <Input error={(formErrors.step1.email.length > 0 && values.validate === 1) ? formErrors.step1.email : ""}
-                                id="email" label={t("ProForm.FormPersonalDetails.emaillLabel")} size="small" onChange={handleChange} defaultValue={values.email} />
-
-                            {(formErrors.step1.email.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.email")}</span>
-                            )}
-
-                        </Box>
-                    </Grid>
-
-                    <Grid item xs={12} sm={7} md={6}>
                         <Box className={classes.groupLabelCheck}>
                             <Box>
                                 <Box><Typography variant="h5">{t("ProForm.FormPersonalDetails.groupCheckBox_1.title")}</Typography></Box>
@@ -419,7 +581,7 @@ class FormPersonalDetails extends Component {
 
                         </Box>
 
-                        <Box className={classes.groupLabelCheck}>
+                        <Box className={classes.groupLabelCheck} style={{marginTop: '-15px'}}>
                             <Box><Typography variant="h5">{t("ProForm.FormPersonalDetails.groupCheckBox_3.title")}</Typography></Box>
                             <Box>{t("ProForm.FormPersonalDetails.groupCheckBox_3.desctiption")}</Box>
 
