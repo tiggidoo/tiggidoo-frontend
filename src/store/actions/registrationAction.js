@@ -59,7 +59,7 @@ export const registrationAction = (registration) => async dispatch => {
             "email": registration.email,
             "timezone": resolvedOptions.timeZone,
             "address": {
-                "rue": registration.street,
+                "rue": registration.streetNumber + ' ' + registration.streetName,
                 "city": registration.city,
                 "province": registration.province,
                 "country": registration.country,

@@ -68,11 +68,7 @@ const styles = (theme) => ({
     groupLabelCheck: {
         marginBottom: '40px',
         paddingRight: '30px',
-        '@media (max-width:1600px)': { 
-            marginBottom: '5px'
-        },
         '@media (max-width:1200px)': { 
-            marginBottom: '40px',
             paddingRight: '10px'
         },
         '@media (max-width:768px)': { 
@@ -108,9 +104,10 @@ const styles = (theme) => ({
         '& > img': {
             maxWidth: '303px',
             width: '100%',
-            marginTop: '-140px',
-            '@media (max-width:1600px)':{
-                marginTop: '-50px',
+            marginTop: '-200px',
+            '@media (max-width:1200px)':{
+                maxWidth: '200px',
+                marginTop: '-100px',
             },
             '@media (max-width:768px)':{
                 display: 'none'
@@ -147,7 +144,7 @@ const styles = (theme) => ({
     addressSearch:{
         '& input':{
             'width': '100%',
-            'padding': '11px',
+            'padding': '10px',
             'border': '1px solid #32cc8c',
             'color': '#2880fb',
             'borderRadius': '4px'
@@ -196,9 +193,10 @@ const BootstrapInput = withStyles((theme) => ({
 class FormPersonalDetails extends Component {
 
     constructor(props) {
+        const street = props.values.streetNumber + ' ' + props.values.streetName;
         super(props);
         this.state = { 
-            address: ''
+            address: street.trim()
         };
     }
 
@@ -252,6 +250,7 @@ class FormPersonalDetails extends Component {
         geocodeByAddress(address)
         .then(results =>{
             handleAddressGoogleApi(results[0]);
+            this.setState({ address });
         })
         .catch(error => console.error('Error', error));
         
@@ -351,12 +350,12 @@ class FormPersonalDetails extends Component {
                                         <Typography variant="h5">{t("ProForm.FormPersonalDetails.address.title")}</Typography>
                                     </Box>
                                 </Grid>
-                                <Grid item xs={12} sm={12} md={12}>
+                                
+                                <Grid item xs={12} sm={12} md={6}>
                                     <Box className={classes.groupLabelInputAddress}>
                                         <PlacesAutocomplete
                                             value={this.state.address}
                                             onChange={this.handleChangeAddress}
-                                            onClick={this.handleSelectAddress}
                                             onSelect={this.handleSelectAddress}
                                         >
                                             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
@@ -382,19 +381,12 @@ class FormPersonalDetails extends Component {
                                             )}
 
                                         </PlacesAutocomplete>
-                                    </Box>
-                                </Grid>
-
-                                <Grid item xs={12} sm={12} md={6}>
-                                    <Box className={classes.groupLabelInputAddress}>
-                                        
-                                        <Input
-                                            error={(formErrors.step1.street.length > 0 && values.validate === 1) ? formErrors.step1.street : ""}
-                                            id="street" label={t("ProForm.FormPersonalDetails.address.street")} size="small" defaultValue={values.street} />
 
                                         {(formErrors.step1.street.length > 0 && values.validate === 1) && (
                                             <span className={classes.errorMessage}>{t("ProForm.validations.street")}</span>
                                         )}
+
+                                        
                                     </Box>
                                 </Grid>
 

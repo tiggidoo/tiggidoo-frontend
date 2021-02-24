@@ -89,7 +89,10 @@ class ProForm extends Component {
             preview:'',
             numberSpokenLanguages: 1,
             numberIntegrationPlatform: 0,
+            numStreet: '',
             street: '',
+            streetNumber: '',
+            streetName: '',
             city: '',
             province: '',
             country: '',
@@ -220,7 +223,8 @@ class ProForm extends Component {
     handleAddressGoogleApi = address => {
         const arrayAddress = address.address_components;
 
-        let street = '';
+        let streetNumber = '';
+        let streetName='';
         let city = '';
         let province = '';
         let country = '';
@@ -230,11 +234,11 @@ class ProForm extends Component {
 
             switch (arrayAddress[index].types[0]) {
                 case 'street_number':
-                    street= arrayAddress[index].long_name
+                    streetNumber= arrayAddress[index].long_name
                     this.state.formErrors.step1.steet = '';
                     break;
                 case 'route':
-                    street= street + ' ' + arrayAddress[index].long_name
+                    streetName = arrayAddress[index].long_name
                     this.state.formErrors.step1.street = '';
                     break;
                 case 'locality':
@@ -265,7 +269,8 @@ class ProForm extends Component {
         }
 
         this.setState({
-            street: street,
+            streetNumber: streetNumber,
+            streetName: streetName,
             city: city,
             province: province,
             country: country,
@@ -462,7 +467,7 @@ class ProForm extends Component {
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
-            street, city, province, country, postCode } = this.state;
+            streetNumber, streetName, city, province, country, postCode } = this.state;
 
         const values = {
             firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone,
@@ -472,7 +477,7 @@ class ProForm extends Component {
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
-            street, city, province, country, postCode 
+            streetNumber, streetName, city, province, country, postCode 
         };
         const statusCandidate = this.props.registration.status;
         switch (step) {
