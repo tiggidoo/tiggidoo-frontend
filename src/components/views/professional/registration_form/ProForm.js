@@ -481,7 +481,7 @@ class ProForm extends Component {
         };
         const statusCandidate = this.props.registration.status;
         switch (step) {
-            case 1:
+            case 4:
                 return (
                     <FormPersonalDetails
                         validateMailAndNextStep={this.validateMailAndNextStep}
@@ -513,14 +513,14 @@ class ProForm extends Component {
                         statusCandidate={0}
                     />
                 );
-            case 4:
-               if(statusCandidate === 200){
+            case 1:
+               //if(statusCandidate === 200){
                    return (<Confirm
                        firstName={values.firstName}
                    />);
-               }else{
-                    return(<CircularStatic />);
-               }
+              // }else{
+              //      return(<CircularStatic />);
+               //}
                 
             default:
                 throw new Error("Unknown step");

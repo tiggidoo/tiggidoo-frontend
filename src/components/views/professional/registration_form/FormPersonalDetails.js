@@ -10,15 +10,10 @@ import InputPhone from '../../../share/inputs/InputPhone';
 import PlacesAutocomplete, {
     geocodeByAddress
   } from 'react-places-autocomplete';
-
-//import { makeStyles } from '@material-ui/core/styles';
+import SearchIcon from '@material-ui/icons/Search';  
 import { withTranslation } from "react-i18next";
-
-//STYLES
 import { withStyles } from "@material-ui/core/styles";
-//REDUX FUNCTIONS
 import { compose } from "redux";
-//import { FileX } from 'react-bootstrap-icons';
 import axios from 'axios';
 
 const styles = (theme) => ({
@@ -353,35 +348,37 @@ class FormPersonalDetails extends Component {
                                 
                                 <Grid item xs={12} sm={12} md={6}>
                                     <Box className={classes.groupLabelInputAddress}>
-                                        <PlacesAutocomplete
-                                            value={this.state.address}
-                                            onChange={this.handleChangeAddress}
-                                            onSelect={this.handleSelectAddress}
-                                        >
-                                            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                                                <Box className={classes.addressSearch}>
-                                                    <input {...getInputProps({placeholder: "Type an address and choose one"})} />
-                                                    <div>
-                                                        {loading ? <div>...loading</div> : null}
-                                                        {suggestions.map((suggestion, index) => {
+                                        <Box>
+                                            <SearchIcon style={{position: 'relative', float: 'right', top: '38', marginTop:'-30px', marginRight: '5px', backgroundColor:'#fff'}}/>
 
-                                                            const style = {
-                                                                backgroundColor: suggestion.active ? "#2880fb" : "#fff",
-                                                                color: suggestion.active ? "#fff" : "#000"
-                                                            };
+                                            <PlacesAutocomplete
+                                                value={this.state.address}
+                                                onChange={this.handleChangeAddress}
+                                                onSelect={this.handleSelectAddress}
+                                            >
+                                                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                                                    <Box className={classes.addressSearch}>
+                                                        <input {...getInputProps({placeholder: "Type an address and choose one"})} />
+                                                        <div>
+                                                            {loading ? <div>...loading</div> : null}
+                                                            {suggestions.map((suggestion, index) => {
 
-                                                            return(
-                                                                <div key={index} {...getSuggestionItemProps(suggestion, { style })}>
-                                                                    {suggestion.description}
-                                                                </div>
-                                                            );    
-                                                        })}
-                                                    </div>
-                                                </Box>
-                                            )}
+                                                                const style = {
+                                                                    backgroundColor: suggestion.active ? "#2880fb" : "#fff",
+                                                                    color: suggestion.active ? "#fff" : "#000"
+                                                                };
 
-                                        </PlacesAutocomplete>
-
+                                                                return(
+                                                                    <div key={index} {...getSuggestionItemProps(suggestion, { style })}>
+                                                                        {suggestion.description}
+                                                                    </div>
+                                                                );    
+                                                            })}
+                                                        </div>
+                                                    </Box>
+                                                )}
+                                            </PlacesAutocomplete>
+                                        </Box>
                                         {(formErrors.step1.street.length > 0 && values.validate === 1) && (
                                             <span className={classes.errorMessage}>{t("ProForm.validations.street")}</span>
                                         )}

@@ -13,19 +13,24 @@ import { compose } from "redux";
 import { makeStyles } from '@material-ui/core/styles';
  
 const useStyles = makeStyles((theme) => ({
-    confirmation: {
-        
+    confirmation: {        
         textAlign: 'center',
         color: '#4D4D4D',
         '& h1':{
             fontFamily: 'sans-serif',
             fontWeight: 'bold',
-            fontSize: '4rem'
+            fontSize: '4rem',
+            '@media (max-width:1600px)': { 
+                fontSize: '3rem',
+            },
         },
         '& h2':{
             fontFamily: 'sans-serif',
             fontWeight: 'bold',
-            fontSize: '4rem'
+            fontSize: '4rem',
+            '@media (max-width:1600px)': { 
+                fontSize: '3rem',
+            },
         }
     },
     textBlue: {
@@ -36,8 +41,11 @@ const useStyles = makeStyles((theme) => ({
         color: '#2880F9'
     },
     widthImg:{
-        width: '160px'
-    },
+        width: '160px',
+        '@media (max-width:1600px)': { 
+            width: '140px'
+        }
+},
     btnHome:{
         fontWeight: 'bold'
     },
@@ -61,7 +69,7 @@ function Confirm(props) {
     return (
         <div>
             <Box className={classes.confirmation} >
-                <Box mb={8} mt={10}>
+                <Box mb={3}>
                     <img className={classes.widthImg} src="images/section4-check.jpg" alt=""/>
                 </Box>
                 <Box mb={3}>
@@ -78,13 +86,13 @@ function Confirm(props) {
                     <Typography className={classes.textBlue} variant="h2">{ t("ProForm.Confirmation.description3") }</Typography>
                 </Box>           
 
-                <Box mb={8}>
-                        <Box className="mb-0">
-                            <Typography variant="h3">{ t("ProForm.Confirmation.description4") }</Typography>
-                        </Box>
-                        <Box>
-                            <Typography className={classes.textItalic}  variant="h4">{ t("ProForm.Confirmation.description5") }</Typography>
-                        </Box>
+                <Box mb={6}>
+                    <Box className="mb-0">
+                        <Typography variant="h3">{ t("ProForm.Confirmation.description4") }</Typography>
+                    </Box>
+                    <Box>
+                        <Typography className={classes.textItalic}  variant="h4">{ t("ProForm.Confirmation.description5") }</Typography>
+                    </Box>
                 </Box>           
                 <Box className={classes.link}>
                     <Link to="/">
