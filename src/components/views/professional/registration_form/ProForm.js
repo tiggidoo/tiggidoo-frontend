@@ -481,7 +481,7 @@ class ProForm extends Component {
         };
         const statusCandidate = this.props.registration.status;
         switch (step) {
-            case 4:
+            case 1:
                 return (
                     <FormPersonalDetails
                         validateMailAndNextStep={this.validateMailAndNextStep}
@@ -513,7 +513,7 @@ class ProForm extends Component {
                         statusCandidate={0}
                     />
                 );
-            case 1:
+            case 4:
                //if(statusCandidate === 200){
                    return (<Confirm
                        firstName={values.firstName}
