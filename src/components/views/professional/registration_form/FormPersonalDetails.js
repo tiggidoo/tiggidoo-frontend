@@ -9,8 +9,8 @@ import Input from '../../../share/inputs/Input';
 import InputPhone from '../../../share/inputs/InputPhone';
 import PlacesAutocomplete, {
     geocodeByAddress
-  } from 'react-places-autocomplete';
-import SearchIcon from '@material-ui/icons/Search';  
+} from 'react-places-autocomplete';
+import SearchIcon from '@material-ui/icons/Search';
 import { withTranslation } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import { compose } from "redux";
@@ -30,43 +30,43 @@ const styles = (theme) => ({
     groupLabelInput: {
         marginBottom: '32px',
         paddingRight: '30px',
-        '@media (max-width:768px)': { 
+        '@media (max-width:768px)': {
             paddingRight: '20px',
             marginBottom: '56px',
         },
-        '@media (max-width:600px)': { 
+        '@media (max-width:600px)': {
             paddingRight: '0'
         }
     },
-    groupLabelInputAddress:{
+    groupLabelInputAddress: {
         marginBottom: '20px',
         paddingRight: '10px',
-        '@media (max-width:768px)': { 
+        '@media (max-width:768px)': {
             paddingRight: '20px',
             marginBottom: '56px',
         },
-        '@media (max-width:600px)': { 
+        '@media (max-width:600px)': {
             paddingRight: '0'
         }
     },
     groupLabelInputPhoneAndMail: {
         marginBottom: '56px',
         paddingRight: '30px',
-        '@media (max-width:768px)': { 
+        '@media (max-width:768px)': {
             paddingRight: '20px',
             marginBottom: '56px',
         },
-        '@media (max-width:600px)': { 
+        '@media (max-width:600px)': {
             paddingRight: '0'
         }
     },
     groupLabelCheck: {
         marginBottom: '40px',
         paddingRight: '30px',
-        '@media (max-width:1200px)': { 
+        '@media (max-width:1200px)': {
             paddingRight: '10px'
         },
-        '@media (max-width:768px)': { 
+        '@media (max-width:768px)': {
             //maxWidth: '100%',
             marginBottom: '56px',
         }
@@ -87,8 +87,8 @@ const styles = (theme) => ({
     },
     classCheckBox: {
         width: "140px",
-        '@media (max-width:1200px)': { 
-            '& span':{
+        '@media (max-width:1200px)': {
+            '& span': {
                 fontSize: '16px'
             }
         }
@@ -100,11 +100,11 @@ const styles = (theme) => ({
             maxWidth: '303px',
             width: '100%',
             marginTop: '-200px',
-            '@media (max-width:1200px)':{
+            '@media (max-width:1200px)': {
                 maxWidth: '200px',
                 marginTop: '-100px',
             },
-            '@media (max-width:768px)':{
+            '@media (max-width:768px)': {
                 display: 'none'
             },
         }
@@ -115,16 +115,16 @@ const styles = (theme) => ({
         margin: '0px'
     },
     buttonBlue: {
-        display:"flex", 
-        justifyContent:"flex-end",
-        '@media (max-width:768px)':{
-            justifyContent:"center"
+        display: "flex",
+        justifyContent: "flex-end",
+        '@media (max-width:768px)': {
+            justifyContent: "center"
         }
     },
-    NativeSelect:{
+    NativeSelect: {
         display: 'flex',
-        justifyContent: 'space-between',
-        '& .MuiInputBase-root':{
+        justifyContent: 'start',
+        '& .MuiInputBase-root': {
             boxShadow: '-1px 4px 6px 3px #80808047',
             borderRadius: '4px'
         },
@@ -136,8 +136,8 @@ const styles = (theme) => ({
         }
 
     },
-    addressSearch:{
-        '& input':{
+    addressSearch: {
+        '& input': {
             'width': '100%',
             'padding': '10px',
             'border': '1px solid #32cc8c',
@@ -147,6 +147,16 @@ const styles = (theme) => ({
         '& input:focus': {
             'border': '1px solid #2880fb',
         }
+    },
+    searchIcon: {
+        position: 'relative',
+        top: '40px',
+        float: 'right',
+        backgroundColor: '#ffffff',
+        marginRight: '5px'
+    },
+    placesAutocomplete: {
+        marginTop: '-30px'
     }
 });
 
@@ -190,7 +200,7 @@ class FormPersonalDetails extends Component {
     constructor(props) {
         const street = props.values.streetNumber + ' ' + props.values.streetName;
         super(props);
-        this.state = { 
+        this.state = {
             address: street.trim()
         };
     }
@@ -199,13 +209,13 @@ class FormPersonalDetails extends Component {
         e.preventDefault();
         //this.props.validateMailAndNextStep();
         this.verifyCredential();
-        
+
     }
 
     verifyCredential = async () => {
         let emailAndPhoneExiste = 1;
         const { email, telephone } = this.props.values;
-        if(email.length > 0 && telephone.length > 0){
+        if (email.length > 0 && telephone.length > 0) {
 
             let varTelephone = telephone;
             varTelephone = varTelephone.replace('(', '');
@@ -215,22 +225,22 @@ class FormPersonalDetails extends Component {
             varTelephone = varTelephone.trim();
 
             const f = new FormData();
-            
+
             f.append('email', email);
             f.append('telephone', varTelephone);
-            await axios.post('https://www.api-tiggidoo.com/api/verifyCredential', f, {headers: {'Content-Type': 'multipart/form-data'}})    
-            .then(res => {
-                if(res.status === 200){
-                    emailAndPhoneExiste = 0;
-                }
-                
-            }).catch((error) => {
-                console.log(error)
-            })
+            await axios.post('https://www.api-tiggidoo.com/api/verifyCredential', f, { headers: { 'Content-Type': 'multipart/form-data' } })
+                .then(res => {
+                    if (res.status === 200) {
+                        emailAndPhoneExiste = 0;
+                    }
+
+                }).catch((error) => {
+                    console.log(error)
+                })
 
             this.props.validateMailAndNextStep(emailAndPhoneExiste);
 
-        }else{
+        } else {
             this.props.nextStep();
         }
     }
@@ -238,17 +248,17 @@ class FormPersonalDetails extends Component {
     handleChangeAddress = address => {
         this.setState({ address });
     };
-    
+
     handleSelectAddress = async address => {
         const { handleAddressGoogleApi } = this.props;
 
         geocodeByAddress(address)
-        .then(results =>{
-            handleAddressGoogleApi(results[0]);
-            this.setState({ address });
-        })
-        .catch(error => console.error('Error', error));
-        
+            .then(results => {
+                handleAddressGoogleApi(results[0]);
+                this.setState({ address });
+            })
+            .catch(error => console.error('Error', error));
+
     };
 
     buildOptions(startOrYear, endOrMonth, type) {
@@ -345,49 +355,54 @@ class FormPersonalDetails extends Component {
                                         <Typography variant="h5">{t("ProForm.FormPersonalDetails.address.title")}</Typography>
                                     </Box>
                                 </Grid>
-                                
+
                                 <Grid item xs={12} sm={12} md={6}>
                                     <Box className={classes.groupLabelInputAddress}>
                                         <Box>
-                                            <SearchIcon style={{position: 'relative', float: 'right', top: '38', marginTop:'-30px', marginRight: '5px', backgroundColor:'#fff'}}/>
+                                            <Box className={classes.searchIcon}>
+                                                <SearchIcon />
+                                            </Box>
+                                            <Box className={classes.placesAutocomplete}>
+                                                <PlacesAutocomplete
+                                                    value={this.state.address}
+                                                    onChange={this.handleChangeAddress}
+                                                    onSelect={this.handleSelectAddress}
+                                                >
+                                                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                                                        <Box className={classes.addressSearch}>
+                                                            <input {...getInputProps({ placeholder: "Type an address and choose one" })} />
+                                                            <div style={{ position: 'absolute', zIndex: '1', maxWidth: '450px' }}>
+                                                                {loading ? <div>...loading</div> : null}
+                                                                {suggestions.map((suggestion, index) => {
 
-                                            <PlacesAutocomplete
-                                                value={this.state.address}
-                                                onChange={this.handleChangeAddress}
-                                                onSelect={this.handleSelectAddress}
-                                            >
-                                                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                                                    <Box className={classes.addressSearch}>
-                                                        <input {...getInputProps({placeholder: "Type an address and choose one"})} />
-                                                        <div>
-                                                            {loading ? <div>...loading</div> : null}
-                                                            {suggestions.map((suggestion, index) => {
+                                                                    const style = {
+                                                                        backgroundColor: suggestion.active ? "#2880fb" : "#ececec",
+                                                                        color: suggestion.active ? "#fff" : "#000"
 
-                                                                const style = {
-                                                                    backgroundColor: suggestion.active ? "#2880fb" : "#fff",
-                                                                    color: suggestion.active ? "#fff" : "#000"
-                                                                };
+                                                                    };
 
-                                                                return(
-                                                                    <div key={index} {...getSuggestionItemProps(suggestion, { style })}>
-                                                                        {suggestion.description}
-                                                                    </div>
-                                                                );    
-                                                            })}
-                                                        </div>
-                                                    </Box>
-                                                )}
-                                            </PlacesAutocomplete>
+                                                                    return (
+                                                                        <div key={index} {...getSuggestionItemProps(suggestion, { style })}>
+                                                                            {suggestion.description}
+                                                                        </div>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        </Box>
+                                                    )}
+                                                </PlacesAutocomplete>
+                                            </Box>
+
                                         </Box>
                                         {(formErrors.step1.street.length > 0 && values.validate === 1) && (
                                             <span className={classes.errorMessage}>{t("ProForm.validations.street")}</span>
                                         )}
 
-                                        
+
                                     </Box>
                                 </Grid>
 
-                                
+
                                 <Grid item xs={12} sm={12} md={6}>
                                     <Box className={classes.groupLabelInputAddress}>
                                         <Input
@@ -530,7 +545,7 @@ class FormPersonalDetails extends Component {
                                         />
                                     </Box>
 
-{/* 
+                                    {/* 
                                     <Box className={classes.classCheckBox}>
                                         <FormControlLabel
                                             control={<Checkbox onClick={handleChange} name="es" color="primary" checked={values.es} className={classes.root} />}
@@ -570,7 +585,7 @@ class FormPersonalDetails extends Component {
 
                         </Box>
 
-                        <Box className={classes.groupLabelCheck} style={{marginTop: '-15px'}}>
+                        <Box className={classes.groupLabelCheck} style={{ marginTop: '-15px' }}>
                             <Box><Typography variant="h5">{t("ProForm.FormPersonalDetails.groupCheckBox_3.title")}</Typography></Box>
                             <Box>{t("ProForm.FormPersonalDetails.groupCheckBox_3.desctiption")}</Box>
 
@@ -587,10 +602,10 @@ class FormPersonalDetails extends Component {
                 </Grid>
                 <Box>
                     {(values.emailAndPhoneExist === 1) && (
-                            <span className={classes.errorMessage}><Typography variant="h4">{t("ProForm.validations.cellPhoneLabelError")}</Typography></span>
-                        )}
+                        <span className={classes.errorMessage}><Typography variant="h4">{t("ProForm.validations.cellPhoneLabelError")}</Typography></span>
+                    )}
                     <Box className={classes.buttonBlue}>
-                        <ButtonBlue onClick={this.continue} label={ t("ProForm.FormPersonalDetails.button") } />
+                        <ButtonBlue onClick={this.continue} label={t("ProForm.FormPersonalDetails.button")} />
                     </Box>
                 </Box>
 
