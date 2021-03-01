@@ -481,7 +481,7 @@ class ProForm extends Component {
         };
         const statusCandidate = this.props.registration.status;
         switch (step) {
-            case 1:
+            case 4:
                 return (
                     <FormPersonalDetails
                         validateMailAndNextStep={this.validateMailAndNextStep}
@@ -513,7 +513,7 @@ class ProForm extends Component {
                         statusCandidate={0}
                     />
                 );
-            case 4:
+            case 1:
                 //if(statusCandidate === 200){
                 return (<Confirm
                     firstName={values.firstName}
@@ -553,6 +553,12 @@ const styles = (theme) => ({
             marginLeft: "auto",
             marginRight: "auto",
         },
+        '@media (max-width:1366px)': { 
+            marginTop: theme.spacing(15),
+        },
+        '@media (max-width:768px)': { 
+            marginTop: theme.spacing(11),
+        }
     },
     paper: {
         marginTop: theme.spacing(3),

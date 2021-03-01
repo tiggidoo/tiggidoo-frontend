@@ -23,6 +23,12 @@ const useStyles = makeStyles((theme) => ({
             '@media (max-width:1600px)': { 
                 fontSize: '3rem',
             },
+            '@media (max-width:1366px)': { 
+                fontSize: '2.5rem',
+            },
+            '@media (max-width:768px)': { 
+                fontSize: '2rem',
+            }
         },
         '& h2':{
             fontFamily: 'sans-serif',
@@ -31,6 +37,20 @@ const useStyles = makeStyles((theme) => ({
             '@media (max-width:1600px)': { 
                 fontSize: '3rem',
             },
+            '@media (max-width:1366px)': { 
+                fontSize: '2.5rem',
+            },
+            '@media (max-width:768px)': { 
+                fontSize: '2rem',
+            }
+        },
+        '& h4':{
+            '@media (max-width:1366px)': { 
+                fontSize: '1.6rem',
+            },
+            '@media (max-width:768px)': { 
+                fontSize: '1.4rem',
+            }
         }
     },
     textBlue: {
@@ -44,8 +64,14 @@ const useStyles = makeStyles((theme) => ({
         width: '160px',
         '@media (max-width:1600px)': { 
             width: '140px'
+        },
+        '@media (max-width:1366px)': { 
+            width: '120px'
+        },
+        '@media (max-width:768px)': { 
+            width: '110px'
         }
-},
+    },
     btnHome:{
         fontWeight: 'bold'
     },
@@ -86,7 +112,7 @@ function Confirm(props) {
                     <Typography className={classes.textBlue} variant="h2">{ t("ProForm.Confirmation.description3") }</Typography>
                 </Box>           
 
-                <Box mb={6}>
+                <Box mb={4}>
                     <Box className="mb-0">
                         <Typography variant="h3">{ t("ProForm.Confirmation.description4") }</Typography>
                     </Box>

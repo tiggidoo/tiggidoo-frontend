@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-//import hackerNewsApi from "./services/hackerNewsApi";
 import * as serviceWorker from './serviceWorker';
 import './i18n';
 

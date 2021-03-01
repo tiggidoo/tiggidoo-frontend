@@ -45,6 +45,11 @@ const BootstrapButton = withStyles({
       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
       outlineColor: '#2880fb',
     },
+    '@media (max-width:768px)': { 
+        width: '24rem',
+        padding: '0',
+        fontSize: 18,
+    }
   },
 })(Button);
 
