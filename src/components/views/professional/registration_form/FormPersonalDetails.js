@@ -204,6 +204,10 @@ class FormPersonalDetails extends Component {
             address: street.trim()
         };
     }
+    
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
 
     continue = (e) => {
         e.preventDefault();

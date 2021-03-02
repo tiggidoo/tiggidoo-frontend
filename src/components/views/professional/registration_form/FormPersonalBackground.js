@@ -20,6 +20,10 @@ import { compose } from "redux";
 
 class FormPersonalBackground extends Component {
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     continue = (e) => {
         e.preventDefault();
         this.props.nextStep();
