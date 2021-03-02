@@ -10,7 +10,7 @@ const BootstrapButton = withStyles({
     boxShadow: 'none',
     textTransform: 'none',
     fontSize: 20,
-    paddingTop: '3.3rem', //3.3rem 0rem
+    //padding: '3rem 0', //3.3rem 0rem
     border: '1px solid',
     lineHeight: 1.5,
     backgroundColor: '#2880fb',
