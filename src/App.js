@@ -11,6 +11,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./css/material-ui/configTheme";
 
 function App() {
+  console.log('Esta es una nueva version de reactjs.');
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>

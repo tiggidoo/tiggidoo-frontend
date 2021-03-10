@@ -90,7 +90,6 @@ export const registrationAction = (registration) => async dispatch => {
         const content = JSON.stringify(profesional);
  
         //Get the image
-        console.log('Esta es la nueva version de react app: ', content);
         const archivos = registration.files;
 
         const f = new FormData();
