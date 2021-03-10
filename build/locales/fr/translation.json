@@ -34,18 +34,18 @@
     }
   },
   "months": {
-    "January": "janvier",
-    "February": "février",
-    "March": "Mars",
-    "April": "avril",
-    "May": "Mai",
-    "June": "juin",
-    "July": "juillet",
-    "August": "août",
-    "September": "septembre",
-    "October": "octobre",
-    "November": "novembre",
-    "December": "décembre"
+    "January": "JANVIER",
+    "February": "FÉVRIER",
+    "March": "MARS",
+    "April": "AVRIL",
+    "May": "MAI",
+    "June": "JUIN",
+    "July": "JUILLET",
+    "August": "AOÛT",
+    "September": "SEPTEMBRE",
+    "October": "OCTOBRE",
+    "November": "NOVEMBRE",
+    "December": "DÉCEMBRE"
   },
   "BecomeProfesional": {
     "section_1": {
@@ -137,7 +137,12 @@
       "emailConfirmation": "Email de confirmation non reçu",
       "integrationPlatform":"Choisir au moins une option",
       "photo": "Une photo est requise pour l'inscription",
-      "cellPhoneLabelError": "Ce courriel et numéro de téléphone existe déjà"
+      "cellPhoneLabelError": "Ce courriel et numéro de téléphone existe déjà",
+      "street": "La rue est obligatoire",
+      "city": "La ville est obligatoire",
+      "province": "La province est obligatoire",
+      "country": "Le pays est obligatoire",
+      "postCode": "Le code postal est obligatoire"
     },
     "FormPersonalDetails": {
       "title": "Rejoins dès aujourd'hui la gang des Todoo!",
@@ -150,6 +155,14 @@
       "birthDayLabel": "Date de naissance",
       "cellPhoneLabel": "Numéro de cellulaire",
       "emaillLabel": "Courriel",
+      "address": {
+        "title": "Adresse",
+        "street": "Rue",
+        "city": "Ville",
+        "province": "Province",
+        "country": "Pays",
+        "postCode": "Code postal"
+      },
       "groupCheckBox_1": {
         "title": "Quelles langues parles-tu ?",
         "checkBoxLabel2": "Anglais",
@@ -228,7 +241,7 @@
     },
     "Confirmation": {
       "title": "Merci",
-      "subTitle": "Votre candidature est déjà à l’étude par notre service recrutement",
+      "subTitle": "Votre formulaire est à l’étude par notre équipe",
       "description1":"L’humain est au coeur de nos valeurs, nous mettons un point d’honneur à étudier minutieusement chaque candidature",
       "description2":"Nous vous contacterons dès qu’une décision sera effective concernant votre dossier",
       "description3":"Wait & Clean",

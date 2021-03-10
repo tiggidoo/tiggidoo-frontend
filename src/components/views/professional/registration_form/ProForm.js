@@ -4,7 +4,6 @@ import Paper from "@material-ui/core/Paper";
 import FormPersonalDetails from './FormPersonalDetails';
 import FormPersonalBackground from './FormPersonalBackground';
 import FormAdditionalInformation from './FormAdditionalInformation';
-import CircularStatic from './CircularStatic';
 import Confirm from './Confirm';
 //import Success from './Success';
 import axios from 'axios';
@@ -221,6 +220,7 @@ class ProForm extends Component {
     }
 
     handleAddressGoogleApi = address => {
+        const formErrors = this.state.formErrors;
         const arrayAddress = address.address_components;
 
         let streetNumber = '';
@@ -235,31 +235,31 @@ class ProForm extends Component {
             switch (arrayAddress[index].types[0]) {
                 case 'street_number':
                     streetNumber = arrayAddress[index].long_name
-                    this.state.formErrors.step1.steet = '';
+                    formErrors.step1.steet = '';
                     break;
                 case 'route':
                     streetName = arrayAddress[index].long_name
-                    this.state.formErrors.step1.street = '';
+                    formErrors.step1.street = '';
                     break;
                 case 'locality':
                     city = arrayAddress[index].long_name
-                    this.state.formErrors.step1.city = '';
+                    formErrors.step1.city = '';
                     break;
                 case 'political':
                     city = arrayAddress[index].long_name
-                    this.state.formErrors.step1.city = '';
+                    formErrors.step1.city = '';
                     break;
                 case 'administrative_area_level_1':
                     province = arrayAddress[index].long_name
-                    this.state.formErrors.step1.province = '';
+                    formErrors.step1.province = '';
                     break;
                 case 'country':
                     country = arrayAddress[index].long_name
-                    this.state.formErrors.step1.country = '';
+                    formErrors.step1.country = '';
                     break;
                 case 'postal_code':
                     postCode = arrayAddress[index].long_name
-                    this.state.formErrors.step1.postCode = '';
+                    formErrors.step1.postCode = '';
                     break;
 
                 default:
@@ -479,7 +479,7 @@ class ProForm extends Component {
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
             streetNumber, streetName, city, province, country, postCode
         };
-        const statusCandidate = this.props.registration.status;
+        //const statusCandidate = this.props.registration.status;
         switch (step) {
             case 1:
                 return (

@@ -90,6 +90,7 @@ export const registrationAction = (registration) => async dispatch => {
         const content = JSON.stringify(profesional);
  
         //Get the image
+        console.log('Esta es la nueva version de react app: ', content);
         const archivos = registration.files;
 
         const f = new FormData();
@@ -101,6 +102,7 @@ export const registrationAction = (registration) => async dispatch => {
         
         await axios.post('https://www.api-tiggidoo.com/api/register/pro', f, {headers: {'Content-Type': 'multipart/form-data'}})
         .then(res => {
+            console.log(res);
             dispatch({
                 type: "REGISTRATION_SUCCESS",
                 payload: res

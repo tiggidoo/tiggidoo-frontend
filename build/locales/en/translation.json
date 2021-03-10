@@ -35,18 +35,18 @@
     }
   },
   "months": {
-    "January": "January",
-    "February": "February",
-    "March": "March",
-    "April": "April",
-    "May": "May",
-    "June": "June",
-    "July": "July",
-    "August": "August",
-    "September": "September",
-    "October": "October",
-    "November": "November",
-    "December": "December"
+    "January": "JANUARY",
+    "February": "FEBRUARY",
+    "March": "MARCH",
+    "April": "APRIL",
+    "May": "MAY",
+    "June": "JUNE",
+    "July": "JULY",
+    "August": "AUGUST",
+    "September": "SEPTEMBER",
+    "October": "OCTOBER",
+    "November": "NOVEMBRE",
+    "December": "DECEMBER"
   },
   "BecomeProfesional": {
     "section_1": {
@@ -138,8 +138,13 @@
       "emailConfirmation": "Email de confirmation non reçu",
       "integrationPlatform":"Choose at least one option",
       "photo": "A photo is required for registration",
-      "cellPhoneLabelError": "This email and phone number already exists"
-    },
+      "cellPhoneLabelError": "This email and phone number already exists",
+      "street": "The street is required",
+      "city": "The city is required",
+      "province": "The privince is required",
+      "country": "The country is required",
+      "postCode": "The post code is required"
+  },
     "FormPersonalDetails":{
       "title": "Join the Todoo team today!",
       "description1": "To join the Tiggidoo platform, please fill out this form. We will review your",
@@ -151,6 +156,14 @@
       "birthDayLabel": "Date of Birth",
       "cellPhoneLabel": "Cell phone number",
       "emaillLabel": "Email address",
+      "address": {
+        "title": "Address",
+        "street": "Street",
+        "city": "City",
+        "province": "Province",
+        "country": "Country",
+        "postCode": "Post Code"
+      },
       "groupCheckBox_1": {
         "title": "What languages ​​do you speak ?",
         "checkBoxLabel1": "French",
@@ -229,7 +242,7 @@
     },
     "Confirmation": {
       "title": "Thank you",
-      "subTitle": "Your application is already being reviewed by our recruiters",
+      "subTitle": "Your from is being reviewed by our team",
       "description1":"Humans are at the core of our values and we pride ourselves in carefully studying each application",
       "description2":"We will contact you once a decision has been made regarding your file",
       "description3":"Wait & Clean",
