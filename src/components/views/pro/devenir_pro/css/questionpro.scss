@@ -1,0 +1,31 @@
+.DPQestionPro{
+    background-color: #ffffff;
+
+    &__title{
+        color: #4195FB;
+        text-align: center;
+    }
+
+    &__subtitle{
+        color: #626262;
+        font-weight: 800;
+    }
+
+    &__description{
+        color: #0D0E11;
+    }
+}
+
+.DPQestionPro .card{
+    border: 0;
+}
+
+.DPQestionPro .card-header{
+    border-bottom: 2px solid rgba(0,0,0,.125);    
+}
+
+@media (min-width: 1600px) {
+    .DPQestionPro__subtitle{
+        font-size: 3rem;
+    }
+}

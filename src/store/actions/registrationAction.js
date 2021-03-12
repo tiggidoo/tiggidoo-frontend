@@ -88,7 +88,6 @@ export const registrationAction = (registration) => async dispatch => {
         }
 
         const content = JSON.stringify(profesional);
- 
         //Get the image
         const archivos = registration.files;
 

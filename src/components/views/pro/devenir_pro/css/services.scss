@@ -1,0 +1,75 @@
+.DPServices {
+  &__title {
+    text-align: center;
+  }
+
+  &__box {
+    height: 47rem;
+    width: 30rem;
+    color: #eee;
+    font-family: monospace;
+    padding: 3.5rem;
+    margin: 1.5rem auto;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 15px #00000029;
+  }
+
+  &__boxImagen {
+    height: 33%;
+    text-align: center;
+
+    & > img {
+      width: 42%;
+    }
+  }
+
+  &__boxTitle {
+    height: 15%;
+    color: black;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    & h3 {
+      font-weight: bold;
+    }
+  }
+
+  &__boxDescription p {
+    color: #000;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .DPServices__boxDescription p {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1200px) {
+  .DPServices {
+    &__box {
+      // height: 57rem;
+      width: 35rem;
+      padding: 3.5rem 2.5rem;
+    }
+
+    &__boxImagen {
+      height: 35%;
+      & > img {
+        width: 35%;
+      }
+    }
+
+    &__boxTitle {
+      margin-bottom: 0;
+      height: 17%;
+      & h3 {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__boxDescription p {
+      font-size: 1.4rem;
+    }
+  }
+}

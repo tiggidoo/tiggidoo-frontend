@@ -41,32 +41,7 @@ p, h3, h4, h5, h6 {
 p {
   font-size: 1.6rem;
 }
-/*
-[type=file] {
-  opacity: 1;
-}
 
-
-
-[type=file] + label {
-  padding: 10px;
-  width: 150px;
-  position: relative;
-}
-[type=file] + label {
-  text-align: center;
-  left: 7.35em;
-  top: 0.5em;
-
-  background: tranparent;
-  color: #000;
-  border: none;
-  cursor: pointer;
-}
-[type=file] + label:hover {
-  background: transparent;
-}
-*/
 @media (max-width: 768px) {
   .container {
     max-width: 100%;
@@ -120,14 +95,3 @@ p {
     font-size: 1.5rem;
   }
 }
-/* 
-  Selon le design de la page deviner pro et le fichier DevenirProSEO, les titres seront comme ceci:
-  h1=45px. h2=35px. h3=30px. 
-  
-  Dans le formulaire d'inscription, je n'ai vu qu'un titre h1
-
-  en el diseno del formulario de inscripcion solo veo un titulo h1. Lo demas son textos en algunos caos 20 y otros 24. La fuente de los textfild
-  y checkbox son de 17px
-
-  pregunta, el tamano del la letra que compone el parrafo pude variar?
-*/

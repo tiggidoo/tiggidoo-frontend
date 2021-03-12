@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
-import ProForm from "./components/views/professional/registration_form/ProForm";
-import BecomePro from "./components/views/devenir_pro/BecomePro";
-
+import ProForm from "./components/views/pro/professional/registration_form/ProForm";
+import BecomePro from "./components/views/pro/devenir_pro/BecomePro";
+import ResetPasswordForm from './components/auth/ResetPasswordForm';
 //Matarial-UI
 import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "./css/material-ui/configTheme";
+import theme from "./assets/css/material-ui/configTheme";
 
 function App() {
   console.log('Esta es una nueva version de reactjs.');
@@ -20,6 +20,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={BecomePro} />
             <Route path="/proform" component={ProForm} />
+            <Route exact path="/reset-password-form/:token/:email" component={ResetPasswordForm} />
           </Switch>
           <Footer />
         </div>
