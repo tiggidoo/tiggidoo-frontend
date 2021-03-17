@@ -137,8 +137,6 @@ const ResetPasswordForm = () => {
     token = decodeURIComponent(token);
     email = decodeURIComponent(email);
 
-    console.log(token, email);
-
     const [formData, setFormData] = useState({
         password: '',
         passwordConfirmation: '',
@@ -146,19 +144,6 @@ const ResetPasswordForm = () => {
     })
     const [validate, setValidate] = useState(false);
 
-    //const isLoggedIn = useSelector(store => store.auth.isLoggedIn);
-//    const history = useHistory();
-/*
-    React.useEffect(() => {
-
-        function loggearse() {
-            if (isLoggedIn) {
-                history.push('/dashboard');
-            }
-        }
-        loggearse();
-    }, [isLoggedIn, history])
-*/
     const { password, passwordConfirmation } = formData;
 
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?!@#%&])(?=.{8,})");
@@ -229,109 +214,98 @@ const ResetPasswordForm = () => {
 
     return (
         <Container maxWidth="sm" component="main" className={classes.root}>
-            {/* { (!isLoggedIn) && ( */}
-                
-                    <CssBaseline />
-{/* 
-                    <Grid item xs={false} sm={4} md={6}>
-                        <Box className={classes.backImage}>
-                            <img src="images/header/illustration-connexion.svg" className={classes.image} alt="" />
-                        </Box>
-                    </Grid>
-                     */}
-                    <Grid item md={12} component={Paper} elevation={6} square className={classes.sgnin} >
-                        <AlertMessage />
-                        <div className={classes.paper}>
-                            <Box className={classes.backImage}>
-                                <img src="images/logo_tiggidoo.svg" className={classes.image} alt="" />
+            <CssBaseline />
+            <Grid item md={12} component={Paper} elevation={6} square className={classes.sgnin} >
+                <AlertMessage />
+                <div className={classes.paper}>
+                    <Box className={classes.backImage}>
+                        <img src="images/logo_tiggidoo.svg" className={classes.image} alt="" />
+                    </Box>
+                    <Avatar className={classes.avatar}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Changer le mot de passe
+                    </Typography>
+                    <form className={classes.form}>
+                        <Box my={2} display="flex" flexDirection="row" alignItems="center">
+                            <Input
+                                id="password"
+                                placeholder=""
+                                label="Mot de passe *"
+                                size="small"
+                                width={'100%'}
+                                type={showPassword ? 'text' : 'password'}
+                                defaultValue={password}
+                                onBlur={handleChange}
+                                variant="outlined"
+                                error={(password.trim().length === 0 && validate) ? 'Entrer un mot de passe' : ''}
+                            />
+                            <Box className={classes.displayPassword}>
+                                {(password.trim().length > 0) && (
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        name="showPassword"
+                                        onClick={e => handDisplayPassword(e)}
+                                        onMouseDown={e => handleMouseDownPassword(e)}
+                                        edge="end"
+                                    >
+                                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                )}
                             </Box>
-                            <Avatar className={classes.avatar}>
-                                <LockOutlinedIcon />
-                            </Avatar>
-                            <Typography component="h1" variant="h5">
-                                Changer le mot de passe
-                            </Typography>
-                            <form className={classes.form}>
-                                <Box my={2} display="flex" flexDirection="row" alignItems="center">
-                                    <Input
-                                        id="password"
-                                        placeholder=""
-                                        label="Mot de passe *"
-                                        size="small"
-                                        width={'100%'}
-                                        type={showPassword ? 'text' : 'password'}
-                                        defaultValue={password}
-                                        onBlur={handleChange}
-                                        variant="outlined"
-                                        error={(password.trim().length === 0 && validate) ? 'Entrer un mot de passe' : ''}
-                                    />
-                                    <Box className={classes.displayPassword}>
-                                        {(password.trim().length > 0) && (
-                                            <IconButton
-                                                aria-label="toggle password visibility"
-                                                name="showPassword"
-                                                onClick={e => handDisplayPassword(e)}
-                                                onMouseDown={e => handleMouseDownPassword(e)}
-                                                edge="end"
-                                            >
-                                                {showPassword ? <Visibility /> : <VisibilityOff />}
-                                            </IconButton>
-                                        )}
-                                    </Box>
-                                </Box>
-                                <Box mt={2} mb={3} display="flex" flexDirection="row" alignItems="center">
-                                    <Input
-                                        id="passwordConfirmation"
-                                        placeholder=""
-                                        label="Confirmation mot de passe *"
-                                        size="small"
-                                        type={showPassword ? 'text' : 'password'}
-                                        width={'100%'}
-                                        defaultValue={passwordConfirmation}
-                                        onBlur={handleChange}
-                                        variant="outlined"
-                                        error={(passwordConfirmation.trim().length === 0 && validate) ? 'Entrez la confirmation' : ''}
-                                    />
-                                    <Box className={classes.displayPassword}>
-                                        {(passwordConfirmation.trim().length > 0) && (
-                                            <IconButton
-                                                aria-label="toggle password visibility"
-                                                name="showPassword"
-                                                onClick={e => handDisplayPassword(e)}
-                                                onMouseDown={e => handleMouseDownPassword(e)}
-                                                edge="end"
-                                            >
-                                                {showPassword ? <Visibility /> : <VisibilityOff />}
-                                            </IconButton>
-                                        )}
-                                    </Box>
-                                </Box>
-                                {/* #32cc8c30, #32cc8c4a, #32cc8c61 #32cc8cb3 #32cc8c*/}
-                                {/* '#d0eae0' */}
-                                <Box className={classes.backProgressBar} >
-                                    <Box className={classes.backProgressBarLayOut1}>
-                                        <Box className={classes.backProgressBarLayOut2} style={{ width: percentage, backgroundColor: color }}></Box>
-                                        <Box className={classes.progressBarText} style={{ color: colorTexto }}>{messageText}</Box>
-                                    </Box>
-                                </Box>
-                                <Button
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.submit}
-                                    onClick={e => submitForm(e)}
-                                >
-                                    Soumettre
-                                </Button>
+                        </Box>
+                        <Box mt={2} mb={3} display="flex" flexDirection="row" alignItems="center">
+                            <Input
+                                id="passwordConfirmation"
+                                placeholder=""
+                                label="Confirmation mot de passe *"
+                                size="small"
+                                type={showPassword ? 'text' : 'password'}
+                                width={'100%'}
+                                defaultValue={passwordConfirmation}
+                                onBlur={handleChange}
+                                variant="outlined"
+                                error={(passwordConfirmation.trim().length === 0 && validate) ? 'Entrez la confirmation' : ''}
+                            />
+                            <Box className={classes.displayPassword}>
+                                {(passwordConfirmation.trim().length > 0) && (
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        name="showPassword"
+                                        onClick={e => handDisplayPassword(e)}
+                                        onMouseDown={e => handleMouseDownPassword(e)}
+                                        edge="end"
+                                    >
+                                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                )}
+                            </Box>
+                        </Box>
+                        {/* #32cc8c30, #32cc8c4a, #32cc8c61 #32cc8cb3 #32cc8c*/}
+                        {/* '#d0eae0' */}
+                        <Box className={classes.backProgressBar} >
+                            <Box className={classes.backProgressBarLayOut1}>
+                                <Box className={classes.backProgressBarLayOut2} style={{ width: percentage, backgroundColor: color }}></Box>
+                                <Box className={classes.progressBarText} style={{ color: colorTexto }}>{messageText}</Box>
+                            </Box>
+                        </Box>
+                        <Button
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            onClick={e => submitForm(e)}
+                        >
+                            Soumettre
+                        </Button>
 
-                                <Box my={5}>
-                                    <Copyright />
-                                </Box>
-                            </form>
-                        </div>
-                    </Grid>
-                
-            {/* )} */}
+                        <Box my={5}>
+                            <Copyright />
+                        </Box>
+                    </form>
+                </div>
+            </Grid>
         </Container>
     );
 

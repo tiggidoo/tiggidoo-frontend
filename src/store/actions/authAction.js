@@ -4,6 +4,7 @@ import config from '../../config.json';
 
 export const resetPassword = (token, email, formData) => async dispatch => {
     try {
+
         const data = {
             token: token,
             email: email,
@@ -12,21 +13,38 @@ export const resetPassword = (token, email, formData) => async dispatch => {
         }
 
         console.log(data);
-
-        
         await axios.post(`${config.API_SERVER}/api/password/pro/reset`, data)
-            .then(res => {
-                console.log(res);
-                if (res.status === 200) {
-                    //dispatch(authAction(email, formData.password, 1));
-                }
-            }).catch((error) => {
-                console.log(error)
-                //dispatch(setAlert(`Le Token a été utilisé / expiré`, 'error'));
-            });
+        .then(res => {
+            console.log(res);
+            if (res.status === 200) {
+                
+            }
+        }).catch((error) => {
+            console.log('Esto es un error : ', error)
+        });
         
     } catch (error) {
         console.log(error)
         //dispatch(setAlert(`Un problème est survenu avec le serveur`, 'error'));
+    }
+}
+
+export const authAction = (email, password) => async dispatch => {
+    try{
+
+        const data = {
+            email: email,
+            password: password
+        }
+        console.log("Ingreso a login page");
+        await axios.prototype(`${config.API_SERVER}/api/login/pro`, data)
+        .then(res => {
+
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }catch(error) {
+        console.log(error);
     }
 }

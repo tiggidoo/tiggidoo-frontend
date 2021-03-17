@@ -9,6 +9,7 @@ import ResetPasswordForm from './components/auth/ResetPasswordForm';
 //Matarial-UI
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./assets/css/material-ui/configTheme";
+import SignIn from "./components/auth/SignIn";
 
 function App() {
   console.log('Esta es una nueva version de reactjs.');
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/" component={BecomePro} />
             <Route path="/proform" component={ProForm} />
             <Route exact path="/reset-password-form/:token/:email" component={ResetPasswordForm} />
+            <Route exact path="/login" component={SignIn} />
           </Switch>
           <Footer />
         </div>
