@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -7,7 +6,6 @@ import { Link } from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox, Container, FormControlLabel, Hidden } from '@material-ui/core';
@@ -60,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(0, 7),
         },
         '@media (max-width:600px)': {
-            margin: theme.spacing(0, 2),
+            margin: theme.spacing(0),
         }
     },
     avatar: {
@@ -171,7 +169,7 @@ const SignIn = (props) => {
         remember: false
     })
 
-    const { email, password, remember } = formData;
+    const { email, password } = formData;
 
     React.useEffect(() => {
 
@@ -189,23 +187,22 @@ const SignIn = (props) => {
             setValidate(1);
             return;
         }
-
-        authAction(email, password, remember, 0);
-
+        authAction(formData);
     };
 
     const handDisplayPassword = e => {
         e.preventDefault();
         setShowPassword(!showPassword);
     }
+
     const handleMouseDownPassword = (e) => {
         e.preventDefault();
     };
-/*
+
     const handleRememberMe = e => {
-        setRemember(e.target.checked);
+        setFormData({ ...formData, remember: e.target.checked });
     }
-*/
+
     const handleChange = e => {
         e.preventDefault();
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -325,7 +322,7 @@ const SignIn = (props) => {
                                     <FormControlLabel
                                         control={<Checkbox color="primary" />}
                                         label="Remember me"
-                                        onClick={(e) => handleChange(e)}
+                                        onClick={(e) => handleRememberMe(e)}
                                     />
                                 </Box>
                             </Box>

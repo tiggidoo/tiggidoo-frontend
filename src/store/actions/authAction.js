@@ -12,15 +12,13 @@ export const resetPassword = (token, email, formData, history) => async dispatch
             password_confirmation: formData.passwordConfirmation
         }
 
-        console.log(data);
         await axios.post(`${config.API_SERVER}/api/password/pro/reset`, data)
         .then(res => {
-            console.log(res);
             if (res.status === 200) {
                 history.push('/login');
             }
         }).catch((error) => {
-            console.log('Esto es un error : ', error)
+            console.log(error)
         });
         
     } catch (error) {
@@ -28,17 +26,21 @@ export const resetPassword = (token, email, formData, history) => async dispatch
     }
 }
 
-export const authAction = (email, password) => async dispatch => {
+export const authAction = (formData) => async dispatch => {
     try{
-
+        
         const data = {
-            email: email,
-            password: password
+            email: formData.email,
+            password: formData.password
+        }
+        
+        if(formData.remember){
+            data.remember = true
         }
 
-        await axios.prototype(`${config.API_SERVER}/api/login/pro`, data)
+        await axios.post(`${config.API_SERVER}/api/login/pro`, data)
         .then(res => {
-
+            console.log("Intgreso mucho es -21-", res);
         })
         .catch(error => {
             console.log(error);

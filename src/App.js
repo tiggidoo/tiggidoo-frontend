@@ -12,19 +12,18 @@ import theme from "./assets/css/material-ui/configTheme";
 import SignIn from "./components/auth/SignIn";
 
 function App() {
-  console.log('Esta es una nueva version de reactjs.');
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <div className="App">
-          {/* <Header /> */}
+          <Header />
           <Switch>
-            <Route exact path="/" component={BecomePro} />
-            <Route path="/proform" component={ProForm} />
             <Route exact path="/reset-password-form/:token/:email" component={ResetPasswordForm} />
+            <Route exact path="/proform" component={ProForm} />
             <Route exact path="/login" component={SignIn} />
+            <Route exact path="/" component={BecomePro} />
           </Switch>
-          {/* <Footer /> */}
+          <Footer />
         </div>
         </BrowserRouter>
     </ThemeProvider>
