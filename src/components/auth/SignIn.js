@@ -146,6 +146,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     signIn: {
+        width: '100%',
         '&.MuiPaper-elevation6':{
             boxShadow: 'none'
         }
