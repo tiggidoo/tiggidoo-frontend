@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { Checkbox, Container, FormControlLabel } from '@material-ui/core';
+import { Checkbox, Container, FormControlLabel, Hidden } from '@material-ui/core';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -51,6 +51,15 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+        '@media (max-width:1366px)': {
+            margin: theme.spacing(0, 13),
+        },
+        '@media (max-width:1200px)': {
+            margin: theme.spacing(0, 7),
+        },
+        '@media (max-width:600px)': {
+            margin: theme.spacing(0, 4),
+        }
     },
     avatar: {
         margin: theme.spacing(1),
@@ -120,6 +129,19 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '20px', 
         backgroundColor: 'transparent', 
         color: 'white'
+    },
+    forgotPassword: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        '@media (max-width: 768px)': {
+            '& a':{
+                fontSize: '14px'
+            },
+            '& span': {
+                fontSize: '14px'
+            }
+        }
     }
 }));
 
@@ -186,12 +208,14 @@ const SignIn = (props) => {
             <Grid container component="main" className={classes.root}>
                 <CssBaseline />
 
-                <Grid item md={false} lg={6}>
-                    <Box className={classes.backImage}>
-                        <img src="images/loginImage.png" className={classes.image} alt="" />
-                    </Box>
+                <Grid item md={6} lg={6}>
+                    <Hidden smDown>
+                        <Box className={classes.backImage}>
+                            <img src="images/loginImage.png" className={classes.image} alt="" />
+                        </Box>
+                    </Hidden>
                 </Grid>
-                <Grid item md={12} lg={6} component={Paper} elevation={6} square className={classes.sgnin} >
+                <Grid item md={6} lg={6} component={Paper} elevation={6} square className={classes.sgnin} >
                     <AlertMessage />
                     <div className={classes.paper}>
                         <form className={classes.form}>
@@ -286,20 +310,16 @@ const SignIn = (props) => {
                                 </Button>
                             </Box>
                             <Box>
-                                <Grid container>
-                                    <Grid item md>
-                                        <Box display="flex" alignItems="center" justifyContent="space-between">
-                                            <Link to="/reset-password-admin-form">
-                                                Forgot password?
-                                            </Link>
-                                            <FormControlLabel
-                                                control={<Checkbox color="primary" />}
-                                                label="Remember me"
-                                                onClick={(e) => handleChange(e)}
-                                            />
-                                        </Box>
-                                    </Grid>
-                                </Grid>
+                                <Box className={classes.forgotPassword}>
+                                    <Link to="/reset-password-admin-form">
+                                        Forgot password?
+                                    </Link>
+                                    <FormControlLabel
+                                        control={<Checkbox color="primary" />}
+                                        label="Remember me"
+                                        onClick={(e) => handleChange(e)}
+                                    />
+                                </Box>
                             </Box>
                             <Box mt={5}>
                                 <Copyright />

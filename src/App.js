@@ -17,14 +17,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <div className="App">
-          <Header />
+          {/* <Header /> */}
           <Switch>
             <Route exact path="/" component={BecomePro} />
             <Route path="/proform" component={ProForm} />
             <Route exact path="/reset-password-form/:token/:email" component={ResetPasswordForm} />
             <Route exact path="/login" component={SignIn} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
         </BrowserRouter>
     </ThemeProvider>

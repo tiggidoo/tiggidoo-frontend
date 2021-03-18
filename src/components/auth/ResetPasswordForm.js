@@ -15,7 +15,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 //import { connect } from 'react-redux';
-import { useParams } from "react-router-dom";
+import { useParams, withRouter } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 
 import { setAlert } from '../../store/actions/alertAction';
@@ -119,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ResetPasswordForm = () => {
+const ResetPasswordForm = ({ history }) => {
 
     const classes = useStyles();
 
@@ -168,7 +168,7 @@ const ResetPasswordForm = () => {
             setAlert("Les mots de passe doivent être identiques", 'error');
         }
         if (isValidationOk) {
-            dispatch(resetPassword(token, email, formData));
+            dispatch(resetPassword(token, email, formData, history));
         } else {
             return false;
         }
@@ -312,4 +312,4 @@ const ResetPasswordForm = () => {
 }
 
 
-export default ResetPasswordForm;
+export default withRouter(ResetPasswordForm);

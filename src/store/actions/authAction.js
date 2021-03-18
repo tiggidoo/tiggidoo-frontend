@@ -2,7 +2,7 @@ import axios from 'axios';
 //import { setAlert } from './alertAction';
 import config from '../../config.json';
 
-export const resetPassword = (token, email, formData) => async dispatch => {
+export const resetPassword = (token, email, formData, history) => async dispatch => {
     try {
 
         const data = {
@@ -17,7 +17,7 @@ export const resetPassword = (token, email, formData) => async dispatch => {
         .then(res => {
             console.log(res);
             if (res.status === 200) {
-                
+                history.push('/login');
             }
         }).catch((error) => {
             console.log('Esto es un error : ', error)
@@ -25,7 +25,6 @@ export const resetPassword = (token, email, formData) => async dispatch => {
         
     } catch (error) {
         console.log(error)
-        //dispatch(setAlert(`Un problème est survenu avec le serveur`, 'error'));
     }
 }
 
@@ -36,7 +35,7 @@ export const authAction = (email, password) => async dispatch => {
             email: email,
             password: password
         }
-        console.log("Ingreso a login page");
+
         await axios.prototype(`${config.API_SERVER}/api/login/pro`, data)
         .then(res => {
 
@@ -44,6 +43,7 @@ export const authAction = (email, password) => async dispatch => {
         .catch(error => {
             console.log(error);
         })
+
     }catch(error) {
         console.log(error);
     }
