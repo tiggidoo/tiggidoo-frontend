@@ -44,6 +44,8 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
     root: {
         height: '100vh',
+        padding: 0,
+        margin: 0,
     },
     paper: {
         margin: theme.spacing(0, 16),
@@ -58,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(0, 7),
         },
         '@media (max-width:600px)': {
-            margin: theme.spacing(0, 4),
+            margin: theme.spacing(0, 2),
         }
     },
     avatar: {
@@ -142,6 +144,11 @@ const useStyles = makeStyles((theme) => ({
                 fontSize: '14px'
             }
         }
+    },
+    signIn: {
+        '&.MuiPaper-elevation6':{
+            boxShadow: 'none'
+        }
     }
 }));
 
@@ -215,7 +222,7 @@ const SignIn = (props) => {
                         </Box>
                     </Hidden>
                 </Grid>
-                <Grid item md={6} lg={6} component={Paper} elevation={6} square className={classes.sgnin} >
+                <Grid item md={6} lg={6} component={Paper} elevation={6} square className={classes.signIn} >
                     <AlertMessage />
                     <div className={classes.paper}>
                         <form className={classes.form}>
