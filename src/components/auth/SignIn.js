@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -11,9 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox, Container, FormControlLabel, Hidden } from '@material-ui/core';
 
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { authAction } from '../../store/actions/authAction';
-import { useHistory } from "react-router-dom";
 import AlertMessage from '../layout/AlertMessage';
 
 import IconButton from '@material-ui/core/IconButton';
@@ -151,17 +150,22 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const SignIn = (props) => {
+const SignIn = ({ history }) => {
 
     const classes = useStyles();
+
     //const [loggedin, setLoggedin] = useState(false);
     const [validate, setValidate] = useState(0);
     const [showPassword, setShowPassword] = useState(false);
     //const isLoggedIn = useSelector(store => store.auth.isLoggedIn);
-    const history = useHistory();
+    //const history = useHistory();
 
-    const { isLoggedIn, authAction } = props;
-
+    const { isLoggedIn } = useSelector(
+        state => ({
+            isLoggedIn: state.auth.isLoggedIn
+        })
+    )
+    const dispatch = useDispatch();
 
     const [formData, setFormData] = useState({
         email: '',
@@ -176,6 +180,9 @@ const SignIn = (props) => {
         function loggearse() {
             if (isLoggedIn) {
                 history.push('/dashboard');
+            }else{
+                console.log('No estamos logueados');
+                localStorage.clear();
             }
         }
         loggearse();
@@ -187,7 +194,7 @@ const SignIn = (props) => {
             setValidate(1);
             return;
         }
-        authAction(formData);
+        dispatch(authAction(formData, history));
     };
 
     const handDisplayPassword = e => {
@@ -342,9 +349,5 @@ SignIn.propTypes = {
     authAction: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-    //const isLoggedIn = useSelector(store => store.auth.isLoggedIn);
-    isLoggedIn: state.auth.isLoggedIn
-})
 
-export default connect(mapStateToProps, { authAction })(SignIn);
+export default withRouter(SignIn);

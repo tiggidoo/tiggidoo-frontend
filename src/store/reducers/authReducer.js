@@ -1,6 +1,6 @@
 const initState = {
     isLoggedIn: false,
-    userAdmin: '',
+    pro: '',
     access_token: '',
     authError: null,
     loading: false
@@ -24,24 +24,25 @@ const authReducer = (state = initState, action) => {
         case 'UPDATE_USER_AUTH':
             return {
                  isLoggedIn: true,
-                 userAdmin: action.payload.userAdmin,
+                 pro: action.payload.pro,
                  access_token: action.payload.access_token,
                  authError: null,
                  loading: false
              };            
+*/            
         case 'LOGIN_SUCCESS':
             return {
                 isLoggedIn: true,
-                userAdmin: action.payload.admin,
+                pro: action.payload.pro,
                 access_token: action.payload.access_token,
                 authError: null,
                 loading: false
             };
         case 'LOG_OUT':
+            localStorage.clear();
             return {
                 initState
             };
-*/            
         default:
             return state;
     }

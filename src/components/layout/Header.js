@@ -1,13 +1,17 @@
 import React from "react";
 import { Helmet } from 'react-helmet';
 import { Button, Container, Navbar, Nav } from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux';
+import { logOutAction } from '../../store/actions/authAction';
+
 import { useTranslation } from "react-i18next";
 
 import "./css/navbar.scss";
+import { withRouter } from "react-router";
 
 
 
-export default function Header() {
+const Header = ({ history }) => {
 
   const { t, i18n } = useTranslation();
   function changeLanguage(lang) {
@@ -20,8 +24,19 @@ export default function Header() {
   if(lang === 'en'){
     langLabel = "Fr";
   }
-  console.log(t("SEO.meta.description"));
+  //console.log(t("SEO.meta.description"));
 
+  const { auth: { isLoggedIn, access_token } } = useSelector(
+    state => ({
+      auth: state.auth
+    })
+  )
+
+  const dispatch = useDispatch();
+  const logOut = (e) => {
+    e.preventDefault();
+    dispatch(logOutAction(access_token, history));
+  }
 
   return (
     <div>
@@ -52,9 +67,19 @@ export default function Header() {
               </Nav.Link>
             </Nav>
 
-            <Button href="#home" size="lg" className="NavBar__btnLogin">
-              {t("Nav.menu.login")}
-            </Button>
+            {(isLoggedIn) ? 
+              (
+                <Button href="#home" size="lg" className="NavBar__btnLogin" onClick={ e => logOut(e) }>
+                  {t("Nav.menu.logout")}
+                </Button>
+              )
+            :
+              (
+                <Button href="/login" size="lg" className="NavBar__btnLogin">
+                  {t("Nav.menu.login")}
+                </Button>
+              )
+            }
 
             <Nav className="NavBar__language">
                 <Nav.Link
@@ -71,3 +96,5 @@ export default function Header() {
     </div>
   );
 }
+
+export default withRouter(Header);

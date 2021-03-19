@@ -9,6 +9,7 @@
   "Nav": {
     "menu": {
       "login": "Connexion",
+      "logout": "Déconnecter",
       "becomeTodo" : "Devenez un Todoo"
     }
   },

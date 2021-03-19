@@ -26,7 +26,7 @@ export const resetPassword = (token, email, formData, history) => async dispatch
     }
 }
 
-export const authAction = (formData) => async dispatch => {
+export const authAction = (formData, history) => async dispatch => {
     try{
         
         const data = {
@@ -41,6 +41,17 @@ export const authAction = (formData) => async dispatch => {
         await axios.post(`${config.API_SERVER}/api/login/pro`, data)
         .then(res => {
             console.log("Intgreso mucho es -21-", res);
+            if(res.status === 200){
+                dispatch({
+                    type: "LOGIN_SUCCESS",
+                    payload: res.data
+                });
+    
+                localStorage.setItem('userLoggedIn', JSON.stringify({
+                    type: "LOGIN_SUCCESS",
+                    payload: res.data
+                }))
+            }
         })
         .catch(error => {
             console.log(error);
@@ -49,4 +60,50 @@ export const authAction = (formData) => async dispatch => {
     }catch(error) {
         console.log(error);
     }
+}
+
+export const getUserLoggedInAction = () => (dispatch) => {
+
+    if (localStorage.getItem('userLoggedIn')) {
+        const userLoggedIn = JSON.parse(localStorage.getItem('userLoggedIn'));
+        dispatch({
+            type: userLoggedIn.type,
+            payload: userLoggedIn.payload
+        });
+    }
+}
+
+export const logOutAction = (token, history) => async dispatch => {
+
+    try {
+        dispatch({
+            type: 'LOG_OUT',
+        });
+        history.push('/');
+
+/*        
+        const headers = {
+            headers: { 'Authorization': `Bearer ${token}` }
+        }
+        
+        await axios.post(`${config.API_SERVER}/api/logout/pro`, headers)
+        .then(res => {
+            if (res.data.status === 200) {
+                if (localStorage.getItem('userLoggedIn')) {
+                    dispatch({
+                        type: 'LOG_OUT',
+                    });
+                    history.push('/login');
+                }
+            }
+        }).catch((error) => {
+            console.log('This is the error: ', error)
+        });
+*/
+
+    } catch (error) {
+        console.log(error);
+    }
+
+
 }
