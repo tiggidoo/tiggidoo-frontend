@@ -13,6 +13,11 @@ import { withTranslation } from "react-i18next";
 import { compose } from "redux"; /* bindActionCreators */
 import { connect } from 'react-redux';
 import { registrationAction } from '../../../../../store/actions/registrationAction';
+import HeaderRP from '../../../../layout/HeaderRP';
+import FooterRP from '../../../../layout/FooterRP';
+import { Box } from '@material-ui/core';
+
+import { lookupViaCity, findFromCityStateProvince } from 'city-timezones';
 
 const emailRegex = RegExp(
     /^[ ]*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})[ ]*$/i
@@ -96,6 +101,7 @@ class ProForm extends Component {
             province: '',
             country: '',
             postCode: '',
+            timezone:'',
             validate: 0,
             formErrors: {
                 step1: {
@@ -133,7 +139,8 @@ class ProForm extends Component {
             },
             how_know_us_list: null,
             emailAndPhoneExist: 0,
-            emailAndPhoneMessage: "The email and number phone are already exist."
+            emailAndPhoneMessage: "The email and number phone are already exist.",
+            selectedTimezone: ''
         }
     }
 
@@ -249,7 +256,7 @@ class ProForm extends Component {
                     city = arrayAddress[index].long_name
                     formErrors.step1.city = '';
                     break;
-                case 'administrative_area_level_1':
+                    case 'administrative_area_level_1':
                     province = arrayAddress[index].long_name
                     formErrors.step1.province = '';
                     break;
@@ -268,13 +275,40 @@ class ProForm extends Component {
 
         }
 
+        
+        if(province.length === 0){
+            province = city;
+            formErrors.step1.province = '';
+        }
+        
+        if(city.length === 0){
+            city = province;
+            formErrors.step1.city = '';
+        }
+
+        let coor = lookupViaCity(city);
+        let timezone = '';
+        if(coor.length > 0){
+            timezone = coor[0].timezone
+        }else{
+            coor = findFromCityStateProvince(province);
+            if(coor.length > 0){
+                timezone = coor[0].timezone
+            }
+        }
+        if(postCode.length === 0){
+            postCode = '000000';
+            formErrors.step1.postCode = '';
+        }
+        //Vingelodden 6, Copenhagen Municipality, Denmark
         this.setState({
             streetNumber: streetNumber,
             streetName: streetName,
             city: city,
             province: province,
             country: country,
-            postCode: postCode
+            postCode: postCode,
+            timezone: timezone.trim()
         });
 
     }
@@ -467,7 +501,7 @@ class ProForm extends Component {
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
-            streetNumber, streetName, city, province, country, postCode } = this.state;
+            streetNumber, streetName, city, province, country, postCode, selectedTimezone } = this.state;
 
         const values = {
             firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone,
@@ -477,7 +511,7 @@ class ProForm extends Component {
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
-            streetNumber, streetName, city, province, country, postCode
+            streetNumber, streetName, city, province, country, postCode, selectedTimezone
         };
         //const statusCandidate = this.props.registration.status;
         switch (step) {
@@ -530,13 +564,17 @@ class ProForm extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <main className={classes.layout}>
-                <Paper className={classes.paper}>
-                    <React.Fragment>
-                        {this.getStepContent()}
-                    </React.Fragment>
-                </Paper>
-            </main>
+            <Box>
+                <HeaderRP />
+                    <main className={classes.layout}>
+                        <Paper className={classes.paper}>
+                            <React.Fragment>
+                                {this.getStepContent()}
+                            </React.Fragment>
+                        </Paper>
+                    </main>
+                <FooterRP />
+            </Box>
         );
 
     }

@@ -14,6 +14,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { withTranslation } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import { compose } from "redux";
+
 import axios from 'axios';
 
 const styles = (theme) => ({
@@ -203,6 +204,7 @@ class FormPersonalDetails extends Component {
         this.state = {
             address: street.trim()
         };
+
     }
     
     componentDidMount() {
@@ -486,11 +488,6 @@ class FormPersonalDetails extends Component {
                                             readOnly="true"
                                             error={(formErrors.step1.postCode.length > 0 && values.validate === 1) ? t("ProForm.validations.postCode") : ""}
                                         />
-{/* 
-                                        {(formErrors.step1.postCode.length > 0 && values.validate === 1) && (
-                                            <span className={classes.errorMessage}>{t("ProForm.validations.postCode")}</span>
-                                        )}
- */}
                                     </Box>
                                 </Grid>
                             </Grid>

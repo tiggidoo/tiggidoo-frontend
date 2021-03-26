@@ -10,10 +10,13 @@ import Conditions from "./sections/Conditions";
 import MyQuestions from "./sections/MyQuestions";
 
 import "./css/becomepro.scss";
+import HeaderRP from "../../../layout/HeaderRP";
+import FooterRP from "../../../layout/FooterRP";
 
 export default function BecomePro() {
   return (
     <div>
+      <HeaderRP />
       <Intro />
       <Platform />
       <HowItWorks />
@@ -24,6 +27,7 @@ export default function BecomePro() {
       <SubmitMyApplication />
       <Conditions />
       <MyQuestions />      
+      <FooterRP />
     </div>
   );
 }

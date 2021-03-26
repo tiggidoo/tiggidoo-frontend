@@ -48,14 +48,18 @@ export const registrationAction = (registration) => async dispatch => {
             }
             $reference.push($reference2);
         }
-        const resolvedOptions = Intl.DateTimeFormat().resolvedOptions()
+
+        if(registration.timezone.length === 0){
+            registration.timezone = Intl.DateTimeFormat().resolvedOptions();
+        }
+
         const profesional = {
             "firstName": registration.firstName,
             "lastName": registration.lastName,
             "date_of_birth": birtdDayFull,
             "telephone": varTelephone,
             "email": registration.email,
-            "timezone": resolvedOptions.timeZone,
+            "timezone": registration.timezone,
             "address": {
                 "rue": registration.streetNumber + ' ' + registration.streetName,
                 "city": registration.city,
