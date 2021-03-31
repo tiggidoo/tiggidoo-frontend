@@ -58,7 +58,7 @@ const InputCustomPhone = (
             <PhoneInput
                 name = {name}
                 country={country}
-                onlyCountries={['ca', 'us', 'fr', 'es']}
+                onlyCountries={['ca', 'us', 'fr', 'es', 'ch', 'be']}
                 value={ value }
                 placeholder='(123) 456-7890'
                 disableCountryCode={disableCountryCode}
