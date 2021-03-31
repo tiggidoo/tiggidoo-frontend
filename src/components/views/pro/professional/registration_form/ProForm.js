@@ -102,6 +102,7 @@ class ProForm extends Component {
             country: '',
             postCode: '',
             timezone:'',
+            countryShortName:'',
             validate: 0,
             formErrors: {
                 step1: {
@@ -236,6 +237,7 @@ class ProForm extends Component {
         let province = '';
         let country = '';
         let postCode = '';
+        let country_short_name = '';
 
         for (let index in arrayAddress) {
 
@@ -262,6 +264,7 @@ class ProForm extends Component {
                     break;
                 case 'country':
                     country = arrayAddress[index].long_name
+                    country_short_name = arrayAddress[index].short_name
                     formErrors.step1.country = '';
                     break;
                 case 'postal_code':
@@ -308,9 +311,19 @@ class ProForm extends Component {
             province: province,
             country: country,
             postCode: postCode,
-            timezone: timezone.trim()
+            countryShortName: country_short_name,
+            timezone: timezone.trim(),
         });
 
+    }
+
+    handleChangePhone = e => {
+        const formErrors = this.state.formErrors;
+        formErrors.step1.telephone =
+                            e < 10 ? "The phone must have a minimum of 10 digits" : ""; 
+        this.setState({
+            telephone: e,
+        });
     }
 
     handleChange = (e) => {
@@ -501,7 +514,7 @@ class ProForm extends Component {
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
-            streetNumber, streetName, city, province, country, postCode, selectedTimezone } = this.state;
+            streetNumber, streetName, city, province, country, postCode, selectedTimezone, countryShortName } = this.state;
 
         const values = {
             firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone,
@@ -511,7 +524,7 @@ class ProForm extends Component {
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
             workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
-            streetNumber, streetName, city, province, country, postCode, selectedTimezone
+            streetNumber, streetName, city, province, country, postCode, selectedTimezone, countryShortName
         };
         //const statusCandidate = this.props.registration.status;
         switch (step) {
@@ -521,6 +534,7 @@ class ProForm extends Component {
                         validateMailAndNextStep={this.validateMailAndNextStep}
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
+                        handleChangePhone={this.handleChangePhone}
                         handleAddressGoogleApi={this.handleAddressGoogleApi}
                         values={values}
                     />

@@ -16,6 +16,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { compose } from "redux";
 
 import axios from 'axios';
+import InputCustomPhone from '../../../../share/inputs/InputCustomPhone';
 
 const styles = (theme) => ({
     root: {
@@ -41,7 +42,7 @@ const styles = (theme) => ({
     },
     groupLabelInputAddress: {
         marginBottom: '20px',
-        paddingRight: '10px',
+        paddingRight: '5px',
         '@media (max-width:768px)': {
             paddingRight: '20px',
             marginBottom: '56px',
@@ -307,12 +308,12 @@ class FormPersonalDetails extends Component {
         return arr;
     }
 
-    render() {
-        //const { t } = this.props;
-        //const { classes } = this.props;
-        const { t, classes, values, handleChange } = this.props;
+    
 
+    render() {
+        const { t, classes, values, handleChange, handleChangePhone } = this.props;
         const formErrors = values.formErrors;
+
         return (
 
             <React.Fragment>
@@ -494,7 +495,8 @@ class FormPersonalDetails extends Component {
                         </Box>
                         <Box className={classes.groupLabelInput}>
                             <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.cellPhoneLabel")}</Typography></Box>
-                            <Input
+                            
+                            {/* <Input
                                 id="telephone" 
                                 placeholder={t("ProForm.FormPersonalDetails.cellPhoneLabel")} 
                                 size="small" 
@@ -503,12 +505,17 @@ class FormPersonalDetails extends Component {
                                 mask="telephone"
                                 defaultValue={values.telephone} 
                                 error={(formErrors.step1.telephone.length > 0 && values.validate === 1) ? t("ProForm.validations.telephoneFilds") : ""}
-                            />
-{/* 
-                            {(formErrors.step1.telephone.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.telephoneFilds")}</span>
-                            )}
-                             */}
+                            /> */}
+                            <InputCustomPhone
+                                name = 'telephone'
+                                country={ values.countryShortName.length === 0 ? 'ca' : values.countryShortName.toLowerCase()}
+                                value={values.telephone}              
+                                disableCountryCode={true}
+                                disableDropdown={true}
+                                onChange={handleChangePhone}
+                                error={(formErrors.step1.telephone.length > 0 && values.validate === 1) ? t("ProForm.validations.telephoneFilds") : ""}
+                            /> 
+                            
                         </Box>
                         <Box className={classes.groupLabelInput}>
                             <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.emaillLabel")}</Typography></Box>
