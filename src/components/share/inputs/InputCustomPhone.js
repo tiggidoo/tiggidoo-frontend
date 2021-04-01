@@ -72,6 +72,4 @@ const InputCustomPhone = (
     )
 }
 
-
-
 export default InputCustomPhone

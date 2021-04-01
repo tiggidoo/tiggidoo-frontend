@@ -510,7 +510,7 @@ class FormPersonalDetails extends Component {
                                 name = 'telephone'
                                 country={ values.countryShortName.length === 0 ? 'ca' : values.countryShortName.toLowerCase()}
                                 value={values.telephone}              
-                                disableCountryCode={true}
+                                disableCountryCode={false}
                                 disableDropdown={true}
                                 onChange={handleChangePhone}
                                 error={(formErrors.step1.telephone.length > 0 && values.validate === 1) ? t("ProForm.validations.telephoneFilds") : ""}
