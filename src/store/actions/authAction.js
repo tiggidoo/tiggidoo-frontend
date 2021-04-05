@@ -11,7 +11,6 @@ export const resetPassword = (token, email, formData, history) => async dispatch
             password: formData.password,
             password_confirmation: formData.passwordConfirmation
         }
-
         await axios.post(`${config.API_SERVER}/api/password/pro/reset`, data)
         .then(res => {
             if (res.status === 200) {

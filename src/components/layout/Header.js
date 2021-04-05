@@ -74,7 +74,6 @@ export default function Header() {
 
   useEffect(() => {
     const setResponsiveness = () => {
-            console.log(window.innerWidth);
             return window.innerWidth < 992 ? setState((prevState) => ({ ...prevState, mobileView: true })) : setState((prevState) => ({ ...prevState, mobileView: false }));
     };
 

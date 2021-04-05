@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import BodyWrapper from './BodyWrapper'
 import Header from './Header'
+import NavBar from './NavBar/NavBar'
 
 const useStyle = makeStyles((theme) => ({
     workArea:{
@@ -10,14 +11,12 @@ const useStyle = makeStyles((theme) => ({
         backgroundColor: '#2880fb73',
         height: '100vh'
     },
-    menu: {
-        backgroundColor: '#28fb4299',
-        width: '25vw'
-    },
     content: {
         backgroundColor: '#f728fb24',
-        width: '75vw'
-
+        width: '75vw',
+        '@media (max-width:992px)': { 
+            width: '100vw',
+        },
     }
 }))
 
@@ -37,9 +36,7 @@ const Dashboard = ({children}) => {
             <Header isLoggedIn={isLoggedIn}/>
             <Container maxWidth="lg">
                 <Box className={classes.workArea}>
-                    <Box className={classes.menu} >
-                        {/* <Drawer authority={authority} /> */}
-                    </Box>
+                    <NavBar />
                     <Box className={classes.content}>
                         {children}
                     </Box>
