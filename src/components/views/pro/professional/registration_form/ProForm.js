@@ -16,6 +16,7 @@ import { registrationAction } from '../../../../../store/actions/registrationAct
 import HeaderRP from '../../../../layout/HeaderRP';
 import FooterRP from '../../../../layout/FooterRP';
 import { Box } from '@material-ui/core';
+import deletePhoneMask from '../../../../share/librery/librery'
 
 import { lookupViaCity, findFromCityStateProvince } from 'city-timezones';
 
@@ -57,6 +58,7 @@ class ProForm extends Component {
             birthMonth: '1',
             birthYear: '1980',
             telephone: '',
+            telephoneDialCode: '',
             email: '',
             en: false,
             fr: true,
@@ -70,6 +72,8 @@ class ProForm extends Component {
             referLastName1: '',
             referEmail1: '',
             referTelephone1: '',
+            referTelephone1DialCode: '',
+            referTelephone2DialCode: '',
             referCompany1: '',
             referPosition1: '',
             referDepartureDate1: formDate,
@@ -317,13 +321,45 @@ class ProForm extends Component {
 
     }
 
-    handleChangePhone = e => {
-        const formErrors = this.state.formErrors;
-        formErrors.step1.telephone =
-                            e < 10 ? "The phone must have a minimum of 10 digits" : ""; 
-        this.setState({
-            telephone: e,
-        });
+    handleChangePhone = (e, formattedValue, country, telValue, name) => {
+        
+        const value = e.target.value;
+        if(value !== undefined){
+            //console.log(telValue.length - country.dialCode.length);
+            let ex = telValue.length - country.dialCode.length;
+
+            const formErrors = this.state.formErrors;
+
+            switch (name) {
+                case "telephone":
+                    formErrors.step1.telephone =
+                        ex < 9 ? "The phone must have a minimum of 10 digits" : ""; 
+                    this.setState({
+                        telephone: value,
+                        telephoneDialCode: country.dialCode
+                    });
+                    break;
+                case "referTelephone1":
+                    formErrors.step2.referTelephone1 =
+                        ex < 9 ? "The phone must have a minimum of 10 digits" : "";
+                        this.setState({
+                            referTelephone1: value,
+                            referTelephone1DialCode: country.dialCode
+                        });
+                    break;
+                case "referTelephone2":
+                    formErrors.step2.referTelephone2 =
+                        ex < 9 ? "The phone must have a minimum of 10 digits" : "";
+                        this.setState({
+                            referTelephone2: value,
+                            referTelephone2DialCode: country.dialCode
+                        });
+                    break;
+
+                default:
+                    break;
+            }        
+        }
     }
 
     handleChange = (e) => {
@@ -546,6 +582,7 @@ class ProForm extends Component {
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
+                        handleChangePhone={this.handleChangePhone}
                         values={values}
                     />
                 );

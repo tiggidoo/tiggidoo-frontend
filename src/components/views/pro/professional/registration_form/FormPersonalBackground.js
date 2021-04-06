@@ -15,6 +15,7 @@ import Input from '../../../../share/inputs/Input';
 import { withTranslation } from "react-i18next";
 //REDUX FUNCTIONS
 import { compose } from "redux";
+import InputCustomPhone from '../../../../share/inputs/InputCustomPhone';
 
 
 
@@ -45,7 +46,7 @@ class FormPersonalBackground extends Component {
     render() {
         const { t } = this.props;
         const { classes } = this.props;
-        const { values, handleChange } = this.props;
+        const { values, handleChange, handleChangePhone } = this.props;
         const formErrors = values.formErrors;
         const formErrorsNoValidaton = values.formErrorsNoValidaton;
         
@@ -120,21 +121,20 @@ class FormPersonalBackground extends Component {
  */}
                         </Box>
                         <Box className={classes.boxReferences}>
-                            <Input
-                                id="referTelephone1" 
-                                placeholder={t("ProForm.FormPersonalBackground.cellPhone")} 
-                                size="small" 
-                                onBlur={handleChange} 
-                                mask="telephone"
-                                variant="outlined" 
-                                defaultValue={values.referTelephone1} 
+
+                            <InputCustomPhone
+                                name = 'referTelephone1'
+                                country={ values.countryShortName.length === 0 ? 'ca' : values.countryShortName.toLowerCase()}
+                                value={values.referTelephone1}              
+                                disableCountryCode={false}
+                                disableDropdown={false}
+                                //onlyCountries={['ca', 'us', 'fr', 'es', 'ch', 'be']}
+                                enableSearch={true}
+                                regions={['north-america', 'europe']}
+                                onChange={ handleChangePhone }
                                 error={(formErrors.step2.referTelephone1.length > 0 && values.validate === 1) ? t("ProForm.validations.telephoneFilds") : ""}
-                            />
-{/* 
-                            {(formErrors.step2.referTelephone1.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.telephoneFilds")}</span>
-                            )}
- */}
+                            /> 
+
                         </Box>
                         <Box className={classes.boxReferences}>
                             <Input
@@ -146,11 +146,7 @@ class FormPersonalBackground extends Component {
                                 defaultValue={values.referCompany1} 
                                 error={(formErrors.step2.referCompany1.length > 0 && values.validate === 1) ? t("ProForm.validations.refer") : ""}
                             />
-{/* 
-                            {(formErrors.step2.referCompany1.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.refer")}</span>
-                            )}
- */}
+
                         </Box>
                         <Box className={classes.boxReferences}>
                             <Input
@@ -162,11 +158,7 @@ class FormPersonalBackground extends Component {
                                 defaultValue={values.referPosition1} 
                                 error={(formErrors.step2.referPosition1.length > 0 && values.validate === 1) ? t("ProForm.validations.refer") : ""}
                             />
-{/* 
-                            {(formErrors.step2.referPosition1.length > 0 && values.validate === 1) && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.refer")}</span>
-                            )}
- */}
+
                         </Box>
                         <Box className={classes.boxReferences}>
                             <TextField
@@ -220,7 +212,8 @@ class FormPersonalBackground extends Component {
                         </Box>
                         <Box className={classes.boxReferences}>
                             <Input 
-                                error={formErrorsNoValidaton.step2.referEmail2.length === 0 ? "" : formErrorsNoValidaton.step2.referEmail2} 
+                                //error={formErrorsNoValidaton.step2.referEmail2.length === 0 ? "" : formErrorsNoValidaton.step2.referEmail2} 
+                                error=''
                                 id="referEmail2" 
                                 placeholder={t("ProForm.FormPersonalBackground.email")} 
                                 size="small" 
@@ -228,30 +221,21 @@ class FormPersonalBackground extends Component {
                                 variant="outlined"
                                 defaultValue={values.referEmail2} 
                             />
-
-{/* 
-                            {formErrorsNoValidaton.step2.referEmail2.length > 0 && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.email")}</span>
-                            )}
- */}
-
                         </Box>
                         <Box className={classes.boxReferences}>
-                            <Input 
-                                id="referTelephone2" 
-                                placeholder={t("ProForm.FormPersonalBackground.cellPhone")} 
-                                size="small" 
-                                onBlur={handleChange}
-                                variant="outlined"
-                                mask="telephone"
-                                defaultValue={values.referTelephone2} 
-                                error={formErrorsNoValidaton.step2.referTelephone2.length === 0 ? "" : t("ProForm.validations.telephoneFilds")}
-                            />
-{/* 
-                            {formErrorsNoValidaton.step2.referTelephone2.length > 0 && (
-                                <span className={classes.errorMessage}>{t("ProForm.validations.telephoneFilds")}</span>
-                            )}
-                             */}
+                            <InputCustomPhone
+                                name = 'referTelephone2'
+                                country={ values.countryShortName.length === 0 ? 'ca' : values.countryShortName.toLowerCase()}
+                                value={values.referTelephone2}              
+                                disableCountryCode={false}
+                                disableDropdown={false}
+                                //onlyCountries={['ca', 'us', 'fr', 'es', 'ch', 'be']}
+                                enableSearch={true}
+                                regions={['north-america', 'europe']}
+                                onChange={ handleChangePhone }
+                                //error={formErrorsNoValidaton.step2.referTelephone2.length === 0 ? "" : t("ProForm.validations.telephoneFilds")}
+                                error=''
+                            />                                             
                         </Box>
                         <Box className={classes.boxReferences}>
                             <Input 

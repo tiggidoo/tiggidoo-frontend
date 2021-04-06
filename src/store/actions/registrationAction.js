@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { deletePhoneMask } from '../../components/share/librery/librery';
 //import { createReadStream } from 'fs';
 //import fs from 'fs';
 
@@ -18,19 +19,12 @@ export const registrationAction = (registration) => async dispatch => {
         let month = registration.birthMonth.length === 1 ? "0" + registration.birthMonth : registration.birthMonth;
         let birtdDayFull = registration.birthYear + "-" + month + "-" + day;
         
-        let varTelephone = registration.telephone;
-        varTelephone = varTelephone.replace('(', '');
-        varTelephone = varTelephone.replace(')', '');
-        varTelephone = varTelephone.replace('-', '');
-        varTelephone = varTelephone.replace(' ', '');
-        varTelephone = varTelephone.trim();
-
 
         let $reference = [{
             "last_name": registration.referLastName1,
             "first_name": registration.referFirstName1,
             "email": registration.referEmail1,
-            "telephone": registration.referTelephone1,
+            "telephone": deletePhoneMask(registration.referTelephone1, registration.referTelephone1DialCode),
             "company": registration.referCompany1,
             "position": registration.referPosition1,
             "date_start": registration.referDepartureDate1
@@ -41,7 +35,7 @@ export const registrationAction = (registration) => async dispatch => {
                 "last_name": registration.referLastName2,
                 "first_name": registration.referFirstName2,
                 "email": registration.referEmail2,
-                "telephone": registration.referTelephone2,
+                "telephone": deletePhoneMask(registration.referTelephone2, registration.referTelephone2DialCode),
                 "company": registration.referCompany2,
                 "position": registration.referPosition2,
                 "date_start": registration.referDepartureDate2
@@ -57,7 +51,7 @@ export const registrationAction = (registration) => async dispatch => {
             "firstName": registration.firstName,
             "lastName": registration.lastName,
             "date_of_birth": birtdDayFull,
-            "telephone": varTelephone,
+            "telephone": deletePhoneMask(registration.telephone, registration.telephoneDialCode),
             "email": registration.email,
             "timezone": registration.timezone,
             "address": {

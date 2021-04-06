@@ -40,13 +40,15 @@ const useStyle = makeStyles((theme) => ({
 
 
 const InputCustomPhone = (
-    { name, country, value, disableCountryCode, disableDropdown, onChange, error }) => 
+    { name, country, value, regions, enableSearch, disableCountryCode, disableDropdown, onChange, error }) => 
 {
     const classes = useStyle();
 
-    const handleChange = e => {
-        onChange(e);
-    }
+    const handleChange = (e, formattedValue, country, value, name) => {
+         e.preventDefault();
+         onChange(e, formattedValue, country, value, name);
+     }
+
 
     let customizedClass = classes.phoneInput;
     if (error.length > 0) {
@@ -56,14 +58,23 @@ const InputCustomPhone = (
     return (
         <Box className={customizedClass} mr={1}>
             <PhoneInput
-                name = {name}
+                id= { name }
+                name= { name }
                 country={country}
-                onlyCountries={['ca', 'us', 'fr', 'es', 'ch', 'be']}
+                regions={regions}
                 value={ value }
                 placeholder='(123) 456-7890'
                 disableCountryCode={disableCountryCode}
                 disableDropdown={disableDropdown}
-                onChange={ handleChange }
+                //enableSearch={enableSearch}
+                countryCodeEditable={false}
+                //onChange={ handleChange }
+                onChange={(value, country, e, formattedValue) => {
+                    onChange(e, formattedValue, country, value, name)
+                }}
+                inputExtraProps={{
+                    name: { name },
+                  }}
             /> 
             {(error.length > 0) && (
                 <span className={classes.errorMessage}>{error}</span>

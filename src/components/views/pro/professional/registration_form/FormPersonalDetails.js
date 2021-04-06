@@ -512,6 +512,9 @@ class FormPersonalDetails extends Component {
                                 value={values.telephone}              
                                 disableCountryCode={false}
                                 disableDropdown={true}
+                                //onlyCountries={['ca', 'us', 'fr', 'es', 'ch', 'be']}
+                                regions={['north-america', 'europe']}
+                                enableSearch={true}
                                 onChange={handleChangePhone}
                                 error={(formErrors.step1.telephone.length > 0 && values.validate === 1) ? t("ProForm.validations.telephoneFilds") : ""}
                             /> 

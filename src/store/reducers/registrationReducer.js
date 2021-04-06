@@ -27,7 +27,6 @@ const registrationReducer = (state = DefaultState, action) => {
             status: action.payload
           };
           case "REGISTRATION_SUCCESS":
-            console.log(action.payload);
             localStorage.setItem("status", action.payload.status);
             return {
               ...state,
