@@ -43,9 +43,9 @@ export const registrationAction = (registration) => async dispatch => {
             $reference.push($reference2);
         }
 
-        if(registration.timezone.length === 0){
-            registration.timezone = Intl.DateTimeFormat().resolvedOptions();
-        }
+        //if(registration.timezone.length === 0){
+        registration.timezone = Intl.DateTimeFormat().resolvedOptions();
+        //}
 
         const profesional = {
             "firstName": registration.firstName,
@@ -87,6 +87,7 @@ export const registrationAction = (registration) => async dispatch => {
 
         const content = JSON.stringify(profesional);
         //Get the image
+        console.log(content)
         const archivos = registration.files;
 
         const f = new FormData();
