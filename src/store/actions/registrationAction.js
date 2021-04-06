@@ -42,10 +42,10 @@ export const registrationAction = (registration) => async dispatch => {
             }
             $reference.push($reference2);
         }
-
-        //if(registration.timezone.length === 0){
-        registration.timezone = Intl.DateTimeFormat().resolvedOptions();
-        //}
+        
+        if(registration.timezone.length === 0){
+            registration.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        }
 
         const profesional = {
             "firstName": registration.firstName,
