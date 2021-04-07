@@ -496,16 +496,6 @@ class FormPersonalDetails extends Component {
                         <Box className={classes.groupLabelInput}>
                             <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalDetails.cellPhoneLabel")}</Typography></Box>
                             
-                            {/* <Input
-                                id="telephone" 
-                                placeholder={t("ProForm.FormPersonalDetails.cellPhoneLabel")} 
-                                size="small" 
-                                onBlur={handleChange} 
-                                variant="outlined" 
-                                mask="telephone"
-                                defaultValue={values.telephone} 
-                                error={(formErrors.step1.telephone.length > 0 && values.validate === 1) ? t("ProForm.validations.telephoneFilds") : ""}
-                            /> */}
                             <InputCustomPhone
                                 name = 'telephone'
                                 country={ values.countryShortName.length === 0 ? 'ca' : values.countryShortName.toLowerCase()}

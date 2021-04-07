@@ -30,7 +30,6 @@ const Dashboard = ({children}) => {
             isLoggedIn: state.auth.isLoggedIn
         })
     ) 
-    console.log(isLoggedIn);
     return (
         <BodyWrapper>
             <Header isLoggedIn={isLoggedIn}/>

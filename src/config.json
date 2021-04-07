@@ -1,3 +1,45 @@
 {
-    "API_SERVER": "https://www.api-tiggidoo.com"
+    "API_SERVER": "https://www.api-tiggidoo.com",
+    "SIDE_MENU_PRO": {
+        "DEMANDES": {
+            "title": "Demandes",
+            "itemId": "/demandes"
+        },
+        "MY_ACTIVITY": {
+            "title": "My Activity",
+            "itemId": "activity",
+            "subNav": [
+                {
+                    "title": "My missions",
+                    "itemId": "/my_missions"
+                },
+                {
+                    "title": "My availabilities",
+                    "itemId": "/my_availabilities"
+                }
+            ]
+        },
+        "MY_HISTORY": {
+            "title": "My history",
+            "itemId": "/history"
+        },
+        "PERSONAL_INFORMATIONS": {
+            "title": "Personal informations",
+            "itemId": "personal_informations",
+            "subNav": [
+                {
+                    "title": "Personal data",
+                    "itemId": "/personal_data"
+                },
+                {
+                    "title": "My criteria",
+                    "itemId": "/my_criteria"
+                }
+            ]
+        },
+        "ASSISTANCE": {
+            "title": "Assistance",
+            "itemId": "/assistance"
+        }
+    }    
 }

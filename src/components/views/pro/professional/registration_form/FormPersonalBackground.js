@@ -48,7 +48,7 @@ class FormPersonalBackground extends Component {
         const { classes } = this.props;
         const { values, handleChange, handleChangePhone } = this.props;
         const formErrors = values.formErrors;
-        const formErrorsNoValidaton = values.formErrorsNoValidaton;
+        //const formErrorsNoValidaton = values.formErrorsNoValidaton;
         
         return (
             <React.Fragment>

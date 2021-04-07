@@ -1,3 +1,4 @@
+//import { ACTIVATE_USER } from './typesAction';
 import axios from 'axios';
 //import { setAlert } from './alertAction';
 import config from '../../config.json';
@@ -25,6 +26,39 @@ export const resetPassword = (token, email, formData, history) => async dispatch
     }
 }
 
+export const activateUserAction = (datapro) => async dispatch => {
+    try{
+        const headers = {
+            headers: { 'Authorization': `Bearer ${datapro.access_token}` }
+        }
+        const data = {
+            id: datapro.pro.id
+        }
+        await axios.post(`${config.API_SERVER}/api/pro/active`, data, headers)
+        .then(res => {
+
+            if(res.status === 200){
+
+                dispatch({
+                    type: "LOGIN_SUCCESS",
+                    payload: res.data
+                });
+    
+                localStorage.setItem('userLoggedIn', JSON.stringify({
+                    type: "LOGIN_SUCCESS",
+                    payload: res.data
+                }))
+                
+            }
+
+        }).catch(error => {
+            console.log(error);
+        })
+    }catch(error) {
+        console.log(error);
+    }
+}
+
 export const authAction = (formData, history) => async dispatch => {
     try{
         
@@ -39,17 +73,22 @@ export const authAction = (formData, history) => async dispatch => {
 
         await axios.post(`${config.API_SERVER}/api/login/pro`, data)
         .then(res => {
-            console.log("Intgreso mucho es -21-", res);
             if(res.status === 200){
-                dispatch({
-                    type: "LOGIN_SUCCESS",
-                    payload: res.data
-                });
-    
-                localStorage.setItem('userLoggedIn', JSON.stringify({
-                    type: "LOGIN_SUCCESS",
-                    payload: res.data
-                }))
+                if(res.data.pro.active === 1){
+
+                    dispatch({
+                        type: "LOGIN_SUCCESS",
+                        payload: res.data
+                    });
+        
+                    localStorage.setItem('userLoggedIn', JSON.stringify({
+                        type: "LOGIN_SUCCESS",
+                        payload: res.data
+                    }))
+
+                }else{
+                    dispatch(activateUserAction(res.data))
+                }
             }
         })
         .catch(error => {
