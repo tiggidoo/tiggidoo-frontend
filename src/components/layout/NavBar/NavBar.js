@@ -6,7 +6,6 @@ import DeskTopBar from './DeskTopBar';
 
 const useStyle = makeStyles((theme) => ({
     menu: {
-        backgroundColor: '#28fb4299',
         width: '25vw',
         margin: theme.spacing(20, 2, 2,2),
         '@media (max-width:992px)': { 

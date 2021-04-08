@@ -3,14 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse'
 import IconExpandLess from '@material-ui/icons/ExpandLess'
 import IconExpandMore from '@material-ui/icons/ExpandMore'
-import IconLibraryBooks from '@material-ui/icons/LibraryBooks'
 
 import config from '../../../config.json'
 
@@ -25,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     left: 'inherit',
     top: 'inherit',
-    position: 'relative'
+    position: 'relative',
+    border: 'none'
   },
   // necessary for content to be below app bar
   content: {
@@ -33,31 +32,34 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
   },
+  selected: {
+    color: theme.palette.primary.main
+  }
 }));
 
 const DeskTopBar = () => {
   const classes = useStyles();
-  const [openItem, setOpenItem] = useState([]);
+  const [menuItems, setMenuItems] = useState([]);
+  const [menuItemOpens, setMenuItemOpens] = useState('DEMANDES');
   const menu = config.SIDE_MENU_PRO;
 
   useEffect(()=>{
     const menuIni = () => {
-      let openItem = [];
+      let items = [];
       for(let index in menu){
-        if(menu[index].hasOwnProperty('subNav')){
-          openItem[index] = false;
-        }
+        //if(menu[index].hasOwnProperty('subNav')){
+          items[index] = false;
+        //}
       }
-      setOpenItem(openItem);
+      setMenuItems(items);
     }
     menuIni();
   }, [menu])
 
-  const handleClick = (e, ifDiv, openIndex) => {
+  const handleClick = (e, menuItemName) => {
     e.preventDefault()
-    if(ifDiv){
-      setOpenItem({...openItem, [openIndex]: !openItem[openIndex]});
-    }
+    setMenuItems({...menuItems, [menuItemName]: !menuItems[menuItemName]});
+    setMenuItemOpens(menuItemName);
   }
 
   const displayMenu = (items) => {
@@ -65,15 +67,24 @@ const DeskTopBar = () => {
     
     for(let index in items){
       
-      html.push(<ListItem onClick={e => handleClick(e, items[index].hasOwnProperty('subNav'), index) }>
+      let img = "gris";
+      if(index === menuItemOpens){
+        img = "bleu";
+      }
+      
+      const selected = {
+        color: (index === menuItemOpens) ? "#2880fb" : ''
+      };
+
+      html.push(<ListItem onClick={e => handleClick(e, index) }>
                   <ListItemIcon>
-                    <IconLibraryBooks />
+                    <img key={index} src={"/images/lateral_menu/" + items[index].img + "-" + img + ".svg"} alt="" />
                   </ListItemIcon>
-                  <ListItemText primary={items[index].title} />
+                  <ListItemText primary={items[index].title} primaryTypographyProps={{ style: selected }} />
                   {
                     items[index].hasOwnProperty('subNav') 
                     ?
-                      openItem[index] ? <IconExpandLess /> : <IconExpandMore />
+                      menuItems[index] ? <IconExpandLess /> : <IconExpandMore />
                     :
                       ''
                   }
@@ -83,11 +94,10 @@ const DeskTopBar = () => {
         let content = []
         for(let i = 0; i < items[index].subNav.length; i++){
             content.push(<ListItem >
-                          <ListItemText inset primary={ items[index].subNav[i].title } />
+                          <ListItemText inset secondary={ items[index].subNav[i].title } />
                         </ListItem>)
         }
-        html.push(<Collapse in={openItem[index]} timeout="auto">
-                    <Divider />
+        html.push(<Collapse in={menuItems[index]} timeout="auto">
                     <List>
                       {content}
                     </List>
@@ -109,8 +119,6 @@ const DeskTopBar = () => {
           paper: classes.drawerPaper,
         }}
       >
-        
-        <Divider />
         <List>
           { displayMenu(menu) }
         </List>

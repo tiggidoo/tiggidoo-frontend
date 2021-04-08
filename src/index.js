@@ -11,13 +11,13 @@ import store from './store/index';
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Suspense fallback={<div>Loading ...</div>}>
       <Provider store={store}>
         <App />
       </Provider>
-    </Suspense>
-  </React.StrictMode>,
+    </Suspense>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

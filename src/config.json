@@ -3,11 +3,15 @@
     "SIDE_MENU_PRO": {
         "DEMANDES": {
             "title": "Demandes",
-            "itemId": "/demandes"
+            "movileTitle": "Demandes",
+            "itemId": "/demandes",
+            "img": "demande"
         },
         "MY_ACTIVITY": {
             "title": "My Activity",
+            "movileTitle": "Activity",
             "itemId": "activity",
+            "img": "planning",
             "subNav": [
                 {
                     "title": "My missions",
@@ -21,11 +25,15 @@
         },
         "MY_HISTORY": {
             "title": "My history",
-            "itemId": "/history"
+            "movileTitle": "History",
+            "itemId": "/history",
+            "img": "historique"
         },
         "PERSONAL_INFORMATIONS": {
             "title": "Personal informations",
             "itemId": "personal_informations",
+            "movileTitle": "Info",
+            "img": "informations",
             "subNav": [
                 {
                     "title": "Personal data",
@@ -39,7 +47,9 @@
         },
         "ASSISTANCE": {
             "title": "Assistance",
-            "itemId": "/assistance"
+            "movileTitle": "Help",
+            "itemId": "/assistance",
+            "img": "assitance"
         }
     }    
 }
