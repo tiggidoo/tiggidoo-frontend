@@ -8,11 +8,9 @@ import NavBar from './NavBar/NavBar'
 const useStyle = makeStyles((theme) => ({
     workArea:{
         display: 'flex',
-        //backgroundColor: '#2880fb73',
         height: '100vh'
     },
     content: {
-        //backgroundColor: '#f728fb24',
         width: '75vw',
         '@media (max-width:992px)': { 
             width: '100vw',
