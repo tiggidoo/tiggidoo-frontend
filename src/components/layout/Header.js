@@ -6,14 +6,8 @@ const useStyle = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
     width: '100%'
   },
-  barHeader: {
-      
-      "@media (max-width: 992px)": {
-        paddingLeft: 0,
-      },
-    
-  },
   header: {
+    backgroundColor: theme.palette.primary.main,
     display: "flex",
     justifyContent: "space-between",
     alignItems:"center",
@@ -21,7 +15,6 @@ const useStyle = makeStyles((theme) => ({
       height: '3.6rem',      
       margin: '1rem'
     },
-    backgroundColor: theme.palette.primary.main,
     '@media (min-width:600px)': { 
       '& img':{
         height: '7rem',      

@@ -12,7 +12,15 @@ const useStyle = makeStyles((thme) => ({
   btnsArea:{
     '& .MuiBottomNavigationAction-label':{
       fontSize: '1rem'
+    },
+    '& .MuiBottomNavigation-root': {
+      height: '56px'
+    },
+    
+    '& .MuiBottomNavigationAction-root': {
+      padding: '6px 5px 8px',
     }
+    
   }
 }))
 
