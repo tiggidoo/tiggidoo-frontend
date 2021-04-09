@@ -76,9 +76,9 @@ const DeskTopBar = () => {
         color: (index === menuItemOpens) ? "#2880fb" : ''
       };
 
-      html.push(<ListItem onClick={e => handleClick(e, index) }>
+      html.push(<ListItem key={`ListItem${index}`} onClick={e => handleClick(e, index) }>
                   <ListItemIcon>
-                    <img key={index} src={"/images/lateral_menu/" + items[index].img + "-" + img + ".svg"} alt="" />
+                    <img key={index} width="30px" src={"/images/lateral_menu/" + items[index].img + "-" + img + ".svg"} alt="" />
                   </ListItemIcon>
                   <ListItemText primary={items[index].title} primaryTypographyProps={{ style: selected }} />
                   {
@@ -93,11 +93,11 @@ const DeskTopBar = () => {
       if(items[index].hasOwnProperty('subNav')){
         let content = []
         for(let i = 0; i < items[index].subNav.length; i++){
-            content.push(<ListItem >
+            content.push(<ListItem key={`ListItemSuvNav${i}`}>
                           <ListItemText inset secondary={ items[index].subNav[i].title } />
                         </ListItem>)
         }
-        html.push(<Collapse in={menuItems[index]} timeout="auto">
+        html.push(<Collapse key={`Collapse${index}`} in={menuItems[index]} timeout="auto">
                     <List>
                       {content}
                     </List>
@@ -107,8 +107,6 @@ const DeskTopBar = () => {
     return html;
   } 
 
-  
-  
   return (
     <div>
       <CssBaseline />

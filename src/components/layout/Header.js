@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, makeStyles, Typography, AppBar, Toolbar } from '@material-ui/core'
+import { Box, makeStyles, Typography, AppBar, Toolbar } from '@material-ui/core'
 
 const useStyle = makeStyles((theme) => ({
   headerBakgroundColor: {

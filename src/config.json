@@ -3,7 +3,7 @@
     "SIDE_MENU_PRO": {
         "DEMANDES": {
             "title": "Demandes",
-            "movileTitle": "Demandes",
+            "movileTitle": "Request",
             "itemId": "/demandes",
             "img": "demande"
         },
