@@ -1,40 +1,45 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import React from 'react'
+import { Box, Container, makeStyles, Typography } from '@material-ui/core'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+const useStyle = makeStyles((theme) => ({
+  headerBakgroundColor: {
+    backgroundColor: theme.palette.primary.main,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems:"center",
+    '& img':{
+      height: '3.6rem',      
+      margin: '1rem'
+    },
+    backgroundColor: theme.palette.primary.main,
+    '@media (min-width:600px)': { 
+      '& img':{
+        height: '7rem',      
+        margin: '1.5rem'
+      },
+    }
+  }
+}))
 
-const Header = ({isLoggedIn}) => {
-  const classes = useStyles();
-
+const Header = () => {
+  const classes = useStyle();
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>News</Typography>
-          <Button color="inherit">{ isLoggedIn ? 'Log out' : 'Login'}</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+    <Box className = { classes.headerBakgroundColor }>
+      <Container maxWidth="lg">
+        <Box className={classes.header}>
+          <Box>
+            <img src="/images/logo_tiggidoo_white.svg" alt="" />
+          </Box>
+          <Box>
+            <Typography component="h2" variant="h5" style={{color: "#fff"}}>Marie-France</Typography>
+          </Box>    
+        </Box>
+      </Container>
+    </Box>
+  )
+
 }
 
 export default Header;
