@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -9,7 +8,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse'
 import IconExpandLess from '@material-ui/icons/ExpandLess'
 import IconExpandMore from '@material-ui/icons/ExpandMore'
+import { Link } from "react-router-dom";
 
+import Avatar from '@material-ui/core/Avatar';
 import config from '../../../config.json'
 
 const drawerWidth = '100%';
@@ -17,7 +18,23 @@ const drawerWidth = '100%';
 const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
-    flexShrink: 0
+    flexShrink: 0,
+    '& .MuiListItemIcon-root': {
+      minWidth: '40px'
+    },
+    '& .MuiListItem-gutters': {
+      paddingLeft: theme.spacing(1),
+      paddingRight: theme.spacing(1)
+    },
+    '& a:hover':{
+      textDecoration: 'none'
+    },
+    '& a.MuiTypography-colorPrimary':{
+      color: theme.palette.sideMenuColor.main
+    },
+    '& span.MuiTypography-displayBlock':{
+      color: theme.palette.sideMenuColor.main
+    }
   },
   drawerPaper: {
     width: drawerWidth,
@@ -34,13 +51,18 @@ const useStyles = makeStyles((theme) => ({
   },
   selected: {
     color: theme.palette.primary.main
+  },
+  dimentionAvatar: {
+    width: '120px',
+    height: '120px',
+    margin: theme.spacing(6, 0, 10, 2),
   }
 }));
 
-const DeskTopBar = () => {
+const DeskTopBar = ({ urlAvatar }) => {
   const classes = useStyles();
   const [menuItems, setMenuItems] = useState([]);
-  const [menuItemOpens, setMenuItemOpens] = useState('DEMANDES');
+  const [menuItemOpens, setMenuItemOpens] = useState("DEMANDES");
   const menu = config.SIDE_MENU_PRO;
 
   useEffect(()=>{
@@ -62,6 +84,8 @@ const DeskTopBar = () => {
     setMenuItemOpens(menuItemName);
   }
 
+  //console.log(menuItemOpens);
+
   const displayMenu = (items) => {
     let html = [];
     
@@ -75,12 +99,19 @@ const DeskTopBar = () => {
       const selected = {
         color: (index === menuItemOpens) ? "#2880fb" : ''
       };
+      
+      let menuTitle = [];
+      if(!items[index].hasOwnProperty('subNav')){
+        menuTitle.push(<Link key={`ListItemLink${index}`} to={ items[index].itemId } ><ListItemText primary={items[index].title} primaryTypographyProps={{ style: selected }} /></Link>)
+      }else{
+        menuTitle.push(<ListItemText key={`ListItemTextNav${index}`}  primary={items[index].title} primaryTypographyProps={{ style: selected }} />)
+      }
 
-      html.push(<ListItem key={`ListItem${index}`} onClick={e => handleClick(e, index) }>
+      html.push(<ListItem button key={`ListItem${index}`} onClick={e => handleClick(e, index) }>
                   <ListItemIcon>
-                    <img key={index} width="30px" src={"/images/lateral_menu/" + items[index].img + "-" + img + ".svg"} alt="" />
+                    <img key={index} width="32px" src={"/images/lateral_menu/" + items[index].img + "-" + img + ".svg"} alt="" />
                   </ListItemIcon>
-                  <ListItemText primary={items[index].title} primaryTypographyProps={{ style: selected }} />
+                  { menuTitle }
                   {
                     items[index].hasOwnProperty('subNav') 
                     ?
@@ -93,8 +124,8 @@ const DeskTopBar = () => {
       if(items[index].hasOwnProperty('subNav')){
         let content = []
         for(let i = 0; i < items[index].subNav.length; i++){
-            content.push(<ListItem key={`ListItemSuvNav${i}`}>
-                          <ListItemText inset secondary={ items[index].subNav[i].title } />
+            content.push(<ListItem button key={`ListItemSuvNav${i}`}>                          
+                            <Link to={ items[index].subNav[i].itemId }><ListItemText inset secondary={ items[index].subNav[i].title } /></Link>
                         </ListItem>)
         }
         html.push(<Collapse key={`Collapse${index}`} in={menuItems[index]} timeout="auto">
@@ -109,7 +140,7 @@ const DeskTopBar = () => {
 
   return (
     <div>
-      <CssBaseline />
+      <Avatar className={ classes.dimentionAvatar } alt="Remy Sharp" src={urlAvatar} />
       <Drawer
         className={classes.drawer}
         variant="permanent"

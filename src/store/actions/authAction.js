@@ -75,7 +75,6 @@ export const authAction = (formData, history) => async dispatch => {
         .then(res => {
             if(res.status === 200){
                 if(res.data.pro.active === 1){
-
                     dispatch({
                         type: "LOGIN_SUCCESS",
                         payload: res.data

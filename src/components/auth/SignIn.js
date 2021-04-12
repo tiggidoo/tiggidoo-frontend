@@ -179,7 +179,7 @@ const SignIn = ({ history }) => {
 
         function loggearse() {
             if (isLoggedIn) {
-                history.push('/dashboard');
+                history.push('/professional');
             }else{
                 console.log('No estamos logueados');
                 localStorage.clear();

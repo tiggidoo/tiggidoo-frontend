@@ -13,6 +13,10 @@ const theme = createMuiTheme({
       success: '#28cc8b',
       info: '#2880fb',
       warning: '#fb9800'
+    },
+    sideMenuColor: {
+      main: '#6d6d6d',
+      visited: '#2880fb'
     }
   },
   typography: {

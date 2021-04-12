@@ -7,7 +7,7 @@ import DeskTopBar from './DeskTopBar';
 const useStyle = makeStyles((theme) => ({
     menu: {
         width: '25vw',
-        margin: theme.spacing(20, 2, 2,2),
+        margin: theme.spacing(20, 1, 0, 1),
         '@media (max-width:992px)': { 
             position: 'absolute',
             width: '100vw',
@@ -19,7 +19,7 @@ const useStyle = makeStyles((theme) => ({
     },
 }))
 
-const NavBar = () => {
+const NavBar = ({ urlAvatar }) => {
     const classes = useStyle();
 
     const [state, setState] = useState({
@@ -31,28 +31,30 @@ const NavBar = () => {
 
     useEffect(() => {
         const setResponsiveness = () => {
-                return window.innerWidth < 992 ? setState((prevState) => ({ ...prevState, mobileView: true })) : setState((prevState) => ({ ...prevState, mobileView: false }));
+                return window.innerWidth <= 992 ? setState((prevState) => ({ ...prevState, mobileView: true })) : setState((prevState) => ({ ...prevState, mobileView: false }));
         };
     
         setResponsiveness();
         window.addEventListener("resize", () => setResponsiveness());
     }, []);
+
     const displayDesktop = () => {
         return (
             <Box>
-                <DeskTopBar />
+                <DeskTopBar urlAvatar = { urlAvatar } />
             </Box>
         );
     };
     
-      const displayMobile = () => {       
-    
+    const displayMobile = () => {       
+
         return (
-          <Box>
-              <MovileBar />
-          </Box>
+            <Box>
+                <MovileBar />
+            </Box>
         );
-      };
+    };
+    
     return (
         <Box className={classes.menu}>
             {mobileView ? displayMobile() : displayDesktop()}
