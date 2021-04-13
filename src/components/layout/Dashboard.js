@@ -6,7 +6,6 @@ import NavBar from './NavBar/NavBar'
 
 const useStyle = makeStyles((theme) => ({
     workArea:{
-        //backgroundColor: '#c3d3e8',
         display: 'flex',
         height: '100vh'
     },
@@ -16,7 +15,8 @@ const useStyle = makeStyles((theme) => ({
         padding: theme.spacing(26, 3 , 2, 3),
         '@media (max-width:992px)': { 
             width: '100vw',
-            padding: theme.spacing(12, 0 , 0, 0)
+            padding: theme.spacing(10, 0),
+            overflow: 'auto'
         },
     }
 }))

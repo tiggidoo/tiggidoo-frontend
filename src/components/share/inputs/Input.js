@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: '-1px 4px 6px 3px #80808047',
     },
     inputWidth: {
-        //marginRight: '15px',
         borderRadius: '4px',
         '& .MuiFormLabel-root':{
             '@media (max-width:600px)': {
@@ -52,9 +51,16 @@ const useStyles = makeStyles((theme) => ({
             paddingTop: '10.5px',
             paddingBottom: '10.5px'
         }
+    },
+    testFieldStyle: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginRight: theme.spacing(0),
+        '@media(max-width: 600px)': {
+            marginRight: theme.spacing(0),
+        }
     }
 }));
-
 
 export default function Input(props) {
 
@@ -94,7 +100,7 @@ export default function Input(props) {
     switch (maskExists) {
         case 'telephone':
             return (
-                <Box display="flex" flexDirection="column" mr={1} style={{ width: width }}>
+                <Box className={classes.testFieldStyle} style={{ width: width }}>
                     <TextField
                         id={id}
                         name={id}

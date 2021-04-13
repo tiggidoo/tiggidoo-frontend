@@ -6,9 +6,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse'
-import IconExpandLess from '@material-ui/icons/ExpandLess'
-import IconExpandMore from '@material-ui/icons/ExpandMore'
-import { Link } from "react-router-dom";
+// import IconExpandLess from '@material-ui/icons/ExpandLess'
+// import IconExpandMore from '@material-ui/icons/ExpandMore'
+import { Link } from "react-router-dom"
 
 import Avatar from '@material-ui/core/Avatar';
 import config from '../../../config.json'
@@ -112,6 +112,7 @@ const DeskTopBar = ({ urlAvatar }) => {
                     <img key={index} width="32px" src={"/images/lateral_menu/" + items[index].img + "-" + img + ".svg"} alt="" />
                   </ListItemIcon>
                   { menuTitle }
+{/* 
                   {
                     items[index].hasOwnProperty('subNav') 
                     ?
@@ -119,6 +120,7 @@ const DeskTopBar = ({ urlAvatar }) => {
                     :
                       ''
                   }
+                   */}
                 </ListItem>);
 
       if(items[index].hasOwnProperty('subNav')){

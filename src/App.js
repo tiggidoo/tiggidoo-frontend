@@ -10,6 +10,7 @@ import theme from "./assets/css/material-ui/configTheme";
 import SignIn from "./components/auth/SignIn";
 import DashboardPro from "./components/views/pro/DashboardPro";
 import Data from "./components/views/pro/personall_data/Data";
+import MyCriteria from "./components/views/pro/personall_data/MyCriteria";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             <Route exact path="/login" component={SignIn} />
             <Route exact path="/professional" component={DashboardPro} />
             <Route exact path="/personal_data" component={ Data } />
+
+            <Route exact path="/my_criteria" component={ MyCriteria } />
+
             <Route exact path="/" component={BecomePro} />
           </Switch>
         </div>

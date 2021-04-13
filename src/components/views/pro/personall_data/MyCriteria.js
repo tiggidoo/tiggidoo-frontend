@@ -75,7 +75,7 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-const Data = () => {
+const MyCriteria = () => {
     const classes = useStyle();
 
     const { auth, token, isLoggedIn } = useSelector(
@@ -113,7 +113,7 @@ const Data = () => {
                     </Box>
                     <Box className={classes.subTitle}>
                         <Typography component="h5" variant="h5" >
-                            My personal data
+                            My criteria
                         </Typography>
                     </Box>
                 </Box>
@@ -261,70 +261,6 @@ const Data = () => {
                         </Box>
                     </Grid>
                 </Grid>
-
-                <Grid item xs={12} sm={12} md={12}>
-                    <Grid container>
-                        <Box className={classes.boxStyleBanc}>
-                            <Box>    
-                                <Typography variant="h6">Transit Number</Typography>
-                            </Box>
-                            <Input
-                                id="password1" 
-                                label="" 
-                                size="small" 
-                                type={'text'}
-                                //onBlur={handleChange} 
-                                defaultValue={"12***"} 
-                                variant="filled" 
-                                readOnly={true}
-                                error=""
-                            />
-
-                        </Box>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12}>
-                    <Grid container>
-                        <Box className={classes.boxStyleBanc}>
-                            <Box>    
-                                <Typography variant="h6">Financial Institution Number</Typography>
-                            </Box>
-                            <Input
-                                id="password2" 
-                                label="" 
-                                size="small" 
-                                type={'text'}
-                                //onBlur={handleChange} 
-                                defaultValue={"12***"} 
-                                variant="filled" 
-                                readOnly={true}
-                                error=""
-                            />
-
-                        </Box>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12}>
-                    <Grid container>
-                        <Box className={classes.boxStyleBanc}>
-                            <Box>    
-                                <Typography variant="h6">Account Number</Typography>
-                            </Box>
-                            <Input
-                                id="password3" 
-                                label="" 
-                                size="small" 
-                                type={'text'}
-                                //onBlur={handleChange} 
-                                defaultValue={"12***"} 
-                                variant="filled" 
-                                readOnly={true}
-                                error=""
-                            />
-
-                        </Box>
-                    </Grid>
-                </Grid>
                 <Grid item xs={12}>
                     <Box className={classes.btn}>
                         <Button variant="contained" color="primary">UPDATE</Button>
@@ -336,4 +272,4 @@ const Data = () => {
     )
 }
 
-export default Data
+export default MyCriteria

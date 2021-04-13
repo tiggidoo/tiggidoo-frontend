@@ -8,6 +8,9 @@ const theme = createMuiTheme({
     secondary:{
       main: '#28cc8b'
     },
+    tertiary:{
+      main: '#6d6d6d'
+    },
     alert: {
       error: '#f44336',
       success: '#28cc8b',
@@ -76,10 +79,8 @@ const theme = createMuiTheme({
       }
     },
     h6: {
-      fontSize: '1.5rem',
-      '@media (max-width:768px)': { 
-        fontSize: "1rem",
-      }
+      fontSize: '1.6rem',
+      color: '#6d6d6d'
     },
     p: {
       fontSize: '2.4rem',
