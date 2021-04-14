@@ -9,7 +9,7 @@ const useStyle = makeStyles((theme) => ({
         width: '25vw',
         margin: theme.spacing(20, 1, 0, 1),
         '@media (max-width:992px)': { 
-            position: 'absolute',
+            position: 'fixed',
             width: '100vw',
             margin: 0,
             bottom: 0,
