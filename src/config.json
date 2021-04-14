@@ -4,7 +4,7 @@
         "DEMANDES": {
             "title": "Demandes",
             "movileTitle": "Request",
-            "itemId": "/demandes",
+            "itemId": "/request",
             "img": "demande"
         },
         "MY_ACTIVITY": {
@@ -14,12 +14,14 @@
             "img": "planning",
             "subNav": [
                 {
-                    "title": "My missions",
-                    "itemId": "/my_missions"
+                    "id": "1",
+                    "title": "My activity",
+                    "itemId": "/activity/my_activity"
                 },
                 {
+                    "id": "2",
                     "title": "My availabilities",
-                    "itemId": "/my_availabilities"
+                    "itemId": "/activity/my_availabilities"
                 }
             ]
         },
@@ -36,19 +38,21 @@
             "img": "informations",
             "subNav": [
                 {
+                    "id": "1",
                     "title": "Personal data",
-                    "itemId": "/personal_data"
+                    "itemId": "/personal_informations/personal_data"
                 },
                 {
+                    "id": "2",
                     "title": "My criteria",
-                    "itemId": "/my_criteria"
+                    "itemId": "/personal_informations/my_criteria"
                 }
             ]
         },
         "ASSISTANCE": {
             "title": "Assistance",
             "movileTitle": "Help",
-            "itemId": "/assistance",
+            "itemId": "/help",
             "img": "assitance"
         }
     }    

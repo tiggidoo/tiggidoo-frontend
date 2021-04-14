@@ -87,8 +87,9 @@ const Data = () => {
     ) 
     const { credential } = auth;
     const [showPassword, setShowPassword] = useState(false);
-    const [ password, setPassword ] = useState('HOLA');
-
+    //const [ password, setPassword ] = useState('HOLA');
+    const password = 'HOLA';
+    
     const handDisplayPassword = e => {
         e.preventDefault();
         setShowPassword(!showPassword);

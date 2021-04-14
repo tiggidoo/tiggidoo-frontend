@@ -1,57 +1,10 @@
-import React, { useState } from 'react'
-import { Box, Button, Checkbox, FormControlLabel, Grid, makeStyles, Typography } from '@material-ui/core'
+import React from 'react'
+import { Box, Button, Checkbox, FormControlLabel, Grid, makeStyles, Radio, RadioGroup, Typography } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import Dashboard from '../../../layout/Dashboard'
-import Input from '../../../share/inputs/Input'
 
-
-import IconButton from '@material-ui/core/IconButton';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { Link } from "react-router-dom"
 
 const useStyle = makeStyles((theme) => ({
-    
-    displayPassword: {
-        marginLeft: '-4rem',
-        width: '44px',
-        float: 'right',
-        right: '10px',
-        position: 'relative',
-        top: '-52px',        
-        '& .MuiIconButton-root': {
-            padding: '7px'
-        }
-    },
-    boxStyle: {
-        margin: theme.spacing(0 , 2, 5, 2),
-        '& .MuiOutlinedInput-root': {
-            backgroundColor: '#dcdcdc'
-        },
-        '& .MuiFormControl-root': {
-            boxShadow: 'none',
-            border: '0 solid'
-        },
-        '& .MuiOutlinedInput-notchedOutline':{
-            border: 'none'
-        },
-        '@media(max-width: 1200px)': {
-            padding: theme.spacing(0),
-            margin: theme.spacing(1,0)
-        }
-    },
-    boxStyleBanc: {
-        width: '100%',
-        backgroundColor: '#fff',
-        margin: theme.spacing(0 , 0, 2, 0),
-        '@media(min-width: 600px)': {
-            width: '50%',
-        },
-        '@media(min-width: 1200px)': {
-            width: '47%',
-            margin: theme.spacing(0 , 2, 2, 2)
-        }
-    },
     title: {
         margin: theme.spacing(0,0,5,2),
         '& h5':{
@@ -72,6 +25,22 @@ const useStyle = makeStyles((theme) => ({
         '@media(min-width: 600px)':{
             textAlign: 'right',
         }
+    },
+    myCriteria: {
+        '& .MuiCheckbox-root': {
+            padding: '5px'
+        },
+        '& h5':{
+            fontWeight: '100'
+        },
+        '& .MuiFormControlLabel-label': {
+            fontSize: '1.7rem',
+            fontWeight: '100'
+        },
+        '& .MuiSvgIcon-root': {
+            fontSize: '2.5rem'
+        }
+
     }
 }))
 
@@ -85,18 +54,10 @@ const MyCriteria = () => {
             isLoggedIn: state.auth.isLoggedIn
         })
     ) 
-    const { credential } = auth;
-    const [showPassword, setShowPassword] = useState(false);
-    const [ password, setPassword ] = useState('HOLA');
 
-    const handDisplayPassword = e => {
-        e.preventDefault();
-        setShowPassword(!showPassword);
+    const handleChange = () => {
+
     }
-
-    const handleMouseDownPassword = (e) => {
-        e.preventDefault();
-    };
 
     return (
         <Dashboard
@@ -104,170 +65,97 @@ const MyCriteria = () => {
             token = { token }
             isLoggedIn = {isLoggedIn}
         >
-            <Grid item sm={12}>
-                <Box className={classes.title}>
-                    <Box mb={1}>
-                        <Typography component="h5" variant="h5">
-                            PERSONAL INFORMATION
-                        </Typography>
+            <Box  className={classes.myCriteria}>
+                <Grid item sm={12}>
+                    <Box className={classes.title}>
+                        <Box mb={1}>
+                            <Typography component="h5" variant="h5">
+                                PERSONAL INFORMATION
+                            </Typography>
+                        </Box>
+                        <Box className={classes.subTitle}>
+                            <Typography component="h5" variant="h5" >
+                                My criteria
+                            </Typography>
+                        </Box>
                     </Box>
-                    <Box className={classes.subTitle}>
+                </Grid>
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={12}>
                         <Typography component="h5" variant="h5" >
-                            My criteria
+                            J'accepte d'être contacté pour effectuer une prestation avec extra pour :
                         </Typography>
-                    </Box>
-                </Box>
-            </Grid>
-            <Grid container>
-                <Grid item xs={12} sm={12} md={6}>
-                    <Grid container>
-                        <Grid item xs={12} sm={6} md={12}>
-                            <Box className={classes.boxStyle}>
-                                <Box>
-                                    <Typography variant="h6">First Name</Typography>
-                                </Box>
-                                <Box>
-                                    <Input
-                                        id="firstName" 
-                                        label="" 
-                                        size="medium" 
-                                        //onBlur={handleChange} 
-                                        defaultValue={credential.firstName} 
-                                        variant="outlined" 
-                                        readOnly={true}
-                                        error=""
-                                    />
-                                </Box>
-                            </Box>
-                        </Grid>
-
-                        <Grid item xs={12} sm={6} md={12}>
-                            <Box className={classes.boxStyle}>
-                                <Box>    
-                                    <Typography variant="h6">Last Name</Typography>
-                                </Box>
-                                <Box>
-                                    <Input
-                                        id="lastName" 
-                                        label="" 
-                                        size="medium" 
-                                        //onBlur={handleChange} 
-                                        defaultValue={credential.lastName} 
-                                        variant="outlined" 
-                                        readOnly={true}
-                                        error=""
-                                    />
-                                </Box>
-                            </Box>
-                        </Grid>
+                        <Typography component="h6" variant="h6" >
+                            (Chaque montant sera a indiquer lors de l'acceptation d'une demande)
+                        </Typography>
                     </Grid>
-                </Grid>
-                <Grid item xs={12} sm={12} md={6}>
-                    <Grid container>
-                        <Grid item xs={12} sm={6} md={12}>
-                            <Box className={classes.boxStyle}>
-                                <Box>    
-                                    <Typography variant="h6">Email</Typography>
-                                </Box>
-                                <Box>
-                                    <Input
-                                        id="email" 
-                                        label="" 
-                                        size="medium" 
-                                        //onBlur={handleChange} 
-                                        defaultValue={credential.email} 
-                                        variant="outlined" 
-                                        readOnly={true}
-                                        error=""
-                                    />
-                                </Box>
-                            </Box>
-                        </Grid>
 
-                        <Grid item xs={12} sm={6} md={12}>
-                            <Box className={classes.boxStyle}>
-                                <Box>    
-                                    <Typography variant="h6">Phone</Typography>
-                                </Box>
-                                <Box>
-                                    <Input
-                                        id="phone" 
-                                        label="" 
-                                        size="medium" 
-                                        //onBlur={handleChange} 
-                                        defaultValue={credential.telephone} 
-                                        variant="outlined" 
-                                        readOnly={true}
-                                        error=""
-                                    />
-                                </Box>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={6}>
-                    <Grid container>
-                        <Grid item xs={12} sm={6} md={12}>
-                            <Box className={classes.boxStyle}>
-                                <Box>    
-                                    <Typography variant="h6">Password</Typography>
-                                </Box>
-                                <Box flexDirection="row" alignItems="center">
-                                    <Input
-                                        id="password" 
-                                        label="" 
-                                        size="medium" 
-                                        type={showPassword ? 'text' : 'password'}
-                                        //onBlur={handleChange} 
-                                        defaultValue={credential.email} 
-                                        variant="outlined" 
-                                        readOnly={true}
-                                        error=""
-                                    />
-                                </Box>
-                                <Box className={classes.displayPassword}>
-                                    {(password.trim().length > 0) && (
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            name="showPassword"
-                                            onClick={e => handDisplayPassword(e)}
-                                            onMouseDown={e => handleMouseDownPassword(e)}
-                                            edge="end"
-                                        >
-                                            {showPassword ? <Visibility /> : <VisibilityOff />}
-                                        </IconButton>
-                                    )} 
-                                </Box>
-                                <Box mt={2}>
-                                    <Link to={'/data_personal'}>Update Password</Link>
-                                </Box>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={12}>
-                    <Grid container>
-                        <Box className={classes.boxStyle}>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <Box ml={3} mt={1} display="flex" flexDirection="column">
                             <FormControlLabel
                                 control={<Checkbox name="fr" color="primary" checked={false} />}
-                                label={"French"}
+                                label={"Matériel: Aspirateur, mope etc"}
                             />
                             <FormControlLabel
                                 control={<Checkbox  name="en" color="primary" checked={true} />}
-                                label={"English"}
+                                label={"Produit vert/écologique"}
+                            />
+                            <FormControlLabel
+                                control={<Checkbox  name="en" color="primary" checked={true} />}
+                                label={"Produit normaux"}
                             />
                         </Box>
                     </Grid>
+
+                    <Grid item xs={12} sm={12} md={12}>
+                        <Box mt={3}>
+                        <Box mb={1}>
+                                <Typography component="h5" variant="h5" >
+                                    J'accepte d'être contacté pour des prestations avec option (Nettoyage frigo etc;)
+                                </Typography>
+                                <Box ml={3}>                                    
+                                    <RadioGroup row aria-label="gender" name="authorization" value={'1'} 
+                                        onChange={handleChange}>
+                                        <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={'Oui'} />
+                                        <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={'Non'} />
+                                    </RadioGroup>                                    
+                                </Box>
+                            </Box>
+                            <Box mb={1}>
+                                <Typography component="h5" variant="h5" >
+                                    Je suis à l'aise de travailler en présence du client dans le logement.
+                                </Typography>
+                                <Box ml={3}>                                   
+                                    <RadioGroup row aria-label="gender" name="authorization" value={'1'} 
+                                        onChange={handleChange}>
+                                        <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={'Oui'} />
+                                        <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={'Non'} />
+                                    </RadioGroup>                                    
+                                </Box>
+                            </Box>
+                            <Box mb={1}>
+                                <Typography component="h5" variant="h5" >
+                                    J'accepte de travailler en présence d'animaux de compagnie
+                                </Typography>
+                                <Box ml={3}>                                   
+                                    <RadioGroup row aria-label="gender" name="authorization" value={'1'} 
+                                        onChange={handleChange}>
+                                        <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={'Oui'} />
+                                        <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={'Non'} />
+                                    </RadioGroup>                                    
+                                </Box>
+                            </Box>
+                                                  
+                        </Box>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <Box className={classes.btn}>
+                            <Button variant="contained" color="primary">MODIFIER MES CRITERES</Button>
+                        </Box>
+                    </Grid>                  
                 </Grid>
-                <Grid item xs={12}>
-                    <Box className={classes.btn}>
-                        <Button variant="contained" color="primary">UPDATE</Button>
-                    </Box>
-                </Grid>                  
-            </Grid>
-            
+            </Box>
         </Dashboard>
     )
 }

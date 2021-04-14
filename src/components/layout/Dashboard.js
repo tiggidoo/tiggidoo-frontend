@@ -15,7 +15,7 @@ const useStyle = makeStyles((theme) => ({
         padding: theme.spacing(26, 3 , 2, 3),
         '@media (max-width:992px)': { 
             width: '100vw',
-            padding: theme.spacing(10, 0),
+            padding: theme.spacing(10, 0, 20, 0),
             overflow: 'auto'
         },
     }
