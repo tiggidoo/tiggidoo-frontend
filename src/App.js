@@ -8,7 +8,7 @@ import ResetPasswordForm from './components/auth/ResetPasswordForm';
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./assets/css/material-ui/configTheme";
 import SignIn from "./components/auth/SignIn";
-import DashboardPro from "./components/views/pro/DashboardPro";
+//import DashboardPro from "./components/views/pro/DashboardPro";
 
 import Request from "./components/views/pro/request/Request";
 import History from "./components/views/pro/history/History";
@@ -24,11 +24,10 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Switch>
+
             <Route exact path="/reset-password-form/:token/:email" component={ResetPasswordForm} />
             <Route exact path="/proform" component={ProForm} />
             <Route exact path="/login" component={SignIn} />
-            
-            <Route exact path="/professional" component={DashboardPro} />
 
             <Route exact path="/request" component={ Request } />
             <Route exact path="/activity/my_activity" component={ MyActivity } />
@@ -38,6 +37,7 @@ function App() {
             <Route exact path="/personal_informations/my_criteria" component={ MyCriteria } />
             <Route exact path="/help" component={ Help } />
             <Route exact path="/" component={BecomePro} />
+
           </Switch>
         </div>
         </BrowserRouter>
