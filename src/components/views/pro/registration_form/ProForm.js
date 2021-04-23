@@ -532,6 +532,7 @@ class ProForm extends Component {
 
     setImages = (e) => {
         const formErrors = this.state.formErrors.step3;
+        console.log('Este es la imagen: ', e.target.files);
         this.setState({
             [e.target.name]: e.target.files,
             preview: URL.createObjectURL(e.target.files[0]),
