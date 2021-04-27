@@ -61,6 +61,9 @@ export const registrationAction = (registration) => async dispatch => {
                 "country": registration.country,
                 "postcode": registration.postCode
             },
+            "service": {
+              "housekeeping":1
+            },
             "lag_talk": {
                 "en": registration.en ? 1 : 0,
                 "fr": registration.fr ? 1 : 0,
