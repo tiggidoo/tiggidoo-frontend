@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Checkbox, Container, FormControlLabel, Hidden } from '@material-ui/core';
 
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { authAction } from '../../store/actions/authAction';
 import AlertMessage from '../layout/AlertMessage';
@@ -345,9 +345,9 @@ const SignIn = ({ history }) => {
 
 }
 
-SignIn.propTypes = {
-    authAction: PropTypes.func.isRequired
-}
+// SignIn.propTypes = {
+//     authAction: PropTypes.func.isRequired
+// }
 
 
 export default withRouter(SignIn);

@@ -1,7 +1,10 @@
 import React from 'react'
-import { Box } from '@material-ui/core'
+import { Box, Grid, Typography } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import Dashboard from '../../../layout/Dashboard'
+import Title from '../../../layout/Title'
+
+
 
 const MyAvailabilities = () => {
     
@@ -20,7 +23,14 @@ const MyAvailabilities = () => {
             isLoggedIn = {isLoggedIn}
         >
 
-            <Box>MyAvailabilities</Box>
+            <Grid container >
+                <Grid item xs={12}>
+                    <Title title={'MY ACTIVITIES'} subTitle={'My tasks'} />
+                </Grid>
+                <Grid item xs={5}>
+
+                </Grid>
+            </Grid>
         </Dashboard>
     )
 }

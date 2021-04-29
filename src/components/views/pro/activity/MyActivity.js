@@ -2,7 +2,9 @@ import React from 'react'
 import { Box, Grid, makeStyles, Typography } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import Dashboard from '../../../layout/Dashboard'
-import SchedulesActivities from './SchedulesActivities'
+import ActivitiesCalendar from './ActivitiesCalendar'
+import ScheduledActivities from './ScheduledActivities'
+import Title from '../../../layout/Title'
 
 const useStyle = makeStyles((theme) => ({
     myCriteria: {
@@ -56,22 +58,14 @@ const MyActivity = () => {
         >
             <Box  className={classes.myCriteria}>
                 <Grid item sm={12}>
-                    <Box className={classes.title}>
-                        <Box mb={1}>
-                            <Typography component="h5" variant="h5">
-                                MON ACTIVITÉ
-                            </Typography>
-                        </Box>
-                        <Box className={classes.subTitle}>
-                            <Typography component="h5" variant="h5" >
-                                Mes missions
-                            </Typography>
-                        </Box>
-                    </Box>
+                    <Title title={'MON ACTIVITÉ'} subTitle={'Mes missions'} />
                 </Grid>
-                <Grid container>
+                <Grid container spacing={2}>
                     <Grid item xs={12} sm={12} md={6} lg={5}>
-                        <SchedulesActivities />
+                        <ActivitiesCalendar />
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={6} lg={5}>
+                        <ScheduledActivities />
                     </Grid>
                 </Grid>
             </Box>            

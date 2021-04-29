@@ -37,8 +37,8 @@ export const activateUserAction = (datapro) => async dispatch => {
         await axios.post(`${config.API_SERVER}/api/pro/active`, data, headers)
         .then(res => {
 
+            console.log(res)
             if(res.status === 200){
-
                 dispatch({
                     type: "LOGIN_SUCCESS",
                     payload: res.data
@@ -47,8 +47,7 @@ export const activateUserAction = (datapro) => async dispatch => {
                 localStorage.setItem('userLoggedIn', JSON.stringify({
                     type: "LOGIN_SUCCESS",
                     payload: res.data
-                }))
-                
+                }))                
             }
 
         }).catch(error => {

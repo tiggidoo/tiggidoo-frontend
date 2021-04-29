@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box } from '@material-ui/core'
 import moment from "moment";
 import Calendar from '../../../layout/calendar/Calendar'
-const SchedulesActivities = () => {
+const ActivitiesCalendar = () => {
     
     const [selectedDate, setSelectedDate] = useState(moment().add('days', 1));
 
@@ -17,4 +17,4 @@ const SchedulesActivities = () => {
     )
 }
 
-export default SchedulesActivities
+export default ActivitiesCalendar

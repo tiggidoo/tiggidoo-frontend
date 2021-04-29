@@ -97,7 +97,8 @@ const DeskTopBar = ({ urlAvatar }) => {
       }
       
       const selected = {
-        color: (index === menuItemOpens) ? "#2880fb" : ''
+        color: (index === menuItemOpens) ? "#2880fb" : '',
+        fontWeight: (index === menuItemOpens) ? "bold" : '100'
       };
       
       let menuTitle = [];
@@ -112,15 +113,6 @@ const DeskTopBar = ({ urlAvatar }) => {
                     <img key={index} width="32px" src={"/images/lateral_menu/" + items[index].img + "-" + img + ".svg"} alt="" />
                   </ListItemIcon>
                   { menuTitle }
-{/* 
-                  {
-                    items[index].hasOwnProperty('subNav') 
-                    ?
-                      menuItems[index] ? <IconExpandLess /> : <IconExpandMore />
-                    :
-                      ''
-                  }
-                   */}
                 </ListItem>);
 
       if(items[index].hasOwnProperty('subNav')){
