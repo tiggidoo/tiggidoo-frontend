@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Typography, Box } from '@material-ui/core'
 
-const ScheduledActivities = () => {
+const ActivitiesList = () => {
     return (
         <Grid container >
 
@@ -54,4 +54,4 @@ const ScheduledActivities = () => {
     )
 }
 
-export default ScheduledActivities
+export default ActivitiesList

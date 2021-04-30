@@ -5,33 +5,32 @@ const useStyle = makeStyles((theme) => ({
     title: {
         margin: theme.spacing(0,0,5,2),
         '& h5':{
-            color: theme.palette.primary.main
+            color: theme.palette.primary.main,            
+        },
+        '& h6':{
+            color: '#878787',
+            fontWeight: 'bold',
         },
         '@media(max-width: 1200px)': {
             margin: theme.spacing(0,0,2,0),
         }
-    },
-    subTitle: {
-        '& h5':{
-            color: theme.palette.tertiary.main
-        }
-    },
+    }
+    
 }))
 
-const Title = ({title, subTitle}) => {
+const TitleForm = ({title, subTitle}) => {
     const classes = useStyle();
 
-    return (
-    
+    return (    
         <Box className={classes.title} mb={1}>                    
             <Typography component="h5" variant="h5" >
                 { title }
             </Typography>
-            <Typography component="h5" variant="h5" >
+            <Typography component="h6" variant="h6" >
                 { subTitle }
             </Typography>
         </Box>
     )
 }
 
-export default Title
+export default TitleForm

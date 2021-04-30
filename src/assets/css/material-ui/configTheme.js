@@ -80,7 +80,10 @@ const theme = createMuiTheme({
     },
     h6: {
       fontSize: '1.6rem',
-      color: '#6d6d6d'
+      color: '#6d6d6d',
+      '@media (max-width:768px)': { 
+        fontSize: "1.4rem",
+      }
     },
     p: {
       fontSize: '2.4rem',

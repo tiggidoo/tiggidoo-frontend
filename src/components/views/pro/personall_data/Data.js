@@ -3,12 +3,11 @@ import { Box, Button, Checkbox, FormControlLabel, Grid, makeStyles, Typography }
 import { useSelector } from 'react-redux'
 import Dashboard from '../../../layout/Dashboard'
 import Input from '../../../share/inputs/Input'
-
-
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { Link } from "react-router-dom"
+import TitleForm from '../../../layout/TitleForm'
 
 const useStyle = makeStyles((theme) => ({
     
@@ -52,20 +51,6 @@ const useStyle = makeStyles((theme) => ({
             margin: theme.spacing(0 , 2, 2, 2)
         }
     },
-    title: {
-        margin: theme.spacing(0,0,5,2),
-        '& h5':{
-            color: theme.palette.primary.main
-        },
-        '@media(max-width: 1200px)': {
-            margin: theme.spacing(0,0,2,0),
-        }
-    },
-    subTitle: {
-        '& h5':{
-            color: theme.palette.tertiary.main
-        }
-    },
     btn: {
         padding: theme.spacing(4, 4, 2, 4),
         textAlign: 'center',
@@ -106,18 +91,7 @@ const Data = () => {
             isLoggedIn = {isLoggedIn}
         >
             <Grid item sm={12}>
-                <Box className={classes.title}>
-                    <Box mb={1}>
-                        <Typography component="h5" variant="h5">
-                            PERSONAL INFORMATION
-                        </Typography>
-                    </Box>
-                    <Box className={classes.subTitle}>
-                        <Typography component="h5" variant="h5" >
-                            My personal data
-                        </Typography>
-                    </Box>
-                </Box>
+                <TitleForm title={'PERSONAL INFORMATION'} subTitle={'My personal data'} />
             </Grid>
             <Grid container>
                 <Grid item xs={12} sm={12} md={6}>

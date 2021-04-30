@@ -4,6 +4,13 @@ import BodyWrapper from './BodyWrapper'
 import Header from './Header'
 import NavBar from './NavBar/NavBar'
 
+// const useStyle = makeStyles((theme) => ({
+//     content: {
+//         width: '100vw'
+//     }
+// }))
+
+
 const useStyle = makeStyles((theme) => ({
     workArea:{
         display: 'flex',
@@ -11,13 +18,19 @@ const useStyle = makeStyles((theme) => ({
     },
     content: {
         width: '75vw',
-        //backgroundColor: '#dcdcdc',
         padding: theme.spacing(26, 3 , 2, 3),
-        '@media (max-width:992px)': { 
+        // '@media (max-width:1200px)': { 
+        //     width: '100vw',
+        // },
+        '@media (max-width:1200px)': {  //992px
+            padding: theme.spacing(18, 3 , 2, 3),
             width: '100vw',
-            padding: theme.spacing(10, 0, 20, 0),
             overflow: 'auto'
         },
+        '@media (max-width:992px)': {  //992px
+            padding: theme.spacing(10, 0, 20, 0),
+        },
+        
     }
 }))
 
