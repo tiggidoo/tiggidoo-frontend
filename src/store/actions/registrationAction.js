@@ -47,6 +47,13 @@ export const registrationAction = (registration) => async dispatch => {
             registration.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         }
 
+
+        let service = {}
+        const servicesList = registration.servicesChosen
+        for(let i=0; i<servicesList.length; i++){
+            service[servicesList[i]] = 1
+        }
+
         const profesional = {
             "firstName": registration.firstName,
             "lastName": registration.lastName,
@@ -61,9 +68,7 @@ export const registrationAction = (registration) => async dispatch => {
                 "country": registration.country,
                 "postcode": registration.postCode
             },
-            "service": {
-              "housekeeping":1
-            },
+            "service": service,
             "lag_talk": {
                 "en": registration.en ? 1 : 0,
                 "fr": registration.fr ? 1 : 0,
@@ -90,7 +95,6 @@ export const registrationAction = (registration) => async dispatch => {
 
         const content = JSON.stringify(profesional);
         //Get the image
-        console.log(content)
         const archivos = registration.files;
 
         const f = new FormData();
@@ -114,7 +118,6 @@ export const registrationAction = (registration) => async dispatch => {
                 payload: 400
             })
         });
-
     }catch (error) {
         dispatch({
             type: "REGISTRATION_FAIL",

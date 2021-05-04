@@ -9,7 +9,7 @@ import { Box, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
+    marginRight: theme.spacing(3),
     minWidth: 120,
     maxWidth: 600,
     '& .MuiChip-root':{
@@ -39,9 +39,6 @@ const MenuProps = {
   },
 };
 
-const data = [
-  'housekeeping'
-];
 
 function getStyles(name, personName, theme) {
   return {
@@ -52,46 +49,45 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function MultipleSelect() {
+export default function MultipleSelect({ id, servicesList, servicesChosen, handleChange }) {
   const classes = useStyles();
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-
-  const handleChange = (event) => {
-    setPersonName(event.target.value);
-  };
-
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
-
-        <Typography variant="h5">Chip</Typography>
-        <Select
-          labelId="demo-mutiple-chip-label"
-          id="demo-mutiple-chip"
-          multiple
-          value={personName}
-          onChange={handleChange}
-          input={<Input id="select-multiple-chip" />}
-          renderValue={(selected) => (
-            <div className={classes.chips}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} className={classes.chip} />
+      {
+        (servicesList !== null) && (
+          <FormControl className={classes.formControl}>
+            <Typography variant="h5">Chip</Typography>
+            <Select
+              labelId="demo-mutiple-chip-label"
+              id={id}
+              name={id}
+              multiple
+              value={servicesChosen}
+              onChange={handleChange}
+              input={<Input id="select-multiple-chip" />}
+              renderValue={(selected) => (
+                <div className={classes.chips}>
+                  {selected.map((value) => (
+                    <Chip key={value} label={value} className={classes.chip} />
+                  ))}
+                </div>
+              )}
+              MenuProps={MenuProps}
+            >
+              {servicesList.map((name) => (
+                <MenuItem key={name} value={name} style={getStyles(name, servicesChosen, theme)}>
+                  <Box display="flex" flexDirection="row">
+                    {name}
+                  </Box>
+                </MenuItem>
               ))}
-            </div>
-          )}
-          MenuProps={MenuProps}
-        >
-          {data.map((name) => (
-            <MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
-              <Box display="flex" flexDirection="row">
-                {name}
-              </Box>
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+            </Select>
+          </FormControl>
+        )
+      
+      }
     </div>
   );
 }

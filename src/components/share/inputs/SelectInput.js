@@ -94,10 +94,12 @@ function SelectInput(props) {
             styleSelect = classes.select + ' ' + classes.error;
         }
     }
+
     let defaultValueExists = '';
     if (defaultValue !== undefined || defaultValue !== null) {
         defaultValueExists = defaultValue;
     }
+    
     return (
         <Box className={classes.selectArea}>
             <NativeSelect

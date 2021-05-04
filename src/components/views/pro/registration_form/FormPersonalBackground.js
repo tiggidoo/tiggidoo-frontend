@@ -16,7 +16,7 @@ import { withTranslation } from "react-i18next";
 //REDUX FUNCTIONS
 import { compose } from "redux";
 import InputCustomPhone from '../../../share/inputs/InputCustomPhone';
-//import MultipleSelect from '../../../share/inputs/MultipleSelect';
+import MultipleSelect from '../../../share/inputs/MultipleSelect';
 
 
 
@@ -66,10 +66,19 @@ class FormPersonalBackground extends Component {
                                 <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel2")} />
                             </RadioGroup>
                         </Box>
-{/* 
+ 
                         <Box>
-                            <MultipleSelect />
-                        </Box> */}
+                            <MultipleSelect 
+                                id="servicesChosen" 
+                                handleChange = { handleChange } 
+                                servicesList={ values.servicesList } 
+                                servicesChosen = { values.servicesChosen}
+                            />
+
+                            {(formErrors.step2.servicesChosen.length > 0 && values.validate === 1) && (
+                                <span className={classes.errorMessage}>{formErrors.step2.servicesChosen}</span>
+                            )}
+                        </Box>
                     </Box>
                 </Box>
 
