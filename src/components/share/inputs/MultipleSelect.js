@@ -49,7 +49,7 @@ function getStyles(name, personName, theme) {
   };
 }
 
-export default function MultipleSelect({ id, servicesList, servicesChosen, handleChange }) {
+export default function MultipleSelect({ id, servicesList, servicesChosen, handleChange, label }) {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -58,7 +58,7 @@ export default function MultipleSelect({ id, servicesList, servicesChosen, handl
       {
         (servicesList !== null) && (
           <FormControl className={classes.formControl}>
-            <Typography variant="h5">Chip</Typography>
+            <Typography variant="h5">{ label }</Typography>
             <Select
               labelId="demo-mutiple-chip-label"
               id={id}

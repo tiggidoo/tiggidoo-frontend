@@ -183,6 +183,7 @@
         "checkBoxLabel1": "Oui",
         "checkBoxLabel2": "Non"
       },
+      "services": "Prestations de service",
       "button": "SUIVANT"
     },
     "FormPersonalBackground": {

@@ -70,6 +70,7 @@ class FormPersonalBackground extends Component {
                         <Box>
                             <MultipleSelect 
                                 id="servicesChosen" 
+                                label={t("ProForm.FormPersonalDetails.services")}
                                 handleChange = { handleChange } 
                                 servicesList={ values.servicesList } 
                                 servicesChosen = { values.servicesChosen}
