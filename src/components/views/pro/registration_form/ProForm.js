@@ -170,7 +170,7 @@ class ProForm extends Component {
             axios.get(`https://www.api-tiggidoo.com/api/services`)
             .then(data => {
                 
-                let ser =  ['ménager']                    
+                let ser =  ['housekeeping']                    
                 if(data.status === 200){
                     for(let index in data.data[0]){                        
                         if(index !== 'id'){
