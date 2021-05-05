@@ -46,6 +46,7 @@ class ProForm extends Component {
         let today = new Date();
         let year = today.getFullYear();
         let month = today.getMonth() + 1;
+        month = (month < 10) ? "0" + month : month;
         let day = (today.getDate() < 10) ? "0" + today.getDate() : today.getDate();
         let formDate = year + "-" + month + "-" + day;
 

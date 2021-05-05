@@ -7,8 +7,18 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 const useStyle = makeStyles((theme) => ({
     borderRight: {
         borderRight: 'none',
+        margin: theme.spacing(0, 0, 0, 2),
+        '@media(min-width: 600px)': {
+            margin: theme.spacing(0, 5, 5, 5),
+        },
+        '@media(min-width: 768px)': {
+            borderRight: '1px solid #9a9a9a',    
+            margin: theme.spacing(0, 15, 5, 15),
+            borderRight: 'none',
+        },
         '@media(min-width: 960px)': {
             borderRight: '1px solid #9a9a9a',    
+            margin: 0
         }
     },
     spacingTable: {
