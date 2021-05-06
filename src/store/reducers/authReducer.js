@@ -1,3 +1,5 @@
+import { UPDATE_SCHEDULE_PRO } from '../actions/typesAction';
+
 const initState = {
     isLoggedIn: false,
     pro: '',
@@ -20,7 +22,18 @@ const authReducer = (state = initState, action) => {
             localStorage.clear();
             return {
                 initState
-            };
+             };
+        case UPDATE_SCHEDULE_PRO:
+
+             console.log('Paso 3 desde reducere----: ');
+
+             return {
+                 ...state,
+                 pro: {
+                     ...state.pro, 
+                     availability: action.payload
+                }
+             };
         default:
             return state;
     }

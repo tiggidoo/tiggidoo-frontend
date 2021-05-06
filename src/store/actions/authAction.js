@@ -1,4 +1,4 @@
-//import { ACTIVATE_USER } from './typesAction';
+import { UPDATE_SCHEDULE_PRO } from './typesAction';
 import axios from 'axios';
 //import { setAlert } from './alertAction';
 import config from '../../config.json';
@@ -142,4 +142,19 @@ export const logOutAction = (token, history) => async dispatch => {
     }
 
 
+}
+
+export const updateScheduleAuth = (data) => async dispatch => {
+    console.log('Paso2  ---- : ', data);
+    dispatch({
+        type: UPDATE_SCHEDULE_PRO,
+         payload: data
+    })
+    let datalog = JSON.parse(localStorage.getItem('userLoggedIn'))
+    datalog.payload.pro.availability = data
+    localStorage.setItem('userLoggedIn', JSON.stringify({
+        type: "LOGIN_SUCCESS",
+        payload: datalog.payload
+    }))
+    console.log('Paso 4  ---- : ', datalog.payload.pro.availability);
 }

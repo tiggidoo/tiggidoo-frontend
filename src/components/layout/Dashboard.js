@@ -31,6 +31,12 @@ const useStyle = makeStyles((theme) => ({
             padding: theme.spacing(10, 0, 20, 0),
         },
         
+    },
+    container: {
+        maxWidth: '1280px',
+        '@media(min-width: 1366px)': {
+            maxWidth: '1450px',
+        }
     }
 }))
 
@@ -42,7 +48,7 @@ const Dashboard = ({children, user, token, isLoggedIn}) => {
     return (
         <BodyWrapper>
             <Header isLoggedIn={isLoggedIn} name={name} urlAvatar={urlAvatar} />
-            <Container maxWidth="lg">
+            <Container className={classes.container} maxWidth="lg">
                 <Box className={classes.workArea}>
                     <NavBar urlAvatar={urlAvatar} />
                     <Box className={classes.content}>

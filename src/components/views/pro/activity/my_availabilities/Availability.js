@@ -11,8 +11,7 @@ const useStyle = makeStyles((theme) => ({
         '@media(min-width: 600px)': {
             margin: theme.spacing(0, 5, 5, 5),
         },
-        '@media(min-width: 768px)': {
-            borderRight: '1px solid #9a9a9a',    
+        '@media(min-width: 768px)': {  
             margin: theme.spacing(0, 15, 5, 15),
             borderRight: 'none',
         },
@@ -41,22 +40,24 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-const Availability = () => {
+const Availability = ({ availability, hancleChange }) => {
     const classes = useStyle();
 
-    function createData(name, calories, fat) {
-        return { name, calories, fat };
-      }
+    function createData(title, day, am, pm) {
+        return { title, day, am, pm };
+    }
       
-      const rows = [
-        createData('Dimanche', 159, 6.0),
-        createData('Lundi', 237, 9.0),
-        createData('Mardi', 262, 16.0),
-        createData('Mercredi', 159, 6.0),
-        createData('Jeudi', 237, 9.0),
-        createData('Vendredi', 262, 16.0),
-        createData('Samdi', 262, 16.0),
-      ];
+    const rows = [
+        createData('Dimanche', 'Su' , availability['am_Su'] , availability['pm_Su']),
+        createData('Lundi', 'Mo', availability['am_Mo'] , availability['pm_Mo']),
+        createData('Mardi', 'Tu', availability['am_Tu'] , availability['pm_Tu']),
+        createData('Mercredi', 'We', availability['am_We'] , availability['pm_We']),
+        createData('Jeudi', 'Th', availability['am_Th'] , availability['pm_Th']),
+        createData('Vendredi', 'Fr', availability['am_Fr'] , availability['pm_Fr']),
+        createData('Samdi', 'Sa', availability['am_Sa'] , availability['pm_Sa']),
+    ];
+
+    //console.log(rows);
 
     return (
         <Box className={classes.borderRight}>
@@ -76,18 +77,20 @@ const Availability = () => {
                         </TableHead>
                         <TableBody>
                         {rows.map((row) => (
-                            <TableRow key={row.name}>
+                            <TableRow key={row.title}>
                                 {/* <TableCell component="th" scope="row">{row.name}</TableCell> */}
-                                <TableCell align="left">{row.name}</TableCell>
+                                <TableCell align="left">{row.title}</TableCell>
                                 <TableCell align="center">
                                     <FormControlLabel
                                         control={
                                             <Checkbox  
                                                 icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
                                                 checkedIcon={<CheckBoxIcon fontSize="small" />}
-                                                name="en" 
+                                                name={`am_${row.day}`} 
                                                 color="primary" 
-                                                checked={true} 
+                                                onClick={ e => hancleChange(e) }
+                                                checked={ row.am } 
+                                                //checked = {true}
                                             />
                                         }
                                     />
@@ -98,9 +101,10 @@ const Availability = () => {
                                             <Checkbox  
                                                 icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
                                                 checkedIcon={<CheckBoxIcon fontSize="small" />}
-                                                name="fr" 
+                                                name={`pm_${row.day}`} 
                                                 color="primary" 
-                                                checked={false} 
+                                                onClick={ e => hancleChange(e) }
+                                                checked={ row.pm } 
                                             />
                                         }
                                     />

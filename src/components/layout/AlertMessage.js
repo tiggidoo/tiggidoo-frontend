@@ -10,9 +10,12 @@ const useStyles = makeStyles((theme) => ({
         //justifyContent:'center',
         //marginBottom: '-75px',
         //marginTop: '27px',
-        zIndex: '1',
         position: 'absolute',
-        right: 0
+        margin: theme.spacing(3),
+        zIndex: '1',
+        '@media(max-width: 992px)':{
+            margin: '-6px 0 0 0',
+        }
     },
     alertContentStyle: {
         width: 'fit-content',
@@ -59,8 +62,10 @@ const AlertMessage = ({ alerts }) => {
         alerts !== null && 
         alerts.length > 0 && 
         alerts.map(alert => (
-            <Box key={alert.id} className={classes.messagePosition}>
-                <Alert  className={styleContent} variant="filled" severity={alert.alertType} >{ alert.message }</Alert>
+            <Box display="flex" justifyContent="center">    
+                <Box key={alert.id} className={classes.messagePosition}>
+                    <Alert  className={styleContent} variant="filled" severity={alert.alertType} >{ alert.message }</Alert>
+                </Box>
             </Box>
         ))
     );    

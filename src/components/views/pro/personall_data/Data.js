@@ -73,7 +73,7 @@ const Data = () => {
     const { credential } = auth;
     const [showPassword, setShowPassword] = useState(false);
     //const [ password, setPassword ] = useState('HOLA');
-    const password = 'HOLA';
+    const password = '';
     
     const handDisplayPassword = e => {
         e.preventDefault();
