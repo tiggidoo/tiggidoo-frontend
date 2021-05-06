@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse'
-// import IconExpandLess from '@material-ui/icons/ExpandLess'
-// import IconExpandMore from '@material-ui/icons/ExpandMore'
+import { Drawer, List, ListItem, ListItemIcon, ListItemText, Collapse, Box, makeStyles } from '@material-ui/core';
 import { Link } from "react-router-dom"
 
 import Avatar from '@material-ui/core/Avatar';
@@ -41,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
     left: 'inherit',
     top: 'inherit',
     position: 'relative',
-    border: 'none'
+    border: 'none',
+    zIndex: '1'
   },
   // necessary for content to be below app bar
   content: {
@@ -55,10 +48,18 @@ const useStyles = makeStyles((theme) => ({
   dimentionAvatar: {
     width: '120px',
     height: '120px',
-    margin: theme.spacing(6, 0, 10, 2),
+    margin: theme.spacing(4, 0, 5, 2),
     '@media (max-width:1200px)': { 
       margin: theme.spacing(8, 0, 3, 2),
     },
+  },
+  bgkMenu: {
+    backgroundColor: '#fff',
+    height: '100%',
+    padding: theme.spacing(1),
+    borderRadius: '4px',
+    minHeight: '80vh',
+    marginBottom: theme.spacing(3)
   }
 }));
 
@@ -136,7 +137,7 @@ const DeskTopBar = ({ urlAvatar }) => {
   } 
 
   return (
-    <div>
+    <Box className={ classes.bgkMenu } >
       <Avatar className={ classes.dimentionAvatar } alt="Remy Sharp" src={urlAvatar} />
       <Drawer
         className={classes.drawer}
@@ -150,7 +151,7 @@ const DeskTopBar = ({ urlAvatar }) => {
         </List>
 
       </Drawer>
-    </div>
+    </Box>
   );
 }
 

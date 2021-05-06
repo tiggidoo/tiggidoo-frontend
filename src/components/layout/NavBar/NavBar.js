@@ -9,7 +9,7 @@ const useStyle = makeStyles((theme) => ({
         width: '25vw',
         margin: theme.spacing(20, 1, 0, 1),
         '@media (max-width:1200px)': { 
-            margin: theme.spacing(12, 1, 0, 1),
+            margin: theme.spacing(18, 1, 0, 1),
             width: '24vw',
         },
         '@media (max-width:1024px)': { 

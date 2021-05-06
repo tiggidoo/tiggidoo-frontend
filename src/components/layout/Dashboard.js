@@ -1,42 +1,38 @@
-import { Box, Container, makeStyles } from '@material-ui/core'
+import { Box, Container, makeStyles, Paper } from '@material-ui/core'
 import React from 'react'
 import BodyWrapper from './BodyWrapper'
 import Header from './Header'
 import NavBar from './NavBar/NavBar'
 
-// const useStyle = makeStyles((theme) => ({
-//     content: {
-//         width: '100vw'
-//     }
-// }))
-
-
 const useStyle = makeStyles((theme) => ({
     workArea:{
         display: 'flex',
         height: '100vh'
+
     },
     content: {
         width: '75vw',
-        padding: theme.spacing(26, 3 , 2, 3),
-        // '@media (max-width:1200px)': { 
-        //     width: '100vw',
-        // },
+        padding: theme.spacing(20, 3 , 2, 3),
         '@media (max-width:1200px)': {  //992px
             padding: theme.spacing(18, 3 , 2, 3),
             width: '100vw',
             overflow: 'auto'
         },
         '@media (max-width:992px)': {  //992px
-            padding: theme.spacing(10, 0, 20, 0),
+            padding: theme.spacing(10, 0, 14, 0),
         },
         
     },
     container: {
-        maxWidth: '1280px',
-        '@media(min-width: 1366px)': {
+        '@media(min-width: 1500px)': {
             maxWidth: '1450px',
         }
+    },
+    bkgPadding: {
+        backgroundColor: '#fff',
+        padding: theme.spacing(4),
+        borderRadius: '4px',
+        minHeight: '80vh',
     }
 }))
 
@@ -50,9 +46,12 @@ const Dashboard = ({children, user, token, isLoggedIn}) => {
             <Header isLoggedIn={isLoggedIn} name={name} urlAvatar={urlAvatar} />
             <Container className={classes.container} maxWidth="lg">
                 <Box className={classes.workArea}>
+                    
                     <NavBar urlAvatar={urlAvatar} />
                     <Box className={classes.content}>
-                        {children}
+                        <Box className={classes.bkgPadding}>
+                            {children}
+                        </Box>
                     </Box>
                 </Box>
             </Container>

@@ -12,18 +12,6 @@ const useStyle = makeStyles((theme) => ({
         fontSize: '15px', 
         lineHeight: '1.5'
     },
-    transparentBar: {
-        width: '55px', 
-        height: '10px', 
-        backgroundColor:'transparent', 
-        border: '0px solid',
-        '@media(max-width: 600px)':{
-            width: '35px', 
-        },
-        '@media(max-width: 374px)':{
-            width: '30px', 
-        }
-    },
     dayArea: {
         display: 'flex', 
         flexDirection:'column',
@@ -55,10 +43,16 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     bar:{
-        width: '55px', 
-        height: '10px', 
-        backgroundColor: '#d3d2d3', //'#32cc8c', 
-        border: '1px solid #b8b8b8',
+        width: '62px', 
+        height: '12px', 
+        backgroundColor:'transparent', 
+        border: '0px solid',
+        '@media(max-width: 1280px)':{
+            width: '55px', 
+        },
+        '@media(max-width: 1200px)':{
+            width: '50px', 
+        },
         '@media(max-width: 600px)':{
             width: '35px', 
         },
@@ -66,8 +60,13 @@ const useStyle = makeStyles((theme) => ({
             width: '30px', 
         }
     }, 
+    gray: {
+        backgroundColor: '#d3d2d3', //'#32cc8c', 
+        border: '1px solid #b8b8b8'
+    },
     white:{
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        border: '1px solid #b8b8b8'
     }
 }))
 
@@ -166,11 +165,15 @@ const ScheduledActivities = ({ enableTime }) => {
                     let styleBarColorAm = classes.bar
                     if(enableTime[week[i].dayName] === 1 || enableTime[week[i].dayName] === 3){
                         styleBarColorAm = styleBarColorAm + ' ' + classes.white
+                    }else{
+                        styleBarColorAm = styleBarColorAm + ' ' + classes.gray
                     }
 
                     let styleBarColorPm = classes.bar
                     if(enableTime[week[i].dayName] === 2 || enableTime[week[i].dayName] === 3){
                         styleBarColorPm = styleBarColorPm + ' ' + classes.white
+                    }else{
+                        styleBarColorPm = styleBarColorPm + ' ' + classes.gray
                     }
 
                     htmlDay.push(
@@ -183,7 +186,7 @@ const ScheduledActivities = ({ enableTime }) => {
                 }else{
                     htmlDay.push(
                         <Box key={i}>
-                            <Box className={classes.transparentBar}></Box>
+                            <Box className={ classes.bar }></Box>
                         </Box>
                     )
                 }
