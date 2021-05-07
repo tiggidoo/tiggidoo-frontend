@@ -1,5 +1,5 @@
-import { Box, Container, makeStyles, Paper } from '@material-ui/core'
 import React from 'react'
+import { Box, Container, makeStyles } from '@material-ui/core'
 import BodyWrapper from './BodyWrapper'
 import Header from './Header'
 import NavBar from './NavBar/NavBar'

@@ -48,6 +48,8 @@ export const registrationAction = (registration) => async dispatch => {
         }
 
 
+        
+
         let service = {}
         const servicesList = registration.servicesChosen
         for(let i=0; i<servicesList.length; i++){

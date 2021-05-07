@@ -53,6 +53,8 @@ export default function MultipleSelect({ id, servicesList, servicesChosen, handl
   const classes = useStyles();
   const theme = useTheme();
 
+  console.log('Servicios Elegidos', servicesChosen)
+
   return (
     <div>
       {
@@ -76,8 +78,8 @@ export default function MultipleSelect({ id, servicesList, servicesChosen, handl
               )}
               MenuProps={MenuProps}
             >
-              {servicesList.map((name) => (
-                <MenuItem key={name} value={name} style={getStyles(name, servicesChosen, theme)}>
+              {servicesList.map((name, index) => (
+                <MenuItem key={name} value={`${index}-${name} `} style={getStyles(name, servicesChosen, theme)}>
                   <Box display="flex" flexDirection="row">
                     {name}
                   </Box>

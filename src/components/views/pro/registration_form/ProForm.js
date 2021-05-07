@@ -168,18 +168,21 @@ class ProForm extends Component {
         })
         .then(res => {
 
-            axios.get(`https://www.api-tiggidoo.com/api/services`)
+            axios.get(`https://www.api-tiggidoo.com/api/services/all`)
             .then(data => {
-                
-                let ser =  ['housekeeping']                    
+                console.log('Nueva Api', data.data.length);
+                const res = data.data;
+
+                let ser =  []                    
                 if(data.status === 200){
-                    for(let index in data.data[0]){                        
+
+                    for(let index in res){                        
                         if(index !== 'id'){
-                            ser.push(index)
+                            ser[res[index].id] = res[index].name
                         }
                     }
                 }
-                
+                console.log(ser);
                 this.setState({
                     servicesList: ser
                 })
