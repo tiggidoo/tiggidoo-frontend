@@ -67,7 +67,7 @@ class FormPersonalBackground extends Component {
                             </RadioGroup>
                         </Box>
  
-                        <Box>
+                        <Box mt={3}>
                             <MultipleSelect 
                                 id="servicesChosen" 
                                 label={t("ProForm.FormPersonalDetails.services")}
@@ -519,7 +519,7 @@ const styles = (theme) => ({
     },
     serviceArea: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'space-between',
         '@media (max-width:992px)': { 
             flexDirection: 'column',
