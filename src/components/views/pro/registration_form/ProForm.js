@@ -40,7 +40,6 @@ class ProForm extends Component {
 
     constructor(props) {
         super(props);
-
         /* This portions of lines orgenize the date with "2020-09-30" */
 
         let today = new Date();
@@ -170,7 +169,6 @@ class ProForm extends Component {
 
             axios.get(`https://www.api-tiggidoo.com/api/services/all`)
             .then(data => {
-                console.log('Nueva Api', data.data.length);
                 const res = data.data;
 
                 let ser =  []                    
@@ -182,7 +180,7 @@ class ProForm extends Component {
                         }
                     }
                 }
-                console.log(ser);
+
                 this.setState({
                     servicesList: ser
                 })

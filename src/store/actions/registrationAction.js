@@ -48,12 +48,11 @@ export const registrationAction = (registration) => async dispatch => {
         }
 
 
-        
-
         let service = {}
         const servicesList = registration.servicesChosen
-        for(let i=0; i<servicesList.length; i++){
-            service[servicesList[i]] = 1
+        for(let i = 0; i<servicesList.length; i++){
+            const serviceIndex = servicesList[i].split('-')[0]
+            service[serviceIndex] = true
         }
 
         const profesional = {
@@ -70,7 +69,7 @@ export const registrationAction = (registration) => async dispatch => {
                 "country": registration.country,
                 "postcode": registration.postCode
             },
-            "service": service,
+            "services": service,
             "lag_talk": {
                 "en": registration.en ? 1 : 0,
                 "fr": registration.fr ? 1 : 0,
@@ -108,7 +107,6 @@ export const registrationAction = (registration) => async dispatch => {
         
         await axios.post('https://www.api-tiggidoo.com/api/register/pro', f, {headers: {'Content-Type': 'multipart/form-data'}})
         .then(res => {
-            console.log(res);
             dispatch({
                 type: "REGISTRATION_SUCCESS",
                 payload: res

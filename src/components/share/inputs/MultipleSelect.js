@@ -53,8 +53,6 @@ export default function MultipleSelect({ id, servicesList, servicesChosen, handl
   const classes = useStyles();
   const theme = useTheme();
 
-  console.log('Servicios Elegidos', servicesChosen)
-
   return (
     <div>
       {
