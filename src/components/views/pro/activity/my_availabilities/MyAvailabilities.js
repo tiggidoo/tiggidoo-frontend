@@ -14,17 +14,17 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-const MyAvailabilities = () => {
+const MyAvailabilities = ({pro, token}) => {
     const classes = useStyle()
 
-    const { auth, token, isLoggedIn } = useSelector(
-        state => ({
-            auth: state.auth.pro,
-            token: state.auth.access_token,
-            isLoggedIn: state.auth.isLoggedIn
-        })
-    ) 
-    const { availability } = auth
+    // const { auth, token, isLoggedIn } = useSelector(
+    //     state => ({
+    //         auth: state.auth.pro,
+    //         token: state.auth.access_token,
+    //         isLoggedIn: state.auth.isLoggedIn
+    //     })
+    // ) 
+    const { availability } = pro
 
     const dispatch = useDispatch()
 
@@ -51,6 +51,8 @@ const MyAvailabilities = () => {
         am_Su: (availability['Su'] === 1 || availability['Su'] === 3) ? true : false, 
         pm_Su: (availability['Su'] === 2 || availability['Su'] === 3) ? true : false, 
     })
+
+    console.log('DesdeMy Availabilities : --: ', token)
 
     const hancleChange = (e) => {
         const hour = e.target.name.split('_')[0]
@@ -84,33 +86,26 @@ const MyAvailabilities = () => {
     const updateTime = (e) => {
         e.preventDefault()
         console.log('Token', token);
-        dispatch(udateAvailabilities(token, auth.id, enableTime))
+        dispatch(udateAvailabilities(token, pro.id, enableTime))
     }
 
     return (
-        <Dashboard
-            user = { auth }
-            token = { token }
-            isLoggedIn = {isLoggedIn}
-        >
-
-            <Grid container>
-                <Grid item xs={12}>
-                    <TitleForm title={'MY ACTIVITIES'} subTitle={'My tasks'} />
-                </Grid>
-                <Grid item xs={12} md={4} style={{backgroundColor: '#fff'}}>
-                    <Availability availability={enableTime} hancleChange = { hancleChange } />
-                </Grid>
-                <Grid item xs={12} md={8} style={{backgroundColor: '#fff'}}>
-                    <ScheduledActivities enableTime = { enableTime }/>
-                </Grid>
-                <Grid item xs={12}>
-                    <Box className={classes.btn}>
-                        <Button variant="contained" color="primary" onClick={e => updateTime(e) }>MODIFIER</Button>
-                    </Box>
-                </Grid>
+        <Grid container>
+            <Grid item xs={12}>
+                <TitleForm title={'MY ACTIVITIES'} subTitle={'My tasks'} />
             </Grid>
-        </Dashboard>
+            <Grid item xs={12} md={4} style={{backgroundColor: '#fff'}}>
+                <Availability availability={enableTime} hancleChange = { hancleChange } />
+            </Grid>
+            <Grid item xs={12} md={8} style={{backgroundColor: '#fff'}}>
+                <ScheduledActivities enableTime = { enableTime }/>
+            </Grid>
+            <Grid item xs={12}>
+                <Box className={classes.btn}>
+                    <Button variant="contained" color="primary" onClick={e => updateTime(e) }>MODIFIER</Button>
+                </Box>
+            </Grid>
+        </Grid>
     )
 }
 export default MyAvailabilities

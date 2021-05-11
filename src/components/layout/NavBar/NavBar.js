@@ -3,7 +3,6 @@ import { Box, makeStyles } from '@material-ui/core';
 import MovileBar from './MovileBar';
 import DeskTopBar from './DeskTopBar';
 
-
 const useStyle = makeStyles((theme) => ({
     menu: {
         width: '25vw',
@@ -18,7 +17,8 @@ const useStyle = makeStyles((theme) => ({
             margin: 0,
             bottom: 0,
             right: 0,
-            zIndex: 200
+            zIndex: 200,
+            boxShadow: '0px 2px 4px 2px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 0px 10px 0px rgb(0 0 0 / 12%)'
         },
     },
 }))

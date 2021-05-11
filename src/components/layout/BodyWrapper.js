@@ -3,7 +3,10 @@ import { Box, makeStyles } from '@material-ui/core';
 
 const useStyle = makeStyles((theme) => ({
     bkg:{
-        backgroundColor: '#d3d2d3'
+        backgroundColor: '#f6f6f6',
+        '@media(max-width: 992px)':{
+            backgroundColor: '#fff'
+        }
     }
 }))
 

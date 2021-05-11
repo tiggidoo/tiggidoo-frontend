@@ -24,35 +24,20 @@ const useStyle = makeStyles((theme) => ({
 
 const MyActivity = () => {
     const classes = useStyle()
-
-    const { auth, token, isLoggedIn } = useSelector(
-        state => ({
-            auth: state.auth.pro,
-            token: state.access_token,
-            isLoggedIn: state.auth.isLoggedIn
-        })
-    ) 
-
     return (
-        <Dashboard
-            user = { auth }
-            token = { token }
-            isLoggedIn = {isLoggedIn}
-        >
-            <Box  className={classes.myCriteria}>
-                <Grid item sm={12}>
-                    <TitleForm title={'MON ACTIVITÉ'} subTitle={'Mes missions'} />
+        <Box  className={classes.myCriteria}>
+            <Grid item sm={12}>
+                <TitleForm title={'MON ACTIVITÉ'} subTitle={'Mes missions'} />
+            </Grid>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={12} md={6} lg={5}>
+                    <ActivitiesCalendar />
                 </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} sm={12} md={6} lg={5}>
-                        <ActivitiesCalendar />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={5}>
-                        <ActivitiesList />
-                    </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={5}>
+                    <ActivitiesList />
                 </Grid>
-            </Box>            
-        </Dashboard>
+            </Grid>
+        </Box>                 
     )
 }
 

@@ -20,8 +20,7 @@ const useStyle = makeStyles((theme) => ({
         },
         '@media (max-width:992px)': {  //992px
             padding: theme.spacing(10, 0, 14, 0),
-        },
-        
+        }
     },
     container: {
         '@media(min-width: 1500px)': {
@@ -30,9 +29,12 @@ const useStyle = makeStyles((theme) => ({
     },
     bkgPadding: {
         backgroundColor: '#fff',
-        padding: theme.spacing(4),
+        padding: theme.spacing(3),
         borderRadius: '4px',
         minHeight: '80vh',
+        '@media(max-width: 600px)': {
+            padding: 0
+        }
     }
 }))
 
