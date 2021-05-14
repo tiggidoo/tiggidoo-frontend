@@ -13,11 +13,12 @@ import SignIn from "./components/auth/SignIn";
 import Request from "./components/views/pro/request/Request";
 import History from "./components/views/pro/history/History";
 import Help from "./components/views/pro/help/Help";
-import MyAvailabilities from "./components/views/pro/activity/my_availabilities/MyAvailabilities";
+//import MyAvailabilities from "./components/views/pro/activity/my_availabilities/MyAvailabilities";
 //import MyActivity from "./components/views/pro/activity/my_activities/MyActivity";
-import Data from "./components/views/pro/personall_data/Data";
-import MyCriteria from "./components/views/pro/personall_data/MyCriteria";
+//import Data from "./components/views/pro/personall_data/Data";
+//import MyCriteria from "./components/views/pro/personall_data/MyCriteria";
 import Activities from "./components/views/pro/activity/Activities";
+import Info from "./components/views/pro/personall_data/Info";
 
 function App() {
   return (
@@ -34,8 +35,8 @@ function App() {
             <Route exact path="/activity" component={ Activities } />
             {/* <Route exact path="/activity/my_availabilities" component={ MyAvailabilities } /> */}
             <Route exact path="/history" component={ History } />
-            <Route exact path="/personal_informations/personal_data" component={ Data } />
-            <Route exact path="/personal_informations/my_criteria" component={ MyCriteria } />
+            <Route exact path="/personal_data" component={ Info } />
+            {/* <Route exact path="/personal_informations/my_criteria" component={ MyCriteria } /> */}
             <Route exact path="/help" component={ Help } />
             <Route exact path="/" component={BecomePro} />
 

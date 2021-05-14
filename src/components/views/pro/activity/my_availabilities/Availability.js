@@ -1,8 +1,7 @@
 import React from 'react'
-import { makeStyles, Box, Checkbox, FormControlLabel, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper  } from '@material-ui/core'
+import { makeStyles, Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper  } from '@material-ui/core'
 import SubTitleForm from '../../../../layout/SubTitleForm'
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import CheckBoxCustom from '../../../../share/inputs/CheckBoxCustom';
 
 const useStyle = makeStyles((theme) => ({
     borderRight: {
@@ -32,10 +31,17 @@ const useStyle = makeStyles((theme) => ({
             }
         },
         '& .MuiTableContainer-root':{
-            boxShadow: 'none'
+            boxShadow: 'none',
+            overflowX: 'unset'
         },
         '@media(min-width: 960px)': {
             margin: theme.spacing(0, 5, 0, 0),   
+        }
+    },
+    checkBox: {
+        ' & .MuiIconButton-label':{
+            marginTop: '-10px',
+            marginLeft: '-4px'
         }
     }
 }))
@@ -56,8 +62,6 @@ const Availability = ({ availability, hancleChange }) => {
         createData('Vendredi', 'Fr', availability['am_Fr'] , availability['pm_Fr']),
         createData('Samdi', 'Sa', availability['am_Sa'] , availability['pm_Sa']),
     ];
-
-    //console.log(rows);
 
     return (
         <Box className={classes.borderRight}>
@@ -81,33 +85,25 @@ const Availability = ({ availability, hancleChange }) => {
                                 {/* <TableCell component="th" scope="row">{row.name}</TableCell> */}
                                 <TableCell align="left">{row.title}</TableCell>
                                 <TableCell align="center">
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox  
-                                                icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
-                                                checkedIcon={<CheckBoxIcon fontSize="small" />}
-                                                name={`am_${row.day}`} 
-                                                color="primary" 
-                                                onClick={ e => hancleChange(e) }
-                                                checked={ row.am } 
-                                                //checked = {true}
-                                            />
-                                        }
-                                    />
+                                    <Box className={classes.checkBox}>
+                                        <CheckBoxCustom
+                                            value = {row.am}
+                                            name = {`am_${row.day}`}
+                                            handleChange={hancleChange}
+                                            label=""
+                                        />
+
+                                    </Box>
                                 </TableCell>
                                 <TableCell align="center">
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox  
-                                                icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
-                                                checkedIcon={<CheckBoxIcon fontSize="small" />}
-                                                name={`pm_${row.day}`} 
-                                                color="primary" 
-                                                onClick={ e => hancleChange(e) }
-                                                checked={ row.pm } 
-                                            />
-                                        }
-                                    />
+                                    <Box className={classes.checkBox}>
+                                        <CheckBoxCustom
+                                            value = {row.pm}
+                                            name = {`pm_${row.day}`}
+                                            handleChange={hancleChange}
+                                            label=""
+                                        />
+                                    </Box>
                                 </TableCell>
                             </TableRow>
                         ))}

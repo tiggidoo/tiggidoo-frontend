@@ -258,6 +258,13 @@ class ProForm extends Component {
     }
 
     handleAddressGoogleApi = address => {
+
+        console.log('PortView:1 ', address.geometry)
+        console.log('Lat: ', address.geometry.location.lat())
+        console.log('Lng: ', address.geometry.location.lng())
+        console.log('La:  ', address.geometry.viewport.La)
+        console.log('Ua:  ', address.geometry.viewport.Ua)
+
         const formErrors = this.state.formErrors;
         const arrayAddress = address.address_components;
 
@@ -307,7 +314,6 @@ class ProForm extends Component {
             }
 
         }
-
         
         if(province.length === 0){
             province = city;
@@ -344,16 +350,14 @@ class ProForm extends Component {
             countryShortName: country_short_name,
             timezone: timezone.trim(),
         });
-
     }
 
     handleChangePhone = (e, formattedValue, country, telValue, name) => {
-        
+
         const value = e.target.value;
         if(value !== undefined){
             
             let ex = telValue.length - country.dialCode.length;
-
             const formErrors = this.state.formErrors;
 
             switch (name) {
@@ -492,7 +496,6 @@ class ProForm extends Component {
                     default:
                         break;
                 }
-
                 break;
 
             case "checkbox":
@@ -549,6 +552,7 @@ class ProForm extends Component {
                 }
 
                 break;
+
             default:
                 if(e.target.name === 'servicesChosen'){
                     this.setState({
@@ -573,7 +577,6 @@ class ProForm extends Component {
     getStepContent = () => {
 
         const { step } = this.state;
-
         const { firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone,
             email, en, fr, es, po, ar, authorization, criminal, experience,
             referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1,

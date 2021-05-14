@@ -1,9 +1,8 @@
 import React from 'react'
 import { Box, Button, Checkbox, FormControlLabel, Grid, makeStyles, Radio, RadioGroup, Typography } from '@material-ui/core'
-import { useSelector } from 'react-redux'
-import Dashboard from '../../../layout/Dashboard'
+//import { useSelector } from 'react-redux'
 import TitleForm from '../../../layout/TitleForm'
-
+import CheckBoxCustom from '../../../share/inputs/CheckBoxCustom'
 
 const useStyle = makeStyles((theme) => ({
     btn: {
@@ -34,24 +33,20 @@ const useStyle = makeStyles((theme) => ({
 const MyCriteria = () => {
     const classes = useStyle();
 
-    const { auth, token, isLoggedIn } = useSelector(
-        state => ({
-            auth: state.auth.pro,
-            token: state.access_token,
-            isLoggedIn: state.auth.isLoggedIn
-        })
-    ) 
+    // const { auth, token, isLoggedIn } = useSelector(
+    //     state => ({
+    //         auth: state.auth.pro,
+    //         token: state.access_token,
+    //         isLoggedIn: state.auth.isLoggedIn
+    //     })
+    // ) 
 
     const handleChange = () => {
 
     }
 
     return (
-        <Dashboard
-            user = { auth }
-            token = { token }
-            isLoggedIn = {isLoggedIn}
-        >
+
             <Box  className={classes.myCriteria}>
                 <Grid item sm={12}>
                     <TitleForm title={'PERSONAL INFORMATION'} subTitle={'My criteria'} />
@@ -68,9 +63,15 @@ const MyCriteria = () => {
 
                     <Grid item xs={12} sm={12} md={12}>
                         <Box ml={3} mt={1} display="flex" flexDirection="column">
-                            <FormControlLabel
+                            {/* <FormControlLabel
                                 control={<Checkbox name="fr" color="primary" checked={false} />}
                                 label={"Matériel: Aspirateur, mope etc"}
+                            /> */}
+                            <CheckBoxCustom
+                                name="en"
+                                label="Matériel: Aspirateur, mope etc"
+                                value={true}
+                                handleChange={handleChange}
                             />
                             <FormControlLabel
                                 control={<Checkbox  name="en" color="primary" checked={true} />}
@@ -132,7 +133,6 @@ const MyCriteria = () => {
                     </Grid>                  
                 </Grid>
             </Box>
-        </Dashboard>
     )
 }
 

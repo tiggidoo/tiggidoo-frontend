@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Box, AppBar, Tabs, Tab, makeStyles, Hidden, MenuItem, Menu, ListItemText, withStyles } from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import Dashboard from '../../../layout/Dashboard'
-import MyActivity from './my_activities/MyActivity';
-import MyAvailabilities from './my_availabilities/MyAvailabilities'
 import MenuIcon from '@material-ui/icons/Menu';
+import Data from './Data';
+import MyCriteria from './MyCriteria';
 
 const useStyle = makeStyles((theme) => ({
   appBarArea: {
@@ -91,7 +91,7 @@ function a11yProps(index) {
     };
   }
 
-const Activities = () => {
+const Info = () => {
   const classes = useStyle()
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -131,8 +131,8 @@ const Activities = () => {
                 <Hidden xsDown>
                   <AppBar position="static">
                       <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant="fullWidth">
-                          <Tab label="My Activity" {...a11yProps(0)} />
-                          <Tab label="My availabilities" {...a11yProps(1)} />
+                          <Tab label="Mes Informations" {...a11yProps(0)} />
+                          <Tab label="Mes Criteres" {...a11yProps(1)} />
                       </Tabs>
                   </AppBar>
                 </Hidden>
@@ -147,10 +147,10 @@ const Activities = () => {
                       onClose={handleClose}
                     >
                       <StyledMenuItem>
-                        <ListItemText primary="My Activity" onClick={e => onChangeMovile(e, 0)}/>
+                        <ListItemText primary="Mes Informations" onClick={e => onChangeMovile(e, 0)}/>
                       </StyledMenuItem>
                       <StyledMenuItem>
-                        <ListItemText primary="My availabilities" onClick={e => onChangeMovile(e, 1)} />
+                        <ListItemText primary="Mes Criteres" onClick={e => onChangeMovile(e, 1)} />
                       </StyledMenuItem>
                     </StyledMenu>
 
@@ -159,12 +159,12 @@ const Activities = () => {
 
                 <TabPanel value={value} index={0}>
                   <Box className={classes.workArea}>
-                    <MyActivity availability={pro.availability}/>
+                    <Data auth={pro} />
                   </Box>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                   <Box className={classes.workArea}>
-                    <MyAvailabilities pro={pro} token={access_token}/>
+                    <MyCriteria />
                   </Box>
                 </TabPanel>
             </Box>
@@ -172,4 +172,4 @@ const Activities = () => {
     )
 }
 
-export default Activities
+export default Info

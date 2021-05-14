@@ -21,21 +21,9 @@
         },
         "PERSONAL_INFORMATIONS": {
             "title": "Personal informations",
-            "itemId": "personal_informations",
+            "itemId": "/personal_data",
             "movileTitle": "Info",
-            "img": "informations",
-            "subNav": [
-                {
-                    "id": "1",
-                    "title": "Personal data",
-                    "itemId": "/personal_informations/personal_data"
-                },
-                {
-                    "id": "2",
-                    "title": "My criteria",
-                    "itemId": "/personal_informations/my_criteria"
-                }
-            ]
+            "img": "informations"
         },
         "ASSISTANCE": {
             "title": "Assistance",
@@ -52,5 +40,14 @@
         "5": "Ven",
         "6": "Sam",
         "7": "Dim"
-    }    
+    },
+    "DAYS_EN": {
+        "1": "Mon",
+        "2": "Tue",
+        "3": "Wed",
+        "4": "Thu",
+        "5": "Fri",
+        "6": "Sat",
+        "7": "Sun"
+    }      
 }

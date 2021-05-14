@@ -20,7 +20,12 @@ const useStyles = makeStyles((theme) => ({
             transform: 'translate(14px, -8px) scale(0.75)'
         },
         '& .MuiOutlinedInput-root': {
-            borderRadius: '4px'
+            borderRadius: '8px'
+        },
+        '& .MuiInputBase-input': {
+            boxShadow: '1px 3px 4px 0px #80808047',
+            height: '0.8em',
+            borderRadius: '8px'
         },
         '& .MuiOutlinedInput-inputMarginDense': {
             paddingTop: '11px',
