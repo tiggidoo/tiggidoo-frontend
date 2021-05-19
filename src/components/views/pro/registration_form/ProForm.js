@@ -159,6 +159,9 @@ class ProForm extends Component {
 
     howKnowUsAPI = async () => {
         const lang = this.props.i18n.language
+
+        console.log('este es el idioma: ', lang);
+
         await axios.get(`https://www.api-tiggidoo.com/api/howknowus/${lang}`)
         .then(res => {
             this.setState({
@@ -176,7 +179,7 @@ class ProForm extends Component {
 
                     for(let index in res){                        
                         if(index !== 'id'){
-                            ser[res[index].id] = res[index].name
+                            ser[res[index].id] =  lang === 'fr' ? res[index].fr : res[index].en
                         }
                     }
                 }

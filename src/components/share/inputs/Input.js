@@ -3,7 +3,6 @@ import TextField from "@material-ui/core/TextField";
 import { MaskTelephone } from './mask/TextMaskCustom';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-
 const useStyles = makeStyles((theme) => ({
     shadow: {
         boxShadow: '-1px 4px 6px 3px #80808047',
@@ -20,13 +19,15 @@ const useStyles = makeStyles((theme) => ({
             transform: 'translate(14px, -8px) scale(0.75)'
         },
         '& .MuiOutlinedInput-root': {
-            borderRadius: '8px'
+            borderRadius: '4px'  //8px
         },
-        '& .MuiInputBase-input': {
-            boxShadow: '1px 3px 4px 0px #80808047',
-            height: '0.8em',
-            borderRadius: '8px'
-        },
+        
+        // '& .MuiInputBase-input': {
+        //     boxShadow: '1px 3px 4px 0px #80808047',
+        //     height: '0.8em',
+        //     borderRadius: '8px'
+        // },
+        
         '& .MuiOutlinedInput-inputMarginDense': {
             paddingTop: '11px',
             paddingBottom: '11px',
