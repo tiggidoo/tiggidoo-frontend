@@ -251,5 +251,26 @@
       "description5":"L’équipe de recrutement de Tiggidoo",
       "button": "ACCUEIL"
     }
-  }
+  },
+	"Client": {
+    "Nav":{
+      "home": "Accueil",
+      "services": "Services",
+      "becomeTodo": "Devenir un Todoo",
+      "login": "S’identifier"
+
+    },
+		"Hero": {
+			"title1": "La PLATEFORME",
+			"title2": "DES SERVICES ESSENTIELS",
+      "text1": "vous connecte avec des spécialistes de l’entretien ménager résidentiel. Recevez instantanément une estimation en ligne, Lancez votre requête et obtenez des profils qualifiés de préposés au ménage.",
+      "text2": " C’est simple, rapide et sans engagement.",
+      "text3":" ESSAYEZ DÈS MAINTENANT!",
+      "postCodeLabel": "SAISISSEZ VOTRE CODE POSTAL",
+      "postCodeBtn": "Commencer",
+      "postCodeText1": "Vous avez déjà un compte ?",
+      "postCodeText2": "Connectez-vous",
+      "postCodeText3": "à votre espace"
+		}
+	}
 }

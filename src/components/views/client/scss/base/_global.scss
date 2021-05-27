@@ -1,0 +1,48 @@
+/*------------------------------------------------------------------
+[Variables] 
+*/
+
+/*------------------------------------------------------------------
+[Resets] 
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:focus{
+  outline: 1px solid $mountain-meadow;
+}
+
+body {
+  font-family: "Avenir_Regular";
+  background-color: $body_bg_color;
+  color: $body_text_color;
+}
+
+/*------------------------------------------------------------------
+[Typography] 
+*/
+h1 {
+  font-family: "Avenir_Black";
+  font-size: 68px;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+}
+
+p {
+  font-family: "Avenir_Regular";
+}
+
+/*------------------------------------------------------------------
+[Utilities] 
+*/
+.green_text {
+  color: $bg_green !important;
+}
+
+// .blue_text {
+//   color: $blue !important;
+// }

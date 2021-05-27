@@ -1,0 +1,25 @@
+.btn {
+    font-family: "Avenir_Black";
+    font-size: 23px;
+    padding: 12px 30px;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.btn_blue_bg {
+    @extend .btn;
+    background: $btn_bg_blue;
+    color: #fff;
+}
+
+.btn_green_bg {
+    @extend .btn;
+    background: $bg_green;
+    color: #fff;
+}
+
+.btn_nav {
+    @extend .btn;
+    background: #fff;
+    color: $btn_nav_blue;
+}

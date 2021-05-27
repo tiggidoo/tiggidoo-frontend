@@ -20,6 +20,8 @@ import Help from "./components/views/pro/help/Help";
 import Activities from "./components/views/pro/activity/Activities";
 import Info from "./components/views/pro/personall_data/Info";
 
+import ClientHome from "./components/views/client/ClientHome";
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -39,6 +41,8 @@ function App() {
             {/* <Route exact path="/personal_informations/my_criteria" component={ MyCriteria } /> */}
             <Route exact path="/help" component={ Help } />
             <Route exact path="/" component={BecomePro} />
+
+            <Route exact path="/client" component={ClientHome} />
 
           </Switch>
         </div>
