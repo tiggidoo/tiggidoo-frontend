@@ -1,12 +1,16 @@
-import React from 'react'
-import { Box, Button, Checkbox, FormControlLabel, Grid, makeStyles, Radio, RadioGroup, Typography } from '@material-ui/core'
+import React, { useState } from 'react'
+import { Box, Button, Grid, makeStyles, RadioGroup, Typography, FormControl } from '@material-ui/core'
 //import { useSelector } from 'react-redux'
 import TitleForm from '../../../layout/TitleForm'
 import CheckBoxCustom from '../../../share/inputs/CheckBoxCustom'
+import DiscreteSlider from '../../../share/inputs/DiscreteSlider'
+import Input from '../../../share/inputs/Input'
+import RadioCustom from '../../../share/inputs/RadioCustom';
 
 const useStyle = makeStyles((theme) => ({
     btn: {
         padding: theme.spacing(4, 4, 2, 4),
+        marginBottom: theme.spacing(12),
         textAlign: 'center',
         '@media(min-width: 600px)':{
             textAlign: 'right',
@@ -27,112 +31,233 @@ const useStyle = makeStyles((theme) => ({
             fontSize: '2.5rem'
         }
 
+    },
+    quantityStyle:{
+        color: theme.palette.primary.main,
+        fontWeight:'bold'
+    },
+    checkStyle:{
+        margin: theme.spacing(1,0),
+        '& .MuiFormControlLabel-label':{
+            fontSize: '1.5rem'
+        }
     }
 }))
 
-const MyCriteria = () => {
+const MyCriteria = ({ updateProCriteria, criterion }) => {
     const classes = useStyle();
 
-    // const { auth, token, isLoggedIn } = useSelector(
-    //     state => ({
-    //         auth: state.auth.pro,
-    //         token: state.access_token,
-    //         isLoggedIn: state.auth.isLoggedIn
-    //     })
-    // ) 
+    const [formData, setFormData] = useState({
+        postCode: criterion.postcode,
+        scope: criterion.scope,
+        oven: criterion.oven === 1 ? true : false,
+        fridge: criterion.fridge === 1 ? true : false,
+        bed: criterion.bed === 1 ? true : false,
+        vacuum: criterion.vacuum === 1 ? true : false,
+        productStandard: criterion.product_standard === 1 ? true : false,
+        productEcological: criterion.product_ecological === 1 ? true : false,
+        withClient: criterion.with_client.toString(),
+        withCat: criterion.with_cat.toString(),
+        withDog: criterion.with_dog.toString()
+    })
 
-    const handleChange = () => {
+    const handleChange = (e) => {
+        
+        if(e.target.type === 'checkbox'){
+            setFormData({...formData, [e.target.name]: e.target.checked})
+        }else{
+            e.preventDefault()
+            setFormData({...formData, [e.target.name]: e.target.value})
+        }
+    }
 
+    const handleScope = (event, newValue) => {
+        setFormData({...formData, 'scope': newValue})
+    };
+
+    const sendFormData = (e) => {
+        e.preventDefault()
+        updateProCriteria(formData)
     }
 
     return (
+        <Grid container>
+            <Grid item sm={12}>
+                <TitleForm title="LOCALISATION" />
+            </Grid>
 
-            <Box  className={classes.myCriteria}>
-                <Grid item sm={12}>
-                    <TitleForm title={'PERSONAL INFORMATION'} subTitle={'My criteria'} />
-                </Grid>
-                <Grid container>
-                    <Grid item xs={12} sm={12} md={12}>
-                        <Typography component="h5" variant="h5" >
-                            J'accepte d'être contacté pour effectuer une prestation avec extra pour :
-                        </Typography>
-                        <Typography component="h6" variant="h6" >
-                            (Chaque montant sera a indiquer lors de l'acceptation d'une demande)
-                        </Typography>
-                    </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <Box display="flex" flexDirection="column" my={3}>
+                    <Box mb={2}>
+                        Où souhaitez-vous effectuer vos prestations ?
+                    </Box>
+                    <Box>
+                        <Input
+                            id="postCode" 
+                            label="" 
+                            size="small" 
+                            type='text'
+                            width="50%"
+                            onBlur={e=>handleChange(e)} 
+                            defaultValue={formData.postCode} 
+                            variant="outlined" 
+                            readOnly={false}
+                            error=""
+                        />
+                    </Box>
+                </Box>
+            </Grid>
 
-                    <Grid item xs={12} sm={12} md={12}>
-                        <Box ml={3} mt={1} display="flex" flexDirection="column">
-                            {/* <FormControlLabel
-                                control={<Checkbox name="fr" color="primary" checked={false} />}
-                                label={"Matériel: Aspirateur, mope etc"}
-                            /> */}
-                            <CheckBoxCustom
-                                name="en"
-                                label="Matériel: Aspirateur, mope etc"
-                                value={true}
-                                handleChange={handleChange}
-                            />
-                            <FormControlLabel
-                                control={<Checkbox  name="en" color="primary" checked={true} />}
-                                label={"Produit vert/écologique"}
-                            />
-                            <FormControlLabel
-                                control={<Checkbox  name="en" color="primary" checked={true} />}
-                                label={"Produit normaux"}
-                            />
-                        </Box>
-                    </Grid>
+            <Grid item xs={12} sm={12} md={6}>
+                <Box display="flex" flexDirection="column" my={3}>
+                    <Box mb={2} display="flex" flexDirection="row" justifyContent="space-between">
+                        <Box>Dans un rayon autour de</Box>
+                        <Box className={classes.quantityStyle}>{`${formData.scope}Km`}</Box>
+                    </Box>
+                    <Box display="flex" flexDirection="row" justifyContent="center">
+                        <DiscreteSlider value={formData.scope} handleScope={handleScope}/>
+                    </Box>
+                </Box>                   
+            </Grid>
 
-                    <Grid item xs={12} sm={12} md={12}>
-                        <Box mt={3}>
-                        <Box mb={1}>
-                                <Typography component="h5" variant="h5" >
-                                    J'accepte d'être contacté pour des prestations avec option (Nettoyage frigo etc;)
-                                </Typography>
-                                <Box ml={3}>                                    
-                                    <RadioGroup row aria-label="gender" name="authorization" value={'1'} 
-                                        onChange={handleChange}>
-                                        <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={'Oui'} />
-                                        <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={'Non'} />
-                                    </RadioGroup>                                    
-                                </Box>
+            <Grid item sm={12}>
+                <Box mt={6} mb={4}>
+                    <TitleForm title="PERSONNALISEZ VOS PRESTATIONS" />
+                    <Typography component="h6" variant="h6" >
+                        Acceptez-vous d’être contacté pour réaliser des prestations avec options ?
+                    </Typography>
+                    <Typography component="h6" variant="h6" >
+                        (Le montant de chaque option sera a indiquer lors de votre proposition de demande)
+                    </Typography>
+                </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6} lg={4}>
+                <Box className={classes.checkStyle}>
+                    <CheckBoxCustom
+                        name="vacuum"
+                        label="Matériel: Aspirateur, mope …"
+                        value={formData.vacuum}
+                        handleChange={e=>handleChange(e)}
+                    />
+                </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6} lg={4}>
+                <Box className={classes.checkStyle}>
+                    <CheckBoxCustom
+                        name="productStandard"
+                        label="Produits standards"
+                        value={formData.productStandard}
+                        handleChange={e=>handleChange(e)}
+                    />
+                </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6} lg={4}>
+                <Box className={classes.checkStyle}>
+                    <CheckBoxCustom
+                        name="productEcological"
+                        label="Produits écologiques"
+                        value={formData.productEcological}
+                        handleChange={e=>handleChange(e)}
+                    />
+                </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6} lg={4}>
+                <Box className={classes.checkStyle}>
+                    <CheckBoxCustom
+                        name="fridge"
+                        label="Nettoyage frigo"
+                        value={formData.fridge}
+                        handleChange={e=>handleChange(e)}
+                    />
+                </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6} lg={4}>
+                <Box className={classes.checkStyle}>
+                    <CheckBoxCustom
+                        name="oven"
+                        label="Nettoyage four"
+                        value={formData.oven}
+                        handleChange={e=>handleChange(e)}
+                    />
+                </Box>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6} lg={4}>
+                <Box className={classes.checkStyle}>
+                    <CheckBoxCustom
+                        name="bed"
+                        label="Faire lits avec draps propres"
+                        value={formData.bed}
+                        handleChange={e=>handleChange(e)}
+                    />
+                </Box>
+            </Grid>
+
+            <Grid item xs={12}>
+                <Box mt={8}>
+                    <Typography component="h6" variant="h6" >
+                        Êtes-vous à l’aise de travailler en présence du client dans le logement ?
+                    </Typography>
+                </Box>
+                <Box mt={1}>                      
+                    <FormControl component="fieldset">
+                        <RadioGroup value={formData.withClient} defaultValue={'0'} aria-label="gender" name="withClient" onClick={e=>handleChange(e)}>
+                            <Box display="flex" flexDirection="row">
+                                <RadioCustom value="1" label="Oui" defaultValue={formData.withClient} />
+                                <RadioCustom value="0" label="Non" defaultValue={formData.withClient} />
                             </Box>
-                            <Box mb={1}>
-                                <Typography component="h5" variant="h5" >
-                                    Je suis à l'aise de travailler en présence du client dans le logement.
-                                </Typography>
-                                <Box ml={3}>                                   
-                                    <RadioGroup row aria-label="gender" name="authorization" value={'1'} 
-                                        onChange={handleChange}>
-                                        <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={'Oui'} />
-                                        <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={'Non'} />
-                                    </RadioGroup>                                    
-                                </Box>
-                            </Box>
-                            <Box mb={1}>
-                                <Typography component="h5" variant="h5" >
-                                    J'accepte de travailler en présence d'animaux de compagnie
-                                </Typography>
-                                <Box ml={3}>                                   
-                                    <RadioGroup row aria-label="gender" name="authorization" value={'1'} 
-                                        onChange={handleChange}>
-                                        <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={'Oui'} />
-                                        <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={'Non'} />
-                                    </RadioGroup>                                    
-                                </Box>
-                            </Box>
-                                                  
-                        </Box>
-                    </Grid>
+                        </RadioGroup>
+                    </FormControl>
+                </Box>
+            </Grid>
 
-                    <Grid item xs={12}>
-                        <Box className={classes.btn}>
-                            <Button variant="contained" color="primary">MODIFIER MES CRITERES</Button>
-                        </Box>
-                    </Grid>                  
-                </Grid>
-            </Box>
+            <Grid item xs={12}>
+                <Box mt={2}>
+                    <Typography component="h6" variant="h6" >
+                        Êtes-vous à l’aise de travailler en présence de chien ?
+                    </Typography>
+                </Box>
+                <Box mt={1}>                      
+                    <FormControl component="fieldset">
+                        <RadioGroup value={formData.withCat} defaultValue={'0'} aria-label="gender" name="withCat" onChange={e=>handleChange(e)}>
+                            <Box display="flex" flexDirection="row">
+                                <RadioCustom value="1" label="Oui" defaultValue={formData.withCat} />
+                                <RadioCustom value="0" label="Non" defaultValue={formData.withCat} />
+                            </Box>
+                        </RadioGroup>
+                    </FormControl>
+                </Box>
+            </Grid>
+
+            <Grid item xs={12}>
+                <Box mt={2}>
+                    <Typography component="h6" variant="h6" >
+                        Êtes-vous à l’aise de travailler en présence de chats ?
+                    </Typography>
+                </Box>
+                <Box mt={1} mb={5}>                      
+                    <FormControl component="fieldset">
+                        <RadioGroup value={formData.withDog} defaultValue={'0'} aria-label="gender" name="withDog" onChange={e=>handleChange(e)}>
+                            <Box display="flex" flexDirection="row">
+                                <RadioCustom value="1" label="Oui" defaultValue={formData.withDog} />
+                                <RadioCustom value="0" label="Non" defaultValue={formData.withDog} />
+                            </Box>
+                        </RadioGroup>
+                    </FormControl>
+                </Box>
+            </Grid>
+
+            <Grid item xs={12}>
+                <Box className={classes.btn}>
+                    <Button variant="contained" color="primary" onClick={ e => sendFormData(e) } >ENREGISTRE</Button>
+                </Box>
+            </Grid>                  
+        </Grid>
     )
 }
 

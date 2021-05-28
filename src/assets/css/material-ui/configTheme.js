@@ -70,7 +70,7 @@ const theme = createMuiTheme({
     },
     h5: {
       fontSize: "2rem",
-      color: "#4D4D4D",
+      color: "#7a7a7a",
       fontFamily: "sans-serif",
       fontWeight: 'bold',
       margin: 0,

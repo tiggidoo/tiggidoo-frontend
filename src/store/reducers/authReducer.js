@@ -1,4 +1,4 @@
-import { UPDATE_SCHEDULE_PRO } from '../actions/typesAction';
+import { UPDATE_SCHEDULE_PRO, UPDATE_MY_CRITERIA } from '../actions/typesAction';
 
 const initState = {
     isLoggedIn: false,
@@ -24,15 +24,17 @@ const authReducer = (state = initState, action) => {
                 initState
              };
         case UPDATE_SCHEDULE_PRO:
-
-             console.log('Paso 3 desde reducere----: ');
-
              return {
                  ...state,
                  pro: {
                      ...state.pro, 
                      availability: action.payload
                 }
+             };
+        case UPDATE_MY_CRITERIA: 
+             return {
+                 ...state,
+                 pro: action.payload
              };
         default:
             return state;

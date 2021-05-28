@@ -29,7 +29,7 @@ const useStyle = makeStyles((theme) => ({
     },
     bkgPadding: {
         backgroundColor: '#fff',
-        padding: theme.spacing(3),
+        padding: theme.spacing(6, 0, 0, 0),
         borderRadius: '4px',
         minHeight: '80vh',
         '@media(max-width: 600px)': {

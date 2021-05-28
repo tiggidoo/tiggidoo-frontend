@@ -6,7 +6,7 @@ const TitleForm = ({title}) => {
 
     return (    
         <Box>                    
-            <Typography component="h5" variant="h5" style={{color: '#7a7a7a'}}>
+            <Typography component="h5" variant="h5">
                 { title }
             </Typography>
         </Box>

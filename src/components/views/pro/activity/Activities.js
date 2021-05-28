@@ -8,6 +8,25 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyle = makeStyles((theme) => ({
   appBarArea: {
+    '& .MuiAppBar-colorPrimary':{
+      backgroundColor: '#fff',
+      color: theme.palette.primary.main,
+      border: `2px solid ${theme.palette.primary.main}`,
+      '& .MuiTab-wrapper':{
+        fontWeight: 'bold',
+      },
+      '& button:focus':{
+        outline: 'none'
+      },
+      '& .Mui-selected':{
+        backgroundColor: theme.palette.primary.main,
+        color: '#fff',
+        fontWeight: 'bold',
+      },
+      '& .MuiTabs-indicator':{
+        backgroundColor: theme.palette.primary.main
+      },
+    },
     '& .MuiBox-root': {
       padding: '0px'
     },
@@ -19,7 +38,7 @@ const useStyle = makeStyles((theme) => ({
     }
   },
   workArea:{
-    padding: '32px 10px 0px 10px !important',
+    padding: '48px 0px 0px 48px !important',
     '@media(max-width: 600px)':{
       padding: '32px 0px 0px 0px !important',
     }

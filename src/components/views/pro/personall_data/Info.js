@@ -1,13 +1,33 @@
 import React, { useState } from 'react'
 import { Box, AppBar, Tabs, Tab, makeStyles, Hidden, MenuItem, Menu, ListItemText, withStyles } from '@material-ui/core'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Dashboard from '../../../layout/Dashboard'
 import MenuIcon from '@material-ui/icons/Menu';
+import { updateMyCriteria } from '../../../../store/actions/proAction'
 import Data from './Data';
 import MyCriteria from './MyCriteria';
 
 const useStyle = makeStyles((theme) => ({
   appBarArea: {
+    '& .MuiAppBar-colorPrimary':{
+      backgroundColor: '#fff',
+      color: theme.palette.primary.main,
+      border: `2px solid ${theme.palette.primary.main}`,
+      '& .MuiTab-wrapper':{
+        fontWeight: 'bold',
+      },
+      '& button:focus':{
+        outline: 'none'
+      },
+      '& .Mui-selected':{
+        backgroundColor: theme.palette.primary.main,
+        color: '#fff',
+        fontWeight: 'bold',
+      },
+      '& .MuiTabs-indicator':{
+        backgroundColor: theme.palette.primary.main
+      },
+    },
     '& .MuiBox-root': {
       padding: '0px'
     },
@@ -19,7 +39,7 @@ const useStyle = makeStyles((theme) => ({
     }
   },
   workArea:{
-    padding: '32px 10px 0px 10px !important',
+    padding: '48px 48px 0px 64px !important',
     '@media(max-width: 600px)':{
       padding: '32px 0px 0px 0px !important',
     }
@@ -102,6 +122,8 @@ const Info = () => {
     })
   ) 
 
+  const dispatch = useDispatch()
+
   const handleChange = (e, newValue) => {
     setValue(newValue);
   };    
@@ -119,57 +141,60 @@ const Info = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-    console.log(pro);
 
-    return (
-        <Dashboard
-            user = { pro }
-            token = { access_token }
-            isLoggedIn = {isLoggedIn}
-        >
-            <Box className={classes.appBarArea}>
-                <Hidden xsDown>
-                  <AppBar position="static">
-                      <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant="fullWidth">
-                          <Tab label="Mes Informations" {...a11yProps(0)} />
-                          <Tab label="Mes Criteres" {...a11yProps(1)} />
-                      </Tabs>
-                  </AppBar>
-                </Hidden>
-                <Hidden smUp>
-                  <Box className={classes.menuMovile}>
-                    <MenuIcon onClick={handleClick} style={{background: '#2ebe9f', color: '#fff'}} />
-                    <StyledMenu
-                      id="customized-menu"
-                      anchorEl={anchorEl}
-                      keepMounted
-                      open={Boolean(anchorEl)}
-                      onClose={handleClose}
-                    >
-                      <StyledMenuItem>
-                        <ListItemText primary="Mes Informations" onClick={e => onChangeMovile(e, 0)}/>
-                      </StyledMenuItem>
-                      <StyledMenuItem>
-                        <ListItemText primary="Mes Criteres" onClick={e => onChangeMovile(e, 1)} />
-                      </StyledMenuItem>
-                    </StyledMenu>
+  const updateProCriteria = (formData) =>{
+    dispatch(updateMyCriteria(access_token, pro, formData))
+  }
 
-                  </Box>
-                </Hidden>
+  return (
+    <Dashboard
+        user = { pro }
+        token = { access_token }
+        isLoggedIn = {isLoggedIn}
+    >
+      <Box className={classes.appBarArea}>
+        <Hidden xsDown>
+          <AppBar position="static">
+              <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant="fullWidth">
+                  <Tab label="Mes Informations" {...a11yProps(0)} />
+                  <Tab label="Mes Criteres" {...a11yProps(1)} />
+              </Tabs>
+          </AppBar>
+        </Hidden>
+        <Hidden smUp>
+          <Box className={classes.menuMovile}>
+            <MenuIcon onClick={handleClick} style={{background: '#2ebe9f', color: '#fff'}} />
+            <StyledMenu
+              id="customized-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <StyledMenuItem>
+                <ListItemText primary="Mes Informations" onClick={e => onChangeMovile(e, 0)}/>
+              </StyledMenuItem>
+              <StyledMenuItem>
+                <ListItemText primary="Mes Criteres" onClick={e => onChangeMovile(e, 1)} />
+              </StyledMenuItem>
+            </StyledMenu>
 
-                <TabPanel value={value} index={0}>
-                  <Box className={classes.workArea}>
-                    <Data auth={pro} />
-                  </Box>
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                  <Box className={classes.workArea}>
-                    <MyCriteria />
-                  </Box>
-                </TabPanel>
-            </Box>
-        </Dashboard>
-    )
+          </Box>
+        </Hidden>
+
+        <TabPanel value={value} index={0}>
+          <Box className={classes.workArea}>
+            <MyCriteria updateProCriteria={updateProCriteria} criterion={ pro.criterion } />
+          </Box>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <Box className={classes.workArea}>
+            <Data auth={pro} />
+          </Box>
+        </TabPanel>
+      </Box>
+    </Dashboard>
+  )
 }
 
 export default Info

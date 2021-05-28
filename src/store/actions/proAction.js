@@ -1,4 +1,4 @@
-//import { UPDATE_SCHEDULE_PRO } from './typesAction';
+import { UPDATE_MY_CRITERIA } from './typesAction';
 import axios from 'axios';
 import { setAlert } from './alertAction';
 import config from '../../config.json';
@@ -28,13 +28,10 @@ export const udateAvailabilities = (token, proId, enableTime) => async dispatch 
         axios.post(`${config.API_SERVER}/api/pro/availability/update`, data, headers)
         .then(res => {
             if (res.status === 200) {
-                console.log('Paso1:  --  ', res)
                 dispatch(updateScheduleAuth(res.data))
-                console.log('Proceso antes de terminar');
             }
         })
         .then(() => {
-            console.log('Proceso terminado');
             dispatch(setAlert('Schedule pro updated', 'success'));
         })
         .catch((error) => {
@@ -42,6 +39,63 @@ export const udateAvailabilities = (token, proId, enableTime) => async dispatch 
         });
         
     } catch (error) {
+        console.log(error)
+    }
+}
+
+export const updateMyCriteria = (token, pro, formData) => async dispatch => {
+    try{
+        const headers = {
+            headers: {'Authorization': `Bearer ${token}`}
+        }
+
+        const data = {
+            'proId': pro.id,
+            'criterion': {
+                'postcode': formData.postCode,
+                'scope': formData.scope,
+                'oven': formData.oven,
+                'fridge': formData.fridge,
+                'bed': formData.bed,
+                'vacuum': formData.vacuum,
+                'product_ecological': formData.productEcological,
+                'product_standard': formData.productStandard,
+                'with_client': formData.withClient === '1' ? true : false,
+                'with_cat': formData.withCat === '1' ? true : false,
+                'with_dog': formData.withDog === '1' ? true : false
+            }
+        }
+
+        await axios.post(`${config.API_SERVER}/api/pro/updateCriterion`, data, headers)
+        .then((res) => {
+            if(res.status === 200){
+                console.log('PROFESION: --- ',pro.criterion)
+                console.log('RESPUESTA: --- ',res.data)
+                
+                pro.criterion.postcode = res.data.postcode;
+                pro.criterion.scope = res.data.scope;
+                pro.criterion.oven = res.data.oven ? 1 : 0;
+                pro.criterion.fridge = res.data.fridge ? 1 : 0;
+                pro.criterion.bed = res.data.bed ? 1 : 0;
+                pro.criterion.vacuum = res.data.vacuum ? 1 : 0;
+                pro.criterion.product_ecological = res.data.product_ecological ? 1 : 0;
+                pro.criterion.product_standard = res.data.product_standard ? 1 : 0;
+                pro.criterion.with_client = res.data.with_client ? 1 : 0;
+                pro.criterion.with_cat = res.data.with_cat ? 1 : 0;
+                pro.criterion.with_dog = res.data.with_dog ? 1 : 0;
+
+                dispatch({
+                    type: UPDATE_MY_CRITERIA,
+                    payload: pro
+                })
+                dispatch(setAlert('Inscription mise à jour avec succès', 'success'))
+            }
+        })
+        .catch((error) => {
+            console.log('This is the error: ', error)
+        })
+
+    }catch(error){
         console.log(error)
     }
 }
