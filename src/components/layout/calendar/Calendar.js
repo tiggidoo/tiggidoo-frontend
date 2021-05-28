@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import Header from "./header";
+import config from "../../../config.json";
 import { Box, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
@@ -40,9 +41,8 @@ const useStyles = makeStyles(() => ({
   },
   calendarWeek: {
     backgroundColor: 'transparent',
+    maxWidth: '52px',
     width: 'calc(100% / 7)',
-    //height: '30px',
-    //lineHeight: '30px',
     textAlign: 'center',
     textTransform: 'uppercase',
     fontWeight: '400',
@@ -52,57 +52,61 @@ const useStyles = makeStyles(() => ({
   },
   calendarDay: {
     position: 'relative',
-    width: 'calc((100% / 7))',
-    //height: '55px',
+    maxWidth: '52px',
+    width: 'calc(100% / 7)',
+    //width: '45px',
     display: 'inline-block',
     margin: '0',
     boxSizing: 'content-box',
     zIndex: '1',
     textAlign: 'center',
     '& > div': {
-      // width: '54px',
-      // height: '53px',
-      width: 'calc(100% -2)',
-      height: '47px',
+      width: 'calc(100% - 2px)',
+      height: '45px',
       margin: '1px',
       position: 'relative',
-      color: '#000', //'#fff',
+      color: '#000',
       zIndex: '100',
       lineHeight: '54px',
-      backgroundColor: 'white', //'#32cc8c'
-      border: '1px solid #28cc8b',
+      backgroundColor: 'white',
+      border: '1px solid #ddd',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      // '@media (max-width:1366px)': { 
-      //   width: '47px',
-      //   height: '47px',
-      // },
-      // '@media (max-width:1200px)': { 
-      //   width: '40px',
-      //   height: '40px',
-      // },
-      // '@media (max-width:374px)': { 
-      //   width: '32px',
-      //   height: '32px',
-      // },
       '&.before': {
         color: '#9a9a9a',
         backgroundColor: '#ddd',
+        border: '1px solid #fff'
       },
       '&.selected': {
-        width: 'calc(100% - 2px)',
-        //border: '2px solid #1b7df7',
+        //width: 'calc(100% - 2px)',
         color: '#1b7df7',
         fontWeight: 'bold',
       },
       '&.today': {
-        backgroundColor: '#1a7df7',
+        backgroundColor: '#32cc8c',
+        border: '2px solid #2880fb',
         color: '#fff'
       },
       '&.weekend': {
         backgroundColor: '#dddddd',
         color: '#9a9a9a'
+      },
+      '&.morningtriangle': {
+        border:'22.5px solid #d1d0d1',
+        borderBottomColor:'transparent',
+        borderRightColor:'transparent'
+      },
+      '&.afternoontriangle': {
+        border:'22.5px solid #d1d0d1',
+        borderTopColor:'transparent',
+        borderLeftColor:'transparent'
+      },
+      '&.daytriangle': {
+        border:'22.5px solid #d1d0d1'
+      },
+      '&.hidden': {
+        display: 'none'
       }
     },
   },
@@ -111,7 +115,7 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const Calendar = ({ value, onChange }) => {
+const Calendar = ({ value, onChange, availability }) => {
   const classes = useStyles();
   const [calendar, setCalendar] = useState([]);
 
@@ -130,7 +134,9 @@ const Calendar = ({ value, onChange }) => {
             .map(() => _date.add(1, "day").clone())
         );
       }
+
       return a;
+
     }
     setCalendar(buildCalendar(value));
   }, [value]);
@@ -139,20 +145,37 @@ const Calendar = ({ value, onChange }) => {
     return value.isSame(day, "day");
   }
 
+  function isCurrentlyMonth(day) {
+    return day.month() !== value.month()
+  }
+
   function beforeToday(day) {
-    return moment(day).isBefore(new Date(), "day");
+    if(day.month() === value.month()){
+      return moment(day).isBefore(new Date(), "day");
+    }
   }
 
   function isToday(day) {
     return moment(new Date()).isSame(day, "day");
   }
 
+  function isBloqued(day) {
+    const dayPos = availability[config.DAYS_EN[day.isoWeekday()].substring(0,2)]
+    return dayPos;
+  }
+
   function dayStyles(day) {
     //if (day.day() === 0 || day.day() === 6) return "weekend";
     //if (daysBlocked.indexOf(day.day()) >= 0) return "weekend";
-    if (beforeToday(day)) return "before";
-    if (isSelected(day)) return "selected";
-    if (isToday(day)) return "today";
+    if(beforeToday(day)) return "before";
+    if(isCurrentlyMonth(day)) return "hidden"
+    if(isSelected(day)) return "selected";
+    if(isToday(day)) return "today";
+    const dayPos = isBloqued(day);
+    if(dayPos === 1) return "morningtriangle";
+    if(dayPos === 2) return "afternoontriangle"
+    if(dayPos === 3) return "daytriangle"
+    //daytriangle
     return "";
   }
 
@@ -182,7 +205,7 @@ const Calendar = ({ value, onChange }) => {
                         }}
                       >
                         <Box className={dayStyles(day)}>
-                          {day.format("D").toString()}
+                            {day.format("D").toString()}
                         </Box>
                       </Box>
                     )

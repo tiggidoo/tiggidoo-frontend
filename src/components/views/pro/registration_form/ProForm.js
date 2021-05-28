@@ -40,12 +40,12 @@ class ProForm extends Component {
 
     constructor(props) {
         super(props);
-
         /* This portions of lines orgenize the date with "2020-09-30" */
 
         let today = new Date();
         let year = today.getFullYear();
         let month = today.getMonth() + 1;
+        month = (month < 10) ? "0" + month : month;
         let day = (today.getDate() < 10) ? "0" + today.getDate() : today.getDate();
         let formDate = year + "-" + month + "-" + day;
 
@@ -130,7 +130,8 @@ class ProForm extends Component {
                     referPosition1: 'The Position is required',
                     referDepartureDate1: '',
                     integrationPlatform: 'Choose at least one option',
-                    how_know_us: ''
+                    how_know_us: '',
+                    servicesChosen: "The service is required"
                 },
                 step3: {
                     files: "An Image is required."
@@ -143,6 +144,8 @@ class ProForm extends Component {
                 }
             },
             how_know_us_list: null,
+            servicesChosen: [],
+            servicesList: [],
             emailAndPhoneExist: 0,
             emailAndPhoneMessage: "The email and number phone are already exist.",
             selectedTimezone: ''
@@ -157,17 +160,40 @@ class ProForm extends Component {
     howKnowUsAPI = async () => {
         const lang = this.props.i18n.language
         await axios.get(`https://www.api-tiggidoo.com/api/howknowus/${lang}`)
-            .then(res => {
+        .then(res => {
+            this.setState({
+                how_know_us_list: res.data.data
+            })
+        })
+        .then(res => {
+
+            axios.get(`https://www.api-tiggidoo.com/api/services/all`)
+            .then(data => {
+                const res = data.data;
+
+                let ser =  []                    
+                if(data.status === 200){
+
+                    for(let index in res){                        
+                        if(index !== 'id'){
+                            ser[res[index].id] = res[index].name
+                        }
+                    }
+                }
 
                 this.setState({
-                    how_know_us_list: res.data.data
+                    servicesList: ser
                 })
-            }).catch((error) => {
-                console.log(error)
+                
+            }).catch((e) => {
+                console.log(e)
             })
-    }
-    //Go to next step 
 
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
 
     validateMailAndNextStep = (emailAndPhoneExist) => {
         if (emailAndPhoneExist === 1) {
@@ -232,6 +258,13 @@ class ProForm extends Component {
     }
 
     handleAddressGoogleApi = address => {
+
+        console.log('PortView:1 ', address.geometry)
+        console.log('Lat: ', address.geometry.location.lat())
+        console.log('Lng: ', address.geometry.location.lng())
+        console.log('La:  ', address.geometry.viewport.La)
+        console.log('Ua:  ', address.geometry.viewport.Ua)
+
         const formErrors = this.state.formErrors;
         const arrayAddress = address.address_components;
 
@@ -281,7 +314,6 @@ class ProForm extends Component {
             }
 
         }
-
         
         if(province.length === 0){
             province = city;
@@ -318,16 +350,14 @@ class ProForm extends Component {
             countryShortName: country_short_name,
             timezone: timezone.trim(),
         });
-
     }
 
     handleChangePhone = (e, formattedValue, country, telValue, name) => {
-        
+
         const value = e.target.value;
         if(value !== undefined){
-            //console.log(telValue.length - country.dialCode.length);
+            
             let ex = telValue.length - country.dialCode.length;
-
             const formErrors = this.state.formErrors;
 
             switch (name) {
@@ -363,7 +393,6 @@ class ProForm extends Component {
     }
 
     handleChange = (e) => {
-
         const formErrors = this.state.formErrors;
         const formErrorsNoValidaton = this.state.formErrorsNoValidaton;
         switch (e.target.type) {
@@ -467,7 +496,6 @@ class ProForm extends Component {
                     default:
                         break;
                 }
-
                 break;
 
             case "checkbox":
@@ -524,7 +552,14 @@ class ProForm extends Component {
                 }
 
                 break;
+
             default:
+                if(e.target.name === 'servicesChosen'){
+                    this.setState({
+                        [e.target.name]: e.target.value,
+                    });
+                    formErrors.step2.servicesChosen = e.target.value.length === 0 ? "The service is required" : "";
+                }
                 break;
         }
 
@@ -532,7 +567,6 @@ class ProForm extends Component {
 
     setImages = (e) => {
         const formErrors = this.state.formErrors.step3;
-        console.log('Este es la imagen: ', e.target.files);
         this.setState({
             [e.target.name]: e.target.files,
             preview: URL.createObjectURL(e.target.files[0]),
@@ -543,13 +577,13 @@ class ProForm extends Component {
     getStepContent = () => {
 
         const { step } = this.state;
-
         const { firstName, lastName, birthDay, birthMonth, birthYear, date_of_birth, telephone,
             email, en, fr, es, po, ar, authorization, criminal, experience,
             referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1,
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-            workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
+            workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, servicesChosen, 
+            servicesList, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
             streetNumber, streetName, city, province, country, postCode, selectedTimezone, countryShortName } = this.state;
 
@@ -559,7 +593,8 @@ class ProForm extends Component {
             referFirstName1, referLastName1, referEmail1, referTelephone1, referCompany1,
             referPosition1, referDepartureDate1, referFirstName2, referLastName2, referEmail2,
             referTelephone2, referCompany2, referPosition2, referDepartureDate2, workRegurary,
-            workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, smartphoneWithData, health,
+            workExtra, extraIncome, visibility, concept, how_know_us, how_know_us_list, servicesChosen, 
+            servicesList, smartphoneWithData, health,
             healthDescription, files, preview, validate, formErrors, formErrorsNoValidaton, emailAndPhoneExist, emailAndPhoneMessage,
             streetNumber, streetName, city, province, country, postCode, selectedTimezone, countryShortName
         };

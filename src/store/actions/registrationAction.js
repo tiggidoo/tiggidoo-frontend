@@ -47,6 +47,14 @@ export const registrationAction = (registration) => async dispatch => {
             registration.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         }
 
+
+        let service = {}
+        const servicesList = registration.servicesChosen
+        for(let i = 0; i<servicesList.length; i++){
+            const serviceIndex = servicesList[i].split('-')[0]
+            service[serviceIndex] = true
+        }
+
         const profesional = {
             "firstName": registration.firstName,
             "lastName": registration.lastName,
@@ -61,6 +69,7 @@ export const registrationAction = (registration) => async dispatch => {
                 "country": registration.country,
                 "postcode": registration.postCode
             },
+            "services": service,
             "lag_talk": {
                 "en": registration.en ? 1 : 0,
                 "fr": registration.fr ? 1 : 0,
@@ -87,7 +96,6 @@ export const registrationAction = (registration) => async dispatch => {
 
         const content = JSON.stringify(profesional);
         //Get the image
-        console.log(content)
         const archivos = registration.files;
 
         const f = new FormData();
@@ -99,7 +107,6 @@ export const registrationAction = (registration) => async dispatch => {
         
         await axios.post('https://www.api-tiggidoo.com/api/register/pro', f, {headers: {'Content-Type': 'multipart/form-data'}})
         .then(res => {
-            console.log(res);
             dispatch({
                 type: "REGISTRATION_SUCCESS",
                 payload: res
@@ -111,7 +118,6 @@ export const registrationAction = (registration) => async dispatch => {
                 payload: 400
             })
         });
-
     }catch (error) {
         dispatch({
             type: "REGISTRATION_FAIL",

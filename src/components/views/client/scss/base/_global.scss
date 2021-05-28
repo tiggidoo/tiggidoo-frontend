@@ -1,0 +1,126 @@
+/*------------------------------------------------------------------
+[Variables] 
+*/
+
+/*------------------------------------------------------------------
+[Resets] 
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:focus {
+    outline: 1px solid $mountain-meadow;
+}
+
+body {
+    font-family: "Avenir_Regular";
+    background-color: $body_bg_color;
+    color: $body_text_color;
+    font-size: 25px;
+}
+
+ul {
+    list-style: none;
+}
+
+/*------------------------------------------------------------------
+[Typography] 
+*/
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Avenir_Black";
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 68px;
+    color: #000000;
+
+    @include breakpoint(mobile) {
+        font-size: 40px;
+    }
+}
+
+h2 {
+    font-size: 35px;
+    color: $title_color;
+    text-align: center;
+
+    @include breakpoint(mobile) {
+        font-size: 20px;
+    }
+}
+
+h3{
+    font-size: 30px;
+    color: $azure-blue;
+    margin-bottom: 29px;
+
+    @include breakpoint(mobile) {
+        font-size: 18px;
+    }
+}
+
+h4 {
+    color: $title_color;
+    font-size: 24px;
+
+    @include breakpoint(mobile) {
+        font-size: 14px;
+    }
+}
+
+h5 {
+    text-transform: inherit;
+    font-size: 25px;
+    color: #fff;
+
+    @include breakpoint(mobile) {
+        font-size: 15px;
+    }
+}
+
+p {
+    font-family: "Avenir_Regular";
+    font-size: 25px;
+
+    @include breakpoint(mobile) {
+        font-size: 15px;
+    }
+}
+
+/*------------------------------------------------------------------
+[Utilities] 
+*/
+.green_text {
+    color: $bg_green !important;
+}
+
+.check_mark_list {
+    li {
+        position: relative;
+        padding-left: 17px;
+        
+        &:not(:last-child()){
+            margin-bottom: 38px;
+        }
+
+        &::before {
+            content: "";
+            color: $azure-blue;
+            width: 10px;
+            height: 17px;
+            position: absolute;
+            left: -17px;
+            border-right: 3px solid $azure-blue;
+            border-bottom: 3px solid $azure-blue;
+            transform: rotate(45deg);
+        }
+    }
+}

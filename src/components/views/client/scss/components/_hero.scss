@@ -1,0 +1,105 @@
+/*------------------------------------------------------------------
+[Hero] 
+*/
+.ClHero {
+    background-image: url("../../../../../images/arriere-plan.svg");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: right top;
+
+    &__title {
+        margin-top: 143px;
+
+        @include breakpoint(tablet) {
+            margin-top: 63px;
+        }
+
+        span {
+            font-size: 43px;
+            display: block;
+        }
+    }
+
+    &__text {
+        span {
+            font-weight: bold;
+        }
+    }
+
+    &__img {
+        max-width: 700px;
+        margin-top: 143px;
+
+        @include breakpoint(tablet) {
+            margin-top: 0;
+        }
+    }
+
+    .post_code__container {
+        @include breakpoint(tablet) {
+            margin-top: 40px;
+        }
+
+        p {
+            text-transform: uppercase;
+            font-family: "Avenir_Black";
+        }
+    }
+
+    .post_code__input_container {
+        background: #fff;
+        padding: 10px 17px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include breakpoint(mobile) {
+            flex-direction: column;
+        }
+
+        input {
+            border: none;
+
+            &::placeholder {
+                color: $gray_2;
+                font-size: 20px;
+
+                @include breakpoint(mobile) {
+                    font-size: 11px;
+                }
+            }
+
+            &:first-child {
+                width: 60%;
+                margin-right: 100px;
+                padding: 12px;
+
+                @include breakpoint(mobile) {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+
+    .post_code__login_container {
+        margin-top: 20px;
+        font-size: 16px;
+        text-transform: uppercase;
+
+        a {
+            font-family: "Avenir_Black";
+            text-decoration: underline;
+        }
+    }
+
+    .row {
+        margin-top: 82px;
+
+        @include breakpoint(tablet) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+}

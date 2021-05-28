@@ -16,6 +16,7 @@ import { withTranslation } from "react-i18next";
 //REDUX FUNCTIONS
 import { compose } from "redux";
 import InputCustomPhone from '../../../share/inputs/InputCustomPhone';
+import MultipleSelect from '../../../share/inputs/MultipleSelect';
 
 
 
@@ -57,12 +58,29 @@ class FormPersonalBackground extends Component {
                 </Box>
 
                 <Box mb={6}>
-                    <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalBackground.groupCheckBox_1.title")}</Typography></Box>
+                    <Box className={classes.serviceArea}>
+                        <Box>
+                            <Box mb={1}><Typography variant="h5">{t("ProForm.FormPersonalBackground.groupCheckBox_1.title")}</Typography></Box>
+                            <RadioGroup row aria-label="gender" name="experience" value={values.experience} onChange={handleChange}>
+                                <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel1")} />
+                                <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel2")} />
+                            </RadioGroup>
+                        </Box>
+ 
+                        <Box mt={3}>
+                            <MultipleSelect 
+                                id="servicesChosen" 
+                                label={t("ProForm.FormPersonalDetails.services")}
+                                handleChange = { handleChange } 
+                                servicesList={ values.servicesList } 
+                                servicesChosen = { values.servicesChosen}
+                            />
 
-                    <RadioGroup row aria-label="gender" name="experience" value={values.experience} onChange={handleChange}>
-                        <FormControlLabel labelPlacement="end" value="1" control={<Radio color="primary" />} label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel1")} />
-                        <FormControlLabel labelPlacement="end" value="0" control={<Radio color="primary" />} label={t("ProForm.FormPersonalBackground.groupCheckBox_1.checkBoxLabel2")} />
-                    </RadioGroup>
+                            {(formErrors.step2.servicesChosen.length > 0 && values.validate === 1) && (
+                                <span className={classes.errorMessage}>{formErrors.step2.servicesChosen}</span>
+                            )}
+                        </Box>
+                    </Box>
                 </Box>
 
                 <Box>
@@ -498,6 +516,14 @@ const styles = (theme) => ({
             color: theme.palette.primary.main,
         }
 
+    },
+    serviceArea: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        '@media (max-width:992px)': { 
+            flexDirection: 'column',
+        }
     }
 });
 

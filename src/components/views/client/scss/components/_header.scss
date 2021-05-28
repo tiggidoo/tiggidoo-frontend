@@ -1,0 +1,84 @@
+/*------------------------------------------------------------------
+[Header] 
+*/
+.clientNav {
+    background: transparent;
+    transition: ease-in 0.3s;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    padding: 57px 2% 30px 5%;
+    width: 100%;
+
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
+    .NavBar__container {
+        width: 100%;
+        max-width: 1600px;
+        margin: auto;
+        display: flex;
+
+        @include breakpoint(desktop) {
+            flex-wrap: wrap;
+        }
+    }
+    .navbar-collapse {
+        flex-grow: 1;
+    }
+    .NavBar__menu {
+        flex-grow: 1;
+        align-items: center;
+    }
+
+    .NavBar__item {
+        color: #fff !important;
+        font-size: 23px;
+
+        &:first-child {
+            font-family: "Avenir_Black";
+            color: $azure-blue !important;
+        }
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+            margin: 0 51px;
+        }
+
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6) {
+            margin: 0 15px;
+        }
+
+        &:nth-child(4) {
+            // margin-left: auto;
+
+            @include breakpoint-reverse(desktop) {
+                margin-left: auto;
+            }
+        }
+
+        &.NavBar__language__item {
+            font-family: "Avenir_Light";
+            font-size: 21px;
+            font-weight: 300;
+        }
+    }
+}
+
+// Navbar when scrolled and Burger menu opened
+.nav_scrolled, .menu_open {
+    background: #fff;
+    
+
+    .NavBar__item {
+        color: $title_color !important;
+    }
+}
+
+.nav_scrolled{
+    padding: 46px 2% 29px 5%;
+}

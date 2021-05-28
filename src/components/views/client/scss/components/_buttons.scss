@@ -1,0 +1,70 @@
+/*------------------------------------------------------------------
+[Buttons] 
+*/
+.btn {
+    font-family: "Avenir_Black";
+    font-size: 23px;
+    padding: 12px 30px;
+    border-radius: 0;
+    text-transform: uppercase;
+    transition: ease-in .3s;
+
+    @include breakpoint(mobile) {
+        font-size: 15px;
+    }
+
+    &:hover{
+        letter-spacing: 2px;
+        text-decoration: none;
+    }
+}
+
+.btn_blue_bg {
+    @extend .btn;
+    background: $btn_bg_blue;
+    color: #fff;
+}
+
+.btn_green_bg {
+    @extend .btn;
+    background: $bg_green;
+    color: #fff;
+
+    &:hover{
+        color: #fff;
+    }
+}
+
+.btn_nav {
+    @extend .btn;
+    background: #fff;
+    color: $btn_nav_blue;
+
+    &:hover{
+        background: #fff;
+        color: $btn_nav_blue;
+    }
+}
+
+.btn_round{
+    font-family: "Avenir_Black";
+    font-size: 15px;
+    padding: 10px 28px;
+    border-radius: 13px;
+    text-transform: uppercase;
+    transition: ease-in .3s;
+    border: 3px solid $dodger-blue_4;
+    color: $dodger-blue_4;
+
+    &:hover{
+        letter-spacing: 2px;
+        text-decoration: none;
+        color: $dodger-blue_4;
+    }
+
+    @include breakpoint(mobile) {
+        font-size: 11px;
+        padding: 10px 18px;
+    }
+
+}

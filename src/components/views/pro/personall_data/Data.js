@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import { Box, Button, Checkbox, FormControlLabel, Grid, makeStyles, Typography } from '@material-ui/core'
-import { useSelector } from 'react-redux'
-import Dashboard from '../../../layout/Dashboard'
+import { Box, Button, Divider, FormControl, FormControlLabel, FormLabel, Grid, makeStyles, RadioGroup, Typography } from '@material-ui/core'
+//import { useSelector } from 'react-redux'
+//import Dashboard from '../../../layout/Dashboard'
 import Input from '../../../share/inputs/Input'
-
-
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import { Link } from "react-router-dom"
+//import TitleForm from '../../../layout/TitleForm'
+import CheckBoxCustom from '../../../share/inputs/CheckBoxCustom'
+import Label from '../../../share/inputs/Label';
+import TitleForm from '../../../layout/TitleForm';
+import RadioCustom from '../../../share/inputs/RadioCustom';
 
 const useStyle = makeStyles((theme) => ({
     
@@ -24,7 +27,7 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     boxStyle: {
-        margin: theme.spacing(0 , 2, 5, 2),
+        margin: theme.spacing(0 , 0, 5, 0),
         '& .MuiOutlinedInput-root': {
             backgroundColor: '#dcdcdc'
         },
@@ -38,6 +41,10 @@ const useStyle = makeStyles((theme) => ({
         '@media(max-width: 1200px)': {
             padding: theme.spacing(0),
             margin: theme.spacing(1,0)
+        },
+        '& h6':{
+            fontSize: '1.5rem',
+            fontWeight: 'bold'
         }
     },
     boxStyleBanc: {
@@ -52,44 +59,32 @@ const useStyle = makeStyles((theme) => ({
             margin: theme.spacing(0 , 2, 2, 2)
         }
     },
-    title: {
-        margin: theme.spacing(0,0,5,2),
-        '& h5':{
-            color: theme.palette.primary.main
-        },
-        '@media(max-width: 1200px)': {
-            margin: theme.spacing(0,0,2,0),
-        }
-    },
-    subTitle: {
-        '& h5':{
-            color: theme.palette.tertiary.main
-        }
-    },
     btn: {
         padding: theme.spacing(4, 4, 2, 4),
         textAlign: 'center',
         '@media(min-width: 600px)':{
             textAlign: 'right',
         }
-    }
+    },
+    root: {
+        width: '100%',
+        maxWidth: 360,
+        backgroundColor: theme.palette.background.paper,
+      },
 }))
 
-const Data = () => {
+const Data = ({auth}) => {
     const classes = useStyle();
 
-    const { auth, token, isLoggedIn } = useSelector(
-        state => ({
-            auth: state.auth.pro,
-            token: state.access_token,
-            isLoggedIn: state.auth.isLoggedIn
-        })
-    ) 
     const { credential } = auth;
     const [showPassword, setShowPassword] = useState(false);
     //const [ password, setPassword ] = useState('HOLA');
-    const password = 'HOLA';
+    const password = '';
     
+    const handleChange = e => {
+        e.preventDefault()
+    }
+
     const handDisplayPassword = e => {
         e.preventDefault();
         setShowPassword(!showPassword);
@@ -100,32 +95,21 @@ const Data = () => {
     };
 
     return (
-        <Dashboard
-            user = { auth }
-            token = { token }
-            isLoggedIn = {isLoggedIn}
-        >
-            <Grid item sm={12}>
-                <Box className={classes.title}>
-                    <Box mb={1}>
-                        <Typography component="h5" variant="h5">
-                            PERSONAL INFORMATION
-                        </Typography>
-                    </Box>
-                    <Box className={classes.subTitle}>
-                        <Typography component="h5" variant="h5" >
-                            My personal data
-                        </Typography>
-                    </Box>
-                </Box>
-            </Grid>
+            // <Grid item sm={12}>
+            //     <TitleForm title={'PERSONAL INFORMATION'} subTitle={'My personal data'} />
+            // </Grid>
             <Grid container>
+                <Grid item xs={12}>
+                    <Box mb={3}>
+                        <TitleForm title="MES DONNEES PERSONELLES" />
+                    </Box>
+                </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                     <Grid container>
                         <Grid item xs={12} sm={6} md={12}>
                             <Box className={classes.boxStyle}>
                                 <Box>
-                                    <Typography variant="h6">First Name</Typography>
+                                    <Label text="PRENOM" />
                                 </Box>
                                 <Box>
                                     <Input
@@ -145,7 +129,7 @@ const Data = () => {
                         <Grid item xs={12} sm={6} md={12}>
                             <Box className={classes.boxStyle}>
                                 <Box>    
-                                    <Typography variant="h6">Last Name</Typography>
+                                    <Label text="NOM" />
                                 </Box>
                                 <Box>
                                     <Input
@@ -168,7 +152,7 @@ const Data = () => {
                         <Grid item xs={12} sm={6} md={12}>
                             <Box className={classes.boxStyle}>
                                 <Box>    
-                                    <Typography variant="h6">Email</Typography>
+                                    <Label text="CURRIEL" />
                                 </Box>
                                 <Box>
                                     <Input
@@ -188,7 +172,7 @@ const Data = () => {
                         <Grid item xs={12} sm={6} md={12}>
                             <Box className={classes.boxStyle}>
                                 <Box>    
-                                    <Typography variant="h6">Phone</Typography>
+                                    <Label text="TELEPHONE" />
                                 </Box>
                                 <Box>
                                     <Input
@@ -212,7 +196,7 @@ const Data = () => {
                         <Grid item xs={12} sm={6} md={12}>
                             <Box className={classes.boxStyle}>
                                 <Box>    
-                                    <Typography variant="h6">Password</Typography>
+                                    <Label text="MOT DE PASSE" />
                                 </Box>
                                 <Box flexDirection="row" alignItems="center">
                                     <Input
@@ -250,90 +234,68 @@ const Data = () => {
 
                 <Grid item xs={12} sm={12} md={12}>
                     <Grid container>
-                        <Box className={classes.boxStyle}>
+                        <Box className={classes.boxStyle} display="flex">
+                            <Box mr={3}>
+                                <CheckBoxCustom
+                                    name="fr"
+                                    value={true}
+                                    handleChange={handleChange}
+                                    label="Fr"
+                                />
+                            </Box>
+                            <Box>
+                                <CheckBoxCustom
+                                    name="en"
+                                    value={false}
+                                    handleChange={handleChange}
+                                    label="En"
+                                />
+                            </Box>
+                        </Box>
+                    </Grid>
+                </Grid>
+
+
+                <Grid item xd={12}>                    
+                    <Box className={classes.root}>
+                        <Divider />
+                    </Box>
+                </Grid>
+                <Grid item xd={12}>
+                    <Box mb={1}>
+                        <TitleForm title="INFORMATIONS POUR LE VERSEMENT" />
+                    </Box>
+                    <Box mb={2}>
+                        <Typography variant="h6" style={{color: '#000'}}>Êtes-vous assujetti à la TPS/TVQ</Typography>
+                    </Box>
+                    <Box mb={2}>
+                        
+
+                    <FormControl component="fieldset">
+                        <FormLabel component="legend">Gender</FormLabel>
+                            <RadioGroup defaultValue="female" aria-label="gender" name="customized-radios">
+                            <FormControlLabel value="female" control={<RadioCustom />} label="Female" />
+                            <FormControlLabel value="male" control={<RadioCustom />} label="Male" />
+                            <FormControlLabel value="other" control={<RadioCustom />} label="Other" />
                             <FormControlLabel
-                                control={<Checkbox name="fr" color="primary" checked={false} />}
-                                label={"French"}
+                                value="disabled"
+                                disabled
+                                control={<RadioCustom />}
+                                label="(Disabled option)"
                             />
-                            <FormControlLabel
-                                control={<Checkbox  name="en" color="primary" checked={true} />}
-                                label={"English"}
-                            />
-                        </Box>
-                    </Grid>
+                            </RadioGroup>
+                    </FormControl>
+
+                    </Box>
                 </Grid>
 
-                <Grid item xs={12} sm={12} md={12}>
-                    <Grid container>
-                        <Box className={classes.boxStyleBanc}>
-                            <Box>    
-                                <Typography variant="h6">Transit Number</Typography>
-                            </Box>
-                            <Input
-                                id="password1" 
-                                label="" 
-                                size="small" 
-                                type={'text'}
-                                //onBlur={handleChange} 
-                                defaultValue={"12***"} 
-                                variant="filled" 
-                                readOnly={true}
-                                error=""
-                            />
-
-                        </Box>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12}>
-                    <Grid container>
-                        <Box className={classes.boxStyleBanc}>
-                            <Box>    
-                                <Typography variant="h6">Financial Institution Number</Typography>
-                            </Box>
-                            <Input
-                                id="password2" 
-                                label="" 
-                                size="small" 
-                                type={'text'}
-                                //onBlur={handleChange} 
-                                defaultValue={"12***"} 
-                                variant="filled" 
-                                readOnly={true}
-                                error=""
-                            />
-
-                        </Box>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12}>
-                    <Grid container>
-                        <Box className={classes.boxStyleBanc}>
-                            <Box>    
-                                <Typography variant="h6">Account Number</Typography>
-                            </Box>
-                            <Input
-                                id="password3" 
-                                label="" 
-                                size="small" 
-                                type={'text'}
-                                //onBlur={handleChange} 
-                                defaultValue={"12***"} 
-                                variant="filled" 
-                                readOnly={true}
-                                error=""
-                            />
-
-                        </Box>
-                    </Grid>
-                </Grid>
                 <Grid item xs={12}>
                     <Box className={classes.btn}>
-                        <Button variant="contained" color="primary">UPDATE</Button>
+                        <Button variant="contained" color="primary">MDODIFIER MES DONNEES</Button>
                     </Box>
                 </Grid>                  
             </Grid>
             
-        </Dashboard>
     )
 }
 

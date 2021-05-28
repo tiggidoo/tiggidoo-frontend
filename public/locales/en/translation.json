@@ -145,7 +145,7 @@
       "province": "The privince is required",
       "country": "The country is required",
       "postCode": "The post code is required"
-  },
+    },
     "FormPersonalDetails":{
       "title": "Join the Todoo team today!",
       "description1": "To join the Tiggidoo platform, please fill out this form. We will review your",
@@ -184,6 +184,7 @@
         "checkBoxLabel1": "Yes",
         "checkBoxLabel2": "No"
       },
+      "services": "Services",
       "button": "NEXT"
     },
     "FormPersonalBackground": {

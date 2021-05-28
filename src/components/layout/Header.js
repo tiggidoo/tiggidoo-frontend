@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box, makeStyles, Typography, AppBar, Toolbar } from '@material-ui/core'
 import Avatar from '@material-ui/core/Avatar';
+import AlertMessage from '../layout/AlertMessage';
+
 
 const useStyle = makeStyles((theme) => ({
   headerBakgroundColor: {
@@ -38,6 +40,7 @@ const Header = ({ name, urlAvatar }) => {
       <AppBar>
         <Toolbar>
           <Box className = { classes.headerBakgroundColor }>
+            <AlertMessage />
             <Box className={classes.header}>
               <Box className={classes.imgWidth}>
                 <img src="/images/logo_tiggidoo_white.svg" alt="" />
