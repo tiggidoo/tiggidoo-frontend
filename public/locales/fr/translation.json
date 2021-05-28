@@ -272,6 +272,26 @@
       "postCodeText2": "Connectez-vous",
       "postCodeText3": "à votre espace"
 		},
+    "Services": {
+      "title": "LA PLATEFORME QUI VOUS MÉNAGE",
+      "serviceTitre1": "SÉCURITÉ",
+      "service1Text1": "Processus strict du recrutement des Todoo",
+      "service1Text2": "Prestations de services assurées",
+      "service1Text3": "Paiement en ligné sécurisé",
+      "serviceTitre2": "SIMPLICITÉ",
+      "service2Text1": "Estimation en ligne simple et rapide",
+      "service2Text2": "Choix du Todoo selon des critères",
+      "service2Text3": "Réservations en quelques clics",
+      "serviceTitre3": "QUALITÉ",
+      "service3Text1": "Estimation en ligne simple et rapide",
+      "service3Text2": "Choix du Todoo selon des critères",
+      "service3Text3": "Réservations en quelques clics",
+      "serviceTitre4": "FLEXIBILITÉ",
+      "service4Text1": "Sans engagement et sans frais cachés",
+      "service4Text2": "Large choix d’options proposés",
+      "service4Text3": "Fréquences des ménages selon les besoins",
+      "serviceBtn": "FAIRE UNE DEMANDE"
+    },
     "Footer":{
       "copyright": "© 2021 Plateforme Tiggidoo Inc. - Tous droits réservés"
     }

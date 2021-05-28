@@ -7,9 +7,15 @@
     padding: 12px 30px;
     border-radius: 0;
     text-transform: uppercase;
+    transition: ease-in .3s;
 
     @include breakpoint(mobile) {
         font-size: 15px;
+    }
+
+    &:hover{
+        letter-spacing: 2px;
+        text-decoration: none;
     }
 }
 
@@ -23,10 +29,19 @@
     @extend .btn;
     background: $bg_green;
     color: #fff;
+
+    &:hover{
+        color: #fff;
+    }
 }
 
 .btn_nav {
     @extend .btn;
     background: #fff;
     color: $btn_nav_blue;
+
+    &:hover{
+        background: #fff;
+        color: $btn_nav_blue;
+    }
 }

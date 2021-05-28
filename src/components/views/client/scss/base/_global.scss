@@ -49,9 +49,19 @@ h1 {
 h2 {
     font-size: 35px;
     color: $title_color;
+    text-align: center;
 
     @include breakpoint(mobile) {
         font-size: 20px;
+    }
+}
+
+h4 {
+    color: $title_color;
+    font-size: 24px;
+
+    @include breakpoint(mobile) {
+        font-size: 14px;
     }
 }
 
@@ -74,4 +84,27 @@ p {
 */
 .green_text {
     color: $bg_green !important;
+}
+
+.check_mark_list {
+    li {
+        position: relative;
+        padding-left: 17px;
+        
+        &:not(:last-child()){
+            margin-bottom: 38px;
+        }
+
+        &::before {
+            content: "";
+            color: $azure-blue;
+            width: 10px;
+            height: 17px;
+            position: absolute;
+            left: -17px;
+            border-right: 3px solid $azure-blue;
+            border-bottom: 3px solid $azure-blue;
+            transform: rotate(45deg);
+        }
+    }
 }
