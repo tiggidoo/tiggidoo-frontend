@@ -1,5 +1,5 @@
 /* 
-    This is the sectin Services of Devenir Client Homepage. 
+    This is the sectin Services of Client Homepage. 
 
 */
 
@@ -16,7 +16,7 @@ function Services({ t }) {
                     {t("Client.Services.title")}
                 </h2>
                 <Row className="pt-0 pt-xl-4">
-                    <Col sm={12} md={6} lg={3}>
+                    <Col sm={12} md={6} lg={6} xl={3}>
                         <div className="ClServices__box">
                             <div className="ClServices__boxImage">
                                 <img src={"images/icon_security.svg"} alt="" />
@@ -33,7 +33,7 @@ function Services({ t }) {
                             </div>
                         </div>
                     </Col>
-                    <Col sm={12} md={6} lg={3}>
+                    <Col sm={12} md={6} lg={6} xl={3}>
                         <div className="ClServices__box">
                             <div className="ClServices__boxImage">
                                 <img src={"images/icon_simplicity.svg"} alt="" />
@@ -50,7 +50,7 @@ function Services({ t }) {
                             </div>
                         </div>
                     </Col>
-                    <Col sm={12} md={6} lg={3}>
+                    <Col sm={12} md={6} lg={6} xl={3}>
                         <div className="ClServices__box">
                             <div className="ClServices__boxImage">
                                 <img src={"images/icon_quality.svg"} alt="" />
@@ -67,7 +67,7 @@ function Services({ t }) {
                             </div>
                         </div>
                     </Col>
-                    <Col sm={12} md={6} lg={3}>
+                    <Col sm={12} md={6} lg={6} xl={3}>
                         <div className="ClServices__box">
                             <div className="ClServices__boxImage">
                                 <img src={"images/icon_flexibility.svg"} alt="" />

@@ -2,12 +2,18 @@
     max-width: 1300px;
     margin: 165px auto 0;
 
+    @include breakpoint(mobile) {
+        margin: 65px auto 0;
+        max-width: 300px;
+    }
+
     &__box{
         max-width: 370px;
         height: 530px;
         box-shadow: 0px 5px 8px #00000029;
         background: #fff;
         padding: 50px 43px;
+        margin: 0 auto 10px;
     }
 
     &__boxImage{
@@ -22,5 +28,9 @@
     &__cta{
         margin-top: 120px;
         text-align: center;
+
+        @include breakpoint(mobile) {
+            margin-top: 50px;
+        }
     }
 }

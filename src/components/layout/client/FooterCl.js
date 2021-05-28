@@ -47,7 +47,7 @@ function FooterRP({ t }) {
                                 <h5>{t("Footer.titleIcons")}</h5>
                             </div>
 
-                            <div className="d-flex justify-content-between">
+                            <div className="d-flex justify-content-around">
                                 <a href="#">
                                     <img src={"images/facebook-tiggidoo.svg"} alt="Facebook" className="iconFacebook" />
                                 </a>
