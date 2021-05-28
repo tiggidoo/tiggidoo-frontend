@@ -1,0 +1,41 @@
+/*------------------------------------------------------------------
+[Footer] 
+*/
+.Footer {
+    color: #fff;
+    font-family: "Avenir_Regular";
+    font-size: 18px;
+    padding: 0 2% 0 5%;
+
+    width: 100%;
+        max-width: 1600px;
+        margin: auto;
+
+    &_logo {
+        max-width: 228px;
+        margin-left: 78px;
+
+        @include breakpoint(tablet) {
+            margin-left: 0;
+            max-width: 128px;
+        }
+    }
+
+    .iconFacebook {
+        width: 1.1rem;
+    }
+
+    .iconLinkedin{
+        width: 2.4rem;
+    }
+
+    .iconInstagram {
+        width: 2.6rem;
+    }
+
+    .desktop_copyright{
+        @include breakpoint(desktop) {
+            display: none;
+        }
+    }
+}

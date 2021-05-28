@@ -1,68 +1,75 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-//import { Container } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
 
 
 function FooterRP({ t }) {
-  return (
-    <footer className="Footer">
-      <Container>
-      <div className="pt-xl-5">
-        <div className="Footer__box d-md-flex justify-content-md-between pt-xl-5 pb-xl-4">
-          
-          <div className="Footer__copiRightDeskop d-none d-xl-flex flex-column justify-content-between mx-xl-5 ">
-            <img
-              src={"images/logo_tiggidoo_white.svg"}
-              alt=""
-              className="tiggidoo_white"
-            />
-            <div className="Footer__copiRightDeskop__text">
-              <span>{t("Footer.copyRight")}</span>
-            </div>
-          </div>
+    return (
+        <footer className="Footer">
+            <div className="pt-5 pb-md-5">
+                <div className="Footer__box d-md-flex justify-content-md-between pt-xl-5 pb-xl-4">
+                    <div className="d-flex flex-column justify-content-between">
+                        <img
+                            src={"images/logo_tiggidoo_all_white.svg"}
+                            alt=""
+                            className="Footer_logo"
+                        />
 
-          <div className="Footer__section2 mb-5 d-md-flex m-md-0">
-            <div className="Footer__section2__list1 mb-5 mb-md-0 mx-md-3 mx-lg-5">
-              <h3 className="mb-4 mb-xl-5">{t("Footer.ul1.title")} </h3>
-              <ul>
-                <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text1")}</li>
-                {/* <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text2")}</li> */}
-                <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text3")}</li>
-                <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text4")}</li>
-              </ul>
-            </div>
+                        <div className="desktop_copyright">
+                            {t("Client.Footer.copyright")}
+                        </div>
+                    </div>
 
-            <div className="Footer__section2__list2 mb-5 mx-md-3  mx-lg-5">
-              <h3 className="mb-4 mb-xl-5">{t("Footer.ul2.title")} </h3>
-              <ul>
-                <li className="mb-4 mb-xl-5">{t("Footer.ul2.li.text1")}</li>
-                <li className="mb-4 mb-xl-5">{t("Footer.ul2.li.text2")}</li>
-                <li className="mb-4 mb-xl-5">{t("Footer.ul2.li.text3")}</li>
-              </ul>
-            </div>
-          </div>
+                    <div className="mb-5 d-md-flex m-md-0">
+                        <div className="mb-5 mb-md-0 mx-md-3 mx-lg-5">
+                            <h5 className="mb-4 mb-xl-5">{t("Footer.ul1.title")} </h5>
 
-          <div className="Footer__section3 mb-5 d-md-flex mx-md-3 my-md-0">
-            <div className="Footer__section3__SN">
-              <div className="Footer__section3_SN_Title mb-xl-5">
-                <h3>{t("Footer.titleIcons")}</h3>
-              </div>
-              <div className="Footer__section3__SN__Icons d-flex justify-content-between">
-                <img src={"images/facebook-tiggidoo.svg"} alt="" className="iconFacebook" />
-                <img src={"images/linkedin-tiggidoo.svg"} alt="" className="iconLinkedin" />
-                <img src={"images/instgram-tiggidoo.svg"} alt="" className="iconInstagram" />
-              </div>
+                            <ul>
+                                <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text1")}</li>
+                                <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text3")}</li>
+                                <li className="mb-4 mb-xl-5">{t("Footer.ul1.li.text4")}</li>
+                            </ul>
+                        </div>
+
+                        <div className="mb-5 mx-md-3  mx-lg-5">
+                            <h5 className="mb-4 mb-xl-5">{t("Footer.ul2.title")} </h5>
+
+                            <ul>
+                                <li className="mb-4 mb-xl-5">{t("Footer.ul2.li.text1")}</li>
+                                <li className="mb-4 mb-xl-5">{t("Footer.ul2.li.text2")}</li>
+                                <li className="mb-4 mb-xl-5">{t("Footer.ul2.li.text3")}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="mb-5 d-md-flex mx-md-5 my-md-0">
+                        <div>
+                            <div className=" mb-xl-5">
+                                <h5>{t("Footer.titleIcons")}</h5>
+                            </div>
+
+                            <div className="d-flex justify-content-between">
+                                <a href="#">
+                                    <img src={"images/facebook-tiggidoo.svg"} alt="Facebook" className="iconFacebook" />
+                                </a>
+
+                                <a href="#">
+                                    <img src={"images/linkedin-tiggidoo.svg"} alt="LinkedIn" className="iconLinkedin" />
+                                </a>
+
+                                <a href="#">
+                                    <img src={"images/instgram-tiggidoo.svg"} alt="Instagrame" className="iconInstagram" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="d-xl-none text-center">
+                    {t("Client.Footer.copyright")}
+                </div>
             </div>
-          </div>
-        </div>
-        <div className="Footer__copiRight d-xl-none">
-          <span>{t("Footer.copyRight")}</span>
-        </div>
-      </div>
-      </Container>
-    </footer>
-  );
+        </footer>
+    );
 }
 
 export default withTranslation()(FooterRP);

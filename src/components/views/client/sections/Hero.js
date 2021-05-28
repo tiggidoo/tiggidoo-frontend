@@ -12,13 +12,7 @@ function Hero({ t }) {
         <section className="ClHero">
         <Container>
             <Row>
-            <Col md={12}>
-                <img
-                src={"../images/cl_home_hero_asset.svg"}
-                alt=""
-                className="ClHero__img d-sm-block d-md-none mt-5 mb-5"
-                />
-            </Col>
+            
 
             <Col md={12} lg={6}>
                 <div className="ClHero__box d-flex flex-column h-100 mt-5">
@@ -46,7 +40,7 @@ function Hero({ t }) {
                     <img
                         src={"../images/cl_home_hero_asset.svg"}
                         alt=""
-                        className="ClHero__img d-sm-none d-md-block"
+                        className="ClHero__img d-md-block"
                     />
                 </div>
             </Col>

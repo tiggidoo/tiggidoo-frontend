@@ -1,9 +1,16 @@
+/*------------------------------------------------------------------
+[Buttons] 
+*/
 .btn {
     font-family: "Avenir_Black";
     font-size: 23px;
     padding: 12px 30px;
     border-radius: 0;
     text-transform: uppercase;
+
+    @include breakpoint(mobile) {
+        font-size: 15px;
+    }
 }
 
 .btn_blue_bg {

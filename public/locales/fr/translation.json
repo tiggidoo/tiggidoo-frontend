@@ -271,6 +271,9 @@
       "postCodeText1": "Vous avez déjà un compte ?",
       "postCodeText2": "Connectez-vous",
       "postCodeText3": "à votre espace"
-		}
+		},
+    "Footer":{
+      "copyright": "© 2021 Plateforme Tiggidoo Inc. - Tous droits réservés"
+    }
 	}
 }

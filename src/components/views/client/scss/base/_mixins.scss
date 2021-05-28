@@ -1,4 +1,6 @@
-/* Media queries */
+/*------------------------------------------------------------------
+[Media queries] 
+*/
 @mixin breakpoint($point){
     @if $point == xx-large {
       @media only screen and (max-width:1599px) {
