@@ -11,7 +11,7 @@ import InputPostCode from "../section-parts/InputPostCode";
 function Cta({ t }) {
     return (
         <div className="Clcta">
-            <Row className="pt-0 pt-xl-4">
+            <Row className="main_wrapper">
             
             <Col sm={12} md={12} lg={6}> 
                 <h2>{t("Client.Experts.title")}</h2>

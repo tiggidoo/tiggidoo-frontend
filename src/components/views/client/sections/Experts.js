@@ -9,7 +9,7 @@ import { withTranslation } from "react-i18next";
 function Experts({ t }) {
     return (
         <div className="Clexperts">
-            <Row className="pt-0 pt-xl-4">
+            <Row className="main_wrapper">
                 <Col sm={12} md={6} lg={6}>
                     <div className="">
                         <h2>
