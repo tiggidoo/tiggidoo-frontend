@@ -2,7 +2,7 @@
     padding: 189px 0 0 5%;
 
     @include breakpoint-reverse(xx-large){
-        padding: 189px 0;
+        padding: 189px 0 0;
     }
 
     @include breakpoint(mobile) {
