@@ -14,7 +14,7 @@ function Cta({ t }) {
             <Row className="main_wrapper">
             
             <Col sm={12} md={12} lg={6}> 
-                <h2>{t("Client.Experts.title")}</h2>
+                <h2>{t("Client.Cta.title")}</h2>
             </Col>
 
             <Col sm={12} md={12} lg={6}> 
