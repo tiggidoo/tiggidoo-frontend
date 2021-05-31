@@ -1,0 +1,17 @@
+.Clcta{
+    background-color: $shamrock;
+    padding: 75px 5%;
+
+    @include breakpoint(desktop) {
+        padding: 75px 2%;
+    }
+
+    .row {
+        align-items: baseline;
+    }
+
+    h2 {
+        color: #fff;
+        text-align: left;
+    }
+}
