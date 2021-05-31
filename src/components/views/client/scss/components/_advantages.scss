@@ -1,0 +1,30 @@
+.Cladvantages {
+    background-color: $azure-blue;
+    color: #fff;
+    padding: 90px 5% 120px;
+
+    h2{
+        color: #fff;
+        margin-bottom: 89px;
+    }
+
+    p{
+        font-family: "Avenir_Black";
+    }
+
+    &__row{
+        display: flex;
+        gap: 25px;
+        align-items: flex-start;
+
+        @include breakpoint(tablet) {
+            padding-bottom: 42px;
+        }
+    }
+
+    img{
+        @include breakpoint(mobile) {
+            max-width: 30px;
+        }
+    }
+}

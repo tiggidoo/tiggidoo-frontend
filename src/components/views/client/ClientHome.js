@@ -7,6 +7,7 @@ import FooterCl from "../../layout/client/FooterCl";
 import Services from "./sections/Services";
 import Steps from "./sections/Steps";
 import Experts from "./sections/Experts";
+import Advantages from "./sections/Advantages";
 
 
 function ClientHome () {
@@ -17,6 +18,7 @@ function ClientHome () {
             <Services />
             <Steps />
             <Experts />
+            <Advantages />
             <FooterCl />
         </div>
     )

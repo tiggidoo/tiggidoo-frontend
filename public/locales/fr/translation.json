@@ -315,7 +315,13 @@
             "text2": "vous propose automatiquement les demandes de Todoo les mieux qualifiés selon votre quartier, vos exigences et votre type de résidence.",
             "text3": "Vous n’avez qu’à choisir le profil que vous préférez, valider votre devis, puis le tour est joué!",
             "cta": "TROUVER UN TODOO"
-
+        },
+        "Advantages":{
+            "title": "LES AVANTAGES D’UTILISER LA PLATEFOrmE TIGGIDOo",
+            "text1": "PROFILS QUALIFIÉS",
+            "text2": "PRESTATIONS ENCADRÉES",
+            "text3": "TARIFS RÉGLEMENTÉS",
+            "text4": "ASSITANCE 7/7J"
         },
         "Footer":{
             "copyright": "© 2021 Plateforme Tiggidoo Inc. - Tous droits réservés"
