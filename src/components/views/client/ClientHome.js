@@ -6,6 +6,7 @@ import Hero from "./sections/Hero";
 import FooterCl from "../../layout/client/FooterCl";
 import Services from "./sections/Services";
 import Steps from "./sections/Steps";
+import Experts from "./sections/Experts";
 
 
 function ClientHome () {
@@ -15,6 +16,7 @@ function ClientHome () {
             <Hero />
             <Services />
             <Steps />
+            <Experts />
             <FooterCl />
         </div>
     )

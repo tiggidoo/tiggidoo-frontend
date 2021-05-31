@@ -309,6 +309,14 @@
             "step4Description": "Pour réserver votre service d’entretien ménager, vous payez simplement à partir de votre portail privé. Notre plateforme de paiement est totalement sécurisée et votre pro du ménage reçoit sa rémunération qu’après avoir effectué le travail.",
             "step4Link": "RÉSERVER UN SERVICE"
         },
+        "Experts":{
+            "title": "CONNAISSEZ-VOUS LES",
+            "text1": "Ce sont des experts de l’entretien ménager résidentiel, des hommes et des femmes de ménage triés sur le volet par notre équipe et notés par des utilisateurs comme vous.",
+            "text2": "vous propose automatiquement les demandes de Todoo les mieux qualifiés selon votre quartier, vos exigences et votre type de résidence.",
+            "text3": "Vous n’avez qu’à choisir le profil que vous préférez, valider votre devis, puis le tour est joué!",
+            "cta": "TROUVER UN TODOO"
+
+        },
         "Footer":{
             "copyright": "© 2021 Plateforme Tiggidoo Inc. - Tous droits réservés"
         }
