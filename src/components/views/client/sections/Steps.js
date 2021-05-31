@@ -2,8 +2,6 @@
     This is the sectin Steps of Client Homepage. 
 
 */
-
-import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
 
@@ -64,6 +62,7 @@ function Steps({ t }) {
                             <a className="btn_round" href="#">{t("Client.Steps.step2Link")}</a>
                         </div>
                     </Col>
+                    
                     <Col sm={12} md={6} lg={6}>
                         <div className="ClSteps__box">
                             <div className="step_indicator">

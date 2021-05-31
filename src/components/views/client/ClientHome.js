@@ -6,6 +6,10 @@ import Hero from "./sections/Hero";
 import FooterCl from "../../layout/client/FooterCl";
 import Services from "./sections/Services";
 import Steps from "./sections/Steps";
+import Experts from "./sections/Experts";
+import Advantages from "./sections/Advantages";
+import Cta from "./sections/Cta";
+import ProposeService from "./sections/ProposeService";
 
 
 function ClientHome () {
@@ -15,6 +19,10 @@ function ClientHome () {
             <Hero />
             <Services />
             <Steps />
+            <Experts />
+            <Advantages />
+            <Cta />
+            <ProposeService />
             <FooterCl />
         </div>
     )
