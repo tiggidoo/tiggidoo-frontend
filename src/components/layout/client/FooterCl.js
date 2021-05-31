@@ -4,7 +4,7 @@ import { withTranslation } from "react-i18next";
 function FooterRP({ t }) {
     return (
         <footer className="Footer">
-            <div className="pt-5 pb-md-5">
+            <div className="main_wrapper pt-5 pb-md-5">
                 <div className="Footer__box d-md-flex justify-content-md-between pt-xl-5 pb-xl-4">
                     <div className="d-flex flex-column justify-content-between">
                         <img

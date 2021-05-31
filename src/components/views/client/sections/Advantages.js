@@ -14,7 +14,7 @@ function Advantages({ t }) {
                 {t("Client.Advantages.title")}
             </h2>
 
-            <Row className="pt-0 pt-xl-4">
+            <Row className="main_wrapper">
                 <Col sm={6} md={6} lg={6} xl={3}>
                     <div className="Cladvantages__row">
                         <img src={"images/icon_personel.svg"} alt="Nos experts" />

@@ -5,6 +5,11 @@
     margin-top: 188px;
     background-image: url("../../../../../images/cl_steps_section_bg.svg");
     background-repeat: no-repeat;
+    background-size: initial;
+
+    @include breakpoint-reverse(xx-large) {
+        background-size: contain;
+    }
 
     @include breakpoint(mobile) {
         margin-top: 80px;
