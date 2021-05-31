@@ -10,6 +10,10 @@
     &__title {
         margin-top: 143px;
 
+        @include breakpoint-reverse(xx-large){
+            font-size: 88px;
+        }
+
         @include breakpoint(tablet) {
             margin-top: 63px;
         }
@@ -17,6 +21,10 @@
         span {
             font-size: 43px;
             display: block;
+
+            @include breakpoint-reverse(xx-large){
+                font-size: 55px;
+            }
         }
     }
 
