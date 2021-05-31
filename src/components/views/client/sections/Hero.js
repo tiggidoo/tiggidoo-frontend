@@ -1,8 +1,6 @@
 /*  
     This is the Hero section of Client Home page. 
 */
-
-import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
 import PostCodeCl from "../section-parts/PostCodeCl";

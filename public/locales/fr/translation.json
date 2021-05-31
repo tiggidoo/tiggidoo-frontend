@@ -323,6 +323,12 @@
             "text3": "TARIFS RÉGLEMENTÉS",
             "text4": "ASSITANCE 7/7J"
         },
+        "ProposeServices":{
+            "title": "PROPOSEZ VOS SERVICES DÈS MAINTENANT!",
+            "text1": "La plateforme",
+            "text2": "vous offre une gamme d’outils de gestion intégrés conçus spécialement pour les travailleurs autonomes en entretien ménager résidentiel.Gratuits et efficaces, ils vous feront économiser du temps et surtout, gagner plus d’argent.",
+            "cta": "ASSITANCE 7/7J"
+        },
         "Footer":{
             "copyright": "© 2021 Plateforme Tiggidoo Inc. - Tous droits réservés"
         }

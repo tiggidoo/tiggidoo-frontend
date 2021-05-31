@@ -2,6 +2,10 @@
     background-color: #fff;
     padding: 158px 5% 270px;
 
+    @include breakpoint(tablet) {
+        padding: 100px 5% 170px;
+    }
+
     @include breakpoint(mobile) {
         padding: 58px 5% 74px;
     }

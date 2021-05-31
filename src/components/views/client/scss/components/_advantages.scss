@@ -3,6 +3,10 @@
     color: #fff;
     padding: 90px 5% 120px;
 
+    @include breakpoint(mobile) {
+        padding: 90px 5% 40px;
+    }
+
     h2{
         color: #fff;
         margin-bottom: 89px;

@@ -23,6 +23,10 @@
     @extend .btn;
     background: $btn_bg_blue;
     color: #fff;
+
+    &:hover{
+        color: #fff;
+    }
 }
 
 .btn_green_bg {

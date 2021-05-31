@@ -2,8 +2,6 @@
     This is the sectin Services of Client Homepage. 
 
 */
-
-import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { withTranslation } from "react-i18next";
 
@@ -15,7 +13,7 @@ function Services({ t }) {
                     {t("Client.Services.title")}
                 </h2>
 
-                <Row className="pt-0 pt-xl-4">
+                <Row>
                     <Col sm={12} md={6} lg={6} xl={3}>
                         <div className="ClServices__box">
                             <div className="ClServices__boxImage">

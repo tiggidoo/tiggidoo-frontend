@@ -1,4 +1,3 @@
-import React from "react";
 import { Helmet } from 'react-helmet';
 
 import { useState } from 'react'
@@ -12,7 +11,6 @@ import { logOutAction } from '../../../store/actions/authAction';
 import { useTranslation } from "react-i18next";
 
 import { withRouter } from "react-router";
-
 
 
 const HeaderRP = ({ history }) => {

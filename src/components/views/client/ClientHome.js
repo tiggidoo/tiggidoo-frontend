@@ -9,6 +9,7 @@ import Steps from "./sections/Steps";
 import Experts from "./sections/Experts";
 import Advantages from "./sections/Advantages";
 import Cta from "./sections/Cta";
+import ProposeService from "./sections/ProposeService";
 
 
 function ClientHome () {
@@ -21,6 +22,7 @@ function ClientHome () {
             <Experts />
             <Advantages />
             <Cta />
+            <ProposeService />
             <FooterCl />
         </div>
     )
