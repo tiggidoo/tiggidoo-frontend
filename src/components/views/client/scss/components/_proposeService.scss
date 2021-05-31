@@ -18,6 +18,10 @@
         @include breakpoint(tablet) {
             padding-right: 15px;
         }
+
+        span {
+            font-family: "Avenir_Black";
+        }
     }
 
     &__cta {
