@@ -1,6 +1,10 @@
 .Clexperts {
     background-color: #fff;
-    padding: 158px 5% 270px;
+    padding: 100px 5% 170px;
+
+    @include breakpoint-reverse(xx-large) {
+        padding: 158px 5% 270px;
+    }
 
     @include breakpoint(tablet) {
         padding: 100px 5% 170px;
@@ -31,5 +35,11 @@
         max-width: 600px;
         width: 100%;
         margin-top: 50px;
+        margin-left: 0;
+
+        @include breakpoint-reverse(xx-large) {
+            max-width: 711px;
+            margin-left: 44px;
+        }
     }
 }

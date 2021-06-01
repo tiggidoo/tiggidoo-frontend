@@ -70,15 +70,19 @@
 }
 
 // Navbar when scrolled and Burger menu opened
-.nav_scrolled, .menu_open {
+.clientNav__nav--scrolled, .menu_open {
     background: #fff;
     
 
     .NavBar__item {
         color: $title_color !important;
     }
+
+    .btn_nav {
+        border: 4px solid $btn_nav_blue;
+    }
 }
 
-.nav_scrolled{
+.clientNav__nav--scrolled{
     padding: 46px 2% 29px 5%;
 }

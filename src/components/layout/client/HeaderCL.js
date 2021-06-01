@@ -1,8 +1,6 @@
 import { Helmet } from 'react-helmet';
 
-import { useState } from 'react'
-import { useRef } from 'react'
-import { useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 import { Button, Navbar, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +9,8 @@ import { logOutAction } from '../../../store/actions/authAction';
 import { useTranslation } from "react-i18next";
 
 import { withRouter } from "react-router";
+
+import { Box } from '@material-ui/core'
 
 
 const HeaderRP = ({ history }) => {
@@ -69,8 +69,8 @@ const HeaderRP = ({ history }) => {
 				<meta name="keywords" content={t("SEO.meta.keywords")} />
 			</Helmet>
 			 
-			<Navbar expand="xl" id="clientNav" className={`clientNav ${navBackground ? "nav_scrolled" : ""}`}>
-				<div className="NavBar__container">
+			<Navbar expand="xl" id="clientNav" className={`clientNav ${navBackground ? "clientNav__nav--scrolled" : ""}`}>
+				<Box className="NavBar__container">
 					<Navbar.Brand href="#home">
 						<img
 							src={"images/logo_tiggidoo.svg"}
@@ -123,7 +123,7 @@ const HeaderRP = ({ history }) => {
 							</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>
-				</div>
+				</Box>
 			</Navbar>
 		</div>
 	);

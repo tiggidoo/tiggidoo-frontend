@@ -9,6 +9,11 @@
     box-shadow: 0px -25px 15px #00000029;
     width: 100%;
 
+    @include breakpoint(mobile) {
+        font-size: 12px;
+        padding: 0 2% 20px 5%;
+    }
+
     &_logo {
         max-width: 228px;
         margin-left: 78px;
@@ -19,16 +24,60 @@
         }
     }
 
+    &__link-Box {
+        min-width: 220px;
+
+        @include breakpoint(mobile) {
+            text-align: center;
+            margin: 20px 0;
+        }
+    }
+
+    &__link a {
+        font-size: 18px;
+        color: #fff;
+        font-family: "Avenir_Regular";
+        transition: ease-in 0.3s;
+
+        @include breakpoint(mobile) {
+            font-size: 15px;
+        }
+
+        &:hover {
+            font-family: "Avenir_Black";
+            text-decoration: none;
+        }
+    }
+
+    &__social-links {
+        @include breakpoint(mobile) {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+
     .iconFacebook {
         width: 1.1rem;
+
+        @include breakpoint(mobile) {
+            width: 1rem;
+        }
     }
 
     .iconLinkedin {
         width: 2.4rem;
+
+        @include breakpoint(mobile) {
+            width: 2rem;
+        }
     }
 
     .iconInstagram {
         width: 2.6rem;
+
+        @include breakpoint(mobile) {
+            width: 2.1rem;
+        }
     }
 
     .desktop_copyright {

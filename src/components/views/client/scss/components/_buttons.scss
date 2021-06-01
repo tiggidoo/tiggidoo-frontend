@@ -43,6 +43,7 @@
     @extend .btn;
     background: #fff;
     color: $btn_nav_blue;
+    border: none;
 
     &:hover{
         background: #fff;

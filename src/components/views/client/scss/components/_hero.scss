@@ -7,36 +7,14 @@
     background-size: 70%;
     background-position: right top;
 
-    &__title {
-        margin-top: 143px;
-
-        @include breakpoint-reverse(xx-large){
-            font-size: 88px;
-        }
-
-        @include breakpoint(tablet) {
-            margin-top: 63px;
-        }
-
-        span {
-            font-size: 43px;
-            display: block;
-
-            @include breakpoint-reverse(xx-large){
-                font-size: 55px;
-            }
-        }
-    }
-
-    &__text {
-        span {
-            font-weight: bold;
-        }
-    }
-
     &__img {
         max-width: 700px;
         margin-top: 143px;
+
+        @include breakpoint-reverse(xx-large) {
+            margin-top: 134px;
+            max-width: 750px;
+        }
 
         @include breakpoint(tablet) {
             margin-top: 0;
@@ -48,6 +26,10 @@
             margin-top: 40px;
         }
 
+        @include breakpoint(mobile) {
+            margin-top: 20px;
+        }
+
         .post_code__title {
             text-transform: uppercase;
             font-family: "Avenir_Black";
@@ -55,11 +37,20 @@
     }
 
     .post_code__login_container {
-        margin-top: 20px;
+        margin-top: 66px;
         font-size: 16px;
         text-transform: uppercase;
 
-        a {
+        @include breakpoint(tablet) {
+            margin-top: 40px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-top: 20px;
+            font-size: 10px;
+        }
+
+        .post_code__link {
             font-family: "Avenir_Black";
             text-decoration: underline;
         }
@@ -109,7 +100,5 @@
                 margin-bottom: 12px;
             }
         }
-
     }
-
 }

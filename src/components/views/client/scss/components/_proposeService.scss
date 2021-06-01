@@ -44,5 +44,9 @@
     img {
         max-width: 600px;
         width: 100%;
+
+        @include breakpoint-reverse(xx-large) {
+            max-width: 637px;
+        }
     }
 }
