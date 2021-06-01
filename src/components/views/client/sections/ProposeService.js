@@ -5,27 +5,30 @@
 */
 import { Link } from 'react-router-dom'
 
-import { Col, Row } from "react-bootstrap";
-import { withTranslation } from "react-i18next";
+import { Col, Row } from "react-bootstrap"
+import { withTranslation } from "react-i18next"
+
+import { Typography, Box } from '@material-ui/core'
 
 
 function ProposeService({ t }) {
     return (
-        <div className="ClProposeService">
-            <div className="main_wrapper">
+        <Box className="ClProposeService">
+            <Box className="main_wrapper">
                 <Row >
                     <Col sm={12} md={12} lg={7} className="ClProposeService__column">
-                        <h2>{t("Client.ProposeServices.title")}</h2>
+                        <Typography variant="h2">{t("Client.ProposeServices.title")}</Typography>
 
                         <p>
                             {t("Client.ProposeServices.text1")}&nbsp;
-                        <span>TIGGID</span><span className="green_text">Oo</span>&nbsp;
-                        {t("Client.ProposeServices.text2")}
+                            <span>TIGGID</span>
+                            <span className="green_text">Oo</span>&nbsp;
+                            {t("Client.ProposeServices.text2")}
                         </p>
 
-                        <div className="ClProposeService__cta text-center">
+                        <Box className="ClProposeService__cta text-center">
                             <Link to="/" className="btn_blue_bg">{t("Client.ProposeServices.cta")}</Link>
-                        </div>
+                        </Box>
 
                     </Col>
 
@@ -33,8 +36,8 @@ function ProposeService({ t }) {
                         <img src={"../images/proposeServices.png"} alt="Propose Services" />
                     </Col>
                 </Row>
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 }
 

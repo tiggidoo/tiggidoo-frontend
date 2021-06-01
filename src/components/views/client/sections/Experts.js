@@ -2,43 +2,49 @@
     This is the sectin Experts of Client Homepage. 
 
 */
-import { Col, Row } from "react-bootstrap";
-import { withTranslation } from "react-i18next";
+import { Col, Row } from "react-bootstrap"
+import { withTranslation } from "react-i18next"
+
+import { Typography, Box } from '@material-ui/core'
+
+import { Link } from 'react-router-dom'
 
 
 function Experts({ t }) {
     return (
-        <div className="Clexperts">
+        <Box className="Clexperts">
             <Row className="main_wrapper">
                 <Col sm={12} md={6} lg={6}>
-                    <div className="">
-                        <h2>
-                            {t("Client.Experts.title")}
-                            &nbsp;<span>TIGGID</span><span className="green_text">Oo</span>&nbsp;?
-                        </h2>
+                    <Box className="">
+                        <Typography variant="h2">
+                            {t("Client.Experts.title")}&nbsp;
+                            <span>TOD</span>
+                            <span className="green_text">Oo</span>&nbsp;?
+                        </Typography>
 
-                        <div className="">
+                        <Box className="">
                             <p>{t("Client.Experts.text1")}</p>
 
                             <p>
-                                <span>TIGGID</span><span className="green_text">Oo</span>&nbsp;
+                                <span>TIGGID</span>
+                                <span className="green_text">Oo</span>&nbsp;
                                 {t("Client.Experts.text2")}
                             </p>
 
                             <p>{t("Client.Experts.text3")}</p>
-                        </div>
+                        </Box>
 
-                        <div className="ClServices__cta">
-                            <a className="btn_green_bg" href="#" target="_blank" rel="noopener noreferrer">{t("Client.Experts.cta")}</a>
-                        </div>
-                    </div>
+                        <Box className="ClServices__cta">
+                            <Link className="btn_green_bg" to="/" target="_blank" rel="noopener noreferrer">{t("Client.Experts.cta")}</Link>
+                        </Box>
+                    </Box>
                 </Col>
+
                 <Col sm={12} md={6} lg={6}>
                     <img src={"images/cl_home_experts.png"} alt="Nos experts" />
                 </Col>
-
             </Row>
-        </div>
+        </Box>
     );
 }
 

@@ -2,17 +2,9 @@
 [Services Section] 
 */
 .ClServices{
-    max-width: 1300px;
-    margin: 165px auto 0;
-
     .row {
         margin-left: 0;
         margin-right: 0;
-    }
-
-    @include breakpoint(mobile) {
-        margin: 65px auto 0;
-        max-width: 300px;
     }
 
     &__box{
@@ -22,6 +14,29 @@
         background: #fff;
         padding: 50px 43px;
         margin: 0 auto 10px;
+        transition: all 0.3s ease-out;
+
+        @include breakpoint(mobile) {
+            padding: 35px 43px;
+            height: 470px;
+        }
+
+        &:hover{
+            transform: translateY(-5px) scale(1.005) translateZ(0);
+            box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+                  0 24px 46px rgba($azure-blue , 0.11);
+        }
+    }
+
+    &__boxTitle{
+        height: 15%;
+        color: $cinder;
+        text-align: center;
+        margin-bottom: 1.5rem;
+
+        @include breakpoint(mobile) {
+            height: 9%;
+        }
     }
 
     &__boxImage{

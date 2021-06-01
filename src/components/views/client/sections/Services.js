@@ -2,103 +2,123 @@
     This is the sectin Services of Client Homepage. 
 
 */
-import { Col, Row } from "react-bootstrap";
-import { withTranslation } from "react-i18next";
+import { Col, Row } from "react-bootstrap"
+import { makeStyles, Typography, Box } from '@material-ui/core'
+import { withTranslation } from "react-i18next"
+import { Link } from 'react-router-dom'
+
+
+const useStyle = makeStyles((theme) => ({
+    ClServices: {
+        maxWidth: '1300px',
+        margin: '165px auto 0',
+
+        '@media (max-width:599px)': {
+            maxWidth: '300px',
+            margin: '65px auto 0',
+        }
+    }
+}))
 
 
 function Services({ t }) {
+    const classes = useStyle();
+
     return (
-        <div className="ClServices">
-                <h2 className="mb-4 pb-5">
-                    {t("Client.Services.title")}
-                </h2>
+        <Box className={classes.ClServices}>
+            <Typography variant="h2" className="mb-4 pb-5">
+                {t("Client.Services.title")}
+            </Typography>
 
-                <Row>
-                    <Col sm={12} md={6} lg={6} xl={3}>
-                        <div className="ClServices__box">
-                            <div className="ClServices__boxImage">
-                                <img src={"images/icon_security.svg"} alt="" />
-                            </div>
+            <Row>
+                <Col sm={12} md={6} lg={6} xl={3}>
+                    <Box className="ClServices__box">
+                        <Box className="ClServices__boxImage">
+                            <img src={"images/icon_security.svg"} alt="" />
+                        </Box>
 
-                            <div className="DPServices__boxTitle">
-                                <h4>{t("Client.Services.serviceTitre1")}</h4>
-                            </div>
+                        <Box className="ClServices__boxTitle">
+                            <Typography variant="h4" >{t("Client.Services.serviceTitre1")}</Typography>
+                        </Box>
 
-                            <div className="DPServices__boxDescription">
-                                <ul className="check_mark_list">
-                                    <li>{t("Client.Services.service1Text1")}</li>
-                                    <li>{t("Client.Services.service1Text2")}</li>
-                                    <li>{t("Client.Services.service1Text3")}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </Col>
+                        <Box className="DPServices__boxDescription">
+                            <ul className="check_mark_list">
+                                <li>{t("Client.Services.service1Text1")}</li>
+                                <li>{t("Client.Services.service1Text2")}</li>
+                                <li>{t("Client.Services.service1Text3")}</li>
+                            </ul>
+                        </Box>
+                    </Box>
+                </Col>
 
-                    <Col sm={12} md={6} lg={6} xl={3}>
-                        <div className="ClServices__box">
-                            <div className="ClServices__boxImage">
-                                <img src={"images/icon_simplicity.svg"} alt="" />
-                            </div>
+                <Col sm={12} md={6} lg={6} xl={3}>
+                    <Box className="ClServices__box">
+                        <Box className="ClServices__boxImage">
+                            <img src={"images/icon_simplicity.svg"} alt="" />
+                        </Box>
 
-                            <div className="DPServices__boxTitle">
-                                <h4>{t("Client.Services.serviceTitre2")}</h4>
-                            </div>
+                        <Box className="DPServices__boxTitle">
+                            <Typography variant="h4" className="mb-4 pb-5">
+                                {t("Client.Services.serviceTitre2")}
+                            </Typography>
 
-                            <div className="DPServices__boxDescription">
-                                <ul className="check_mark_list">
+                        </Box>
+
+                        <Box className="DPServices__boxDescription">
+                            <ul className="check_mark_list">
                                 <li>{t("Client.Services.service2Text1")}</li>
-                                    <li>{t("Client.Services.service2Text2")}</li>
-                                    <li>{t("Client.Services.service2Text3")}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </Col>
+                                <li>{t("Client.Services.service2Text2")}</li>
+                                <li>{t("Client.Services.service2Text3")}</li>
+                            </ul>
+                        </Box>
+                    </Box>
+                </Col>
 
-                    <Col sm={12} md={6} lg={6} xl={3}>
-                        <div className="ClServices__box">
-                            <div className="ClServices__boxImage">
-                                <img src={"images/icon_quality.svg"} alt="" />
-                            </div>
+                <Col sm={12} md={6} lg={6} xl={3}>
+                    <Box className="ClServices__box">
+                        <Box className="ClServices__boxImage">
+                            <img src={"images/icon_quality.svg"} alt="" />
+                        </Box>
 
-                            <div className="DPServices__boxTitle">
-                                <h4>{t("Client.Services.serviceTitre3")}</h4>
-                            </div>
+                        <Box className="DPServices__boxTitle">
+                            <Typography variant="h4">{t("Client.Services.serviceTitre3")}</Typography>
+                        </Box>
 
-                            <div className="DPServices__boxDescription">
-                                <ul className="check_mark_list">
-                                    <li>{t("Client.Services.service3Text1")}</li>
-                                    <li>{t("Client.Services.service3Text2")}</li>
-                                    <li>{t("Client.Services.service3Text3")}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </Col>
+                        <Box className="DPServices__boxDescription">
+                            <ul className="check_mark_list">
+                                <li>{t("Client.Services.service3Text1")}</li>
+                                <li>{t("Client.Services.service3Text2")}</li>
+                                <li>{t("Client.Services.service3Text3")}</li>
+                            </ul>
+                        </Box>
+                    </Box>
+                </Col>
 
-                    <Col sm={12} md={6} lg={6} xl={3}>
-                        <div className="ClServices__box">
-                            <div className="ClServices__boxImage">
-                                <img src={"images/icon_flexibility.svg"} alt="" />
-                            </div>
+                <Col sm={12} md={6} lg={6} xl={3}>
+                    <Box className="ClServices__box">
+                        <Box className="ClServices__boxImage">
+                            <img src={"images/icon_flexibility.svg"} alt="" />
+                        </Box>
 
-                            <div className="DPServices__boxTitle">
-                                <h4>{t("Client.Services.serviceTitre4")}</h4>
-                            </div>
-                            
-                            <div className="DPServices__boxDescription">
-                                <ul className="check_mark_list">
-                                    <li>{t("Client.Services.service4Text1")}</li>
-                                    <li>{t("Client.Services.service4Text2")}</li>
-                                    <li>{t("Client.Services.service4Text3")}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
-                
-                <div className="ClServices__cta">
-                    <a className="btn_green_bg" href="#" target="_blank" rel="noopener noreferrer">{t("Client.Services.serviceBtn")}</a>
-                </div>
-        </div>
+                        <Box className="DPServices__boxTitle">
+                            <Typography variant="h4">{t("Client.Services.serviceTitre4")}</Typography>
+                        </Box>
+
+                        <Box className="DPServices__boxDescription">
+                            <ul className="check_mark_list">
+                                <li>{t("Client.Services.service4Text1")}</li>
+                                <li>{t("Client.Services.service4Text2")}</li>
+                                <li>{t("Client.Services.service4Text3")}</li>
+                            </ul>
+                        </Box>
+                    </Box>
+                </Col>
+            </Row>
+
+            <Box className="ClServices__cta">
+                <Link to="/" className="btn_green_bg">{t("Client.Services.serviceBtn")}</Link>
+            </Box>
+        </Box>
     );
 }
 
