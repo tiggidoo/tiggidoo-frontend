@@ -6,7 +6,7 @@
 import { Col, Row } from "react-bootstrap"
 import { withTranslation } from "react-i18next"
 
-import InputPostCode from "../section-parts/InputPostCode"
+import InputPostCode from "../../section-parts/InputPostCode"
 
 import { Typography, Box } from '@material-ui/core'
 

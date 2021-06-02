@@ -4,7 +4,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { makeStyles, Typography, Box } from '@material-ui/core'
 import { withTranslation } from "react-i18next";
-import PostCodeCl from "../section-parts/PostCodeCl";
+import PostCodeCl from "../../section-parts/PostCodeCl";
 
 
 const useStyle = makeStyles((theme) => ({
