@@ -3,29 +3,14 @@
 
 */
 import { Col, Row } from "react-bootstrap"
-import { makeStyles, Typography, Box } from '@material-ui/core'
+import { Typography, Box } from '@material-ui/core'
 import { withTranslation } from "react-i18next"
 import { Link } from 'react-router-dom'
 
 
-const useStyle = makeStyles((theme) => ({
-    ClServices: {
-        maxWidth: '1300px',
-        margin: '165px auto 0',
-
-        '@media (max-width:599px)': {
-            maxWidth: '300px',
-            margin: '65px auto 0',
-        }
-    }
-}))
-
-
 function Services({ t }) {
-    const classes = useStyle();
-
     return (
-        <Box className={classes.ClServices}>
+        <Box className="ClServices">
             <Typography variant="h2" className="mb-4 pb-5">
                 {t("Client.Services.title")}
             </Typography>

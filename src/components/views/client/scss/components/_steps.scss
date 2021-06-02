@@ -31,6 +31,10 @@
     &__intro {
         max-width: 843px;
         margin: auto;
+
+        @include breakpoint(tablet) {
+            padding: 0 15px;
+        }
     }
 
     &__description {
