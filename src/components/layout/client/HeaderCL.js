@@ -82,9 +82,9 @@ const HeaderRP = ({ history }) => {
 
 					<Navbar.Collapse className="">
 						<Nav className="NavBar__menu">
-							<Nav.Link href="#" className="NavBar__item">
+							{/* <Nav.Link href="#" className="NavBar__item">
 								{t("Client.Nav.home")}
-							</Nav.Link>
+							</Nav.Link> */}
 
 							<Nav.Link href="#" className="NavBar__item">
 								{t("Client.Nav.services")}
@@ -94,9 +94,9 @@ const HeaderRP = ({ history }) => {
 								{t("Client.Nav.becomeTodo")}
 							</Nav.Link>
 
-							<Nav.Link href="#" className="NavBar__item">
+							{/* <Nav.Link href="#" className="NavBar__item">
 								{t("Client.Nav.login")}
-							</Nav.Link>
+							</Nav.Link> */}
 						
 
 						{(isLoggedIn) ?

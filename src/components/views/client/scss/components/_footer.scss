@@ -27,9 +27,14 @@
     &__link-Box {
         min-width: 220px;
 
+        @include breakpoint(tablet) {
+            min-width: 150px;
+            margin: 0 30px  20px !important;
+        }
+
         @include breakpoint(mobile) {
             text-align: center;
-            margin: 20px 0;
+            margin: 20px 0 !important;
         }
     }
 
@@ -67,7 +72,7 @@
     .iconLinkedin {
         width: 2.4rem;
 
-        @include breakpoint(mobile) {
+        @include breakpoint(tablet) {
             width: 2rem;
         }
     }
@@ -75,13 +80,13 @@
     .iconInstagram {
         width: 2.6rem;
 
-        @include breakpoint(mobile) {
+        @include breakpoint(tablet) {
             width: 2.1rem;
         }
     }
 
     .desktop_copyright {
-        @include breakpoint(desktop) {
+        @include breakpoint(tablet) {
             display: none;
         }
     }

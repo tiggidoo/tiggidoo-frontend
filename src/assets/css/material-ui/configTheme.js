@@ -31,9 +31,6 @@ const theme = createMuiTheme({
       color: "#000",
 
       '@media (max-width:1600px)': { 
-        fontSize: "78px",
-      },
-      '@media (max-width:1200px)': { 
         fontSize: "68px",
       },
       '@media (max-width:599px)': { 
