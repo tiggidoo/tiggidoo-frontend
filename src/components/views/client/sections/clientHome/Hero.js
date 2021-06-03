@@ -4,7 +4,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { makeStyles, Typography, Box } from '@material-ui/core'
 import { withTranslation } from "react-i18next";
-import PostCodeCl from "../section-parts/PostCodeCl";
+import PostCodeCl from "../../section-parts/PostCodeCl";
 
 
 const useStyle = makeStyles((theme) => ({
@@ -13,7 +13,14 @@ const useStyle = makeStyles((theme) => ({
         marginBottom: '38px',
         '& span': {
             fontSize: '43px',
-            display: 'block'
+            display: 'block',
+
+            '@media (max-width:1200px)': {
+                fontSize: '33px',
+            },
+            '@media (max-width:599px)': {
+                fontSize: '23px',
+            }
         },
 
         '@media (max-width:599px)': {

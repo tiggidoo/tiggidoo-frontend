@@ -10,10 +10,12 @@
 @import "components/header";
 @import "components/footer";
 
-@import "components/hero";
-@import "components/services";
-@import "components/steps";
-@import "components/experts";
-@import "components/advantages";
-@import "components/cta";
-@import "components/_proposeService";
+@import "components/clientHome/hero";
+@import "components/clientHome/services";
+@import "components/clientHome/steps";
+@import "components/clientHome/experts";
+@import "components/clientHome/advantages";
+@import "components/clientHome/cta";
+@import "components/clientHome/proposeService";
+
+@import "components/chooseService/housingType";

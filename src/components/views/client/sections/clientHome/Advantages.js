@@ -34,7 +34,7 @@ function Advantages({ t }) {
                 <Col sm={6} md={6} lg={6} xl={3}>
                     <Box className="Cladvantages__row">
                         <img src={"images/icon_tarifs.svg"} alt="Nos experts" />
-                        <p>{t("Client.Advantages.text2")}</p>
+                        <p>{t("Client.Advantages.text3")}</p>
                     </Box>
                 </Col>
 

@@ -336,6 +336,15 @@
         },
         "Footer": {
             "copyright": "© 2021 Plateforme Tiggidoo Inc. - Tous droits réservés"
+        },
+        "Logement":{
+            "title1": "TYPE DE LOGEMENT",
+            "title2": "TAILLE DU LOGEMENT",
+            "title3": "SPÉCIFICITÉS DU LOGEMENT",
+            "housingType1": "Studio",
+            "housingType2": "MAISON",
+            "housingType3": "APPARTEMENT",
+            "housingType4": "LOFT"
         }
     }
 }

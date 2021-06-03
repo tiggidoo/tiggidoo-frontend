@@ -16,9 +16,14 @@
     h2 {
         color: #fff;
         text-align: left;
+    font-size: 28px;
 
         @include breakpoint(tablet) {
             margin-bottom: 30px;
+        }
+
+        @include breakpoint(mobile) {
+            font-size: 20px;
         }
     }
 }

@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------
-[Footer] 
+[Footer : Client homepage] 
 */
 .Footer {
     color: #fff;
@@ -29,7 +29,7 @@
 
         @include breakpoint(tablet) {
             min-width: 150px;
-            margin: 0 30px  20px !important;
+            margin: 0 30px 20px !important;
         }
 
         @include breakpoint(mobile) {
@@ -88,6 +88,94 @@
     .desktop_copyright {
         @include breakpoint(tablet) {
             display: none;
+        }
+    }
+}
+
+/*------------------------------------------------------------------
+[Footer : Choose service] 
+*/
+.FooterServ {
+    color: #fff;
+    font-family: "Avenir_Regular";
+    font-size: 18px;
+
+    box-shadow: 0px -25px 15px #00000029;
+    width: 100%;
+
+    &_info {
+        color: $gray;
+        background: #fff;
+        padding: 12px;
+
+        p {
+            font-family: "Avenir_Black";
+            font-size: 17px;
+        }
+        svg {
+            max-width: 30px;
+
+            .a {
+                fill: $gray;
+                stroke: $gray;
+            }
+
+            .b {
+                fill: $gray;
+                stroke: #fff;
+                stroke-width: 2px;
+            }
+        }
+
+        &__row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 1300px;
+
+            p{
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &_main {
+        background-color: #2880fb;
+        padding: 0 5%;
+    }
+
+    &__box {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .Footer_logo{
+        margin-left: 0;
+    }
+}
+
+.Footer_pay-icons {
+    display: flex;
+    align-items: center;
+
+    span {
+        background: #fff;
+        width: 55px;
+        height: 35px;
+        border-radius: 10px;
+        padding: 10px 14px;
+        display: grid;
+        place-content: center;
+
+        &:not(:last-child) {
+            margin-right: 17px;
+        }
+
+        img {
+            max-width: 40px;
+            max-height: 35px;
+            width: 100%;
         }
     }
 }
