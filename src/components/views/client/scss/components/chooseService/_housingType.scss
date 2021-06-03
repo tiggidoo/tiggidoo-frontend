@@ -1,0 +1,48 @@
+.HousingType {
+    min-height: 50vh;
+    max-width: 1300px;
+    margin: 300px auto auto;
+
+    &__title {
+        text-align: left !important;
+        margin-bottom: 30px !important;
+    }
+
+    .MuiBottomNavigation-root {
+        height: inherit;
+        background-color: transparent;
+    }
+
+    &__button {
+        height: 189px;
+        max-height: 189px !important;
+        width: 188px;
+        max-width: 188px !important;
+        background: #fff;
+        background-color: #fff !important;
+        display: grid;
+        place-content: center;
+        margin-right: 100px !important;
+
+        &.MuiBottomNavigationAction-root.Mui-selected {
+            color: $dodger-blue_6;
+            border: 3px solid $dodger-blue_6;
+
+            .a {
+                fill: $dodger-blue_6;
+            }
+        }
+
+        .MuiButton-startIcon {
+            margin: 0;
+        }
+
+        .MuiBottomNavigationAction-label {
+            margin-top: 20px;
+        }
+    }
+
+    .a {
+        fill: #8e8f8d;
+    }
+}

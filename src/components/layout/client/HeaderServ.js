@@ -13,7 +13,7 @@ import { withRouter } from "react-router";
 import { Box } from '@material-ui/core'
 
 
-const HeaderCL = ({ history }) => {
+const HeaderServ = ({ history }) => {
 
 	const { t, i18n } = useTranslation();
 	function changeLanguage(lang) {
@@ -69,7 +69,7 @@ const HeaderCL = ({ history }) => {
 				<meta name="keywords" content={t("SEO.meta.keywords")} />
 			</Helmet>
 			 
-			<Navbar expand="xl" id="clientNav" className={`clientNav ${navBackground ? "clientNav__nav--scrolled" : ""}`}>
+			<Navbar expand="xl" id="clientNav" className={`ServiceNav ${navBackground ? "ServiceNav__nav--scrolled" : ""}`}>
 				<Box className="NavBar__container">
 					<Navbar.Brand href="#home">
 						<img
@@ -82,45 +82,7 @@ const HeaderCL = ({ history }) => {
 
 					<Navbar.Collapse className="">
 						<Nav className="NavBar__menu">
-							{/* <Nav.Link href="#" className="NavBar__item">
-								{t("Client.Nav.home")}
-							</Nav.Link> */}
-
-							<Nav.Link href="#" className="NavBar__item">
-								{t("Client.Nav.services")}
-							</Nav.Link>
-
-							<Nav.Link href="#" className="NavBar__item">
-								{t("Client.Nav.becomeTodo")}
-							</Nav.Link>
-
-							{/* <Nav.Link href="#" className="NavBar__item">
-								{t("Client.Nav.login")}
-							</Nav.Link> */}
-						
-
-						{(isLoggedIn) ?
-							(
-								<Button href="#home" size="lg" className="btn btn_nav" onClick={e => logOut(e)}>
-									{t("Nav.menu.logout")}
-								</Button>
-							)
-							:
-							(
-								<Button href="/login" size="lg" className="btn btn_nav">
-									{t("Nav.menu.login")}
-								</Button>
-							)
-						}
-
-						
-							<Nav.Link
-								href="#"
-								className="NavBar__language__item NavBar__item"
-								onClick={() => changeLanguage(langLabel.toLowerCase())}
-							>
-								{langLabel}
-							</Nav.Link>
+							
 						</Nav>
 					</Navbar.Collapse>
 				</Box>
@@ -129,4 +91,4 @@ const HeaderCL = ({ history }) => {
 	);
 }
 
-export default withRouter(HeaderCL);
+export default withRouter(HeaderServ);

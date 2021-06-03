@@ -2,13 +2,17 @@
 import "../scss/app.scss";
 
 import Footer from "../../../layout/client/FooterServ";
+import HeaderServ from "../../../layout/client/HeaderServ";
+import HousingType from "../sections/chooseService/HousingType";
 
 
 function ChooseService () {
     return (
-        <div>
+        <>
+            <HeaderServ />
+            <HousingType />
             <Footer />
-        </div>
+        </>
     )
 }
 

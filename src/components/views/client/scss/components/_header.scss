@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------
-[Header] 
+[Header : Cilent Homepage] 
 */
 .clientNav {
     background: transparent;
@@ -106,4 +106,18 @@
 
 .clientNav__nav--scrolled {
     padding: 46px 2% 29px 5%;
+}
+
+
+/*------------------------------------------------------------------
+[Header : Choose Service page] 
+*/
+.ServiceNav{
+    background: #fff;
+    transition: ease-in 0.3s;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    padding: 57px 2% 30px 5%;
+    width: 100%;
 }

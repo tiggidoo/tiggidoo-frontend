@@ -5,7 +5,7 @@ import { Typography, Box } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 
-function FooterRP({ t }) {
+function FooterCl({ t }) {
     return (
         <footer className="Footer">
             <Box className="main_wrapper pt-5 pb-md-5">
@@ -91,4 +91,4 @@ function FooterRP({ t }) {
     );
 }
 
-export default withTranslation()(FooterRP);
+export default withTranslation()(FooterCl);
