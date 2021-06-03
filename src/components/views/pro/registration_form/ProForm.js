@@ -104,6 +104,8 @@ class ProForm extends Component {
             city: '',
             province: '',
             country: '',
+            lat:'',
+            lng:'',
             postCode: '',
             timezone:'',
             countryShortName:'',
@@ -265,8 +267,8 @@ class ProForm extends Component {
         console.log('PortView:1 ', address.geometry)
         console.log('Lat: ', address.geometry.location.lat())
         console.log('Lng: ', address.geometry.location.lng())
-        console.log('La:  ', address.geometry.viewport.La)
-        console.log('Ua:  ', address.geometry.viewport.Ua)
+        //console.log('La:  ', address.geometry.viewport.La)
+        //console.log('Ua:  ', address.geometry.viewport.Ua)
 
         const formErrors = this.state.formErrors;
         const arrayAddress = address.address_components;
@@ -278,6 +280,8 @@ class ProForm extends Component {
         let country = '';
         let postCode = '';
         let country_short_name = '';
+        let lat = address.geometry.location.lat();
+        let lng = address.geometry.location.lng();
 
         for (let index in arrayAddress) {
 
@@ -349,6 +353,8 @@ class ProForm extends Component {
             city: city,
             province: province,
             country: country,
+            lat:lat,
+            lng:lng,
             postCode: postCode,
             countryShortName: country_short_name,
             timezone: timezone.trim(),

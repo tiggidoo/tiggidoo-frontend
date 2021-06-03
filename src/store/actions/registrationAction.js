@@ -67,7 +67,9 @@ export const registrationAction = (registration) => async dispatch => {
                 "city": registration.city,
                 "province": registration.province,
                 "country": registration.country,
-                "postcode": registration.postCode
+                "postcode": registration.postCode,
+                "lat": registration.lat,
+                "lng": registration.lng,
             },
             "services": service,
             "lag_talk": {
@@ -105,6 +107,7 @@ export const registrationAction = (registration) => async dispatch => {
         f.append('content', content);
         f.append('lag', lag);
         
+        console.log(content)
         await axios.post('https://www.api-tiggidoo.com/api/register/pro', f, {headers: {'Content-Type': 'multipart/form-data'}})
         .then(res => {
             dispatch({

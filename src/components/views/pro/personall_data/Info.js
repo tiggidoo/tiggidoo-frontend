@@ -184,12 +184,12 @@ const Info = () => {
 
         <TabPanel value={value} index={0}>
           <Box className={classes.workArea}>
-            <MyCriteria updateProCriteria={updateProCriteria} criterion={ pro.criterion } />
+            <Data auth={pro} />
           </Box>
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Box className={classes.workArea}>
-            <Data auth={pro} />
+            <MyCriteria updateProCriteria={updateProCriteria} criterion={ pro.criterion } />
           </Box>
         </TabPanel>
       </Box>
