@@ -29,7 +29,7 @@ function Steps({ t }) {
                     </Box>
                 </Box>
                 <Row className="ClSteps__container">
-                    <Col sm={12} md={6} lg={6}>
+                    <Col sm={12} md={6} lg={6} className="dashed_left">
                         <Box className="ClSteps__box">
                             <Box className="font-weight-bold step_indicator">
                                 <span className="step_indicator__circle_one"></span>
@@ -49,13 +49,13 @@ function Steps({ t }) {
                         </Box>
                     </Col>
 
-                    <Col sm={12} md={6} lg={6}>
+                    <Col sm={12} md={6} lg={6} className="dashed_top">
                         <Box className="ClSteps__box">
                             <img src={"../images/cl_step_2.svg"} alt="step two" />
                         </Box>
                     </Col>
 
-                    <Col sm={12} md={6} lg={6}>
+                    <Col sm={12} md={6} lg={6} className="dashed_left">
                         <Box className="ClSteps__box">
                             <Box className="font-weight-bold step_indicator">
                                 <span className="step_indicator__circle_one"></span>
@@ -68,18 +68,20 @@ function Steps({ t }) {
                             <Link className="btn_round" to="/">{t("Client.Steps.step2Link")}</Link>
                         </Box>
                     </Col>
-                    
-                    <Col sm={12} md={6} lg={6}>
-                        <Box className="ClSteps__box">
-                            <Box className="font-weight-bold step_indicator">
-                                <span className="step_indicator__circle_one"></span>
-                                <span className="step_indicator__circle_two"></span>
+
+                    <Col sm={12} md={6} lg={6} className="dashed_left">
+                        <Box className="dashed_top">
+                            <Box className="ClSteps__box">
+                                <Box className="font-weight-bold step_indicator">
+                                    <span className="step_indicator__circle_one"></span>
+                                    <span className="step_indicator__circle_two"></span>
                                 03
                             </Box>
 
-                            <Typography variant="h3">{t("Client.Steps.step3Title")}</Typography>
-                            <p className="mb-5">{t("Client.Steps.step3Description")}</p>
-                            <Link className="btn_round" to="/">{t("Client.Steps.step3Link")}</Link>
+                                <Typography variant="h3">{t("Client.Steps.step3Title")}</Typography>
+                                <p className="mb-5">{t("Client.Steps.step3Description")}</p>
+                                <Link className="btn_round" to="/">{t("Client.Steps.step3Link")}</Link>
+                            </Box>
                         </Box>
                     </Col>
 
@@ -89,13 +91,13 @@ function Steps({ t }) {
                         </Box>
                     </Col>
 
-                    <Col sm={12} md={6} lg={6}>
+                    <Col sm={12} md={6} lg={6} className="dashed_top">
                         <Box className="ClSteps__box">
                             <img src={"../images/cl_step_4.svg"} alt="step four" />
                         </Box>
                     </Col>
 
-                    <Col sm={12} md={6} lg={6}>
+                    <Col sm={12} md={6} lg={6} className="dashed_left">
                         <Box className="ClSteps__box">
                             <Box className="font-weight-bold step_indicator">
                                 <span className="step_indicator__circle_one"></span>

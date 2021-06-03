@@ -19,7 +19,15 @@ body {
     font-family: "Avenir_Regular";
     background-color: $body_bg_color;
     color: $body_text_color;
-    font-size: 25px;
+    font-size: 20px;
+
+    @include breakpoint-reverse(xx-large) {
+        font-size: 25px;
+    }
+
+    @include breakpoint(mobile) {
+        font-size: 15px;
+    }
 }
 
 ul {
@@ -42,7 +50,7 @@ h2 {
     color: $title_color;
 }
 
-h3{
+h3 {
     color: $azure-blue;
 }
 
@@ -56,7 +64,11 @@ h5 {
 
 p {
     font-family: "Avenir_Regular";
-    font-size: 25px;
+    font-size: 20px;
+
+    @include breakpoint-reverse(xx-large) {
+        font-size: 25px;
+    }
 
     @include breakpoint(mobile) {
         font-size: 15px;
@@ -74,8 +86,8 @@ p {
     li {
         position: relative;
         padding-left: 17px;
-        
-        &:not(:last-child()){
+
+        &:not(:last-child()) {
             margin-bottom: 38px;
 
             @include breakpoint(mobile) {
@@ -101,7 +113,7 @@ p {
     }
 }
 
-.error{
+.error {
     font-size: 20px;
     color: $coral-red;
 }
@@ -111,17 +123,64 @@ p {
     margin: auto;
 }
 
-.animated_icon{
-    &:hover{
+.animated_icon {
+    &:hover {
         animation: swing; /* referring directly to the animation's @keyframe declaration */
         animation-duration: 1s; /* don't forget to set a duration! */
     }
 }
 
-@keyframes swing { 
-    20% { transform: rotate(15deg); } 
-    40% { transform: rotate(-10deg); } 
-    60% { transform: rotate(5deg); } 
-    80% { transform: rotate(-5deg); } 
-    100% { transform: rotate(0deg); } 
- } 
+@keyframes swing {
+    20% {
+        transform: rotate(15deg);
+    }
+    40% {
+        transform: rotate(-10deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    80% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.dashed_left {
+    background-image: linear-gradient(to bottom, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: left;
+    background-size: 2px 40px;
+    background-repeat: repeat-y;
+}
+
+.dashed_right {
+    background-image: linear-gradient(to bottom, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: right;
+    background-size: 2px 40px;
+    background-repeat: repeat-y;
+}
+
+.dashed_top {
+    background-image: linear-gradient(to right, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: top;
+    background-size: 40px 2px;
+    background-repeat: repeat-X;
+}
+
+.dashed_bottom {
+    background-image: linear-gradient(to right, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: bottom;
+    background-size: 40px 2px;
+    background-repeat: repeat-X;
+}
+
+.dashed_bottom,
+.dashed_top,
+.dashed_right,
+.dashed_left {
+    @include breakpoint(mobile) {
+        background-image: none;
+    }
+}

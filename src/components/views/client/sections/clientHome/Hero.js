@@ -13,7 +13,14 @@ const useStyle = makeStyles((theme) => ({
         marginBottom: '38px',
         '& span': {
             fontSize: '43px',
-            display: 'block'
+            display: 'block',
+
+            '@media (max-width:1200px)': {
+                fontSize: '33px',
+            },
+            '@media (max-width:599px)': {
+                fontSize: '23px',
+            }
         },
 
         '@media (max-width:599px)': {

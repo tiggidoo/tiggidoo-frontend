@@ -33,6 +33,9 @@ const theme = createMuiTheme({
       '@media (max-width:1600px)': { 
         fontSize: "68px",
       },
+      '@media (max-width:1200px)': { 
+        fontSize: "55px",
+      },
       '@media (max-width:599px)': { 
         fontSize: "40px",
       }

@@ -9,6 +9,7 @@
 
     &__img {
         max-width: 700px;
+        height: auto;
         margin-top: 143px;
 
         @include breakpoint-reverse(xx-large) {
@@ -82,7 +83,15 @@
 
         &::placeholder {
             color: $gray_2;
-            font-size: 20px;
+            font-size: 15px;
+
+            @include breakpoint-reverse(xx-large) {
+                font-size: 20px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 12px;
+            }
 
             @include breakpoint(mobile) {
                 font-size: 11px;
@@ -91,8 +100,16 @@
 
         &:first-child {
             width: 60%;
-            margin-right: 100px;
+            margin-right: 60px;
             padding: 12px;
+
+            @include breakpoint-reverse(xx-large) {
+                margin-right: 100px;
+            }
+
+            @include breakpoint(desktop) {
+                margin-right: 10px;
+            }
 
             @include breakpoint(mobile) {
                 width: 100%;
