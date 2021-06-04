@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 
 import { useState, useRef, useEffect } from 'react'
 
-import { Button, Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutAction } from '../../../store/actions/authAction';
 

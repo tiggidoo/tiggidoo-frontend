@@ -344,7 +344,22 @@
             "housingType1": "Studio",
             "housingType2": "MAISON",
             "housingType3": "APPARTEMENT",
-            "housingType4": "LOFT"
+            "housingType4": "LOFT",
+            "housingType1_text1": "Si votre logement est de type studio, alors il doit respecter les éléments suivants :",
+            "housingType1_text2": "La cuisine, l’espace salon et l’espace chambre sont dans un même espace",
+            "housingType1_text3": "Ne doit pas dépasser 60 mètres carrés.",
+            "housingSpecificity_1": "Cuisine(s)",
+            "housingSpecificity_2": "Salon(s)",
+            "housingSpecificity_3": "Salle à manger",
+            "housingSpecificity_4": "Chambre(s)",
+            "housingSpecificity_5": "Salle(s) de bain",
+            "housingSpecificity_6": "Douche(s)",
+            "housingSpecificity_7": "Baignoire(s)",
+            "housingSpecificity_8": "Salle(s) d’eau",
+            "housingSpecificity_9": "Étage(s)",
+            "housingSpecificity_10": "Chien(s)",
+            "housingSpecificity_11": "Chat(s)",
+            "housingSpecificity_12": "Autre(s)"
         }
     }
 }
