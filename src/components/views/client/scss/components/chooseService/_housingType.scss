@@ -46,3 +46,16 @@
         fill: #8e8f8d;
     }
 }
+
+.StudioServices__choice-container{
+    margin-top: 60px;
+
+    .StudioServices__choice-form{
+        display: flex;
+        gap: 100px;
+
+        label {
+            margin-bottom: 20px;
+        }
+    }
+}
