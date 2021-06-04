@@ -61,8 +61,8 @@ export const updateMyCriteria = (token, pro, formData) => async dispatch => {
                 'product_ecological': formData.productEcological,
                 'product_standard': formData.productStandard,
                 'with_client': formData.withClient === '1' ? true : false,
-                'with_cat': formData.withCat === '1' ? true : false,
-                'with_dog': formData.withDog === '1' ? true : false
+                'cat': formData.cat === '1' ? true : false,
+                'dog': formData.dog === '1' ? true : false
             }
         }
 
@@ -81,8 +81,8 @@ export const updateMyCriteria = (token, pro, formData) => async dispatch => {
                 pro.criterion.product_ecological = res.data.product_ecological ? 1 : 0;
                 pro.criterion.product_standard = res.data.product_standard ? 1 : 0;
                 pro.criterion.with_client = res.data.with_client ? 1 : 0;
-                pro.criterion.with_cat = res.data.with_cat ? 1 : 0;
-                pro.criterion.with_dog = res.data.with_dog ? 1 : 0;
+                pro.criterion.cat = res.data.cat ? 1 : 0;
+                pro.criterion.dog = res.data.dog ? 1 : 0;
 
                 dispatch({
                     type: UPDATE_MY_CRITERIA,

@@ -47,6 +47,8 @@ const useStyle = makeStyles((theme) => ({
 const MyCriteria = ({ updateProCriteria, criterion }) => {
     const classes = useStyle();
 
+    console.log('criterion: ', criterion)
+
     const [formData, setFormData] = useState({
         postCode: criterion.postcode,
         scope: criterion.scope,
@@ -57,8 +59,8 @@ const MyCriteria = ({ updateProCriteria, criterion }) => {
         productStandard: criterion.product_standard === 1 ? true : false,
         productEcological: criterion.product_ecological === 1 ? true : false,
         withClient: criterion.with_client.toString(),
-        withCat: criterion.with_cat.toString(),
-        withDog: criterion.with_dog.toString()
+        cat: criterion.cat.toString(),
+        dog: criterion.dog.toString()
     })
 
     const handleChange = (e) => {
@@ -224,10 +226,10 @@ const MyCriteria = ({ updateProCriteria, criterion }) => {
                 </Box>
                 <Box mt={1}>                      
                     <FormControl component="fieldset">
-                        <RadioGroup value={formData.withCat} defaultValue={'0'} aria-label="gender" name="withCat" onChange={e=>handleChange(e)}>
+                        <RadioGroup value={formData.cat} defaultValue={'0'} aria-label="gender" name="cat" onChange={e=>handleChange(e)}>
                             <Box display="flex" flexDirection="row">
-                                <RadioCustom value="1" label="Oui" defaultValue={formData.withCat} />
-                                <RadioCustom value="0" label="Non" defaultValue={formData.withCat} />
+                                <RadioCustom value="1" label="Oui" defaultValue={formData.cat} />
+                                <RadioCustom value="0" label="Non" defaultValue={formData.cat} />
                             </Box>
                         </RadioGroup>
                     </FormControl>
@@ -242,10 +244,10 @@ const MyCriteria = ({ updateProCriteria, criterion }) => {
                 </Box>
                 <Box mt={1} mb={5}>                      
                     <FormControl component="fieldset">
-                        <RadioGroup value={formData.withDog} defaultValue={'0'} aria-label="gender" name="withDog" onChange={e=>handleChange(e)}>
+                        <RadioGroup value={formData.dog} defaultValue={'0'} aria-label="gender" name="dog" onChange={e=>handleChange(e)}>
                             <Box display="flex" flexDirection="row">
-                                <RadioCustom value="1" label="Oui" defaultValue={formData.withDog} />
-                                <RadioCustom value="0" label="Non" defaultValue={formData.withDog} />
+                                <RadioCustom value="1" label="Oui" defaultValue={formData.dog} />
+                                <RadioCustom value="0" label="Non" defaultValue={formData.dog} />
                             </Box>
                         </RadioGroup>
                     </FormControl>
