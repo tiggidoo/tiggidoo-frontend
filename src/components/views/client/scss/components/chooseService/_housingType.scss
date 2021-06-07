@@ -6,6 +6,8 @@
     &__title {
         text-align: left !important;
         margin-bottom: 30px !important;
+        font-size: 24px;
+        color: #000;
     }
 
     .MuiBottomNavigation-root {
@@ -13,11 +15,15 @@
         background-color: transparent;
     }
 
+    &__navigation {
+        justify-content: flex-start !important;
+    }
+
     &__button {
-        height: 189px;
-        max-height: 189px !important;
-        width: 188px;
-        max-width: 188px !important;
+        height: 150px;
+        max-height: 150px !important;
+        width: 150px;
+        max-width: 150px !important;
         background: #fff;
         background-color: #fff !important;
         display: grid;
@@ -27,18 +33,27 @@
         &.MuiBottomNavigationAction-root.Mui-selected {
             color: $dodger-blue_6;
             border: 3px solid $dodger-blue_6;
+            font-size: 12px;
 
             .a {
                 fill: $dodger-blue_6;
             }
         }
 
+        svg {
+            max-height: 50px;
+        }
+
         .MuiButton-startIcon {
             margin: 0;
         }
 
-        .MuiBottomNavigationAction-label {
+        .MuiBottomNavigationAction-label,
+        .MuiBottomNavigationAction-label.Mui-selected {
             margin-top: 20px;
+            font-family: "Avenir_Book";
+            text-transform: uppercase;
+            font-size: 12px;
         }
     }
 
@@ -47,10 +62,10 @@
     }
 }
 
-.StudioServices__choice-container{
+.StudioServices__choice-container {
     margin-top: 60px;
 
-    .StudioServices__choice-form{
+    .StudioServices__choice-form {
         display: flex;
         gap: 100px;
         flex-wrap: wrap;
@@ -62,10 +77,9 @@
     }
 }
 
-
 /*------------------------------------------------------------------
 [Combo Srvices] 
 */
-.ComboServices__size{
+.ComboServices__size {
     margin-bottom: 69px;
 }

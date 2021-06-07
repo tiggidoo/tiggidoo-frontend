@@ -64,7 +64,7 @@ const CondoServices = ({ t }) => {
 
     return (
         <Box className="StudioServices__choice-container">
-            <Typography variant="h2" className="HousingType__title">{t("Client.Logement.title2")}</Typography>
+            <Typography variant="h3" className="HousingType__title">{t("Client.Logement.title2")}</Typography>
             <Box className="ComboServices__size">
                 <FormControl className={classes.formControl}>
                     <Select

@@ -120,4 +120,49 @@
     z-index: 999;
     padding: 57px 2% 30px 5%;
     width: 100%;
+
+    .NavBar__container {
+        width: 100%;
+        max-width: 1600px;
+        margin: auto;
+        display: flex;
+        gap: 41px;
+
+        @include breakpoint-reverse(xx-large) {
+            gap: 100px;
+        }
+
+        @include breakpoint(desktop) {
+            flex-wrap: wrap;
+        }
+
+        @include breakpoint(tablet) {
+            gap: 41px;
+        }
+    }
+
+    .MuiStepper-root{
+        padding: 0;
+    }
+
+    .makeStyles-root-2{
+        width: auto;
+    }
+
+    .NavBar__menu {
+        flex-grow: 1;
+    }
+
+    .NavBar__language__item{
+        margin-left: auto;
+    }
+
+    .Mui-disabled {
+        display: none;
+    }
+
+    .MuiStepConnector-horizontal{
+        display: none;
+    }
+    
 }

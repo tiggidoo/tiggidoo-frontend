@@ -32,7 +32,7 @@ const StudioServices = ({ t }) => {
 
     return (
         <Box className="StudioServices__choice-container">
-            <Typography variant="h2" className="HousingType__title">{t("Client.Logement.title3")}</Typography>
+            <Typography variant="h3" className="HousingType__title">{t("Client.Logement.title3")}</Typography>
 
             <Box>
                 <p>{t("Client.Logement.housingType1_text1")}</p>

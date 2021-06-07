@@ -36,7 +36,7 @@ const LoftServices = ({ t }) => {
     return (
         <Box className="StudioServices__choice-container">
 
-            <Typography variant="h2" className="HousingType__title">{t("Client.Logement.title3")}</Typography>
+            <Typography variant="h3" className="HousingType__title">{t("Client.Logement.title3")}</Typography>
 
             <Box className="StudioServices__choice-form">
                 <Counter title ={t("Client.Logement.housingSpecificity_1")}/>

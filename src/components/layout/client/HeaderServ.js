@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import { withRouter } from "react-router";
 
 import { Box } from '@material-ui/core'
+import Stepper from '../../views/client/section-parts/HorizontalLinearStepper';
 
 
 const HeaderServ = ({ history }) => {
@@ -82,7 +83,14 @@ const HeaderServ = ({ history }) => {
 
 					<Navbar.Collapse className="">
 						<Nav className="NavBar__menu">
-							
+							<Stepper />
+							<Nav.Link
+								href="#"
+								className="NavBar__language__item NavBar__item"
+								onClick={() => changeLanguage(langLabel.toLowerCase())}
+							>
+								{langLabel}
+							</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Box>
