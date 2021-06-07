@@ -194,7 +194,6 @@ const Info = () => {
                 <MyCriteria updateProCriteria={updateProCriteria} criterion={ pro.criterion } />
               )
             }
-            
           </Box>
         </TabPanel>
       </Box>
