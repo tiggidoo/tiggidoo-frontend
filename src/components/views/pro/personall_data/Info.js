@@ -189,7 +189,12 @@ const Info = () => {
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Box className={classes.workArea}>
-            <MyCriteria updateProCriteria={updateProCriteria} criterion={ pro.criterion } />
+            {
+              (pro.criterion !== undefined) && (
+                <MyCriteria updateProCriteria={updateProCriteria} criterion={ pro.criterion } />
+              )
+            }
+            
           </Box>
         </TabPanel>
       </Box>
