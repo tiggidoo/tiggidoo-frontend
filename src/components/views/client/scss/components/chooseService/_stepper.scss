@@ -1,0 +1,93 @@
+.MuiStep-horizontal {
+    position: relative;
+
+    &:not(:last-child) {
+        padding-right: 156px !important;
+
+        @include breakpoint-reverse(xx-large) {
+            padding-right: 200px !important;
+        }
+
+        &::after {
+            content: "";
+            width: 90px;
+            height: 100%;
+            position: absolute;
+            top: -13px;
+            left: 56%;
+            background-image: linear-gradient(to right, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
+            background-position: bottom;
+            background-size: 19px 2px;
+            background-repeat: repeat-X;
+
+            @include breakpoint-reverse(xx-large) {
+                width: 133px;
+                background-size: 27px 2px;
+            }
+        }
+
+        &.MuiStep-completed {
+            &::after {
+                content: "";
+                width: 90px;
+                position: absolute;
+                border-bottom: 3px solid $dodger-blue_6;
+                top: -12px;
+                left: 56%;
+                background-image: none;
+
+                @include breakpoint-reverse(xx-large) {
+                    width: 133px;
+                    border-bottom: 5px solid $dodger-blue_6;
+                }
+            }
+        }
+    }
+
+    .MuiStepLabel-horizontal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .MuiStepLabel-completed {
+        color: $dodger-blue_6 !important;
+        font-family: "Avenir_Black";
+    }
+
+    .MuiStepIcon-root {
+        color: transparent;
+        border: 1px solid $dodger-blue_5;
+        border-radius: 50%;
+        width: 41px;
+        height: 41px;
+    }
+
+    .MuiStepIcon-text {
+        fill: $dodger-blue_6;
+        // font-size: 15px;
+        font-family: "Avenir_Heavy";
+    }
+
+    .MuiTypography-body2 {
+        font-family: "Avenir_Book";
+        color: $dove-gray_3;
+    }
+
+    & .MuiStepIcon-active,
+    & .MuiStepIcon-completed {
+        .MuiStepIcon-text {
+            fill: #fff;
+        }
+    }
+
+    .MuiStepLabel-label.MuiStepLabel-completed {
+        font-family: "Avenir_Black";
+    }
+
+    .MuiStepLabel-label.MuiStepLabel-active {
+        font-family: "Avenir_Black";
+        color: $dove-gray_3;
+    }
+}

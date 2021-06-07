@@ -19,7 +19,7 @@ const HousingType = ({ t }) => {
 
     return (
         <Box className="HousingType">
-            <Typography variant="h2" className="HousingType__title">{t("Client.Logement.title1")}</Typography>
+            <Typography variant="h3" className="HousingType__title">{t("Client.Logement.title1")}</Typography>
 
             <BottomNavigation
                 value={value}
@@ -27,7 +27,7 @@ const HousingType = ({ t }) => {
                     setValue(newValue);
                 }}
                 showLabels
-                className="active"
+                className="active HousingType__navigation"
             >
                 <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType1")} icon={<StudioIcon />} />
                 <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType2")} icon={<CondoIcon />} />

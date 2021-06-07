@@ -8,6 +8,7 @@
     border-radius: 0;
     text-transform: uppercase;
     transition: ease-in 0.3s;
+    border: none;
 
     @include breakpoint(mobile) {
         font-size: 15px;
@@ -44,8 +45,7 @@
     @extend .btn;
     background: #fff;
     color: $btn_nav_blue;
-    border: none;
-
+    
     &:hover {
         background: #fff;
         color: $btn_nav_blue;
@@ -83,5 +83,6 @@
     p{
         padding: 20px;
         background: #fff;
+        margin: 0;
     }
 }
