@@ -366,6 +366,15 @@
             "back": "Retour",
             "footer_text": "L’offre de cette plateforme est à destination de résidence personnelle. Pour un service de ménage pour de la location saisonnière suivez",
             "footer_link": "ce lien."
+        },
+        "sideBar": {
+            "demande": "VOTRE DEMANDE",
+            "housing": "LOGEMENT",
+            "estimation": "ESTIMATION",
+            "open_info": "Information",
+            "close_info": "Fermer information",
+            "info_text": "Le prix affiché est une estimation faite à partir des prix moyen du marché de chaque ville. Celle-ci peut évoluer en fonction des spécificités du logement ou de la demande. TIGGIDOO décline toute responsabilité si le prix final est différent de l’estimation.",
+            "demande_submit": "CONTINUER"
         }
     }
 }

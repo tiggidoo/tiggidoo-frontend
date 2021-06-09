@@ -1,3 +1,8 @@
+.choose_service {
+    max-width: 1400px;
+    margin: auto !important;
+}
+
 .HousingType {
     min-height: 50vh;
     max-width: 900px;
@@ -6,7 +11,7 @@
     &__title {
         text-align: left !important;
         margin-bottom: 30px !important;
-        font-size: 24px;
+        font-size: 24px !important;
         color: #000;
     }
 
@@ -64,12 +69,15 @@
     .a {
         fill: #8e8f8d;
     }
-
-    
 }
-option{
+option {
     padding-left: 20px !important;
     padding-right: 20px !important;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $gallery;
+    }
 }
 /*------------------------------------------------------------------
 [Studio Srvices] 
@@ -143,21 +151,20 @@ label + .MuiInput-formControl {
     margin-bottom: 69px;
 }
 
-.homeSize_select{
+.homeSize_select {
     width: 436px;
 
-    .MuiInputBase-input{
+    .MuiInputBase-input {
         border: none !important;
     }
 
-    .MuiInput-underline:before{
+    .MuiInput-underline:before {
         border: none !important;
     }
 
     svg {
         fill: $dodger-blue_6;
     }
-    
 }
 
 /*------------------------------------------------------------------
