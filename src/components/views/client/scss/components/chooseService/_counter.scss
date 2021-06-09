@@ -1,0 +1,32 @@
+.counter_container {
+    h6 {
+        font-size: 18px;
+    }
+
+    .counter_header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 13px;
+        gap: 10px;
+    }
+
+    .counter {
+        display: flex;
+        font-size: 25px;
+
+        p {
+            padding: 10px 20px;
+            background: #fff;
+            margin: 0;
+        }
+
+        .btn_blue_bg {
+            padding: 10px 20px;
+        }
+    }
+
+    img {
+        max-height: 20px;
+        width: auto;
+    }
+}

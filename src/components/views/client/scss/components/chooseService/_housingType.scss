@@ -64,8 +64,13 @@
     .a {
         fill: #8e8f8d;
     }
-}
 
+    
+}
+option{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
 /*------------------------------------------------------------------
 [Studio Srvices] 
 */
@@ -74,7 +79,7 @@
 
     .StudioServices__choice-form {
         display: flex;
-        gap: 100px;
+        gap: 67px;
         flex-wrap: wrap;
         margin-bottom: 100px;
         margin-top: 30px;
@@ -136,6 +141,23 @@ label + .MuiInput-formControl {
 */
 .ComboServices__size {
     margin-bottom: 69px;
+}
+
+.homeSize_select{
+    width: 436px;
+
+    .MuiInputBase-input{
+        border: none !important;
+    }
+
+    .MuiInput-underline:before{
+        border: none !important;
+    }
+
+    svg {
+        fill: $dodger-blue_6;
+    }
+    
 }
 
 /*------------------------------------------------------------------

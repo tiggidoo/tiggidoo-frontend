@@ -21,7 +21,9 @@ const LoftServices = ({ t }) => {
 
     const [state, setState] = useState({
         dog: '',
-        name: 'hai',
+        name: '',
+        cat: '',
+        other: '',
     });
 
     // Handle select box change
@@ -39,16 +41,15 @@ const LoftServices = ({ t }) => {
             <Typography variant="h3" className="HousingType__title">{t("Client.Logement.title3")}</Typography>
 
             <Box className="StudioServices__choice-form">
-                <Counter title ={t("Client.Logement.housingSpecificity_1")}/>
-                <Counter title ={t("Client.Logement.housingSpecificity_2")}/>
-                <Counter title ={t("Client.Logement.housingSpecificity_3")}/>
-                <Counter title ={t("Client.Logement.housingSpecificity_4")}/>
-                <Counter title ={t("Client.Logement.housingSpecificity_5")}/>
-                <Counter title ={t("Client.Logement.housingSpecificity_6")}/>
-                <Counter title ={t("Client.Logement.housingSpecificity_7")}/>
-                <Counter title ={t("Client.Logement.housingSpecificity_8")}/>
-                <Counter title ={t("Client.Logement.housingSpecificity_9")}/>
-                <Counter title ={t("Client.Logement.housingSpecificity_10")}/>
+                <Counter title={t("Client.Logement.housingSpecificity_1")} iconSrc="images/icon_kitchen.svg" />
+                <Counter title={t("Client.Logement.housingSpecificity_2")} iconSrc="images/icon_sofa.svg" />
+                <Counter title={t("Client.Logement.housingSpecificity_3")} iconSrc="images/icon_hotel.svg" />
+                <Counter title={t("Client.Logement.housingSpecificity_4")} iconSrc="images/icon_moon.svg" />
+                <Counter title={t("Client.Logement.housingSpecificity_5")} iconSrc="images/icon_washbasin.svg" />
+                <Counter title={t("Client.Logement.housingSpecificity_6")} iconSrc="images/icon_shower.svg" />
+                <Counter title={t("Client.Logement.housingSpecificity_7")} iconSrc="images/icon_bathtub.svg" />
+                <Counter title={t("Client.Logement.housingSpecificity_8")} iconSrc="images/icon_water.svg" />
+                <Counter title={t("Client.Logement.housingSpecificity_9")} iconSrc="images/icon_stares.svg" />
 
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="dog">{t("Client.Logement.housingSpecificity_10")}</InputLabel>
@@ -69,10 +70,16 @@ const LoftServices = ({ t }) => {
                 </FormControl>
 
                 <FormControl className={classes.formControl}>
-                    <InputLabel htmlFor="cat">{t("Client.Logement.housingSpecificity_11")}</InputLabel>
+                    <InputLabel htmlFor="cat">
+                        <img
+                            src={"images/icon_animal.svg"}
+                            alt="cats"
+                        />
+                        {t("Client.Logement.housingSpecificity_11")}
+                    </InputLabel>
 
                     <Select
-                        value={state.dog}
+                        value={state.cat}
                         onChange={handleChange}
                         inputProps={{
                             name: 'cat',
@@ -86,10 +93,16 @@ const LoftServices = ({ t }) => {
                 </FormControl>
 
                 <FormControl className={classes.formControl}>
-                    <InputLabel htmlFor="other">{t("Client.Logement.housingSpecificity_12")}</InputLabel>
+                    <InputLabel htmlFor="other">
+                        <img
+                            src={"images/icon_animal.svg"}
+                            alt="other"
+                        />
+                        {t("Client.Logement.housingSpecificity_12")}
+                    </InputLabel>
 
                     <Select
-                        value={state.dog}
+                        value={state.other}
                         onChange={handleChange}
                         inputProps={{
                             name: 'other',
