@@ -4,7 +4,7 @@
         "DEMANDES": {
             "title": "Demandes",
             "movileTitle": "Request",
-            "itemId": "/request",
+            "itemId": "/reservations-list",
             "img": "demande"
         },
         "MY_ACTIVITY": {

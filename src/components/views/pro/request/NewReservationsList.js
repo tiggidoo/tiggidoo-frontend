@@ -2,15 +2,15 @@ import { Box } from '@material-ui/core'
 import React from 'react'
 import Reservation from './component/Reservation'
 
-const NewRequests = ({ request }) => {
+const NewReservationsList = ({ reservations }) => {
     return (
         <Box>
             {
-                request === null ? (<Box>No result</Box>) : 
+                reservations === null ? (<Box>No result</Box>) : 
                 (
                     <Box>
                         {
-                            request.map((res, index) => {
+                            reservations.map((res, index) => {
                                 return(
                                     <Reservation res={res} />
                                 )
@@ -23,4 +23,4 @@ const NewRequests = ({ request }) => {
     )
 }
 
-export default NewRequests
+export default NewReservationsList

@@ -1,7 +1,8 @@
-import { GET_RESERVATIONS_LIST } from '../actions/typesAction'
+import { GET_RESERVATIONS_LIST, GET_A_REQUEST } from '../actions/typesAction'
 
 const initState = {
-    request: null
+    reservations: null,
+    reservation: null
 };
 
 const reservationReducer = (state = initState, action) => {
@@ -12,7 +13,14 @@ const reservationReducer = (state = initState, action) => {
         case GET_RESERVATIONS_LIST:
             return {
                 ...state,
-                request: payload
+                reservations: payload,
+                reservation: null
+            };
+        case GET_A_REQUEST:
+            return {
+                ...state,
+                reservations: null,
+                reservation: payload
             };
         default:
             return initState

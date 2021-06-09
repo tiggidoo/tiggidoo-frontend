@@ -3,7 +3,7 @@ import { Box, AppBar, Tabs, Tab, makeStyles, Hidden, MenuItem, Menu, ListItemTex
 import { useDispatch, useSelector } from 'react-redux'
 import Dashboard from '../../../layout/Dashboard'
 import MenuIcon from '@material-ui/icons/Menu';
-import NewRequests from './NewRequests';
+import NewReservationsList from './NewReservationsList';
 import { getListRequest } from '../../../../store/actions/reservationAction'
 
 const useStyle = makeStyles((theme) => ({
@@ -25,6 +25,11 @@ const useStyle = makeStyles((theme) => ({
     },
     '& button:focus':{
         outline: 'none'
+    },
+    '@media(max-width: 768px )':{
+      '& #simple-tabpanel-0 > div':{
+        padding: '0px'
+      }
     }
   },
   newRequest:{
@@ -128,15 +133,15 @@ function a11yProps(index) {
     };
   }
 
-const Request = () => {
+const RequestsList = () => {
   const classes = useStyle()
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const { auth:{pro, access_token, isLoggedIn}, request } = useSelector(
+  const { auth:{pro, access_token, isLoggedIn}, reservations } = useSelector(
     state => ({
         auth: state.auth,
-        request: state.reservation.request
+        reservations: state.reservation.reservations
     })
   ) 
 
@@ -208,7 +213,7 @@ const Request = () => {
 
             <TabPanel value={value} index={0}>
                 <Box className={classes.workArea}>
-                    <NewRequests request={request} />
+                    <NewReservationsList reservations={reservations} />
                 </Box>
             </TabPanel>
             <TabPanel value={value} index={1}>
@@ -221,4 +226,4 @@ const Request = () => {
   )
 }
 
-export default Request
+export default RequestsList

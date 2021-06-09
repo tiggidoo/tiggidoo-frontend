@@ -27,3 +27,16 @@ export const deletePhoneMask = (phoneMasked, dialCode) => {
     return formDate;
   }
   
+
+/**
+ * 
+ * @param {Date} date The format is: 2021-03-27T02:18:23.000000Z return: 31 May 2021
+ */
+export const getDateFormatDayMotnYear = (date) => {
+
+  let customeDate = new Date(date)
+  customeDate = customeDate.toString().split(' ')
+  customeDate = `${customeDate[2]} ${customeDate[1]} ${customeDate[3]}`
+
+  return customeDate;
+}

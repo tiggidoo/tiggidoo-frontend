@@ -10,7 +10,7 @@ import theme from "./assets/css/material-ui/configTheme";
 import SignIn from "./components/auth/SignIn";
 //import DashboardPro from "./components/views/pro/DashboardPro";
 
-import Request from "./components/views/pro/request/Request";
+import RequestsList from "./components/views/pro/request/Index";
 import History from "./components/views/pro/history/History";
 import Help from "./components/views/pro/help/Help";
 //import MyAvailabilities from "./components/views/pro/activity/my_availabilities/MyAvailabilities";
@@ -19,6 +19,7 @@ import Help from "./components/views/pro/help/Help";
 //import MyCriteria from "./components/views/pro/personall_data/MyCriteria";
 import Activities from "./components/views/pro/activity/Activities";
 import Info from "./components/views/pro/personall_data/Info";
+import ShowReservation from "./components/views/pro/request/ShowReservation";
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
             <Route exact path="/proform" component={ProForm} />
             <Route exact path="/login" component={SignIn} />
 
-            <Route exact path="/request" component={ Request } />
+            <Route exact path="/reservations-list" component={ RequestsList } />
+            <Route exact path="/show-reservation/:id" component={ ShowReservation } />
             <Route exact path="/activity" component={ Activities } />
             {/* <Route exact path="/activity/my_availabilities" component={ MyAvailabilities } /> */}
             <Route exact path="/history" component={ History } />
