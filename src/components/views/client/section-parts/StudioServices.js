@@ -8,10 +8,10 @@ import Select from '@material-ui/core/Select';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
+        margin: theme.spacing(1),
+        minWidth: 120,
     },
-  }));
+}));
 
 const StudioServices = ({ t }) => {
     const classes = useStyles()
@@ -36,7 +36,7 @@ const StudioServices = ({ t }) => {
 
             <Box>
                 <p>{t("Client.Logement.housingType1_text1")}</p>
-                <ul>
+                <ul className="StudioServices__list">
                     <li>{t("Client.Logement.housingType1_text2")}</li>
                     <li>{t("Client.Logement.housingType1_text3")}</li>
                 </ul>
@@ -45,7 +45,13 @@ const StudioServices = ({ t }) => {
             <Box className="StudioServices__choice-form">
                 <FormControl className={classes.formControl}>
 
-                    <InputLabel htmlFor="dog">{t("Client.Logement.housingSpecificity_10")}</InputLabel>
+                    <InputLabel htmlFor="dog">
+                        <img
+                            src={"images/icon_animal.svg"}
+                            alt="cats"
+                        />
+                        {t("Client.Logement.housingSpecificity_10")}
+                    </InputLabel>
                     <Select
                         value={state.dog}
                         onChange={handleChange}
@@ -62,7 +68,13 @@ const StudioServices = ({ t }) => {
                 </FormControl>
                 <FormControl className={classes.formControl}>
 
-                    <InputLabel htmlFor="cat">{t("Client.Logement.housingSpecificity_11")}</InputLabel>
+                    <InputLabel htmlFor="cat">
+                        <img
+                            src={"images/icon_animal.svg"}
+                            alt="cats"
+                        />
+                        {t("Client.Logement.housingSpecificity_11")}
+                    </InputLabel>
                     <Select
                         value={state.cat}
                         onChange={handleChange}
@@ -70,8 +82,8 @@ const StudioServices = ({ t }) => {
                             name: 'cat',
                             id: 'cat',
                         }}
+                        className="select"
                     >
-                        <option aria-label="None" value="" />
                         <option value={10}>Oui</option>
                         <option value={20}>Non</option>
                     </Select>
@@ -80,7 +92,13 @@ const StudioServices = ({ t }) => {
 
                 <FormControl className={classes.formControl}>
 
-                    <InputLabel htmlFor="other">{t("Client.Logement.housingSpecificity_12")}</InputLabel>
+                    <InputLabel htmlFor="other">
+                        <img
+                            src={"images/icon_animal.svg"}
+                            alt="cats"
+                        />
+                        {t("Client.Logement.housingSpecificity_12")}
+                    </InputLabel>
                     <Select
                         value={state.cat}
                         onChange={handleChange}
