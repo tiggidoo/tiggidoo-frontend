@@ -6,29 +6,42 @@ import { withTranslation } from "react-i18next"
 import Footer from "../../../layout/client/FooterServ";
 import HeaderServ from "../../../layout/client/HeaderServ";
 import HousingType from "../sections/chooseService/HousingType";
-import { Balance } from "../section-parts/Balance";
-
 import { Col, Row } from "react-bootstrap";
 import { Link } from "@material-ui/core";
+import Button from '@material-ui/core/Button';
+
+import Demande from "../section-parts/Demande";
+import Balance from "../section-parts/Balance";
 
 
 function ChooseService({ t }) {
     return (
         <>
             <HeaderServ />
-            <Row>
+            <Row className="choose_service">
                 <Col lg={8}> <HousingType /> </Col>
-                <Col lg={4} className="sidebar"><Balance /></Col>
+                <Col lg={4} >
+                    <div className="sidebar">
+                        <Demande />
+                        <Balance />
+
+                        <Button variant="contained" className="sidebar__submit">
+                            {t("Client.sideBar.demande_submit")}
+                        </Button>
+                    </div>
+
+
+                </Col>
             </Row>
             <div className="services_footer">
                 <Link href="#" className="services_backlink">
                     {t("Client.Logement.back")}
                 </Link>
-                <p>{t("Client.Logement.footer_text")} <a href="http://">{t("Client.Logement.footer_link")}</a></p> 
+                <p>{t("Client.Logement.footer_text")} <a href="http://">{t("Client.Logement.footer_link")}</a></p>
             </div>
             <Footer />
         </>
     )
 }
 
-export default withTranslation() (ChooseService)
+export default withTranslation()(ChooseService)
