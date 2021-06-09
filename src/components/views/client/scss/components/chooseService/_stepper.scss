@@ -2,7 +2,7 @@
     position: relative;
 
     &:not(:last-child) {
-        padding-right: 156px !important;
+        padding-right: 118px !important;
 
         @include breakpoint-reverse(xx-large) {
             padding-right: 200px !important;
@@ -13,7 +13,7 @@
             width: 90px;
             height: 100%;
             position: absolute;
-            top: -13px;
+            top: -51px;
             left: 56%;
             background-image: linear-gradient(to right, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
             background-position: bottom;
@@ -32,7 +32,7 @@
                 width: 90px;
                 position: absolute;
                 border-bottom: 3px solid $dodger-blue_6;
-                top: -12px;
+                top: -55px;
                 left: 56%;
                 background-image: none;
 
@@ -60,8 +60,8 @@
         color: transparent;
         border: 1px solid $dodger-blue_5;
         border-radius: 50%;
-        width: 41px;
-        height: 41px;
+        width: 35px;
+        height: 35px;
     }
 
     .MuiStepIcon-text {

@@ -44,6 +44,7 @@ export default function HorizontalLinearStepper() {
   const [skipped, setSkipped] = React.useState(new Set());
   const steps = getSteps();
 
+  // setActiveStep(1);
 
   const isStepSkipped = (step) => {
     return skipped.has(step);
@@ -86,8 +87,12 @@ export default function HorizontalLinearStepper() {
           const stepProps = {};
           const labelProps = {};
           
-          if (isStepSkipped(index)) {
-            stepProps.completed = false;
+          if (index == 0) {
+            stepProps.completed = true;
+          }
+
+          if (index == 1) {
+            stepProps.active = true;
           }
           return (
             <Step key={label} {...stepProps}>
@@ -102,14 +107,14 @@ export default function HorizontalLinearStepper() {
             <Typography className={classes.instructions}>
               All steps completed - you&apos;re finished
             </Typography>
-            <Button onClick={handleReset} className={classes.button}>
+            {/* <Button onClick={handleReset} className={classes.button}>
               Reset
-            </Button>
+            </Button> */}
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-            <div>
+            {/* <Typography variant="h2" className={classes.instructions}>LA DÉSCRIPTION DU LOGEMENT</Typography> */}
+            {/* <div>
               <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                 Back
               </Button>
@@ -122,7 +127,7 @@ export default function HorizontalLinearStepper() {
               >
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
-            </div>
+            </div> */}
           </div>
         )}
       </div>

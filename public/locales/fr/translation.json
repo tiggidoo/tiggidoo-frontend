@@ -362,7 +362,10 @@
             "housingSpecificity_9": "Étage(s)",
             "housingSpecificity_10": "Chien(s)",
             "housingSpecificity_11": "Chat(s)",
-            "housingSpecificity_12": "Autre(s)"
+            "housingSpecificity_12": "Autre(s)",
+            "back": "Retour",
+            "footer_text": "L’offre de cette plateforme est à destination de résidence personnelle. Pour un service de ménage pour de la location saisonnière suivez",
+            "footer_link": "ce lien."
         }
     }
 }

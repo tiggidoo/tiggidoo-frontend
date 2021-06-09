@@ -1,7 +1,7 @@
 .HousingType {
     min-height: 50vh;
-    max-width: 1300px;
-    margin: 300px auto auto;
+    max-width: 900px;
+    margin: 300px 50px auto;
 
     &__title {
         text-align: left !important;
@@ -20,15 +20,15 @@
     }
 
     &__button {
-        height: 150px;
-        max-height: 150px !important;
-        width: 150px;
+        height: 130px !important;
+        max-height: 130px !important;
+        width: 150px !important;
         max-width: 150px !important;
         background: #fff;
         background-color: #fff !important;
         display: grid;
         place-content: center;
-        margin-right: 100px !important;
+        margin-right: 50px !important;
 
         &.MuiBottomNavigationAction-root.Mui-selected {
             color: $dodger-blue_6;
@@ -55,6 +55,10 @@
             text-transform: uppercase;
             font-size: 12px;
         }
+
+        .MuiBottomNavigationAction-label.Mui-selected {
+            font-family: "Avenir_Black";
+        }
     }
 
     .a {
@@ -62,6 +66,9 @@
     }
 }
 
+/*------------------------------------------------------------------
+[Studio Srvices] 
+*/
 .StudioServices__choice-container {
     margin-top: 60px;
 
@@ -70,16 +77,99 @@
         gap: 100px;
         flex-wrap: wrap;
         margin-bottom: 100px;
+        margin-top: 30px;
 
         label {
             margin-bottom: 20px;
         }
     }
+
+    .StudioServices__list {
+        li {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        li::before {
+            content: "";
+            border-radius: 50%;
+            color: $shamrock;
+            background: $shamrock;
+            width: 11px;
+            height: 11px;
+            position: absolute;
+            left: 10px;
+            top: 5px;
+        }
+    }
+}
+.MuiSelect-selectMenu {
+    background: #fff;
 }
 
+.MuiInputBase-input {
+    background: #fff !important;
+    border: 2px solid $dodger-blue_6 !important;
+}
+
+.MuiInputLabel-formControl {
+    transform: translate(0, 0) scale(1) !important;
+    position: static !important;
+    margin-bottom: 20px !important;
+    font-size: 20px;
+    font-family: "Avenir_Regular";
+    color: #000 !important;
+
+    img {
+        margin-right: 11px;
+    }
+}
+label + .MuiInput-formControl {
+    margin-top: 0 !important;
+}
+
+.MuiSelect-select.MuiSelect-select {
+    padding-left: 24px;
+}
 /*------------------------------------------------------------------
 [Combo Srvices] 
 */
 .ComboServices__size {
     margin-bottom: 69px;
+}
+
+/*------------------------------------------------------------------
+[Footer Srvices] 
+*/
+.services_footer {
+    max-width: 1300px;
+    margin: auto;
+
+    .services_backlink {
+        text-transform: uppercase;
+        color: $dove-gray_3;
+        font-family: "Avenir_Black";
+        font-size: 18px;
+        position: relative;
+        margin-left: 35px;
+
+        &::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid $dove-gray_3;
+            border-left: 2px solid $dove-gray_3;
+            transform: rotate(-38deg);
+            position: absolute;
+            left: -20px;
+            top: 9px;
+        }
+    }
+
+    p {
+        margin-top: 60px;
+        margin-bottom: 30px;
+        color: $monsoon;
+        font-size: 15px;
+    }
 }
