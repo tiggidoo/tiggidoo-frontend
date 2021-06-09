@@ -44,7 +44,8 @@ function App() {
             <Route exact path="/" component={BecomePro} />
 
             <Route exact path="/client" component={ClientHome} />
-            <Route exact path="/choose_service" component={ ChooseService } />
+            <Route exact path="/housing" component={ ChooseService } />
+            <Route exact path="/benefit" component={ ChooseService } />
 
           </Switch>
         </div>
