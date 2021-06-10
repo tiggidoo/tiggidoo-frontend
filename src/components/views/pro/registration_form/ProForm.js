@@ -18,7 +18,7 @@ import FooterRP from '../../../layout/FooterRP';
 import { Box } from '@material-ui/core';
 //import deletePhoneMask from '../../../../share/librery/librery'
 
-import { lookupViaCity, findFromCityStateProvince } from 'city-timezones';
+//import { lookupViaCity, findFromCityStateProvince } from 'city-timezones'
 
 const emailRegex = RegExp(
     /^[ ]*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})[ ]*$/i
@@ -332,16 +332,19 @@ class ProForm extends Component {
             formErrors.step1.city = '';
         }
 
-        let coor = lookupViaCity(city);
-        let timezone = '';
-        if(coor.length > 0){
-            timezone = coor[0].timezone
-        }else{
-            coor = findFromCityStateProvince(province);
-            if(coor.length > 0){
-                timezone = coor[0].timezone
-            }
-        }
+        const resolvedOptions = Intl.DateTimeFormat().resolvedOptions()
+        let timezone = resolvedOptions.timeZone;
+        
+        // let coor = lookupViaCity(city);
+        // if(coor.length > 0){
+        //     timezone = coor[0].timezone
+        // }else{
+        //     coor = findFromCityStateProvince(province);
+        //     if(coor.length > 0){
+        //         timezone = coor[0].timezone
+        //     }
+        // }
+
         if(postCode.length === 0){
             postCode = '000000';
             formErrors.step1.postCode = '';

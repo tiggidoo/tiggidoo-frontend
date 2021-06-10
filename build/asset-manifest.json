@@ -1,27 +1,21 @@
 {
-  "files": {
-    "main.css": "/static/css/main.558634de.chunk.css",
-    "main.js": "/static/js/main.e0c13f05.chunk.js",
-    "main.js.map": "/static/js/main.e0c13f05.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.eb74641f.js",
-    "runtime-main.js.map": "/static/js/runtime-main.eb74641f.js.map",
-    "static/css/2.81198f32.chunk.css": "/static/css/2.81198f32.chunk.css",
-    "static/js/2.41c16961.chunk.js": "/static/js/2.41c16961.chunk.js",
-    "static/js/2.41c16961.chunk.js.map": "/static/js/2.41c16961.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.81198f32.chunk.css.map": "/static/css/2.81198f32.chunk.css.map",
-    "static/css/main.558634de.chunk.css.map": "/static/css/main.558634de.chunk.css.map",
-    "static/js/2.41c16961.chunk.js.LICENSE.txt": "/static/js/2.41c16961.chunk.js.LICENSE.txt",
-    "static/media/becomepro.scss": "/static/media/arriere-plan-2.085ae830.svg",
-    "static/media/intro.scss": "/static/media/arriere-plan.549801f5.svg",
-    "static/media/getFetch.cjs": "/static/media/getFetch.d7d6010d.cjs",
-    "static/media/styles.css": "/static/media/revicons.e8746a62.woff"
-  },
-  "entrypoints": [
-    "static/js/runtime-main.eb74641f.js",
-    "static/css/2.81198f32.chunk.css",
-    "static/js/2.41c16961.chunk.js",
-    "static/css/main.558634de.chunk.css",
-    "static/js/main.e0c13f05.chunk.js"
-  ]
+  "main.css": "static/css/main.6b8763a6.css",
+  "main.css.map": "static/css/main.6b8763a6.css.map",
+  "main.js": "static/js/main.03139ca3.js",
+  "main.js.map": "static/js/main.03139ca3.js.map",
+  "static/media/application.scss": "static/media/application.d5d5c5a7.scss",
+  "static/media/becomepro.scss": "static/media/becomepro.6de670aa.scss",
+  "static/media/conditions.scss": "static/media/conditions.f3b3f878.scss",
+  "static/media/footer.scss": "static/media/footer.391de8a5.scss",
+  "static/media/getFetch.cjs": "static/media/getFetch.51c934af.cjs",
+  "static/media/howitworks.scss": "static/media/howitworks.650a994f.scss",
+  "static/media/intro.scss": "static/media/intro.ca41375d.scss",
+  "static/media/myquestions.scss": "static/media/myquestions.390c438c.scss",
+  "static/media/navbar.scss": "static/media/navbar.0f42c9db.scss",
+  "static/media/platform.scss": "static/media/platform.077577da.scss",
+  "static/media/revicons.eot": "static/media/revicons.2feb69cc.eot",
+  "static/media/revicons.ttf": "static/media/revicons.17629a5d.ttf",
+  "static/media/revicons.woff": "static/media/revicons.04eb8fc5.woff",
+  "static/media/services.scss": "static/media/services.29210710.scss",
+  "static/media/sliderpro.scss": "static/media/sliderpro.dac647f0.scss"
 }

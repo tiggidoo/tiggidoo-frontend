@@ -5,6 +5,7 @@ import { useParams } from 'react-router'
 import { getRequest } from '../../../../store/actions/reservationAction'
 import Dashboard from '../../../layout/Dashboard'
 import PaperLayout from '../../../layout/PaperLayout'
+import ReqClientInfo from './component/request/ReqClientInfo'
 import ReqHeader from './component/request/ReqHeader'
 
 const useStyle = makeStyles((theme) => ({
@@ -22,16 +23,22 @@ const useStyle = makeStyles((theme) => ({
         '@media(max-width: 600px)':{
             padding: theme.spacing(2, 0),
         }
+    },
+    reqClient:{
+        padding: theme.spacing(5, 4),
+        '@media(max-width: 600px)':{
+            padding: theme.spacing(2, 0),
+        }
     }
 }))
 
 const ShowReservation = () => {
     const classes = useStyle()
 
-    const { auth:{pro, access_token, isLoggedIn}, reservation } = useSelector(
+    const { auth:{pro, access_token, isLoggedIn}, reservationInfo } = useSelector(
         state => ({
             auth: state.auth,
-            reservation: state.reservation.reservation
+            reservationInfo: state.reservation.reservation
         })
     )
 
@@ -42,7 +49,7 @@ const ShowReservation = () => {
         dispatch(getRequest(access_token, id))
     }, [access_token, id])
 
-    console.log('Esta es la id:  --  ', reservation)
+    //console.log('Esta es la id:  --  ', reservation)
 
     return (
         <Dashboard
@@ -50,17 +57,25 @@ const ShowReservation = () => {
             token = { access_token }
             isLoggedIn = {isLoggedIn}
         >
-            {(reservation !== null) && (
+            {(reservationInfo !== null) && (
                 <Box className={classes.workArea}>
                     
                     <PaperLayout>
                         <Box className={classes.reqHeader} borderBottom={1}>
                             <ReqHeader 
-                                uuid={reservation.reservation.uuid} 
-                                service={reservation.reservation.service.fr} 
-                                date={reservation.reservation.housework.start_date} 
-                                duration={reservation.reservation.total_duration} 
+                                uuid={reservationInfo.reservation.uuid} 
+                                service={reservationInfo.reservation.service.fr} 
+                                date={reservationInfo.reservation.housework.start_date} 
+                                duration={reservationInfo.reservation.total_duration} 
                                 //reservationStatusId={reservationStatusId}
+                            />
+                        </Box>
+                        <Box className={classes.reqClient} borderBottom={1}>
+                            <ReqClientInfo 
+                                housing={reservationInfo.reservation.housing} 
+                                client={reservationInfo.reservation.client} 
+                                totalPrice={reservationInfo.reservation.total_price} 
+                                personalization={reservationInfo.reservation.housework.personalization} 
                             />
                         </Box>
 {/*                         
