@@ -125,8 +125,8 @@ const ScheduledActivities = ({ enableTime }) => {
     },[])
 
     const handleChange = (e) => {
-        const year = parseInt(e.target.value.split('_')[1])
-        const month = parseInt(e.target.value.split('_')[0]) - 1
+        const year = parseInt(e.target.value.split('_')[1], 10)
+        const month = parseInt(e.target.value.split('_')[0], 10) - 1
 
         const d = moment([year, month])
         const res = displayMonthActivities(d)

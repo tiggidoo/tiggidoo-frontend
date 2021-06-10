@@ -1,5 +1,5 @@
 import { Box, makeStyles } from '@material-ui/core'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { getRequest } from '../../../../store/actions/reservationAction'

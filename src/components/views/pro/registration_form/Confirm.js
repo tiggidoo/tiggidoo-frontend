@@ -129,7 +129,4 @@ function Confirm(props) {
     )
 }
 
-export default compose(
-    withTranslation()
-)
-(Confirm);
+export default compose(withTranslation())(Confirm);

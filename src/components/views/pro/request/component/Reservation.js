@@ -95,7 +95,7 @@ const Reservation = ({res}) =>{
     const classes = useStyle()
 
     let duration = res.total_duration.split(':')
-    duration = `${parseInt(duration[0])}H${parseInt(duration[1])}`
+    duration = `${parseInt(duration[0], 10)}H${parseInt(duration[1], 10)}`
 
     return (
         <Box className={classes.resArea}>

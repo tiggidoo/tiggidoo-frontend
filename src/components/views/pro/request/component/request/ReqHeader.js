@@ -1,5 +1,5 @@
 import { makeStyles, Typography } from '@material-ui/core'
-import { Button, Hidden } from '@material-ui/core'
+import { Hidden } from '@material-ui/core'
 import { Box } from '@material-ui/core'
 import React from 'react'
 import { getDateFormatDayMotnYear } from '../../../../../share/librery/librery'
@@ -60,13 +60,13 @@ const ReqHeader = ({ uuid, service, date, duration, reservationStatusId }) => {
     let d = duration.split(':')
     d = `${d[0]}H${d[1]}`
     
-    let messageBtn = 'NOUVELLE'
-    let btnStyle = classes.statusStyle + ' ' + classes.btnNew
+    // let messageBtn = 'NOUVELLE'
+    // let btnStyle = classes.statusStyle + ' ' + classes.btnNew
     
-    if(reservationStatusId === '1'){
-        btnStyle = btnStyle + ' ' + classes.btnWaitting
-        messageBtn = 'EN ATTENTE'
-    }
+    // if(reservationStatusId === '1'){
+    //     btnStyle = btnStyle + ' ' + classes.btnWaitting
+    //     messageBtn = 'EN ATTENTE'
+    // }
 
     return (
         <Box className={classes.tittles}>

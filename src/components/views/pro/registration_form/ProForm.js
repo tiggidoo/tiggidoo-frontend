@@ -335,6 +335,7 @@ class ProForm extends Component {
         const resolvedOptions = Intl.DateTimeFormat().resolvedOptions()
         let timezone = resolvedOptions.timeZone;
         
+        // let timezone = '';
         // let coor = lookupViaCity(city);
         // if(coor.length > 0){
         //     timezone = coor[0].timezone
