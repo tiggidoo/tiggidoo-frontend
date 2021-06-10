@@ -10,7 +10,7 @@ const useStyle = makeStyles((theme)=> ({
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems: 'center',
-        //padding: theme.spacing(5,0, 4, 0),
+        padding: theme.spacing(4),
         '& h6':{
             color: '#737379',
             fontSize: '15px',
@@ -22,7 +22,8 @@ const useStyle = makeStyles((theme)=> ({
         },
         '@media(max-width: 600px)':{
             display:'flex',
-            flexWrap: 'wrap'
+            flexWrap: 'wrap',
+            padding: theme.spacing(2, 0),
         }
     }
     ,

@@ -19,13 +19,13 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     reqHeader:{
-        padding: theme.spacing(5, 4),
+        //padding: theme.spacing(5, 4),
         '@media(max-width: 600px)':{
-            padding: theme.spacing(2, 0),
+            //padding: theme.spacing(2, 0),
         }
     },
     reqClient:{
-        padding: theme.spacing(5, 4),
+        padding: theme.spacing(2, 2),
         '@media(max-width: 600px)':{
             padding: theme.spacing(2, 0),
         }
