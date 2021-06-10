@@ -5,6 +5,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { useLocation } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,7 +67,7 @@ export default function HorizontalLinearStepper() {
   };
 
   const handleSkip = () => {
-    
+
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSkipped((prevSkipped) => {
@@ -80,20 +81,32 @@ export default function HorizontalLinearStepper() {
     setActiveStep(0);
   };
 
+  const location = useLocation()
+
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} >
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
-          
+
           if (index == 0) {
             stepProps.completed = true;
           }
 
-          if (index == 1) {
-            stepProps.active = true;
+          if (location.pathname === '/housing') {
+            if (index == 1) {
+              stepProps.active = true;
+            }
+          } else if (location.pathname === '/benefit') {
+            if (index == 1) {
+              stepProps.completed = true;
+            }
+            if (index == 2) {
+              stepProps.active = true;
+            }
           }
+
           return (
             <Step key={label} {...stepProps}>
               <StepLabel {...labelProps}>{label}</StepLabel>

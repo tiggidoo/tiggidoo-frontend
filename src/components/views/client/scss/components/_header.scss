@@ -120,6 +120,7 @@
     z-index: 999;
     padding: 57px 2% 30px 5%;
     width: 100%;
+    display: block;
 
     .NavBar__container {
         width: 100%;
@@ -166,4 +167,7 @@
         display: none;
     }
     
+    h2 {
+        margin-top: 37px;
+    }
 }

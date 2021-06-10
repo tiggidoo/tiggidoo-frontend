@@ -9,8 +9,9 @@ import { logOutAction } from '../../../store/actions/authAction';
 import { useTranslation } from "react-i18next";
 
 import { withRouter } from "react-router";
+import { useLocation } from 'react-router-dom'
 
-import { Box } from '@material-ui/core'
+import { Box, Typography } from '@material-ui/core'
 import Stepper from '../../views/client/section-parts/HorizontalLinearStepper';
 
 
@@ -58,9 +59,11 @@ const HeaderServ = ({ history }) => {
 		}
 	}, [])
 
-	function toggleCollapse (){
+	function toggleCollapse() {
 		document.getElementById("clientNav").classList.toggle("menu_open");
 	}
+
+	const location = useLocation()
 
 	return (
 		<div>
@@ -69,7 +72,7 @@ const HeaderServ = ({ history }) => {
 				<meta name="description" content={t("SEO.meta.description")} />
 				<meta name="keywords" content={t("SEO.meta.keywords")} />
 			</Helmet>
-			 
+
 			<Navbar expand="xl" id="clientNav" className={`ServiceNav ${navBackground ? "ServiceNav__nav--scrolled" : ""}`}>
 				<Box className="NavBar__container">
 					<Navbar.Brand href="#home">
@@ -79,7 +82,7 @@ const HeaderServ = ({ history }) => {
 							alt=""
 						/>
 					</Navbar.Brand>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => toggleCollapse()}/>
+					<Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => toggleCollapse()} />
 
 					<Navbar.Collapse className="">
 						<Nav className="NavBar__menu">
@@ -93,7 +96,21 @@ const HeaderServ = ({ history }) => {
 							</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>
+
 				</Box>
+
+				{location.pathname === '/housing' &&
+					<Typography component="h2" variant="h2">
+						{t("Client.Logement.sectionTitle1")}
+					</Typography>
+				}
+
+				{location.pathname === '/benefit' &&
+					<Typography component="h2" variant="h2">
+						{t("Client.Logement.sectionTitle2")}
+					</Typography>
+				}
+
 			</Navbar>
 		</div>
 	);
