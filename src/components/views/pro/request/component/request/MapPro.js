@@ -1,6 +1,6 @@
 import { Box,Avatar } from '@material-ui/core'
 import React from 'react'
-import { Map, Marker, Popup, TileLayer, CircleMarker} from 'react-leaflet'
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 
 
 const MapPro = ({profs, client}) => {
@@ -9,8 +9,6 @@ const MapPro = ({profs, client}) => {
         lat: client.address.lat,
         lng: client.address.lng
     }
-
-    const redOptions = { color: '#2880f9' }
 
     return (
         <div>

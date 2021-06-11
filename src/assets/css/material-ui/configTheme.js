@@ -82,7 +82,7 @@ const theme = createMuiTheme({
       fontSize: '1.6rem',
       color: '#6d6d6d',
       '@media (max-width:768px)': { 
-        fontSize: "1.4rem",
+        fontSize: "1.5rem",
       }
     },
     p: {

@@ -1,6 +1,7 @@
 import { GET_RESERVATIONS_LIST, GET_A_REQUEST } from './typesAction'
 import axios from 'axios'
 import config from '../../config.json'
+import { setAlert } from './alertAction'
 
 export const getListRequest = (token) => async dispatch=>{
     try{
@@ -48,6 +49,42 @@ export const getRequest = (token, id) => async dispatch => {
         .catch((error) => {
             console.log(error)
         })
+
+    }catch(error){
+        console.log(error)
+    }
+}
+
+export const serndReservation = (token, formData, id) => async dispatch => {
+    try{    
+
+        const headers = { 
+            headers: {'Authorization': `Bearer ${token}`}
+        }
+
+        const content = {            
+            id: id,
+            pro_start_time: formData.startTime,
+            pro_duration: formData.proDuration,
+            pro_vacuum_price: formData.productVacuumPrice,
+            pro_product_ecological_price: formData.productEcologicalPrice,
+            pro_product_standard_price: formData.productStandarPrice,
+            pro_work_price: formData.workPrice,
+            pro_comment: formData.comment
+        }
+
+        const data = JSON.stringify(content);
+
+        await axios.post(`${config.API_SERVER}/api/pro/reservation/valid`, data, headers)
+        .then((res) => {
+            if(res.status === 200){
+                dispatch(setAlert('Propuesta enviada', 'success'))
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
 
     }catch(error){
         console.log(error)

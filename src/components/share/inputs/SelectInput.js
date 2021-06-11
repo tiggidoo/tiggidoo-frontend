@@ -19,6 +19,7 @@ const BootstrapInput = withStyles((theme) => ({
         fontSize: 16,
         padding: '10px 26px 10px 12px',
         transition: theme.transitions.create(['border-color', 'box-shadow']),
+        boxShadow: '0px 3px 6px #00000029',
         // Use the system font instead of the default Roboto font.
         fontFamily: [
             '-apple-system',
@@ -50,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
             borderLeft: '1px solid gray',
             color: theme.palette.primary.main
         }
-
     },
     selectIcon:{
     },

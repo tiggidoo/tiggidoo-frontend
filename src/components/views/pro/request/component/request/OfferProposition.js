@@ -1,0 +1,345 @@
+import { Box, Grid, makeStyles, Typography, Fab, TextareaAutosize, Button } from '@material-ui/core'
+import SelectInput from '../../../../../share/inputs/SelectInput'
+import Input from '../../../../../share/inputs/Input'
+import React from 'react'
+
+const useStyle = makeStyles((theme) => ({
+    offre:{
+        margin: theme.spacing(0, 2),
+        border: `2px solid ${theme.palette.primary.main}`,
+        borderRadius: '11px',
+        '@media(max-width: 600px)':{
+            margin: theme.spacing(0)
+        },
+        '& h4':{
+            color: theme.palette.primary.main,
+            fontWeight: 'bold'
+        }
+    },
+    propo: {
+        margin: theme.spacing(3, 4),
+        '@media(max-width: 992px)':{
+            margin: theme.spacing(3, 2)
+        },
+        '& .MuiFab-sizeSmall':{
+            '@media(max-width: 600px)':{
+                width: '35px',
+                height: '35px'
+            }
+        }
+    },
+    propositionOffre:{
+        display:'flex',
+        flexDirection:'column',
+        marginLeft: '10px',
+        width: '100%'
+    },
+    btnArea: {
+        display: 'flex',
+        flexDirection:'row',
+        justifyContent:'space-between',
+        margin: theme.spacing(3, 2),
+        '@media(max-width: 768px)':{
+            flexDirection:'column',
+            alignItems: 'center'
+        }
+    },
+    tariff: {
+        display:'flex',
+        justifyContent: 'flex-end',
+        '& .MuiBox-root':{
+            margin: '0'
+        },
+        '& .MuiOutlinedInput-input':{
+            textAlign: 'right'
+        }
+    }
+}))
+
+const OfferProposition = ({ totalPrice }) => {
+    const classes = useStyle()
+
+    const serviceHour = [
+        { id: '8:00', name: '8H00' },
+        { id: '8:30', name: '8H30' },
+        { id: '9:00', name: '9H00' },
+        { id: '9:30', name: '9H30' },
+        { id: '10:00', name: '10H00' },
+        { id: '10:30', name: '10H30' },
+        { id: '11:00', name: '11H00' },
+        { id: '11:30', name: '11H30' },
+        { id: '12:00', name: '12H00' },
+        { id: '12:30', name: '12H30' },
+        { id: '13:00', name: '13H00' },
+        { id: '13:30', name: '13H30' },
+        { id: '14:00', name: '14H00' },
+        { id: '14:30', name: '14H30' },
+        { id: '15:00', name: '15H00' },
+        { id: '15:30', name: '15H30' },
+        { id: '16:00', name: '16H00' },
+        { id: '16:30', name: '16H30' },
+        { id: '17:00', name: '17H00' },
+        { id: '17:30', name: '17H30' },
+        { id: '18:00', name: '18H00' },
+        { id: '18:30', name: '18H30' },
+        { id: '19:00', name: '19H00' },
+        { id: '19:30', name: '19H30' },
+        { id: '20:00', name: '20H00' },
+        { id: '20:30', name: '20H30' },
+        { id: '21:00', name: '21H00' },
+        { id: '21:30', name: '21H30' },
+    ];
+
+    const duration = [
+        { id: '1:00', name: '1H00' },
+        { id: '1:30', name: '1H30' },
+        { id: '2:00', name: '2H00' },
+        { id: '2:30', name: '2H30' },
+        { id: '3:00', name: '3H00' },
+        { id: '3:30', name: '3H30' },
+        { id: '4:00', name: '4H00' },
+        { id: '4:30', name: '4H30' },
+        { id: '5:00', name: '5H00' },
+        { id: '5:30', name: '5H30' },
+        { id: '6:00', name: '6H00' },
+        { id: '6:30', name: '6H30' },
+        { id: '7:00', name: '7H00' },
+        { id: '7:30', name: '7H30' },
+        { id: '8:00', name: '8H00' },
+        { id: '8:30', name: '8H30' },
+    ];
+
+    const additionals = [
+        { id: '5', name: '5 $' },
+        { id: '10', name: '10 $' },
+        { id: '15', name: '15 $' },
+        { id: '20', name: '20 $' },
+        { id: '25', name: '25 $' },
+        { id: '30', name: '30 $' },
+        { id: '35', name: '35 $' },
+        { id: '40', name: '40 $' },
+        { id: '45', name: '45 $' },
+        { id: '50', name: '50 $' },
+        { id: '55', name: '55 $' },
+        { id: '60', name: '60 $' },
+        { id: '65', name: '65 $' },
+        { id: '70', name: '70 $' },
+        { id: '75', name: '75 $' },
+        { id: '80', name: '80 $' },
+        { id: '85', name: '85 $' },
+        { id: '90', name: '90 $' },
+        { id: '95', name: '95 $' },
+        { id: '100', name: '100 $' },
+    ];
+
+
+
+    return (
+    <Box>
+        <Box mt={2}>
+            <Box className={classes.offre}>
+                <Box className={classes.propo}>
+                    <Typography variant="h4">PROPOSITION D'OFFRE</Typography>
+                    <Grid container maxWidth="sm">
+                        <Grid item xs={12} sm={12} md={6}>
+                            <Box>
+                                <Box display="flex" flexDirection="row" mt={2}>
+                                    <Box>
+                                        <Fab size="small" color="primary" aria-label="add">1</Fab>
+                                    </Box>
+                                    <Box className={classes.propositionOffre}>
+                                        <Typography variant="h6" style={{color: '#000'}}>J’indique ma disponibilité</Typography>
+                                        <Box display="flex" flexDirection="row" mt={1}>
+                                            <Box mr={2}>
+                                                <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>CRÉNAU DEMANDÉ</Typography>
+                                                <Typography variant="h6" style={{color: '#000'}}>Matin</Typography>
+                                            </Box>
+                                            <Box>
+                                                <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>HEURE DÉBUT</Typography>
+                                                <Box className={classes.selectInput} >
+                                                    <SelectInput
+                                                        id="serviceHour"
+                                                        name="serviceHour"
+                                                        data={serviceHour}
+                                                        //onChange={(e) => handleChange(e)}
+                                                        defaultValue={''}
+                                                        disabled={true}
+                                                    />                
+                                                </Box>
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={6}>
+                            <Box>
+                                <Box display="flex" flexDirection="row" mt={2}>
+                                    <Box>
+                                        <Fab size="small" color="primary" aria-label="add">2</Fab>
+                                    </Box>
+                                    <Box display="flex" flexDirection="column" style={{marginLeft: '10px'}}>
+                                        <Typography variant="h6" style={{color: '#000'}}>J’estime le temps de la prestation</Typography>
+                                        <Box display="flex" flexDirection="row" mt={1}>
+                                            <Box mr={2}>
+                                                <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>MON ESTIMATION</Typography>
+                                                
+                                                <Box className={classes.selectInput} >
+                                                    <SelectInput
+                                                        id="duration"
+                                                        name="duration"
+                                                        data={duration}
+                                                        //onChange={(e) => handleChange(e)}
+                                                        defaultValue={''}
+                                                        disabled={true}
+                                                    />                
+                                                </Box>
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={6}>
+                            <Box>
+                                <Box display="flex" flexDirection="row" mt={4}>
+                                    <Box>
+                                        <Fab size="small" color="primary" aria-label="add">3</Fab>
+                                    </Box>
+                                    <Box className={classes.propositionOffre}>
+                                        <Typography variant="h6" style={{color: '#000'}}>Je renseigne le tarif des options</Typography>
+                                        <Box display="flex" flexDirection="row" mt={1}>
+                                            <Box mr={2}>
+                                                <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>EXTRA(S) DEMANDÉ(S)</Typography>
+                                                <Typography variant="h6" style={{color: '#000'}}>Aspirateur et mope</Typography>
+                                            </Box>
+                                            <Box>
+                                                <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>PRIX</Typography>
+                                                
+                                                <Box className={classes.selectInput} >
+                                                    <SelectInput
+                                                        id="additionals"
+                                                        name="additionals"
+                                                        data={additionals}
+                                                        //onChange={(e) => handleChange(e)}
+                                                        defaultValue={''}
+                                                        disabled={true}
+                                                    />                
+                                                </Box>
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={6}>
+                            <Box>
+                                <Box display="flex" flexDirection="row" mt={4}>
+                                    <Box>
+                                        <Fab size="small" color="primary" aria-label="add">4</Fab>
+                                    </Box>
+                                    <Box className={classes.propositionOffre}>
+                                        <Typography variant="h6" style={{color: '#000'}}>Je fixe le tarif de l’offre</Typography>
+                                        
+                                        <Box display="flex" flexDirection="row" justifyContent ="space-between" mt={1}>
+                                            <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>Estimation Tiggidoo</Typography>
+                                            <Typography variant="h6" style={{color: '#000'}}>{ `${totalPrice} $` }</Typography>
+                                        </Box>
+                                        <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                            <Box style={{width: '50%'}}>
+                                                <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>Votre tarif</Typography>
+                                            </Box>
+                                            <Box className={classes.tariff}>
+                                                <Input
+                                                    id="postCode" 
+                                                    label="" 
+                                                    size="small" 
+                                                    type='number'
+                                                    width="70%"
+                                                    //onBlur={e=>handleChange(e)} 
+                                                    defaultValue={totalPrice} 
+                                                    variant="outlined" 
+                                                    readOnly={false}
+                                                    error=""
+                                                />
+                                            </Box>
+
+                                        </Box>
+                                        <Box mt={1}>
+                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                <Typography variant="h6" style={{color: '#000', fontWeight: 'bold'}}>Extra(s) demandé(s)</Typography>
+                                            </Box>
+                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>Aspirateur et mope</Typography>
+                                                <Typography variant="h6" style={{color: '#000'}}>+20 $</Typography>
+                                            </Box>
+                                        </Box>
+                                        <Box mt={1}>
+                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                <Typography variant="h6" style={{color: '#000', fontWeight: 'bold'}}>Taxes</Typography>
+                                            </Box>
+                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>Taxes TPS (5%)</Typography>
+                                                <Typography variant="h6" style={{color: '#000'}}>+3,91 $</Typography>
+                                            </Box>
+                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                <Typography variant="h6" style={{color: '#737379', fontWeight: 'bold'}}>Taxes TVQ (9,975%)</Typography>
+                                                <Typography variant="h6" style={{color: '#000'}}>+7,80 $</Typography>
+                                            </Box>
+                                        </Box>
+                                        <Box mt={1}>
+                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" alignContent="center">
+                                                <Box style={{width: '60%'}}>
+                                                    <Typography variant="h4" style={{color: '#000', fontWeight: 'bold'}}>TARIF DE LA PRESTATTION</Typography>
+                                                </Box>
+                                                <Box style={{width: '40%', textAlign: 'right'}}>
+                                                    <Typography variant="h3" style={{color: '#000', fontWeight: 'bold'}}>84,99 $</Typography>
+                                                </Box>
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Box>
+        </Box>
+        <Box mt={2}>
+            <Box className={classes.offre}>
+                <Box className={classes.propo}>
+                    <Box>
+                        <Box display="flex" flexDirection="row" mt={2} >
+                            <Box>
+                                <Fab size="small" color="primary" aria-label="add">5</Fab>
+                            </Box>
+                            <Box ml={1} style={{width: '100%'}} >
+                                <Typography variant="h6" style={{color: '#000'}}>Je souhaite faire un commentaire</Typography>
+                                <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="Minimum 3 rows" style={{width: '100%', marginTop: '16px'}} />
+                            </Box>
+                        </Box>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+
+        <Box className={classes.btnArea}>
+            <Box my={2}>
+                <Button variant="contained" style={{ backgroundColor:"#D94D5D", color: '#fff' }} >
+                    REFUSER LA DEMANDE
+                </Button>
+            </Box>
+            <Box my={2}>
+                <Button variant="contained" color="secondary" style={{ color: '#fff' }}>
+                    VALIDER MA DEMANDER
+                </Button>
+            </Box>
+        </Box>
+    </Box>
+)
+}
+
+export default OfferProposition

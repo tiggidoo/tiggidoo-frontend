@@ -5,6 +5,7 @@ import { useParams } from 'react-router'
 import { getRequest } from '../../../../store/actions/reservationAction'
 import Dashboard from '../../../layout/Dashboard'
 import PaperLayout from '../../../layout/PaperLayout'
+import OfferProposition from './component/request/OfferProposition'
 import ReqClientInfo from './component/request/ReqClientInfo'
 import ReqHeader from './component/request/ReqHeader'
 
@@ -19,12 +20,20 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     reqHeader:{
+        borderBottom: '2px solid #aba7a8',
         //padding: theme.spacing(5, 4),
         '@media(max-width: 600px)':{
             //padding: theme.spacing(2, 0),
         }
     },
     reqClient:{
+        padding: theme.spacing(2, 2),
+        borderBottom: '2px solid #aba7a8',
+        '@media(max-width: 600px)':{
+            padding: theme.spacing(2, 0),
+        }
+    },
+    reqOffer:{
         padding: theme.spacing(2, 2),
         '@media(max-width: 600px)':{
             padding: theme.spacing(2, 0),
@@ -61,16 +70,17 @@ const ShowReservation = () => {
                 <Box className={classes.workArea}>
                     
                     <PaperLayout>
-                        <Box className={classes.reqHeader} borderBottom={1}>
+
+                        <Box className={classes.reqHeader}>
                             <ReqHeader 
                                 uuid={reservationInfo.reservation.uuid} 
                                 service={reservationInfo.reservation.service.fr} 
                                 date={reservationInfo.reservation.housework.start_date} 
                                 duration={reservationInfo.reservation.total_duration} 
-                                //reservationStatusId={reservationStatusId}
                             />
                         </Box>
-                        <Box className={classes.reqClient} borderBottom={1}>
+
+                        <Box className={classes.reqClient}>
                             <ReqClientInfo 
                                 housing={reservationInfo.reservation.housing} 
                                 client={reservationInfo.reservation.client} 
@@ -78,17 +88,11 @@ const ShowReservation = () => {
                                 personalization={reservationInfo.reservation.housework.personalization} 
                             />
                         </Box>
-{/*                         
-                        <Box px={5} py={4} borderBottom={1}>
-                            <ClientInfo housing={request.housing} client={request.client} totalPrice={request.total_price} personalization={request.housework.personalization} />
+                        
+                        <Box className={classes.reqOffer}>
+                            <OfferProposition totalPrice={reservationInfo.reservation.total_price}/>
                         </Box>
-                        <FilterAndReponse 
-                            id={id} 
-                            address={ request.client.address} 
-                            personalization={request.housework.personalization }
-                            reservationStatusId={reservationStatusId}
-                        />
-                         */}
+
                     </PaperLayout>
                 </Box>
             )}
