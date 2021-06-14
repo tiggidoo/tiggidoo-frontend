@@ -31,7 +31,7 @@ const theme = createMuiTheme({
       color: "#000",
 
       '@media (max-width:1600px)': { 
-        fontSize: "68px",
+        fontSize: "55px",
       },
       '@media (max-width:1200px)': { 
         fontSize: "55px",
@@ -51,7 +51,7 @@ const theme = createMuiTheme({
       }
     },
     h3: {
-      fontSize: "30px",
+      fontSize: "28px",
       fontFamily: "Avenir_Black",
       marginBottom: '29px',
       

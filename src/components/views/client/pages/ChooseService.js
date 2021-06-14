@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 
 import Demande from "../section-parts/Demande";
 import Balance from "../section-parts/Balance";
+import Benefit from "../sections/chooseService/Benefit";
 
 
 function ChooseService({ t }) {
@@ -40,7 +41,7 @@ function ChooseService({ t }) {
                 }
 
                 {location.pathname === '/benefit' &&
-                    <p>benefit</p> 
+                    <Benefit /> 
                 }
                 </Col>
 

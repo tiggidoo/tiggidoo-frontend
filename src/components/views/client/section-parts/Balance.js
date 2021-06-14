@@ -1,6 +1,9 @@
 import { withTranslation } from "react-i18next"
 import { useState } from 'react'
 
+import { connect } from 'react-redux'
+import { fetchEstimation } from '../../../../store/actions/estimationAction'
+
 import Button from '@material-ui/core/Button';
 
 const Balance = ({ t }) => {
@@ -30,5 +33,5 @@ const Balance = ({ t }) => {
     )
 };
 
-export default withTranslation()(Balance)
+export default connect(null, { fetchEstimation })(withTranslation()(Balance))
 
