@@ -1,0 +1,43 @@
+.options_card {
+    width: 277px;
+    height: 139px;
+    background: #fff;
+    padding: 20px;
+
+    .options_card__header{
+        display: flex;
+        flex-grow: 1;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 16px;
+
+        .counter{
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            p {
+                margin: 0 !important;
+            }
+        }
+
+        .counter_btn{
+            background-color: none;
+            border: none;
+            background: transparent;
+        }
+    }
+
+    h6 {
+        font-size: 18px;
+        font-family: "Avenir_Black";
+    }
+
+    .options_card__desc{
+        p {
+            font-size: 15px;
+        font-family: "Avenir_Regular";
+        }
+    }
+}

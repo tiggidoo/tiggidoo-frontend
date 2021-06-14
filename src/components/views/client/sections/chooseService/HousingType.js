@@ -25,6 +25,7 @@ const HousingType = ({ t }) => {
                 value={value}
                 onChange={(event, newValue) => {
                     setValue(newValue);
+                    console.log(value)
                 }}
                 showLabels
                 className="active HousingType__navigation"

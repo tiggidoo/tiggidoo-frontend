@@ -375,6 +375,31 @@
             "close_info": "Fermer information",
             "info_text": "Le prix affiché est une estimation faite à partir des prix moyen du marché de chaque ville. Celle-ci peut évoluer en fonction des spécificités du logement ou de la demande. TIGGIDOO décline toute responsabilité si le prix final est différent de l’estimation.",
             "demande_submit": "CONTINUER"
+        },
+        "Benefit": {
+            "title1": "FRÉQUENCE DU MÉNAGE",
+            "title2": "PERSONNALISATION DU MÉNAGE",
+            "title3": "DATE ET HEURE DU MÉNAGE",
+            "section1_title1": "ONE SHOT",
+            "section1_subtitle1": "1 seule fois",
+            "section1_title2": "HEBDOMADAIRE",
+            "section1_subtitle2": "1 fois par semaine",
+            "section1_title3": "BI-MENSUEL",
+            "section1_subtitle3": "1 semaine sur deux",
+            "section2_desc": "Sélectionnez les options que vous souhaiteriez pour votre prestation. Le détail du prix vous sera communiquer lors des propositions des PROS dans votre espace personnel.",
+            "section2_option1": "FOUR",
+            "section2_option1_desc": "Nettoyage complet si un produit décapent est mis à disposition",
+            "section2_option2": "FRIGO",
+            "section2_option2_desc": "Nettoyage complet si les denrées alimentaires ont étaient enlevés",
+            "section2_option3": "LIT(S)",
+            "section2_option3_desc": "Nettoyage complet si un produit décapent est mis à disposition",
+            "section2_option4": "ASPI & MOPE",
+            "section2_option4_desc": "Le PRO utilise son propre matériel d’entretien ménagé",
+            "section2_option5": "PRODUITS ECO",
+            "section2_option5_desc": "Le PRO utilise des produits certifiés écologiques et 100% naturels",
+            "section2_option6": "PRODUITS",
+            "section2_option6_desc": "Le PRO utilise des produits d’entretien standards"
         }
+        
     }
 }

@@ -19,11 +19,7 @@ body {
     font-family: "Avenir_Regular";
     background-color: $body_bg_color;
     color: $body_text_color;
-    font-size: 20px;
-
-    @include breakpoint-reverse(xx-large) {
-        font-size: 25px;
-    }
+    font-size: 18px;
 
     @include breakpoint(mobile) {
         font-size: 15px;
@@ -64,11 +60,7 @@ h5 {
 
 p {
     font-family: "Avenir_Regular";
-    font-size: 20px;
-
-    @include breakpoint-reverse(xx-large) {
-        font-size: 25px;
-    }
+    font-size: 18px;
 
     @include breakpoint(mobile) {
         font-size: 15px;
@@ -120,7 +112,7 @@ p {
 
 .main_wrapper {
     max-width: 1600px;
-    margin: auto;
+    margin: auto !important;
 }
 
 .animated_icon {

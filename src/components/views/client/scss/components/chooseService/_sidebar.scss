@@ -1,7 +1,9 @@
 .sidebar {
     margin-top: 330px;
-    max-width: 413px;
+    max-width: 350px;
+    margin-left: auto;
     background: #fff;
+    position: sticky;
 
     h2 {
         font-size: 24px !important;

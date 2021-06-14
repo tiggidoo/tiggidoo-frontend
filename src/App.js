@@ -23,8 +23,12 @@ import Info from "./components/views/pro/personall_data/Info";
 import ClientHome from "./components/views/client/pages/ClientHome";
 import ChooseService from "./components/views/client/pages/ChooseService";
 
+import { Provider } from 'react-redux'
+import store from './store'
+
 function App() {
   return (
+    <Provider store={store}>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <div className="App">
@@ -51,6 +55,7 @@ function App() {
         </div>
         </BrowserRouter>
     </ThemeProvider>
+    </Provider>
   );
 }
 export default App;

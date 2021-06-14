@@ -90,19 +90,19 @@ export default function HorizontalLinearStepper() {
           const stepProps = {};
           const labelProps = {};
 
-          if (index == 0) {
+          if (index === 0) {
             stepProps.completed = true;
           }
 
           if (location.pathname === '/housing') {
-            if (index == 1) {
+            if (index === 1) {
               stepProps.active = true;
             }
           } else if (location.pathname === '/benefit') {
-            if (index == 1) {
+            if (index === 1) {
               stepProps.completed = true;
             }
-            if (index == 2) {
+            if (index === 2) {
               stepProps.active = true;
             }
           }

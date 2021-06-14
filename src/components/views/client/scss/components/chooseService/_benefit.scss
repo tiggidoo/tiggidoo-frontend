@@ -1,0 +1,74 @@
+.beneift__button {
+    height: 139px !important;
+    max-height: 139px !important;
+    width: 276px !important;
+    min-width: 277px !important;
+    background: #fff;
+    background-color: #fff !important;
+    margin-right: 50px !important;
+    color: $dodger-blue_6;
+
+    &.MuiButtonBase-root {
+        align-items: baseline;
+    }
+
+    .MuiBottomNavigationAction-label {
+        margin-top: 20px;
+        font-size: 20px;
+        font-family: "Avenir_Black";
+        color: $dodger-blue_6;
+
+        &::after {
+            content: "";
+            width: 96px;
+            border-bottom: 3px solid $dodger-blue_6;
+            display: block;
+            text-align: center;
+            margin: 6px auto 0;
+        }
+    }
+
+    &.Mui-selected{
+        background-color: $dodger-blue_6 !important;
+
+        .MuiBottomNavigationAction-label {
+            color: #fff;
+    
+            &::after {
+                border-bottom: 3px solid #fff;
+            }
+        }
+    }
+}
+
+.beneift__freq {
+    position: relative;
+
+    justify-content: flex-start !important;
+}
+
+.beneift__button-subtitle {
+    position: absolute;
+    top: 137px;
+    width: 277px;
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    color: #030303;
+
+    @for $i from 1 to 4 {
+        &:nth-of-type(#{$i}) {
+            left: 0px + (($i - 1) * 327);
+        }
+    }
+
+    &.active{
+        color: #fff;
+    }
+}
+
+.options_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 90px;
+}
