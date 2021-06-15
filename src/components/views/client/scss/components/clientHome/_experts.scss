@@ -7,7 +7,7 @@
     }
 
     @include breakpoint(tablet) {
-        padding: 100px 5% 170px;
+        padding: 100px 5% 90px;
     }
 
     @include breakpoint(mobile) {
@@ -28,7 +28,7 @@
     }
 
     span {
-        font-family: "Avenir-Black";
+        font-family: "Avenir_Black";
     }
 
     img {

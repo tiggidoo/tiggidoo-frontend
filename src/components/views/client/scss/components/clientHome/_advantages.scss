@@ -3,6 +3,10 @@
     color: #fff;
     padding: 90px 5% 120px;
 
+    @include breakpoint(tablet) {
+        padding: 90px 5% 45px;
+    }
+
     @include breakpoint(mobile) {
         padding: 90px 5% 40px;
     }
@@ -26,9 +30,18 @@
         display: flex;
         gap: 25px;
         align-items: flex-start;
+       
+
+        @include breakpoint-reverse(tablet) {
+            justify-content: center;
+        }
 
         @include breakpoint(desktop) {
             padding-bottom: 42px;
+        }
+
+        @include breakpoint(mobile) {
+            align-items: center;
         }
     }
 

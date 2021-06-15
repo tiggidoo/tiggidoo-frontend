@@ -4,7 +4,7 @@
 .btn {
     font-family: "Avenir_Black";
     font-size: 20px;
-    padding: 12px 30px;
+    padding: 10px 28px;
     border-radius: 0;
     text-transform: uppercase;
     transition: ease-in 0.3s;
@@ -16,7 +16,6 @@
 
     &:hover,
     &:focus {
-        box-shadow: 0 0.5em 0.5em -0.4em rgba($azure-blue, .8);
         text-decoration: none;
     }
 }
@@ -24,10 +23,12 @@
 .btn_blue_bg {
     @extend .btn;
     background: $btn_bg_blue;
+    border: 3px solid $btn_bg_blue;
     color: #fff;
 
     &:hover {
-        color: #fff;
+        color: $btn_bg_blue;
+        background: #fff;
     }
 }
 
@@ -35,9 +36,12 @@
     @extend .btn;
     background: $bg_green;
     color: #fff;
+    transition: ease-in 0.3s;
+    border: 3px solid $bg_green;
 
     &:hover {
-        color: #fff;
+        color: $bg_green;
+        background: #fff;
     }
 }
 
@@ -45,11 +49,12 @@
     @extend .btn;
     background: #fff;
     color: $btn_nav_blue;
-    
+    border: 3px solid #fff;
+
     &:hover {
-        background: #fff;
-        color: $btn_nav_blue;
-        box-shadow: 0 0.5em 0.5em -0.4em rgba(#fff, .8);
+        color: #fff;
+        background: #443ffd;
+        border: 3px solid #fff;
     }
 }
 
@@ -65,9 +70,9 @@
 
     &:hover,
     &:focus {
-        box-shadow: 0 0.5em 0.5em -0.4em rgba($azure-blue, .8);
         text-decoration: none;
-        color: $dodger-blue_4;
+        color: #fff;
+        background: $dodger-blue_4;
     }
 
     @include breakpoint(mobile) {
