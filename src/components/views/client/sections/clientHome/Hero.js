@@ -48,7 +48,7 @@ function Hero({ t }) {
                             <img
                                 src={"../images/cl_home_hero_asset.png"}
                                 alt=""
-                                className="DPIntro__imgMenage d-sm-block d-md-none mt-5 mb-5"
+                                className="DPIntro__imgMenage d-md-block d-lg-none mt-5 mb-5"
                             />
 
                             <Box className="ClHero_paragraph">
@@ -75,7 +75,7 @@ function Hero({ t }) {
                             <img
                                 src={"../images/cl_home_hero_asset.png"}
                                 alt=""
-                                className="ClHero__img d-none d-md-block"
+                                className="ClHero__img d-none d-lg-block"
                             />
                         </Box>
                     </Col>

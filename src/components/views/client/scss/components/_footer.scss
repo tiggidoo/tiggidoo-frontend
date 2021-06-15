@@ -17,6 +17,7 @@
     .logo_box{
         @include breakpoint(mobile) {
             align-items: center;
+            margin-bottom: 42px;
         }
     }
 

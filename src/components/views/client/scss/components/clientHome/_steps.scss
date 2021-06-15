@@ -117,6 +117,10 @@
             &:nth-child(4),
             &:nth-child(8) {
                 padding-left: 38px;
+
+                @include breakpoint(mobile) {
+                    padding-left: 28px;
+                }
             }
 
             &:nth-child(7),

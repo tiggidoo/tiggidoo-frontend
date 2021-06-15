@@ -32,7 +32,7 @@
         align-items: flex-start;
        
 
-        @include breakpoint-reverse(tablet) {
+        @include breakpoint-reverse(mobile) {
             justify-content: center;
         }
 

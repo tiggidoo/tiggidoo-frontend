@@ -90,6 +90,12 @@
             margin-left: 0;
         }
     }
+
+    .container{
+        @include breakpoint(mobile) {
+            padding: 5rem 2.5rem 2rem;
+        }
+    }
 }
 
 .post_code__input_container {
@@ -104,8 +110,13 @@
         height: 74px;
     }
 
+    @include breakpoint(tablet) {
+        width: 64%;
+    }
+
     @include breakpoint(mobile) {
         flex-direction: column;
+        width: 100%;
     }
 
     input {
@@ -162,5 +173,11 @@
                 color: #fff;
             }
         }
+    }
+}
+
+.post_code__link_container{
+    @include breakpoint(mobile) {
+        display: block;
     }
 }

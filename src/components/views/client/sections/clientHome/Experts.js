@@ -14,13 +14,15 @@ function Experts({ t }) {
     return (
         <Box className="Clexperts">
             <Row className="main_wrapper">
-                <Col sm={12} md={6} lg={6}>
+                <Col sm={12} md={12} lg={6}>
                     <Box className="">
                         <Typography variant="h2">
                             {t("Client.Experts.title")}&nbsp;
                             <span>TOD</span>
                             <span className="green_text">Oo</span>&nbsp;?
                         </Typography>
+
+                        <img src={"images/cl_home_experts.png"} alt="Nos experts" className="d-md-block d-lg-none mb-5"/>
 
                         <Box className="">
                             <p>{t("Client.Experts.text1")}</p>
@@ -40,8 +42,8 @@ function Experts({ t }) {
                     </Box>
                 </Col>
 
-                <Col sm={12} md={6} lg={6}>
-                    <img src={"images/cl_home_experts.png"} alt="Nos experts" />
+                <Col sm={12} md={12} lg={6}>
+                    <img src={"images/cl_home_experts.png"} alt="Nos experts" className="ClHero__img d-none d-lg-block" />
                 </Col>
             </Row>
         </Box>
