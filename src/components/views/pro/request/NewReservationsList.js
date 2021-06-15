@@ -8,7 +8,7 @@ const NewReservationsList = ({ reservations }) => {
             {
                 reservations === null ? (<Box>No result</Box>) : 
                 (
-                    <Box>
+                    <Box >
                         {
                             reservations.map((res, index) => {
                                 return(

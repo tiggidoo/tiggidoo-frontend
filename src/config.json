@@ -1,5 +1,7 @@
 {
     "API_SERVER": "https://www.api-tiggidoo.com",
+    "TPS": 5,
+    "TVQ": 9.975,
     "SIDE_MENU_PRO": {
         "DEMANDES": {
             "title": "Demandes",

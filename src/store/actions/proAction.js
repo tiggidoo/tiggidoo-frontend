@@ -99,3 +99,35 @@ export const updateMyCriteria = (token, pro, formData) => async dispatch => {
         console.log(error)
     }
 }
+
+export const updateTaxes = (token, status, pro) => async dispatch => {
+    try{
+        
+        const headers = {
+            headers: {'Authorization': `Bearer ${token}`}
+        }
+
+        const data = { 
+            status: status === '1' ? true : false
+        }
+
+        await axios.post(`${config.API_SERVER}/api/pro/tax`, data, headers)
+        .then((res) => {
+            console.log(pro)
+            if (res.status === 200){
+                pro.tax = parseInt(status, 10)
+                dispatch({
+                    type: UPDATE_MY_CRITERIA,
+                    payload: pro
+                })
+                dispatch(setAlert('Taxes Updated', 'success'))
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
+    }catch(error){
+        console.log(error)
+    }
+}

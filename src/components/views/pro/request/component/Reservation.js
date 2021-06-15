@@ -3,6 +3,8 @@ import ArrowForwardRoundedIcon from '@material-ui/icons/ArrowForwardRounded';
 import { formateDateSlashes } from '../../../../share/librery/librery'
 import React from 'react'
 import { Link } from 'react-router-dom';
+import DoneAllIcon from '@material-ui/icons/DoneAll';
+import { Label } from '@material-ui/icons';
 
 const useStyle = makeStyles((theme) => ({
     resArea: {
@@ -10,9 +12,10 @@ const useStyle = makeStyles((theme) => ({
         flexDirection:'row', 
         justifyContent:'space-between',
         alignContent: 'center',        
-        marginBottom:theme.spacing(4),     
+        //marginBottom:theme.spacing(4),     
         borderRadius:'21px',   
         boxShadow: '0px 10px 10px #00000055',
+        width: '100%',
         '& h6':{
             color: '#fff',
             fontWeight: 'bold'
@@ -22,7 +25,6 @@ const useStyle = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',        
         justifyContent: 'center',
-        backgroundColor: theme.palette.primary.main,
         padding:theme.spacing(3, 2),
         borderRadius:'21px 0 0 21px',
         '@media(max-width: 600px)':{
@@ -81,14 +83,47 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     arrow:{
-        fontSize:'2.8rem', 
+        fontSize:'1.8rem', 
         color: '#fff'
     },
     dollarS: {
         '& h5':{
             color: theme.palette.primary.main
         }
+    },
+    checkArea: {
+        width: '35px', 
+        textAlign: 'center', 
+        background: '#FFFFFF 0% 0% no-repeat padding-box', 
+        borderRadius: '16px', 
+        marginBottom: '5px',
+        boxShadow: '0px 3px 6px #00000029'
+    },
+    circle: {
+        width: '35px', 
+        height: '35px',
+        backgroundColor: theme.palette.primary.main 
+    },
+    check:{
+        fontSize: '2.6rem',
+    },
+    title: {
+        fontSize: '10px',
+        fontWeight: 'bold'
+    },
+    colorBlue: {
+        color: theme.palette.primary.main        
+    },
+    colorGray: {
+        color: '#929292'
+    },
+    colorBackgroundBlue:{
+        backgroundColor: theme.palette.primary.main,
+    },
+    colorBackgroundGray:{
+        backgroundColor: '#929292',
     }
+
 }))
 
 const Reservation = ({res}) =>{
@@ -97,79 +132,95 @@ const Reservation = ({res}) =>{
     let duration = res.total_duration.split(':')
     duration = `${parseInt(duration[0], 10)}H${parseInt(duration[1], 10)}`
 
+    console.log('Esta es al reservacion: ', res)
+
     return (
-        <Box className={classes.resArea}>
-            <Box className={classes.dateArea}>
-                <Box mx={1}>
-                    <Hidden smUp>
-                        <Box className={classes.contAreaMovil} only="sm">
-                            <Typography variant="h6">SERVICE</Typography>
-                            <Box>
-                                <Typography variant="h5">{res.service}</Typography>
+        <Box my={2}>
+            <Box display="flex" flexDirection="row" >
+                <Hidden smDown>
+                    <Box  display="flex" flexDirection="column" alignItems="center" justifyContent="center" mr={2}>
+                        <Box>
+                            <Box className={classes.checkArea}>
+                                <DoneAllIcon className={ res.has_consulted === 1 ? classes.check + ' ' + classes.colorBlue  : classes.check + ' ' + classes.colorGray }/>
                             </Box>
                         </Box>
-                    </Hidden>
-                    <Typography variant="h6">
-                        {formateDateSlashes(res.start_date)}
-                    </Typography>
-                </Box>
-            </Box>
-
-            <Box className={classes.infoRes}>
-                <Hidden smDown>
-                    <Box className={classes.contArea} only="sm">
-                        <Typography variant="h6">ID REQUÊTE</Typography>
-                        <Box>
-                            <Typography variant="h5">{res.uuid}</Typography>
-                        </Box>
+                        <Box className={ res.has_consulted === 1 ? classes.title + ' ' + classes.colorBlue  : classes.title + ' ' + classes.colorGray }>NOUVELLE</Box>
                     </Box>
                 </Hidden>
-                <Hidden smDown>
-                    <Box className={classes.contArea}>
-                        <Typography variant="h6">SERVICE</Typography>
-                        <Box>
-                            <Typography variant="h5">{res.service}</Typography>
+                <Box className={classes.resArea} >
+                    <Box className={res.has_consulted === 1 ? classes.dateArea + ' ' + classes.colorBackgroundBlue  : classes.dateArea + ' ' + classes.colorBackgroundGray}>
+                        <Box mx={1}>
+                            <Hidden smUp>
+                                <Box className={classes.contAreaMovil} only="sm">
+                                    <Typography variant="h6">SERVICE</Typography>
+                                    <Box>
+                                        <Typography variant="h5">{res.service}</Typography>
+                                    </Box>
+                                </Box>
+                            </Hidden>
+                            <Typography variant="h6">
+                                {formateDateSlashes(res.start_date)}
+                            </Typography>
                         </Box>
                     </Box>
-                </Hidden>
-                <Box className={classes.contArea}>
-                    <Typography variant="h6">FORMULE</Typography>
-                    <Box>
-                        <Typography variant="h5">{res.en}</Typography>
-                    </Box>
-                </Box>
-                <Box className={classes.contArea}>
-                    <Typography variant="h6">HEURE</Typography>
-                    <Box>
-                        <Typography variant="h5">MATIN</Typography>
-                    </Box>
-                </Box>
-                <Box className={classes.contArea}>
-                    <Typography variant="h6">TEMPS ESTIMÉ</Typography>
-                    <Box>
-                        <Typography variant="h5">{duration}</Typography>
-                    </Box>
-                </Box>
-                <Box className={classes.contArea}>
-                    <Typography variant="h6">TARIF DE BASE</Typography>
-                    <Box display="flex" flexDirection="row" alignContent="center" alignItems="center">
-                        <Box mr={1}>
-                            <Typography variant="h5">{`${res.total_price}`}</Typography>
-                        </Box>
-                        <Box className={classes.dollarS}>
-                            <Typography variant="h5">$</Typography>
-                        </Box>
-                    </Box>
-                </Box>
-            </Box>            
 
-            <Box display="flex" flexDirection="column" justifyContent="center">
-                <Box style={{marginRight: '12px'}}>
-                    <Link to={`/show-reservation/${res.id}`} >
-                        <Fab size="small" color="primary" aria-label="add">
-                            <ArrowForwardRoundedIcon className={classes.arrow} />
-                        </Fab>
-                    </Link>
+                    <Box className={classes.infoRes}>
+                        <Hidden smDown>
+                            <Box className={classes.contArea} only="sm">
+                                <Typography variant="h6">ID REQUÊTE</Typography>
+                                <Box>
+                                    <Typography variant="h5">{res.uuid}</Typography>
+                                </Box>
+                            </Box>
+                        </Hidden>
+                        <Hidden smDown>
+                            <Box className={classes.contArea}>
+                                <Typography variant="h6">SERVICE</Typography>
+                                <Box>
+                                    <Typography variant="h5">{res.service}</Typography>
+                                </Box>
+                            </Box>
+                        </Hidden>
+                        <Box className={classes.contArea}>
+                            <Typography variant="h6">FORMULE</Typography>
+                            <Box>
+                                <Typography variant="h5">{res.en}</Typography>
+                            </Box>
+                        </Box>
+                        <Box className={classes.contArea}>
+                            <Typography variant="h6">HEURE</Typography>
+                            <Box>
+                                <Typography variant="h5">MATIN</Typography>
+                            </Box>
+                        </Box>
+                        <Box className={classes.contArea}>
+                            <Typography variant="h6">TEMPS ESTIMÉ</Typography>
+                            <Box>
+                                <Typography variant="h5">{duration}</Typography>
+                            </Box>
+                        </Box>
+                        <Box className={classes.contArea}>
+                            <Typography variant="h6">TARIF DE BASE</Typography>
+                            <Box display="flex" flexDirection="row" alignContent="center" alignItems="center">
+                                <Box mr={1}>
+                                    <Typography variant="h5">{`${res.total_price}`}</Typography>
+                                </Box>
+                                <Box className={classes.dollarS}>
+                                    <Typography variant="h5">$</Typography>
+                                </Box>
+                            </Box>
+                        </Box>
+                    </Box>            
+
+                    <Box display="flex" flexDirection="column" justifyContent="center">
+                        <Box style={{marginRight: '12px'}}>
+                            <Link to={`/show-reservation/${res.id}`} >
+                                <Fab className={classes.circle} aria-label="add">
+                                    <ArrowForwardRoundedIcon className={classes.arrow} />
+                                </Fab>
+                            </Link>
+                        </Box>
+                    </Box>
                 </Box>
             </Box>
         </Box>

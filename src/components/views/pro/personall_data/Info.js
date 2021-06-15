@@ -6,6 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { updateMyCriteria } from '../../../../store/actions/proAction'
 import Data from './Data';
 import MyCriteria from './MyCriteria';
+import { updateTaxes } from '../../../../store/actions/proAction'
 
 const useStyle = makeStyles((theme) => ({
   appBarArea: {
@@ -145,6 +146,10 @@ const Info = () => {
   const updateProCriteria = (formData) =>{
     dispatch(updateMyCriteria(access_token, pro, formData))
   }
+  
+  const updateTaxesPro = (status) => {
+    dispatch(updateTaxes(access_token, status, pro))
+  }
 
   return (
     <Dashboard
@@ -184,7 +189,7 @@ const Info = () => {
 
         <TabPanel value={value} index={0}>
           <Box className={classes.workArea}>
-            <Data auth={pro} />
+            <Data auth={pro} updateTaxesPro={updateTaxesPro}/>
           </Box>
         </TabPanel>
         <TabPanel value={value} index={1}>

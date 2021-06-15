@@ -149,7 +149,7 @@ const RequestsList = () => {
 
   useEffect(() => {
     dispatch(getListRequest(access_token))
-  }, [access_token])
+  }, [access_token, dispatch])
 
 
   const handleChange = (e, newValue) => {

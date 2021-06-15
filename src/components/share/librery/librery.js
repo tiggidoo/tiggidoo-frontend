@@ -1,3 +1,5 @@
+import config from '../../../config.json'
+
 
 export const deletePhoneMask = (phoneMasked, dialCode) => {
     let phone = phoneMasked.replace('(', '');
@@ -39,4 +41,31 @@ export const getDateFormatDayMotnYear = (date) => {
   customeDate = `${customeDate[2]} ${customeDate[1]} ${customeDate[3]}`
 
   return customeDate;
+}
+
+
+/**
+ * @param {Float, Float, Boolean} Float format is: 165.3, 15 return: {tps: 9.02, tvq: 17.98, total: 207.30}
+ */
+ export const calculateTpsTvqAndTotal = (workPrice, vacuumPrice, isCalculateTax) => {
+  let tps = 0.00
+  let tvq = 0.00
+  if(isCalculateTax !== null && isCalculateTax !== 0){
+    tps = ((workPrice + vacuumPrice)*parseFloat(config.TPS, 10))/100
+    tps = tps.toFixed(2)
+
+    tvq = ((workPrice + vacuumPrice)*parseFloat(config.TVQ,10))/100
+    tvq = tvq.toFixed(2)
+  }
+
+  let total = parseFloat(workPrice,10) + parseFloat(vacuumPrice,10) + parseFloat(tps,10) + parseFloat(tvq,10)
+  total = total.toFixed(2)
+
+  
+  return {
+      tps: tps,
+      tvq: tvq,
+      total: total
+  }
+
 }

@@ -78,7 +78,7 @@ const useStyle = makeStyles((theme) => ({
       },
 }))
 
-const Data = ({auth}) => {
+const Data = ({auth, updateTaxesPro}) => {
     const classes = useStyle();
 
     const { credential } = auth;
@@ -87,7 +87,7 @@ const Data = ({auth}) => {
 
     const [ formData, setFormData ] = useState({
         password: '',
-        tpsTvq: '0'
+        tpsTvq: auth.tax === null ? "0" : auth.tax.toString()
     });
 
     const { password, tpsTvq } = formData
@@ -105,6 +105,13 @@ const Data = ({auth}) => {
     const handleMouseDownPassword = (e) => {
         e.preventDefault();
     };
+
+    const sendUpdateTaxes = (e) => {        
+        e.preventDefault()
+        updateTaxesPro(formData.tpsTvq)        
+    }
+
+    console.log(auth)
 
     return (
 
@@ -300,7 +307,7 @@ const Data = ({auth}) => {
                     <Grid item xs={12} md={12}>
                     {/*  */}
                         <Box className={classes.btn}>
-                            <Button variant="contained" color="primary">MODIFIER MES DONNEES</Button>
+                            <Button variant="contained" color="primary" onClick={e => sendUpdateTaxes(e)}>MODIFIER MES DONNEES</Button>
                         </Box>
                     </Grid>                  
                 </Grid>

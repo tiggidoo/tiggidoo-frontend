@@ -19,7 +19,7 @@ import Help from "./components/views/pro/help/Help";
 //import MyCriteria from "./components/views/pro/personall_data/MyCriteria";
 import Activities from "./components/views/pro/activity/Activities";
 import Info from "./components/views/pro/personall_data/Info";
-import ShowReservation from "./components/views/pro/request/ShowReservation";
+import ShowNewReservation from "./components/views/pro/request/ShowNewReservation";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
             <Route exact path="/login" component={SignIn} />
 
             <Route exact path="/reservations-list" component={ RequestsList } />
-            <Route exact path="/show-reservation/:id" component={ ShowReservation } />
+            <Route exact path="/show-reservation/:id" component={ ShowNewReservation } />
             <Route exact path="/activity" component={ Activities } />
             {/* <Route exact path="/activity/my_availabilities" component={ MyAvailabilities } /> */}
             <Route exact path="/history" component={ History } />
