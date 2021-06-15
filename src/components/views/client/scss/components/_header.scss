@@ -106,6 +106,10 @@
 
 .clientNav__nav--scrolled {
     padding: 46px 2% 29px 5%;
+
+    @include breakpoint(tablet) {
+        padding: 30px 5%;
+    }
 }
 
 

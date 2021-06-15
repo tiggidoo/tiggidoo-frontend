@@ -16,9 +16,12 @@ const PostCodeCl = ({ t }) => {
 
             <Box className="post_code__login_container">
                 {t("Client.Hero.postCodeText1")} &nbsp;
-                <Link className="post_code__link" to="/login">{t("Client.Hero.postCodeText2")}</Link>
-                &nbsp;
-                {t("Client.Hero.postCodeText3")}
+
+                <Box component="span" className="post_code__link_container">
+                    <Link className="post_code__link" to="/login">{t("Client.Hero.postCodeText2")}</Link>
+                    &nbsp;
+                    {t("Client.Hero.postCodeText3")}
+                </Box>
             </Box>
         </Box>
     )
