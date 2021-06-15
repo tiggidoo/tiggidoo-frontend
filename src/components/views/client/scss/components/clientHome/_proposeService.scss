@@ -5,6 +5,10 @@
         padding: 189px 0 0;
     }
 
+    @include breakpoint(tablet) {
+        padding: 100px 5% 0;
+    }
+
     @include breakpoint(mobile) {
         padding: 90px 0 0 5%;
     }

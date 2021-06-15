@@ -19,12 +19,13 @@ const useStyle = makeStyles((theme) => ({
                 fontSize: '33px',
             },
             '@media (max-width:599px)': {
-                fontSize: '23px',
+                fontSize: '19px',
             }
         },
 
         '@media (max-width:599px)': {
-            marginTop: '53px',
+            marginTop: '30px',
+            marginBottom: '10px',
         }
     }
 }))
@@ -43,6 +44,12 @@ function Hero({ t }) {
                                 {t("Client.Hero.title1")}
                                 <Box component="span">{t("Client.Hero.title2")}</Box>
                             </Typography>
+
+                            <img
+                                src={"../images/cl_home_hero_asset.png"}
+                                alt=""
+                                className="DPIntro__imgMenage d-sm-block d-md-none mt-5 mb-5"
+                            />
 
                             <Box className="ClHero_paragraph">
                                 <p className="ClHero__text mb-4 pb-xl-4">
@@ -68,7 +75,7 @@ function Hero({ t }) {
                             <img
                                 src={"../images/cl_home_hero_asset.png"}
                                 alt=""
-                                className="ClHero__img d-md-block"
+                                className="ClHero__img d-none d-md-block"
                             />
                         </Box>
                     </Col>

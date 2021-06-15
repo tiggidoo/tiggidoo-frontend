@@ -7,6 +7,14 @@
     background-size: 70%;
     background-position: right top;
 
+    @include breakpoint(tablet) {
+        padding: 0 20px;
+    }
+
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
+
     &__img {
         max-width: 700px;
         height: auto;
@@ -23,6 +31,8 @@
     }
 
     .post_code__container {
+        position: relative;
+
         @include breakpoint(tablet) {
             margin-top: 40px;
         }
@@ -34,6 +44,21 @@
         .post_code__title {
             text-transform: uppercase;
             font-family: "Avenir_Black";
+        }
+
+        .btn_green_bg {
+            @include breakpoint-reverse(tablet) {
+                position: absolute;
+                z-index: 2;
+                right: 13px;
+
+                &:hover {
+                    padding: 22px 42px;
+                    transform: translateX(13px);
+                    background: $bg_green;
+                    color: #fff;
+                }
+            }
         }
     }
 
@@ -73,6 +98,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+
+    @include breakpoint-reverse(tablet) {
+        height: 74px;
+    }
 
     @include breakpoint(mobile) {
         flex-direction: column;
@@ -115,6 +145,21 @@
                 width: 100%;
                 margin-right: 0;
                 margin-bottom: 12px;
+            }
+        }
+    }
+
+    .btn_blue_bg {
+        @include breakpoint-reverse(tablet) {
+            position: absolute;
+            z-index: 2;
+            right: 29px;
+
+            &:hover {
+                padding: 22px 42px;
+                transform: translateX(29px);
+                background: $btn_bg_blue;
+                color: #fff;
             }
         }
     }
