@@ -36,7 +36,7 @@
 
         @include breakpoint(mobile) {
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 17px;
         }
     }
 
@@ -205,6 +205,7 @@ label + .MuiInput-formControl {
 
     @include breakpoint(mobile) {
         margin-bottom: 45px;
+        text-align: center;
     }
 }
 
