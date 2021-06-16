@@ -123,6 +123,10 @@
         p {
             font-family: "Avenir_Black";
             font-size: 17px;
+
+            @include breakpoint(mobile) {
+                font-size: 14px;
+            }
         }
         svg {
             max-width: 30px;
@@ -149,12 +153,23 @@
             p{
                 margin-bottom: 0;
             }
+
+            @include breakpoint(tablet) {
+                justify-content: left;
+                max-width: 300px;
+                margin: auto;
+            }
+        
         }
     }
 
     &_main {
         background-color: #2880fb;
         padding: 0 5%;
+
+        @include breakpoint(mobile) {
+            padding: 24px 5%;
+        }
     }
 
     &__box {
@@ -164,6 +179,16 @@
 
     .Footer_logo{
         margin-left: 0;
+
+        @include breakpoint(mobile) {
+            margin: auto;
+        }
+    }
+
+    ul {
+        @include breakpoint(mobile) {
+            justify-content: center;
+        }
     }
 }
 

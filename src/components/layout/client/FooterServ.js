@@ -59,7 +59,7 @@ function FooterServ({ t }) {
 
             <Box className="FooterServ_main">
                 <Box className="FooterServ__box d-md-flex justify-content-md-between pt-xl-5 pt-sm-4 pb-sm-4 pb-xl-4">
-                    <Box className="d-flex flex-column justify-content-between">
+                    <Box className="d-flex flex-column justify-content-between logo_box">
                         <img
                             src={"images/logo_tiggidoo_all_white.svg"}
                             alt="logo_tiggidoo"

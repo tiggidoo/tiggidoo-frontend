@@ -41,8 +41,6 @@ const HousingType = ({ t }) => {
             {value === 1 && <CondoServices />}
             {value === 2 && <AppartmentServices />}
             {value === 3 && <LoftServices />}
-
-           
         </Box>
     )
 }

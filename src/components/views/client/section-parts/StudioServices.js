@@ -10,6 +10,10 @@ const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
+        
+      '@media (max-width:599px)': { 
+        minWidth: "97px",
+      }
     },
 }));
 
@@ -66,8 +70,8 @@ const StudioServices = ({ t }) => {
                     </Select>
 
                 </FormControl>
-                <FormControl className={classes.formControl}>
 
+                <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="cat">
                         <img
                             src={"images/icon_animal.svg"}
@@ -89,33 +93,7 @@ const StudioServices = ({ t }) => {
                     </Select>
 
                 </FormControl>
-
-                <FormControl className={classes.formControl}>
-
-                    <InputLabel htmlFor="other">
-                        <img
-                            src={"images/icon_animal.svg"}
-                            alt="cats"
-                        />
-                        {t("Client.Logement.housingSpecificity_12")}
-                    </InputLabel>
-                    <Select
-                        value={state.cat}
-                        onChange={handleChange}
-                        inputProps={{
-                            name: 'other',
-                            id: 'other',
-                        }}
-                    >
-                        <option aria-label="None" value="" />
-                        <option value={10}>Oui</option>
-                        <option value={20}>Non</option>
-                    </Select>
-
-                </FormControl>
             </Box>
-
-
         </Box>
     )
 }

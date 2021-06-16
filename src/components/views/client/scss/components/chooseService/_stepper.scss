@@ -8,6 +8,10 @@
             padding-right: 200px !important;
         }
 
+        @include breakpoint(tablet) {
+            padding-right: 30px !important;
+        }
+
         &::after {
             content: "";
             width: 90px;
@@ -24,6 +28,12 @@
                 width: 133px;
                 background-size: 27px 2px;
             }
+
+            @include breakpoint(tablet) {
+                width: 50px;
+                left: 69%;
+                top: -44px;
+            }
         }
 
         &.MuiStep-completed {
@@ -39,6 +49,12 @@
                 @include breakpoint-reverse(xx-large) {
                     width: 133px;
                     border-bottom: 5px solid $dodger-blue_6;
+                }
+
+                @include breakpoint(tablet) {
+                    width: 50px;
+                    left: 69%;
+                    top: -42px;
                 }
             }
         }
@@ -62,6 +78,17 @@
         border-radius: 50%;
         width: 35px;
         height: 35px;
+
+        @include breakpoint(tablet) {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .MuiTypography-body2{
+        @include breakpoint(tablet) {
+            font-size: 15px;
+        }
     }
 
     .MuiStepIcon-text {
