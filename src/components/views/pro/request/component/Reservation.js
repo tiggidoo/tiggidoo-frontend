@@ -4,7 +4,6 @@ import { formateDateSlashes } from '../../../../share/librery/librery'
 import React from 'react'
 import { Link } from 'react-router-dom';
 import DoneAllIcon from '@material-ui/icons/DoneAll';
-import { Label } from '@material-ui/icons';
 
 const useStyle = makeStyles((theme) => ({
     resArea: {
@@ -83,7 +82,7 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     arrow:{
-        fontSize:'1.8rem', 
+        fontSize:'1.8rem',
         color: '#fff'
     },
     dollarS: {
@@ -102,7 +101,7 @@ const useStyle = makeStyles((theme) => ({
     circle: {
         width: '35px', 
         height: '35px',
-        backgroundColor: theme.palette.primary.main 
+        //backgroundColor: theme.palette.primary.main 
     },
     check:{
         fontSize: '2.6rem',
@@ -126,29 +125,44 @@ const useStyle = makeStyles((theme) => ({
 
 }))
 
-const Reservation = ({res}) =>{
+const Reservation = ({res, statusId}) =>{
     const classes = useStyle()
 
     let duration = res.total_duration.split(':')
     duration = `${parseInt(duration[0], 10)}H${parseInt(duration[1], 10)}`
 
     console.log('Esta es al reservacion: ', res)
+    let color = ''
+    if(statusId === '1'){
+        color = '#2880fb'
+        if(res.has_consulted !== 1){
+            color= '#929292'
+        }
+    }
+    if(statusId === '2'){
+        color = '#FF8925'
+    }
+    if(statusId === '4'){
+        color = '#28CC8B'
+    }
 
     return (
         <Box my={2}>
             <Box display="flex" flexDirection="row" >
-                <Hidden smDown>
-                    <Box  display="flex" flexDirection="column" alignItems="center" justifyContent="center" mr={2}>
-                        <Box>
-                            <Box className={classes.checkArea}>
-                                <DoneAllIcon className={ res.has_consulted === 1 ? classes.check + ' ' + classes.colorBlue  : classes.check + ' ' + classes.colorGray }/>
+                {(statusId === '1') && (
+                    <Hidden smDown>
+                        <Box  display="flex" flexDirection="column" alignItems="center" justifyContent="center" mr={2}>
+                            <Box>
+                                <Box className={classes.checkArea}>
+                                    <DoneAllIcon className={ classes.check } style={{color: color}}/>
+                                </Box>
                             </Box>
+                            <Box className={ classes.title }  style={{color: color}}>NOUVELLE</Box>
                         </Box>
-                        <Box className={ res.has_consulted === 1 ? classes.title + ' ' + classes.colorBlue  : classes.title + ' ' + classes.colorGray }>NOUVELLE</Box>
-                    </Box>
-                </Hidden>
-                <Box className={classes.resArea} >
-                    <Box className={res.has_consulted === 1 ? classes.dateArea + ' ' + classes.colorBackgroundBlue  : classes.dateArea + ' ' + classes.colorBackgroundGray}>
+                    </Hidden>
+                )}
+                <Box className={classes.resArea}>
+                    <Box className={classes.dateArea} style={{backgroundColor: color}}>
                         <Box mx={1}>
                             <Hidden smUp>
                                 <Box className={classes.contAreaMovil} only="sm">
@@ -215,7 +229,7 @@ const Reservation = ({res}) =>{
                     <Box display="flex" flexDirection="column" justifyContent="center">
                         <Box style={{marginRight: '12px'}}>
                             <Link to={`/show-reservation/${res.id}`} >
-                                <Fab className={classes.circle} aria-label="add">
+                                <Fab className={classes.circle} aria-label="add" style={{backgroundColor: color}}>
                                     <ArrowForwardRoundedIcon className={classes.arrow} />
                                 </Fab>
                             </Link>

@@ -2,7 +2,7 @@ import { Box, makeStyles } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { getRequest } from '../../../../store/actions/reservationAction'
+import { getRequest, serndReservation } from '../../../../store/actions/reservationAction'
 import Dashboard from '../../../layout/Dashboard'
 import PaperLayout from '../../../layout/PaperLayout'
 import OfferProposition from './component/request/OfferProposition'
@@ -60,6 +60,11 @@ const ShowNewReservation = () => {
 
     //console.log('Esta es la id:  --  ', reservation)
 
+    const sendReservation = (dataForm) => {
+        console.log('No tiene nada que decir: ', dataForm)
+        dispatch(serndReservation(access_token, dataForm))
+    }
+
     return (
         <Dashboard
             user = { pro }
@@ -90,7 +95,11 @@ const ShowNewReservation = () => {
                         </Box>
                         
                         <Box className={classes.reqOffer}>
-                            <OfferProposition totalPrice={reservationInfo.reservation.total_price} isCalculateTax={pro.tax} />
+                            <OfferProposition 
+                                totalPrice={reservationInfo.reservation.total_price} 
+                                isCalculateTax={pro.tax} 
+                                sendReservation={sendReservation} 
+                            />
                         </Box>
 
                     </PaperLayout>

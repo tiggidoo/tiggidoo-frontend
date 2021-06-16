@@ -74,10 +74,18 @@ const useStyle = makeStyles((theme) => ({
         '& select.MuiNativeSelect-root': {
             width: '100px !important'
         }
+    },
+    btnRefuse: {
+        backgroundColor:'#D94D5D', 
+        color: '#fff'
+    },
+    btnValidate: {
+        color: '#fff',
+        backgroundColor: theme.palette.secondary.main
     }
 }))
 
-const OfferProposition = ({ totalPrice, isCalculateTax }) => {
+const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
     const classes = useStyle()
 
     const serviceHour = [
@@ -112,22 +120,22 @@ const OfferProposition = ({ totalPrice, isCalculateTax }) => {
     ];
 
     const duration = [
-        { id: '1:00', name: '1H00' },
-        { id: '1:30', name: '1H30' },
-        { id: '2:00', name: '2H00' },
-        { id: '2:30', name: '2H30' },
-        { id: '3:00', name: '3H00' },
-        { id: '3:30', name: '3H30' },
-        { id: '4:00', name: '4H00' },
-        { id: '4:30', name: '4H30' },
-        { id: '5:00', name: '5H00' },
-        { id: '5:30', name: '5H30' },
-        { id: '6:00', name: '6H00' },
-        { id: '6:30', name: '6H30' },
-        { id: '7:00', name: '7H00' },
-        { id: '7:30', name: '7H30' },
-        { id: '8:00', name: '8H00' },
-        { id: '8:30', name: '8H30' },
+        { id: '01:00:00', name: '1H00' },
+        { id: '01:30:00', name: '1H30' },
+        { id: '02:00:00', name: '2H00' },
+        { id: '02:30:00', name: '2H30' },
+        { id: '03:00:00', name: '3H00' },
+        { id: '03:30:00', name: '3H30' },
+        { id: '04:00:00', name: '4H00' },
+        { id: '04:30:00', name: '4H30' },
+        { id: '05:00:00', name: '5H00' },
+        { id: '05:30:00', name: '5H30' },
+        { id: '06:00:00', name: '6H00' },
+        { id: '06:30:00', name: '6H30' },
+        { id: '07:00:00', name: '7H00' },
+        { id: '07:30:00', name: '7H30' },
+        { id: '08:00:00', name: '8H00' },
+        { id: '08:30:00', name: '8H30' },
     ];
 
     const additionals = [
@@ -162,11 +170,11 @@ const OfferProposition = ({ totalPrice, isCalculateTax }) => {
 
     const [formData, setFormData] = useState({
         id: 1,
-        proStartTime: "",
-        proDuration: "",
+        proStartTime: "8:00",
+        proDuration: "1H00",
         proVacuumPrice: 5,
         proProductEcologicalPrice: 0,
-        proProductStandardPrice: "",
+        proProductStandardPrice: 0,
         proWorkPrice: totalPrice,
         proPriceMoreTaxes: res.total,
         proComment: "",
@@ -196,218 +204,225 @@ const OfferProposition = ({ totalPrice, isCalculateTax }) => {
             'tvq': res.tvq
         })
     }
+
+    const sendValidateData = (e) => {
+        e.preventDefault()
+        console.log('esta es una nt')
+        sendReservation(formData)
+    }
+
     console.log('Valor:  ---  ', formData)
     return (
-    <Box>
-        <Box mt={2}>
-            <Box className={classes.offre}>
-                <Box className={classes.propo}>
-                    <Typography variant="h4">PROPOSITION D'OFFRE</Typography>
-                    <Grid container maxWidth="sm">
-                        <Grid item xs={12} sm={12} md={6}>
-                            <Box>
-                                <Box display="flex" flexDirection="row" mt={2}>
-                                    <Box>
-                                        <Fab size="small" color="primary" aria-label="add">1</Fab>
+        <Box>
+            <Box mt={2}>
+                <Box className={classes.offre}>
+                    <Box className={classes.propo}>
+                        <Typography variant="h4">PROPOSITION D'OFFRE</Typography>
+                        <Grid container maxWidth="sm">
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Box>
+                                    <Box display="flex" flexDirection="row" mt={2}>
+                                        <Box>
+                                            <Fab size="small" color="primary" aria-label="add">1</Fab>
+                                        </Box>
+                                        <Box className={classes.propositionOffre}>
+                                            <Typography variant="h5">J’indique ma disponibilité</Typography>
+                                            <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
+                                                <Box mr={2}>
+                                                    <Typography variant="h6">CRÉNAU DEMANDÉ</Typography>
+                                                    <Typography variant="h5">Matin</Typography>
+                                                </Box>
+                                                <Box>
+                                                    <Typography variant="h6">HEURE DÉBUT</Typography>
+                                                    <Box className={classes.selectInput} >
+                                                        <SelectInput
+                                                            id="proStartTime"
+                                                            name="proStartTime"
+                                                            data={serviceHour}
+                                                            onChange={(e) => handleChange(e)}
+                                                            defaultValue={formData.proStartTime}
+                                                            disabled={true}
+                                                        />                
+                                                    </Box>
+                                                </Box>
+                                            </Box>
+                                        </Box>
                                     </Box>
-                                    <Box className={classes.propositionOffre}>
-                                        <Typography variant="h5">J’indique ma disponibilité</Typography>
-                                        <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
+                                </Box>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Box>
+                                    <Box display="flex" flexDirection="row" mt={2}>
+                                        <Box>
+                                            <Fab size="small" color="primary" aria-label="add">3</Fab>
+                                        </Box>
+                                        <Box className={classes.propositionOffre}>
+                                            <Typography variant="h5">J’estime le temps de la prestation</Typography>
                                             <Box mr={2}>
-                                                <Typography variant="h6">CRÉNAU DEMANDÉ</Typography>
-                                                <Typography variant="h5">Matin</Typography>
+                                                <Typography variant="h6">MON ESTIMATION</Typography>
                                             </Box>
-                                            <Box>
-                                                <Typography variant="h6">HEURE DÉBUT</Typography>
-                                                <Box className={classes.selectInput} >
-                                                    <SelectInput
-                                                        id="proStartTime"
-                                                        name="proStartTime"
-                                                        data={serviceHour}
-                                                        onChange={(e) => handleChange(e)}
-                                                        defaultValue={formData.proStartTime}
-                                                        disabled={true}
-                                                    />                
+                                            <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
+                                                <Box mr={2}>
+                                                    <Typography variant="h5">Durée</Typography>
+                                                </Box>
+                                                <Box>
+                                                    <Box className={classes.selectInput} >
+                                                        <SelectInput
+                                                            id="proDuration"
+                                                            name="proDuration"
+                                                            data={duration}
+                                                            onChange={(e) => handleChange(e)}
+                                                            defaultValue={formData.proDuration}
+                                                            disabled={true}
+                                                        />                 
+                                                    </Box>
                                                 </Box>
                                             </Box>
                                         </Box>
                                     </Box>
                                 </Box>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={6}>
-                            <Box>
-                                <Box display="flex" flexDirection="row" mt={2}>
-                                    <Box>
-                                        <Fab size="small" color="primary" aria-label="add">3</Fab>
-                                    </Box>
-                                    <Box className={classes.propositionOffre}>
-                                        <Typography variant="h5">J’estime le temps de la prestation</Typography>
-                                        <Box mr={2}>
-                                            <Typography variant="h6">MON ESTIMATION</Typography>
+                            </Grid>
+
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Box>
+                                    <Box display="flex" flexDirection="row" mt={4}>
+                                        <Box>
+                                            <Fab size="small" color="primary" aria-label="add">3</Fab>
                                         </Box>
-                                        <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
-                                            <Box mr={2}>
-                                                <Typography variant="h5">Durée</Typography>
-                                            </Box>
-                                            <Box>
-                                                <Box className={classes.selectInput} >
-                                                    <SelectInput
-                                                        id="proDuration"
-                                                        name="proDuration"
-                                                        data={duration}
-                                                        onChange={(e) => handleChange(e)}
-                                                        defaultValue={formData.proDuration}
-                                                        disabled={true}
-                                                    />                 
+                                        <Box className={classes.propositionOffre}>
+                                            <Typography variant="h5">Je renseigne le tarif des options</Typography>
+                                            <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
+                                                <Box mr={2}>
+                                                    <Typography variant="h6">EXTRA(S) DEMANDÉ(S)</Typography>
+                                                    <Typography variant="h5"> Aspirateur et mope</Typography>
+                                                </Box>
+                                                <Box>
+                                                    <Typography variant="h6">PRIX</Typography>
+                                                    <Box className={classes.selectInput} >
+                                                        <SelectInput
+                                                            id="proVacuumPrice"
+                                                            name="proVacuumPrice"
+                                                            data={additionals}
+                                                            onChange={(e) => handleChange(e)}
+                                                            defaultValue={formData.proVacuumPrice}
+                                                            disabled={true}
+                                                        />                
+                                                    </Box>
                                                 </Box>
                                             </Box>
                                         </Box>
                                     </Box>
                                 </Box>
-                            </Box>
-                        </Grid>
 
-                        <Grid item xs={12} sm={12} md={6}>
-                            <Box>
-                                <Box display="flex" flexDirection="row" mt={4}>
-                                    <Box>
-                                        <Fab size="small" color="primary" aria-label="add">3</Fab>
-                                    </Box>
-                                    <Box className={classes.propositionOffre}>
-                                        <Typography variant="h5">Je renseigne le tarif des options</Typography>
-                                        <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
-                                            <Box mr={2}>
-                                                <Typography variant="h6">EXTRA(S) DEMANDÉ(S)</Typography>
-                                                <Typography variant="h5"> Aspirateur et mope</Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Box>
+                                    <Box display="flex" flexDirection="row" mt={4}>
+                                        <Box>
+                                            <Fab size="small" color="primary" aria-label="add">4</Fab>
+                                        </Box>
+                                        <Box className={classes.propositionOffre}>
+                                            <Typography variant="h5">Je fixe le tarif de l’offre</Typography>
+                                            
+                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" mt={1}>
+                                                <Typography variant="h6">Estimation Tiggidoo</Typography>
+                                                <Typography variant="h6">{ `${totalPrice} $` }</Typography>
                                             </Box>
-                                            <Box>
-                                                <Typography variant="h6">PRIX</Typography>
-                                                <Box className={classes.selectInput} >
-                                                    <SelectInput
-                                                        id="proVacuumPrice"
-                                                        name="proVacuumPrice"
-                                                        data={additionals}
-                                                        onChange={(e) => handleChange(e)}
-                                                        defaultValue={formData.proVacuumPrice}
-                                                        disabled={true}
-                                                    />                
+                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                <Box style={{width: '50%'}}>
+                                                    <Typography variant="h6">Votre tarif</Typography>
+                                                </Box>
+                                                <Box className={classes.tariff}>
+                                                    <Input
+                                                        id="proWorkPrice" 
+                                                        label="" 
+                                                        size="small" 
+                                                        type='number'
+                                                        width="135px"
+                                                        onBlur={e=>handleChange(e)} 
+                                                        defaultValue={formData.proWorkPrice} 
+                                                        variant="outlined" 
+                                                        readOnly={false}
+                                                        error=""
+                                                    />
+                                                </Box>
+
+                                            </Box>
+                                            <Box mt={1}>
+                                                <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                    <Typography variant="h6" style={{color: '#000', fontWeight: 'bold'}}>Extra(s) demandé(s)</Typography>
+                                                </Box>
+                                                <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                    <Typography variant="h6">Aspirateur et mope</Typography>
+                                                    <Typography variant="h5">{`+${formData.proVacuumPrice} $`}</Typography>
+                                                </Box>
+                                            </Box>
+                                            <Box mt={1}>
+                                                <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                    <Typography variant="h4">Taxes</Typography>
+                                                </Box>
+                                                <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                    <Typography variant="h6">Taxes TPS (5%)</Typography>
+                                                    <Typography variant="h5">{`+${formData.tps} $`}</Typography>
+                                                </Box>
+                                                <Box display="flex" flexDirection="row" justifyContent ="space-between" >
+                                                    <Typography variant="h6">Taxes TVQ (9,975%)</Typography>
+                                                    <Typography variant="h5">{`+${formData.tvq} $`}</Typography>
+                                                </Box>
+                                            </Box>
+                                            <Box mt={1}>
+                                                <Box display="flex" flexDirection="row" justifyContent ="space-between" alignContent="center">
+                                                    <Box style={{width: '60%'}}>
+                                                        <Typography variant="h4">TARIF DE LA PRESTATTION</Typography>
+                                                    </Box>
+                                                    <Box style={{width: '40%', textAlign: 'right'}}>
+                                                        <Typography variant="h3" style={{color: '#000', fontWeight: 'bold'}}>
+                                                            {`${formData.proPriceMoreTaxes} $`}
+                                                        </Typography>
+                                                    </Box>
                                                 </Box>
                                             </Box>
                                         </Box>
                                     </Box>
                                 </Box>
-                            </Box>
 
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6}>
-                            <Box>
-                                <Box display="flex" flexDirection="row" mt={4}>
-                                    <Box>
-                                        <Fab size="small" color="primary" aria-label="add">4</Fab>
-                                    </Box>
-                                    <Box className={classes.propositionOffre}>
-                                        <Typography variant="h5">Je fixe le tarif de l’offre</Typography>
-                                        
-                                        <Box display="flex" flexDirection="row" justifyContent ="space-between" mt={1}>
-                                            <Typography variant="h6">Estimation Tiggidoo</Typography>
-                                            <Typography variant="h6">{ `${totalPrice} $` }</Typography>
-                                        </Box>
-                                        <Box display="flex" flexDirection="row" justifyContent ="space-between" >
-                                            <Box style={{width: '50%'}}>
-                                                <Typography variant="h6">Votre tarif</Typography>
-                                            </Box>
-                                            <Box className={classes.tariff}>
-                                                <Input
-                                                    id="proWorkPrice" 
-                                                    label="" 
-                                                    size="small" 
-                                                    type='number'
-                                                    width="135px"
-                                                    onBlur={e=>handleChange(e)} 
-                                                    defaultValue={formData.proWorkPrice} 
-                                                    variant="outlined" 
-                                                    readOnly={false}
-                                                    error=""
-                                                />
-                                            </Box>
-
-                                        </Box>
-                                        <Box mt={1}>
-                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
-                                                <Typography variant="h6" style={{color: '#000', fontWeight: 'bold'}}>Extra(s) demandé(s)</Typography>
-                                            </Box>
-                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
-                                                <Typography variant="h6">Aspirateur et mope</Typography>
-                                                <Typography variant="h5">{`+${formData.proVacuumPrice} $`}</Typography>
-                                            </Box>
-                                        </Box>
-                                        <Box mt={1}>
-                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
-                                                <Typography variant="h4">Taxes</Typography>
-                                            </Box>
-                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
-                                                <Typography variant="h6">Taxes TPS (5%)</Typography>
-                                                <Typography variant="h5">{`+${formData.tps} $`}</Typography>
-                                            </Box>
-                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" >
-                                                <Typography variant="h6">Taxes TVQ (9,975%)</Typography>
-                                                <Typography variant="h5">{`+${formData.tvq} $`}</Typography>
-                                            </Box>
-                                        </Box>
-                                        <Box mt={1}>
-                                            <Box display="flex" flexDirection="row" justifyContent ="space-between" alignContent="center">
-                                                <Box style={{width: '60%'}}>
-                                                    <Typography variant="h4">TARIF DE LA PRESTATTION</Typography>
-                                                </Box>
-                                                <Box style={{width: '40%', textAlign: 'right'}}>
-                                                    <Typography variant="h3" style={{color: '#000', fontWeight: 'bold'}}>
-                                                        {`${formData.proPriceMoreTaxes} $`}
-                                                    </Typography>
-                                                </Box>
-                                            </Box>
-                                        </Box>
-                                    </Box>
-                                </Box>
-                            </Box>
-
-                        </Grid>
-                    </Grid>
+                    </Box>
                 </Box>
             </Box>
-        </Box>
-        <Box mt={2}>
-            <Box className={classes.offre}>
-                <Box className={classes.propo}>
-                    <Box>
-                        <Box display="flex" flexDirection="row" mt={2} >
-                            <Box>
-                                <Fab size="small" color="primary" aria-label="add">5</Fab>
-                            </Box>
-                            <Box className={classes.propositionOffre} ml={1} >
-                                <Typography variant="h5">Je souhaite faire un commentaire</Typography>
-                                <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="Minimum 3 rows" style={{width: '100%', marginTop: '16px'}} />
+            <Box mt={2}>
+                <Box className={classes.offre}>
+                    <Box className={classes.propo}>
+                        <Box>
+                            <Box display="flex" flexDirection="row" mt={2} >
+                                <Box>
+                                    <Fab size="small" color="primary" aria-label="add">5</Fab>
+                                </Box>
+                                <Box className={classes.propositionOffre} ml={1} >
+                                    <Typography variant="h5">Je souhaite faire un commentaire</Typography>
+                                    <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="Minimum 3 rows" style={{width: '100%', marginTop: '16px'}} />
+                                </Box>
                             </Box>
                         </Box>
                     </Box>
                 </Box>
             </Box>
-        </Box>
 
-        <Box className={classes.btnArea}>
-            <Box my={2}>
-                <Button variant="contained" style={{ backgroundColor:"#D94D5D", color: '#fff' }} >
-                    REFUSER LA DEMANDE
-                </Button>
-            </Box>
-            <Box my={2}>
-                <Button variant="contained" color="secondary" style={{ color: '#fff' }}>
-                    VALIDER MA DEMANDER
-                </Button>
+            <Box className={classes.btnArea}>
+                <Box my={2}>
+                    <Button variant="contained" className={classes.btnRefuse} >
+                        REFUSER LA DEMANDE
+                    </Button>
+                </Box>
+                <Box my={2}>
+                    <Button variant="contained" className={classes.btnValidate} onClick={e=>sendValidateData(e)}>
+                        VALIDER MA DEMANDER21
+                    </Button>
+                </Box>
             </Box>
         </Box>
-    </Box>
-)
+    )
 }
 
 export default OfferProposition

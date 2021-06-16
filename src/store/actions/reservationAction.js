@@ -3,13 +3,17 @@ import axios from 'axios'
 import config from '../../config.json'
 import { setAlert } from './alertAction'
 
-export const getListRequest = (token) => async dispatch=>{
+export const getListRequest = (token, statusId) => async dispatch=>{
     try{
         const headers = {
             headers: { 'Authorization': `Bearer ${token}` }
         }
 
-        await axios.post(`${config.API_SERVER}/api/pro/reservation/list`, {}, headers)
+        const data = {
+            statusId: parseInt(statusId, 10)
+        }
+
+        await axios.post(`${config.API_SERVER}/api/pro/reservation/list`, data, headers)
         .then((res) =>{
             console.log(res.data.reservations)
             dispatch({
@@ -55,7 +59,7 @@ export const getRequest = (token, id) => async dispatch => {
     }
 }
 
-export const serndReservation = (token, formData, id) => async dispatch => {
+export const serndReservation = (token, formData) => async dispatch => {
     try{    
 
         const headers = { 
@@ -63,17 +67,21 @@ export const serndReservation = (token, formData, id) => async dispatch => {
         }
 
         const content = {            
-            id: id,
-            pro_start_time: formData.startTime,
+            id: formData.id,
+            pro_start_time: formData.proStartTime,
             pro_duration: formData.proDuration,
-            pro_vacuum_price: formData.productVacuumPrice,
-            pro_product_ecological_price: formData.productEcologicalPrice,
-            pro_product_standard_price: formData.productStandarPrice,
-            pro_work_price: formData.workPrice,
+            pro_vacuum_price: formData.proVacuumPrice,
+            pro_product_ecological_price: formData.proProductEcologicalPrice,
+            pro_product_standard_price: formData.proProductStandardPrice,
+            pro_work_price: formData.proPriceMoreTaxes,
             pro_comment: formData.comment
         }
 
         const data = JSON.stringify(content);
+
+        console.log(token)
+
+        console.log(data)
 
         await axios.post(`${config.API_SERVER}/api/pro/reservation/valid`, data, headers)
         .then((res) => {

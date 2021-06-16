@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Box, AppBar, Tabs, Tab, makeStyles, Hidden, MenuItem, Menu, ListItemText, withStyles } from '@material-ui/core'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Dashboard from '../../../layout/Dashboard'
 import MenuIcon from '@material-ui/icons/Menu';
 import NewReservationsList from './NewReservationsList';
-import { getListRequest } from '../../../../store/actions/reservationAction'
 
 const useStyle = makeStyles((theme) => ({
   appBarArea: {
@@ -138,20 +137,13 @@ const RequestsList = () => {
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const { auth:{pro, access_token, isLoggedIn}, reservations } = useSelector(
+  const { auth:{pro, access_token, isLoggedIn} } = useSelector(
     state => ({
-        auth: state.auth,
-        reservations: state.reservation.reservations
+        auth: state.auth
     })
   ) 
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getListRequest(access_token))
-  }, [access_token, dispatch])
-
-
+  
   const handleChange = (e, newValue) => {
     setValue(newValue);
   };    
@@ -213,12 +205,17 @@ const RequestsList = () => {
 
             <TabPanel value={value} index={0}>
                 <Box className={classes.workArea}>
-                    <NewReservationsList reservations={reservations} />
+                    <NewReservationsList token={access_token} statusId="1"/>
                 </Box>
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <Box className={classes.workArea}>
-                
+                  <NewReservationsList token={access_token} statusId="2"/>
+                </Box>
+            </TabPanel>
+            <TabPanel value={value} index={3}>
+                <Box className={classes.workArea}>
+                  <NewReservationsList token={access_token} statusId="4"/>
                 </Box>
             </TabPanel>
         </Box>

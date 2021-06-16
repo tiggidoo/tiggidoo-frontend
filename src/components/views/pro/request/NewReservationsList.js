@@ -1,8 +1,24 @@
 import { Box } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Reservation from './component/Reservation'
+import { useDispatch, useSelector } from 'react-redux'
+import { getListRequest } from '../../../../store/actions/reservationAction'
 
-const NewReservationsList = ({ reservations }) => {
+const NewReservationsList = ({ token, statusId }) => {
+
+    const {  reservations } = useSelector(
+        state => ({
+            reservations: state.reservation.reservations
+        })
+    ) 
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getListRequest(token, statusId))
+    }, [token, statusId, dispatch])
+
+
     return (
         <Box>
             {
@@ -12,7 +28,7 @@ const NewReservationsList = ({ reservations }) => {
                         {
                             reservations.map((res, index) => {
                                 return(
-                                    <Reservation res={res} />
+                                    <Reservation res={res} statusId={statusId}/>
                                 )
                             })
                         }
