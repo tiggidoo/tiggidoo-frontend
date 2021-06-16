@@ -85,7 +85,7 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
+const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation, statusId }) => {
     const classes = useStyle()
 
     const serviceHour = [
@@ -186,7 +186,6 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
     const handleChange = (e) => {
         e.preventDefault()
 
-
         const { proWorkPrice, proVacuumPrice }= formData
 
         if(e.target.name === 'proVacuumPrice'){
@@ -205,6 +204,15 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
         })
     }
 
+    let color = '#2880fb'
+    if(statusId === '2'){
+        color = '#FF8925'
+    }
+    if(statusId === '4'){
+        color = '#28CC8B'
+    }
+
+
     const sendValidateData = (e) => {
         e.preventDefault()
         console.log('esta es una nt')
@@ -215,46 +223,16 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
     return (
         <Box>
             <Box mt={2}>
-                <Box className={classes.offre}>
+                <Box className={classes.offre} style={{borderColor: color}}>
                     <Box className={classes.propo}>
-                        <Typography variant="h4">PROPOSITION D'OFFRE</Typography>
+                        <Typography variant="h4" style={{color: color}}>PROPOSITION D'OFFRE</Typography>
                         <Grid container maxWidth="sm">
                             <Grid item xs={12} sm={12} md={6}>
-                                <Box>
+
+                            <Box>
                                     <Box display="flex" flexDirection="row" mt={2}>
                                         <Box>
-                                            <Fab size="small" color="primary" aria-label="add">1</Fab>
-                                        </Box>
-                                        <Box className={classes.propositionOffre}>
-                                            <Typography variant="h5">J’indique ma disponibilité</Typography>
-                                            <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
-                                                <Box mr={2}>
-                                                    <Typography variant="h6">CRÉNAU DEMANDÉ</Typography>
-                                                    <Typography variant="h5">Matin</Typography>
-                                                </Box>
-                                                <Box>
-                                                    <Typography variant="h6">HEURE DÉBUT</Typography>
-                                                    <Box className={classes.selectInput} >
-                                                        <SelectInput
-                                                            id="proStartTime"
-                                                            name="proStartTime"
-                                                            data={serviceHour}
-                                                            onChange={(e) => handleChange(e)}
-                                                            defaultValue={formData.proStartTime}
-                                                            disabled={true}
-                                                        />                
-                                                    </Box>
-                                                </Box>
-                                            </Box>
-                                        </Box>
-                                    </Box>
-                                </Box>
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={6}>
-                                <Box>
-                                    <Box display="flex" flexDirection="row" mt={2}>
-                                        <Box>
-                                            <Fab size="small" color="primary" aria-label="add">3</Fab>
+                                            <Fab size="small" color="primary" aria-label="add" style={{backgroundColor: color}}>1</Fab>
                                         </Box>
                                         <Box className={classes.propositionOffre}>
                                             <Typography variant="h5">J’estime le temps de la prestation</Typography>
@@ -274,7 +252,41 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
                                                             onChange={(e) => handleChange(e)}
                                                             defaultValue={formData.proDuration}
                                                             disabled={true}
+                                                            color={color}
                                                         />                 
+                                                    </Box>
+                                                </Box>
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6}>
+
+                            <Box>
+                                    <Box display="flex" flexDirection="row" mt={2}>
+                                        <Box>
+                                            <Fab size="small" color="primary" aria-label="add" style={{backgroundColor: color}}>2</Fab>
+                                        </Box>
+                                        <Box className={classes.propositionOffre}>
+                                            <Typography variant="h5">J’indique ma disponibilité</Typography>
+                                            <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
+                                                <Box mr={2}>
+                                                    <Typography variant="h6">CRÉNAU DEMANDÉ</Typography>
+                                                    <Typography variant="h5">Matin</Typography>
+                                                </Box>
+                                                <Box>
+                                                    <Typography variant="h6">HEURE DÉBUT</Typography>
+                                                    <Box className={classes.selectInput} >
+                                                        <SelectInput
+                                                            id="proStartTime"
+                                                            name="proStartTime"
+                                                            data={serviceHour}
+                                                            onChange={(e) => handleChange(e)}
+                                                            defaultValue={formData.proStartTime}
+                                                            disabled={true}
+                                                            color={color}
+                                                        />                
                                                     </Box>
                                                 </Box>
                                             </Box>
@@ -287,7 +299,7 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
                                 <Box>
                                     <Box display="flex" flexDirection="row" mt={4}>
                                         <Box>
-                                            <Fab size="small" color="primary" aria-label="add">3</Fab>
+                                            <Fab size="small" color="primary" aria-label="add" style={{backgroundColor: color}}>3</Fab>
                                         </Box>
                                         <Box className={classes.propositionOffre}>
                                             <Typography variant="h5">Je renseigne le tarif des options</Typography>
@@ -306,6 +318,7 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
                                                             onChange={(e) => handleChange(e)}
                                                             defaultValue={formData.proVacuumPrice}
                                                             disabled={true}
+                                                            color={color}
                                                         />                
                                                     </Box>
                                                 </Box>
@@ -319,7 +332,7 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
                                 <Box>
                                     <Box display="flex" flexDirection="row" mt={4}>
                                         <Box>
-                                            <Fab size="small" color="primary" aria-label="add">4</Fab>
+                                            <Fab size="small" color="primary" aria-label="add" style={{backgroundColor: color}}>4</Fab>
                                         </Box>
                                         <Box className={classes.propositionOffre}>
                                             <Typography variant="h5">Je fixe le tarif de l’offre</Typography>
@@ -342,7 +355,8 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
                                                         onBlur={e=>handleChange(e)} 
                                                         defaultValue={formData.proWorkPrice} 
                                                         variant="outlined" 
-                                                        readOnly={false}
+                                                        readOnly={statusId === '1' ? false : true}
+                                                        color={color}
                                                         error=""
                                                     />
                                                 </Box>
@@ -391,36 +405,40 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation }) => {
                     </Box>
                 </Box>
             </Box>
-            <Box mt={2}>
-                <Box className={classes.offre}>
-                    <Box className={classes.propo}>
-                        <Box>
-                            <Box display="flex" flexDirection="row" mt={2} >
+            {(statusId === '1') && (
+                <Box>
+                    <Box mt={2}>
+                        <Box className={classes.offre}>
+                            <Box className={classes.propo}>
                                 <Box>
-                                    <Fab size="small" color="primary" aria-label="add">5</Fab>
-                                </Box>
-                                <Box className={classes.propositionOffre} ml={1} >
-                                    <Typography variant="h5">Je souhaite faire un commentaire</Typography>
-                                    <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="Minimum 3 rows" style={{width: '100%', marginTop: '16px'}} />
+                                    <Box display="flex" flexDirection="row" mt={2} >
+                                        <Box>
+                                            <Fab size="small" color="primary" aria-label="add">5</Fab>
+                                        </Box>
+                                        <Box className={classes.propositionOffre} ml={1} >
+                                            <Typography variant="h5">Je souhaite faire un commentaire</Typography>
+                                            <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="Minimum 3 rows" style={{width: '100%', marginTop: '16px'}} />
+                                        </Box>
+                                    </Box>
                                 </Box>
                             </Box>
                         </Box>
                     </Box>
-                </Box>
-            </Box>
 
-            <Box className={classes.btnArea}>
-                <Box my={2}>
-                    <Button variant="contained" className={classes.btnRefuse} >
-                        REFUSER LA DEMANDE
-                    </Button>
+                    <Box className={classes.btnArea}>
+                        <Box my={2}>
+                            <Button variant="contained" className={classes.btnRefuse} >
+                                REFUSER LA DEMANDE
+                            </Button>
+                        </Box>
+                        <Box my={2}>
+                            <Button variant="contained" className={classes.btnValidate} onClick={e=>sendValidateData(e)}>
+                                VALIDER MA DEMANDER21
+                            </Button>
+                        </Box>
+                    </Box>
                 </Box>
-                <Box my={2}>
-                    <Button variant="contained" className={classes.btnValidate} onClick={e=>sendValidateData(e)}>
-                        VALIDER MA DEMANDER21
-                    </Button>
-                </Box>
-            </Box>
+            )} 
         </Box>
     )
 }

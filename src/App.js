@@ -33,7 +33,7 @@ function App() {
             <Route exact path="/login" component={SignIn} />
 
             <Route exact path="/reservations-list" component={ RequestsList } />
-            <Route exact path="/show-reservation/:id" component={ ShowNewReservation } />
+            <Route exact path="/show-reservation/:id/:statusId" component={ ShowNewReservation } />
             <Route exact path="/activity" component={ Activities } />
             {/* <Route exact path="/activity/my_availabilities" component={ MyAvailabilities } /> */}
             <Route exact path="/history" component={ History } />

@@ -83,7 +83,7 @@ const buildOptions = (data) => {
 
 function SelectInput(props) {
     const classes = useStyles();
-    const { data, id, name, defaultValue, onChange, error, inputRef, width} = props;
+    const { data, id, name, defaultValue, onChange, error, inputRef, width, color } = props;
 
     let message = '';
     let styleSelect = classes.selectIcon;
@@ -107,11 +107,15 @@ function SelectInput(props) {
                 name={name}
                 input={<BootstrapInput />}
                 className={styleSelect}
-                style={{ width: width }}
                 value={defaultValueExists}
                 onChange={onChange}
                 IconComponent = {ExpandMoreIcon}
                 inputRef = {inputRef !== undefined ? inputRef : null}
+                style={{
+                    width: width,
+                    color: color !== undefined ? color : '#000',
+                    fontWeight: color !== undefined ? 'bold' : '400'
+                }}
             >
                 {buildOptions(data)}
             </NativeSelect>

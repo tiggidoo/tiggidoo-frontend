@@ -52,7 +52,10 @@ const ShowNewReservation = () => {
     )
 
     const dispatch = useDispatch()
-    const { id } = useParams()
+    const { id, statusId } = useParams()
+
+
+    console.log(statusId);
 
     useEffect(() => {
         dispatch(getRequest(access_token, id))
@@ -61,7 +64,7 @@ const ShowNewReservation = () => {
     //console.log('Esta es la id:  --  ', reservation)
 
     const sendReservation = (dataForm) => {
-        console.log('No tiene nada que decir: ', dataForm)
+        console.log('No tiene nada que decisr: ', dataForm)
         dispatch(serndReservation(access_token, dataForm))
     }
 
@@ -99,6 +102,7 @@ const ShowNewReservation = () => {
                                 totalPrice={reservationInfo.reservation.total_price} 
                                 isCalculateTax={pro.tax} 
                                 sendReservation={sendReservation} 
+                                statusId={statusId}
                             />
                         </Box>
 

@@ -132,9 +132,9 @@ const Reservation = ({res, statusId}) =>{
     duration = `${parseInt(duration[0], 10)}H${parseInt(duration[1], 10)}`
 
     console.log('Esta es al reservacion: ', res)
-    let color = ''
-    if(statusId === '1'){
-        color = '#2880fb'
+
+    let color = '#2880fb'
+    if(statusId === '1'){        
         if(res.has_consulted !== 1){
             color= '#929292'
         }
@@ -228,7 +228,7 @@ const Reservation = ({res, statusId}) =>{
 
                     <Box display="flex" flexDirection="column" justifyContent="center">
                         <Box style={{marginRight: '12px'}}>
-                            <Link to={`/show-reservation/${res.id}`} >
+                            <Link to={`/show-reservation/${res.id}/${statusId}`} >
                                 <Fab className={classes.circle} aria-label="add" style={{backgroundColor: color}}>
                                     <ArrowForwardRoundedIcon className={classes.arrow} />
                                 </Fab>
