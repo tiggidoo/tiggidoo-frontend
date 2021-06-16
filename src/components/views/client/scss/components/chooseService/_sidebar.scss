@@ -5,8 +5,17 @@
     background: #fff;
     position: sticky;
 
+    @include breakpoint(tablet) {
+        margin-top: 0;
+        margin-right: auto
+    }
+
     h2 {
         font-size: 24px !important;
+
+        @include breakpoint(mobile) {
+            font-size: 20px !important;
+        }
     }
 
     &__submit {
@@ -16,6 +25,10 @@
         padding: 30px 100px !important;
         width: 100%;
         border-radius: 0 !important;
+
+        @include breakpoint(mobile) {
+            padding: 14px 63px !important;
+        }
     }
 }
 

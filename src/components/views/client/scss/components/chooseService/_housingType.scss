@@ -1,6 +1,12 @@
 .choose_service {
     max-width: 1400px;
     margin: auto !important;
+
+    h3, h2 {
+        @include breakpoint(mobile) {
+           text-align: center !important;
+        }
+    }
 }
 
 .HousingType {
@@ -9,16 +15,29 @@
     margin: 300px 50px auto;
     position: relative;
 
+    @include breakpoint(mobile) {
+        margin: 243px 16px auto;
+    }
+
     &__title {
         text-align: left !important;
         margin-bottom: 30px !important;
         font-size: 24px !important;
         color: #000;
+
+        @include breakpoint(mobile) {
+            font-size: 20px !important;
+        }
     }
 
     .MuiBottomNavigation-root {
         height: inherit;
         background-color: transparent;
+
+        @include breakpoint(mobile) {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
     }
 
     &__navigation {
@@ -36,6 +55,14 @@
         place-content: center;
         margin-right: 50px !important;
 
+        @include breakpoint(mobile) {
+            height: 100px !important;
+            max-height: 100px !important;
+            width: 100px !important;
+            max-width: 100px !important;
+            margin: auto !important;
+        }
+
         &.MuiBottomNavigationAction-root.Mui-selected {
             color: $dodger-blue_6;
             border: 3px solid $dodger-blue_6;
@@ -48,6 +75,10 @@
 
         svg {
             max-height: 50px;
+
+            @include breakpoint(mobile) {
+                max-height: 30px;
+            }
         }
 
         .MuiButton-startIcon {
@@ -88,13 +119,34 @@ option {
 
     .StudioServices__choice-form {
         display: flex;
-        gap: 67px;
+        gap: 52px;
         flex-wrap: wrap;
         margin-bottom: 100px;
         margin-top: 30px;
 
+        @include breakpoint(mobile) {
+            gap: 29px;
+            justify-content: space-between;
+        }
+
         label {
             margin-bottom: 20px;
+
+            @include breakpoint(mobile) {
+                font-size: 14px !important;
+            }
+
+            img {
+                @include breakpoint(mobile) {
+                    max-width: 20px;
+                }
+            }
+        }
+
+        .MuiInputBase-input {
+            @include breakpoint(mobile) {
+                font-size: 14px !important;
+            }
         }
     }
 
@@ -150,13 +202,25 @@ label + .MuiInput-formControl {
 */
 .ComboServices__size {
     margin-bottom: 69px;
+
+    @include breakpoint(mobile) {
+        margin-bottom: 45px;
+    }
 }
 
 .homeSize_select {
     width: 436px;
 
+    @include breakpoint(mobile) {
+        width: 250px;
+    }
+
     .MuiInputBase-input {
         border: none !important;
+
+        @include breakpoint(mobile) {
+            font-size: 12px;
+        }
     }
 
     .MuiInput-underline:before {
@@ -175,6 +239,14 @@ label + .MuiInput-formControl {
     max-width: 1300px;
     margin: auto;
 
+    @include breakpoint(tablet) {
+        margin: 20px;
+    }
+
+    @include breakpoint(mobile) {
+        margin: 40px 20px;
+    }
+
     .services_backlink {
         text-transform: uppercase;
         color: $dove-gray_3;
@@ -182,6 +254,11 @@ label + .MuiInput-formControl {
         font-size: 18px;
         position: relative;
         margin-left: 35px;
+
+        @include breakpoint(mobile) {
+            font-size: 15px;
+            margin-left: 20px;
+        }
 
         &::before {
             content: "";
@@ -193,6 +270,10 @@ label + .MuiInput-formControl {
             position: absolute;
             left: -20px;
             top: 9px;
+
+            @include breakpoint(mobile) {
+                top: 6px;
+            }
         }
     }
 
@@ -201,5 +282,9 @@ label + .MuiInput-formControl {
         margin-bottom: 30px;
         color: $monsoon;
         font-size: 15px;
+
+        @include breakpoint(tablet) {
+            margin-top: 38px;
+        }
     }
 }

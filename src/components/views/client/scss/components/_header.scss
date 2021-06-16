@@ -126,6 +126,10 @@
     width: 100%;
     display: block;
 
+    @include breakpoint(mobile) {
+        padding: 30px 5%;
+    }
+
     .NavBar__container {
         width: 100%;
         max-width: 1600px;
@@ -142,13 +146,24 @@
         }
 
         @include breakpoint(tablet) {
-            gap: 41px;
+            gap: 10px;
+            flex-wrap: nowrap;
+        }
+
+        @include breakpoint(mobile) {
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
         }
     }
 
     .MuiStepper-root{
         padding: 0;
         margin-top: 36px;
+
+        @include breakpoint(tablet) {
+            margin-top: 0;
+        }
     }
 
     .makeStyles-root-2{
@@ -173,6 +188,10 @@
     
     h2 {
         margin-top: 37px;
+
+        @include breakpoint(mobile) {
+            margin-top: 23px;
+        }
     }
 }
 

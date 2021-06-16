@@ -1,6 +1,17 @@
 .counter_container {
+    max-width: 180px;
+
+    @include breakpoint(mobile) {
+        max-width: 100px;
+        min-height: 120px;
+    }
+
     h6 {
         font-size: 18px;
+
+        @include breakpoint(mobile) {
+            font-size: 13px;
+        }
     }
 
     .counter_header {
@@ -8,25 +19,53 @@
         align-items: center;
         margin-bottom: 13px;
         gap: 10px;
+
+        @include breakpoint(mobile) {
+            flex-direction: column;
+        }
     }
 
     .counter {
         display: flex;
         font-size: 25px;
 
+        @include breakpoint(mobile) {
+            font-size: 15px;
+        }
+
         p {
             padding: 10px 20px;
             background: #fff;
             margin: 0;
+
+            @include breakpoint(mobile) {
+                padding: 9px;
+            }
         }
 
         .btn_blue_bg {
             padding: 10px 20px;
+
+            @include breakpoint(mobile) {
+                padding: 3px 10px;
+            }
         }
     }
 
     img {
         max-height: 20px;
         width: auto;
+
+        @include breakpoint(mobile) {
+            max-height: 18px;
+        }
+    }
+
+    .counter_description {
+        font-size: 14px;
+
+        @include breakpoint(mobile) {
+            font-size: 11px;
+        }
     }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { withTranslation } from "react-i18next"
 
-const Counter = ({ title, iconSrc }) => {
+const Counter = ({ title, iconSrc, description }) => {
     const [count, setCount] = useState(0);
 
     return (
@@ -12,20 +12,21 @@ const Counter = ({ title, iconSrc }) => {
             </div>
 
             <div className="counter">
-                <button className="btn_blue_bg" onClick={() => setCount(count + 1)}>
-                    +
-                </button>
-                <p>{count}</p>
                 <button className="btn_blue_bg" onClick={() => setCount(count - 1)}>
                     -
                 </button>
+                <p>{count}</p>
+                <button className="btn_blue_bg" onClick={() => setCount(count + 1)}>
+                    +
+                </button>
             </div>
-
+            <p className="counter_description"> {description} </p>
         </div>
     );
 }
 
 Counter.defaultProps = {
-    title: "hello world!",
+    title: "Cuisine",
+    description: ""
 }
 export default withTranslation()(Counter);

@@ -35,7 +35,7 @@ function ChooseService({ t }) {
         <>
             <HeaderServ />
             <Row className="choose_service">
-                <Col lg={8}> 
+                <Col xl={8} lg={12} md={12} sm={12}> 
                 {location.pathname === '/housing' &&
                     <HousingType /> 
                 }
@@ -45,7 +45,7 @@ function ChooseService({ t }) {
                 }
                 </Col>
 
-                <Col lg={4} >
+                <Col xl={4} lg={12} md={12} sm={12}>
                     <div className="sidebar">
                         <Demande />
                         <Balance />

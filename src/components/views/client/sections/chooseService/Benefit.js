@@ -23,13 +23,10 @@ const Benefit = ({ t }) => {
                 className="active beneift__freq"
             >
                 <BottomNavigationAction className="beneift__button" label={t("Client.Benefit.section1_title1")} />
-                {/*  */}
 
                 <BottomNavigationAction className="beneift__button" label={t("Client.Benefit.section1_title2")} />
-                {/* */}
 
                 <BottomNavigationAction className="beneift__button" label={t("Client.Benefit.section1_title3")} />
-                {/*  */}
 
             </BottomNavigation>
             <span className={`beneift__button-subtitle ${value === 0 ? "active" : ""}`}> {t("Client.Benefit.section1_subtitle1")}  </span>

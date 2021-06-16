@@ -82,11 +82,12 @@ const HeaderServ = ({ history }) => {
 							alt=""
 						/>
 					</Navbar.Brand>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => toggleCollapse()} />
 
-					<Navbar.Collapse className="">
+					<Navbar className="">
 						<Nav className="NavBar__menu">
-							<Stepper />
+							<div className="d-none d-md-block">
+							<Stepper  />
+							</div>
 							<Nav.Link
 								href="#"
 								className="NavBar__language__item NavBar__item"
@@ -95,7 +96,7 @@ const HeaderServ = ({ history }) => {
 								{langLabel}
 							</Nav.Link>
 						</Nav>
-					</Navbar.Collapse>
+					</Navbar>
 
 				</Box>
 
