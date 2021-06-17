@@ -8,6 +8,14 @@
     margin-right: 50px !important;
     color: $dodger-blue_6;
 
+    @include breakpoint(tablet) {
+        height: 100px !important;
+        max-height: 100px !important;
+        width: 180px !important;
+        min-width: 180px !important;
+        margin-right: 0 !important;
+    }
+
     &.MuiButtonBase-root {
         align-items: baseline;
     }
@@ -17,6 +25,15 @@
         font-size: 20px;
         font-family: "Avenir_Black";
         color: $dodger-blue_6;
+
+        @include breakpoint(tablet) {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        @include breakpoint(mobile){
+            font-size: 15px;
+        }
 
         &::after {
             content: "";
@@ -44,6 +61,15 @@
 .beneift__freq {
     position: relative;
     justify-content: flex-start !important;
+
+    @include breakpoint(tablet) {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    @include breakpoint(mobile) {
+        justify-content: center !important;
+    }
 }
 
 .beneift__button-subtitle {
@@ -58,6 +84,31 @@
     @for $i from 1 to 4 {
         &:nth-of-type(#{$i}) {
             left: 0px + (($i - 1) * 317);
+        }
+    }
+
+    @include breakpoint(tablet) {
+        width: 180px;
+        top: 125px;
+        font-size: 15px;
+
+        @for $i from 1 to 4 {
+            &:nth-of-type(#{$i}) {
+                left: 0px + (($i - 1) * 200);
+            }
+        }
+    }
+
+    @include breakpoint(mobile) {
+        left: 0;
+        font-size: 12px;
+
+        @for $i from 1 to 4 {
+            &:nth-of-type(#{$i}) {
+                left: 50%;
+                transform: translateX(-50%);
+                top: 120px + (($i - 1) * 117);
+            }
         }
     }
 
@@ -79,18 +130,37 @@
     display: flex;
     flex-wrap: wrap;
     gap: 43px;
+
+    @include breakpoint(mobile){
+        justify-content: center;
+        gap: 20px;
+    }
 }
 
 .date_box__container {
     background: #fff;
     display: flex;
-    padding: 20px;
+    padding: 35px 20px;
     margin-bottom: 70px;
+
+    @include breakpoint(tablet){
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+    
+    @include breakpoint(mobile){
+        padding: 25px 10px;
+        gap: 20px;
+    }
+    
 
     h6 {
         font-size: 17px !important;
         color: #000;
-        // display: inline;
+
+        @include breakpoint(mobile){
+            font-size: 15px !important;
+        }
     }
 
     .MuiStepIcon-root {
@@ -101,17 +171,113 @@
     .section__title {
         display: flex;
         align-items: flex-start;
+        margin-bottom: 40px;
     }
 
-    .firstdate__container, .days__container, .fisrtdate__container {
+    .firstdate__container,
+    .days__container,
+    .hours__container {
         padding: 0 20px;
     }
 
-    .days__container{
-        .MuiFormGroup-root{
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+    .days__container {
+        .MuiFormGroup-root {
+            display: inherit;
+            column-count: 3;
+            column-gap: 38px;
+            column-width: 57px;
+            max-width: 165px;
         }
-        
+
+        .MuiFormControlLabel-label {
+            font-family: "Avenir_Regular";
+            font-size: 17px;
+
+            @include breakpoint(mobile){
+                font-size: 15px;
+            }
+        }
+    }
+
+    .hours__container {
+        label {
+            font-family: "Avenir_Black";
+            font-size: 17px !important;
+            color: $dodger-blue_6 !important;
+            text-transform: uppercase;
+            margin-bottom: 10px !important;
+
+            @include breakpoint(mobile){
+                font-size: 15px !important;
+            }
+        }
+
+        .MuiInput-input {
+            width: 180px;
+            font-size: 15px;
+
+            @include breakpoint(mobile){
+                width: 145px;
+                font-size: 12px;
+            }
+        }
+
+        .MuiInputBase-formControl {
+            margin-bottom: 30px;
+        }
+
+        .MuiFormControl-root{
+            @include breakpoint(tablet){
+                margin-right: 20px;
+            }
+        }
+    }
+
+    .firstdate__container {
+        .MuiFormControl-marginNormal {
+            margin-top: 0;
+        }
+
+        label {
+            font-family: "Avenir_Black";
+            font-size: 17px;
+            margin-bottom: 10px !important;
+
+            @include breakpoint(mobile){
+                font-size: 15px;
+            }
+        }
+
+        .MuiInputBase-input {
+            border: none !important;
+        }
+
+        .MuiInputBase-root {
+            font-family: "Avenir_Regular";
+            font-size: 17px;
+            padding-left: 20px;
+
+            @include breakpoint(mobile){
+                font-size: 15px;
+            }
+        }
+
+        .MuiInputBase-formControl {
+            border: 2px solid $gray;
+
+            &::before {
+                border: none;
+                content: none;
+            }
+
+            &:focus,
+            &:active {
+                border: 2px solid $dodger-blue_6;
+            }
+        }
+
+        .MuiSvgIcon-root {
+            fill: $dodger-blue_6;
+        }
     }
 }

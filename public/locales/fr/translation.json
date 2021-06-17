@@ -405,6 +405,21 @@
             "section3_option1": "Indiquez le(s) jour(s) de disponibilités (2 max.)",
             "section3_option2": "Choisissez le(s) créneau(x) horaire(s)",
             "section3_option3": "Saisissez la première date du ménage"
+        },
+        "Days":{
+            "dim": "Dim",
+            "lun": "Lun",
+            "mar": "Mar",
+            "mer": "Mer",
+            "jeu": "Jeu",
+            "ven": "Ven",
+            "sam": "Sam"
+        },
+        "Time": {
+            "morning": "Matin (8H -13H)",
+            "afternoon": "Aprem (13H -19H)",
+            "any": "Peu m’importe",
+            "a-partir-du": "A PARTIR DU"
         }
         
     }

@@ -3,15 +3,20 @@
     height: 169px;
     background: #fff;
     padding: 20px;
+    cursor: pointer;
 
-    .options_card__header{
+    @include breakpoint(mobile) {
+        height: 149px;
+    }
+
+    .options_card__header {
         display: flex;
         flex-grow: 1;
         gap: 10px;
         align-items: center;
         margin-bottom: 16px;
 
-        .counter{
+        .counter {
             margin-left: auto;
             display: flex;
             align-items: center;
@@ -19,10 +24,27 @@
 
             p {
                 margin: 0 !important;
+                font-family: "Avenir_Black";
+                font-size: 29px;
+                color: $stack;
+
+                @include breakpoint(mobile) {
+                    font-size: 20px;
+                }
+            }
+
+            .counter_btn{
+                font-family: "Avenir_Black";
+                font-size: 29px;
+                color: $dodger-blue_6;
+
+                @include breakpoint(mobile) {
+                    font-size: 20px;
+                }
             }
         }
 
-        .counter_btn{
+        .counter_btn {
             background-color: none;
             border: none;
             background: transparent;
@@ -32,12 +54,23 @@
     h6 {
         font-size: 18px;
         font-family: "Avenir_Black";
+        text-transform: uppercase;
+        color: $stack;
+
+        @include breakpoint(mobile) {
+            font-size: 15px;
+        }
     }
 
-    .options_card__desc{
+    .options_card__desc {
         p {
             font-size: 15px;
-        font-family: "Avenir_Regular";
+            font-family: "Avenir_Regular";
+            color: $stack;
+
+            @include breakpoint(mobile) {
+                font-size: 12px;
+            }
         }
     }
 }
