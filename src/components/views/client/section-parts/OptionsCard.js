@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { withTranslation } from "react-i18next"
 
-const OptionsCard = ({ title, iconSrc, description, hasCounter }) => {
+const OptionsCard = ({ title, iconSrc, description, hasCounter, onClick }) => {
     const [count, setCount] = useState(0);
 
     return (
-        <div className="options_card">
+        <div className="options_card" onClick={onClick}>
             <div className="options_card__header">
                 <img src={iconSrc} alt="option" />
                 <h6> {title} </h6>

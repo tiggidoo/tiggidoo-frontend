@@ -400,7 +400,26 @@
             "section2_option5": "PRODUITS ECO",
             "section2_option5_desc": "Le PRO utilise des produits certifiés écologiques et 100% naturels",
             "section2_option6": "PRODUITS",
-            "section2_option6_desc": "Le PRO utilise des produits d’entretien standards"
+            "section2_option6_desc": "Le PRO utilise des produits d’entretien standards",
+            "section3_desc": "Dans un premier temps, indiquez vos jours de disponibilité pour le ménage (2 maximum), ensuite veuillez indiquez la date de début du premier ménage, ainsi que les créneaux horaires souhaités.",
+            "section3_option1": "Indiquez le(s) jour(s) de disponibilités (2 max.)",
+            "section3_option2": "Choisissez le(s) créneau(x) horaire(s)",
+            "section3_option3": "Saisissez la première date du ménage"
+        },
+        "Days":{
+            "dim": "Dim",
+            "lun": "Lun",
+            "mar": "Mar",
+            "mer": "Mer",
+            "jeu": "Jeu",
+            "ven": "Ven",
+            "sam": "Sam"
+        },
+        "Time": {
+            "morning": "Matin (8H -13H)",
+            "afternoon": "Aprem (13H -19H)",
+            "any": "Peu m’importe",
+            "a-partir-du": "A PARTIR DU"
         }
         
     }
