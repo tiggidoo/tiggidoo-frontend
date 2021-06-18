@@ -64,6 +64,10 @@
     .counter_description {
         font-size: 14px;
 
+        @include breakpoint(tablet) {
+            max-width: 159px;
+        }
+
         @include breakpoint(mobile) {
             font-size: 11px;
         }

@@ -50,6 +50,7 @@ function App() {
             <Route exact path="/client" component={ClientHome} />
             <Route exact path="/housing" component={ ChooseService } />
             <Route exact path="/benefit" component={ ChooseService } />
+            <Route exact path="/validation" component={ ChooseService } />
 
           </Switch>
         </div>
