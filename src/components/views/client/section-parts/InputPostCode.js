@@ -26,7 +26,7 @@ InputPostCode.defaultProps = {
 }
 
 InputPostCode.propTypes = {
-    class: PropTypes.string,
+    ClassColor: PropTypes.string,
 }
 
 export default withTranslation()(InputPostCode)

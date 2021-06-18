@@ -5,7 +5,7 @@
     font-family: "Avenir_Black";
     font-size: 20px;
     padding: 10px 28px;
-    border-radius: 0;
+    border-radius: 0 !important;
     text-transform: uppercase;
     transition: ease-in 0.3s;
     border: none;
@@ -34,14 +34,14 @@
 
 .btn_green_bg {
     @extend .btn;
-    background: $bg_green;
-    color: #fff;
+    background: $bg_green !important;
+    color: #fff !important;
     transition: ease-in 0.3s;
-    border: 3px solid $bg_green;
+    border: 3px solid $bg_green !important;
 
     &:hover {
-        color: $bg_green;
-        background: #fff;
+        color: $bg_green !important;
+        background: #fff !important;
     }
 }
 
