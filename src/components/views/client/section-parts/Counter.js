@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { withTranslation } from "react-i18next"
 
+import PropTypes from 'prop-types'
+
 const Counter = ({ title, iconSrc, description }) => {
     const [count, setCount] = useState(0);
 
@@ -29,4 +31,11 @@ Counter.defaultProps = {
     title: "Cuisine",
     description: ""
 }
+
+Counter.propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string,
+    iconSrc: PropTypes.string,
+}
+
 export default withTranslation()(Counter);

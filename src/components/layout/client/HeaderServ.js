@@ -100,6 +100,14 @@ const HeaderServ = ({ history }) => {
 
 				</Box>
 
+				{location.pathname === '/localisation' &&
+					<Typography component="h2" variant="h2">
+						{t("Client.Localisation.title")}
+
+						<span className="step d-sm-block d-md-none">Etape 1/4</span>
+					</Typography>
+				}
+
 				{location.pathname === '/housing' &&
 					<Typography component="h2" variant="h2">
 						{t("Client.Logement.sectionTitle1")}
