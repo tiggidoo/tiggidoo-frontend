@@ -2,9 +2,10 @@
     max-width: 1400px;
     margin: auto !important;
 
-    h3, h2 {
+    h3,
+    h2 {
         @include breakpoint(mobile) {
-           text-align: center !important;
+            text-align: center !important;
         }
     }
 }
@@ -25,6 +26,10 @@
         font-size: 24px !important;
         color: #000;
 
+        @include breakpoint(tablet) {
+            text-align: center !important;
+        }
+
         @include breakpoint(mobile) {
             font-size: 20px !important;
         }
@@ -42,6 +47,11 @@
 
     &__navigation {
         justify-content: flex-start !important;
+
+        @include breakpoint(tablet) {
+            justify-content: space-between !important;
+            gap: 10px;
+        }
     }
 
     &__button {
@@ -54,6 +64,11 @@
         display: grid;
         place-content: center;
         margin-right: 50px !important;
+
+        @include breakpoint(tablet) {
+            margin-right: 0 !important;
+
+        }
 
         @include breakpoint(mobile) {
             height: 100px !important;
@@ -124,9 +139,12 @@ option {
         margin-bottom: 100px;
         margin-top: 30px;
 
+        @include breakpoint(tablet) {
+            justify-content: center;
+        }
+
         @include breakpoint(mobile) {
             gap: 29px;
-            justify-content: space-between;
         }
 
         label {
@@ -134,6 +152,11 @@ option {
 
             @include breakpoint(mobile) {
                 font-size: 14px !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
             }
 
             img {
@@ -203,9 +226,12 @@ label + .MuiInput-formControl {
 .ComboServices__size {
     margin-bottom: 69px;
 
+    @include breakpoint(tablet) {
+        text-align: center;
+    }
+
     @include breakpoint(mobile) {
         margin-bottom: 45px;
-        text-align: center;
     }
 }
 

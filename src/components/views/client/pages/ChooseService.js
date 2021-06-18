@@ -14,35 +14,44 @@ import Button from '@material-ui/core/Button';
 import Demande from "../section-parts/Demande";
 import Balance from "../section-parts/Balance";
 import Benefit from "../sections/chooseService/Benefit";
+import Validation from "../sections/chooseService/Validation";
 
 
 function ChooseService({ t }) {
     const history = useHistory()
+    const location = useLocation()
 
     const routeChange = () => {
-        let path = `benefit`
+        let path = ``
+
+        if (location.pathname === '/housing') path = `benefit`
+
+        if (location.pathname === '/benefit') path = `validation`
+
         history.push(path)
     }
 
-    const goback = ( e ) => {
+    const goback = (e) => {
         e.preventDefault()
         history.goBack()
     }
-
-    const location = useLocation()
 
     return (
         <>
             <HeaderServ />
             <Row className="choose_service">
-                <Col xl={9} lg={12} md={12} sm={12}> 
-                {location.pathname === '/housing' &&
-                    <HousingType /> 
-                }
+                <Col xl={9} lg={12} md={12} sm={12}>
+                    {location.pathname === '/housing' &&
+                        <HousingType />
+                    }
 
-                {location.pathname === '/benefit' &&
-                    <Benefit /> 
-                }
+                    {location.pathname === '/benefit' &&
+                        <Benefit />
+                    }
+
+                    {location.pathname === '/validation' &&
+                        <Validation />
+                    }
                 </Col>
 
                 <Col xl={3} lg={12} md={12} sm={12}>

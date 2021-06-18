@@ -86,7 +86,7 @@ const HeaderServ = ({ history }) => {
 					<Navbar className="">
 						<Nav className="NavBar__menu">
 							<div className="d-none d-md-block">
-							<Stepper  />
+								<Stepper />
 							</div>
 							<Nav.Link
 								href="#"
@@ -103,12 +103,22 @@ const HeaderServ = ({ history }) => {
 				{location.pathname === '/housing' &&
 					<Typography component="h2" variant="h2">
 						{t("Client.Logement.sectionTitle1")}
+
+						<span className="step d-sm-block d-md-none">Etape 2/4</span>
 					</Typography>
 				}
 
 				{location.pathname === '/benefit' &&
 					<Typography component="h2" variant="h2">
 						{t("Client.Logement.sectionTitle2")}
+						<span className="step d-sm-block d-md-none">Etape 3/4</span>
+					</Typography>
+				}
+
+				{location.pathname === '/validation' &&
+					<Typography component="h2" variant="h2">
+						{t("Client.Logement.sectionTitle3")}
+						<span className="step d-sm-block d-md-none">Etape 4/4</span>
 					</Typography>
 				}
 

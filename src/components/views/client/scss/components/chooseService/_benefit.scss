@@ -64,7 +64,7 @@
 
     @include breakpoint(tablet) {
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 49px;
     }
 
     @include breakpoint(mobile) {
@@ -94,7 +94,7 @@
 
         @for $i from 1 to 4 {
             &:nth-of-type(#{$i}) {
-                left: 0px + (($i - 1) * 200);
+                left: 0px + (($i - 1) * 227);
             }
         }
     }
@@ -131,8 +131,11 @@
     flex-wrap: wrap;
     gap: 43px;
 
-    @include breakpoint(mobile){
+    @include breakpoint(tablet) {
         justify-content: center;
+    }
+
+    @include breakpoint(mobile){
         gap: 20px;
     }
 }

@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
         
       '@media (max-width:599px)': { 
         minWidth: "97px",
+        margin: 0,
       }
     },
 }));
