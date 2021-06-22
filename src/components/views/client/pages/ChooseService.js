@@ -15,6 +15,7 @@ import Demande from "../section-parts/Demande";
 import Balance from "../section-parts/Balance";
 import Benefit from "../sections/chooseService/Benefit";
 import Validation from "../sections/chooseService/Validation";
+import { Box } from "react-bootstrap-icons";
 
 
 function ChooseService({ t }) {
@@ -39,40 +40,47 @@ function ChooseService({ t }) {
     return (
         <>
             <HeaderServ />
-            <Row className="choose_service">
-                <Col xl={9} lg={12} md={12} sm={12}>
-                    {location.pathname === '/housing' &&
-                        <HousingType />
-                    }
+            {location.pathname === '/housing' || location.pathname === '/benefit' &&
+                <Box>
+                    <Row className="choose_service">
+                        <Col xl={9} lg={12} md={12} sm={12}>
+                            {location.pathname === '/housing' &&
+                                <HousingType />
+                            }
 
-                    {location.pathname === '/benefit' &&
-                        <Benefit />
-                    }
+                            {location.pathname === '/benefit' &&
+                                <Benefit />
+                            }
 
-                    {location.pathname === '/validation' &&
-                        <Validation />
-                    }
-                </Col>
+                            {location.pathname === '/validation' &&
+                                <Validation />
+                            }
+                        </Col>
 
-                <Col xl={3} lg={12} md={12} sm={12}>
-                    <div className="sidebar">
-                        <Demande />
-                        <Balance />
+                        <Col xl={3} lg={12} md={12} sm={12}>
+                            <div className="sidebar">
+                                <Demande />
+                                <Balance />
 
-                        <Button variant="contained" className="sidebar__submit" onClick={routeChange}>
-                            {t("Client.sideBar.demande_submit")}
-                        </Button>
+                                <Button variant="contained" className="sidebar__submit" onClick={routeChange}>
+                                    {t("Client.sideBar.demande_submit")}
+                                </Button>
+                            </div>
+                        </Col>
+                    </Row>
+
+                    <div className="services_footer">
+                        <Link href="#" className="services_backlink" onClick={goback}>
+                            {t("Client.Logement.back")}
+                        </Link>
+                        <p>{t("Client.Logement.footer_text")} <a href="http://">{t("Client.Logement.footer_link")}</a></p>
                     </div>
-                </Col>
-            </Row>
+                </Box>
+            }
 
-            <div className="services_footer">
-                <Link href="#" className="services_backlink" onClick={goback}>
-                    {t("Client.Logement.back")}
-                </Link>
-                <p>{t("Client.Logement.footer_text")} <a href="http://">{t("Client.Logement.footer_link")}</a></p>
-            </div>
-
+            {location.pathname === '/validation' &&
+                <Validation />
+            }
             <Footer />
         </>
     )
