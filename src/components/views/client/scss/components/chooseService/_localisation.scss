@@ -1,7 +1,10 @@
 .Localisation {
-    margin: 400px auto 0;
+    margin: 400px auto 200px;
     max-width: 1300px;
-    min-height: 50vh;
+
+    @include breakpoint(mobile) {
+        margin: 270px auto 100px;
+    }
 
     h3 {
         color: #000;
@@ -10,6 +13,15 @@
     .Localisation_subtext {
         display: flex;
         gap: 30px;
+
+        @include breakpoint(tablet) {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @include breakpoint(mobile) {
+            gap: 18px;
+        }
 
         p {
             font-family: "Avenir_Black";
@@ -22,6 +34,10 @@
     .Localisation_seperator__container {
         align-self: center;
         text-align: center;
+
+        @include breakpoint(mobile) {
+           margin: 30px auto;
+        }
     }
 
     .Localisation_seperator {
@@ -36,6 +52,10 @@
         margin: auto;
         text-align: center;
 
+        @include breakpoint(mobile) {
+            font-size: 15px;
+         }
+
         span::before {
             content: "";
             display: block;
@@ -43,4 +63,46 @@
             height: 100px;
         }
     }
+
+    .post_code__input_container {
+        margin-bottom: 20px;
+
+        @include breakpoint(tablet) {
+            width: 100%;
+        }
+
+        & input:first-child {
+            @include breakpoint(tablet) {
+                width: 100%;
+            }
+        }
+    }
+
+    .post_code__form {
+        margin-top: 30px;
+        max-width: 400px;
+
+        .btn_green_bg {
+            width: 100%;
+
+            @include breakpoint(tablet) {
+                font-size: 19px;
+                padding: 10px 10px;
+            }
+        }
+    }
+}
+
+.localisation_footer {
+    margin: 30px 20px;
+
+    p {
+        font-size: 15px;
+        color: $monsoon;
+    }
+}
+
+.link {
+    color: $dodger-blue_6;
+    text-decoration: underline;
 }

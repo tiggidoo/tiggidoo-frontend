@@ -437,7 +437,9 @@
             "section2_title": "VOUS ÊTES DÉJÀ CLIENT ?",
             "section2_text1": "Connectez-vous pour accéder à vos informations, vos prestations ou pour toute nouvelle demande",
             "section2_text2": "CONNEXION",
-            "section2_btn": "ACCÈDER À MON COMPTE"
+            "section2_btn": "ACCÈDER À MON COMPTE",
+            "footer": "L’offre de cette plateforme est à destination de résidence personnelle. Pour un service de ménage pour de la location saisonnière suivez",
+            "footer_link": "ce lien"
         }
         
     }
