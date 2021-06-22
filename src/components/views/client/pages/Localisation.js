@@ -7,7 +7,6 @@ import Footer from "../../../layout/client/FooterServ";
 import HeaderServ from "../../../layout/client/HeaderServ";
 
 import { Col, Row } from "react-bootstrap";
-import { Link } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import { Typography, Box } from '@material-ui/core'
 import usePostCode from '../functions/usePostCode'
@@ -56,7 +55,6 @@ function Localisation({ t }) {
                     <Typography variant="h3" className="">{t("Client.Localisation.section2_title")}</Typography>
 
                     <p>{t("Client.Localisation.section2_text1")}</p>
-
 
                     <Box className="Localisation_subtext">
                         <p> <a href="#">{t("Client.Localisation.section2_text2")}</a></p>

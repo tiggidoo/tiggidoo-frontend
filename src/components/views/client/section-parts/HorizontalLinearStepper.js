@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ['LOCALISATION', 'LOGEMENT', 'PRESTATION', 'VALIDONS'];
+  return ['LOCALISATION', 'LOGEMENT', 'PRESTATION', 'VALIDATION'];
 }
 
 function getStepContent(step) {
