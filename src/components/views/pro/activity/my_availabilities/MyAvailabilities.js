@@ -52,8 +52,6 @@ const MyAvailabilities = ({pro, token}) => {
         pm_Su: (availability['Su'] === 2 || availability['Su'] === 3) ? true : false, 
     })
 
-    console.log('DesdeMy Availabilities : --: ', token)
-
     const hancleChange = (e) => {
         const hour = e.target.name.split('_')[0]
         const day = e.target.name.split('_')[1] 
@@ -85,7 +83,6 @@ const MyAvailabilities = ({pro, token}) => {
 
     const updateTime = (e) => {
         e.preventDefault()
-        console.log('Token', token);
         dispatch(udateAvailabilities(token, pro.id, enableTime))
     }
 

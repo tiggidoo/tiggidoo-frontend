@@ -138,56 +138,55 @@ const Activities = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-    console.log(pro);
 
-    return (
-        <Dashboard
-            user = { pro }
-            token = { access_token }
-            isLoggedIn = {isLoggedIn}
-        >
-            <Box className={classes.appBarArea}>
-                <Hidden xsDown>
-                  <AppBar position="static">
-                      <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant="fullWidth">
-                          <Tab label="My Activity" {...a11yProps(0)} />
-                          <Tab label="My availabilities" {...a11yProps(1)} />
-                      </Tabs>
-                  </AppBar>
-                </Hidden>
-                <Hidden smUp>
-                  <Box className={classes.menuMovile}>
-                    <MenuIcon onClick={handleClick} style={{background: '#2ebe9f', color: '#fff'}} />
-                    <StyledMenu
-                      id="customized-menu"
-                      anchorEl={anchorEl}
-                      keepMounted
-                      open={Boolean(anchorEl)}
-                      onClose={handleClose}
-                    >
-                      <StyledMenuItem>
-                        <ListItemText primary="My Activity" onClick={e => onChangeMovile(e, 0)}/>
-                      </StyledMenuItem>
-                      <StyledMenuItem>
-                        <ListItemText primary="My availabilities" onClick={e => onChangeMovile(e, 1)} />
-                      </StyledMenuItem>
-                    </StyledMenu>
+  return (
+      <Dashboard
+          user = { pro }
+          token = { access_token }
+          isLoggedIn = {isLoggedIn}
+      >
+          <Box className={classes.appBarArea}>
+              <Hidden xsDown>
+                <AppBar position="static">
+                    <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant="fullWidth">
+                        <Tab label="My Activity" {...a11yProps(0)} />
+                        <Tab label="My availabilities" {...a11yProps(1)} />
+                    </Tabs>
+                </AppBar>
+              </Hidden>
+              <Hidden smUp>
+                <Box className={classes.menuMovile}>
+                  <MenuIcon onClick={handleClick} style={{background: '#2ebe9f', color: '#fff'}} />
+                  <StyledMenu
+                    id="customized-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                  >
+                    <StyledMenuItem>
+                      <ListItemText primary="My Activity" onClick={e => onChangeMovile(e, 0)}/>
+                    </StyledMenuItem>
+                    <StyledMenuItem>
+                      <ListItemText primary="My availabilities" onClick={e => onChangeMovile(e, 1)} />
+                    </StyledMenuItem>
+                  </StyledMenu>
 
-                  </Box>
-                </Hidden>
+                </Box>
+              </Hidden>
 
-                <TabPanel value={value} index={0}>
-                  <Box className={classes.workArea}>
-                    <MyActivity availability={pro.availability}/>
-                  </Box>
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                  <Box className={classes.workArea}>
-                    <MyAvailabilities pro={pro} token={access_token}/>
-                  </Box>
-                </TabPanel>
-            </Box>
-        </Dashboard>
+              <TabPanel value={value} index={0}>
+                <Box className={classes.workArea}>
+                  <MyActivity availability={pro.availability}/>
+                </Box>
+              </TabPanel>
+              <TabPanel value={value} index={1}>
+                <Box className={classes.workArea}>
+                  <MyAvailabilities pro={pro} token={access_token}/>
+                </Box>
+              </TabPanel>
+          </Box>
+      </Dashboard>
     )
 }
 

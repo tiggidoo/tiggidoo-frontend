@@ -15,7 +15,6 @@ export const getListRequest = (token, statusId) => async dispatch=>{
 
         await axios.post(`${config.API_SERVER}/api/pro/reservation/list`, data, headers)
         .then((res) =>{
-            console.log(res.data.reservations)
             dispatch({
                 type: GET_RESERVATIONS_LIST,
                 payload: res.data.reservations
@@ -59,7 +58,7 @@ export const getRequest = (token, id) => async dispatch => {
     }
 }
 
-export const serndReservation = (token, formData) => async dispatch => {
+export const sendReservationPro = (token, formData) => async dispatch => {
     try{    
 
         const headers = { 
@@ -73,7 +72,7 @@ export const serndReservation = (token, formData) => async dispatch => {
             pro_vacuum_price: formData.proVacuumPrice,
             pro_product_ecological_price: formData.proProductEcologicalPrice,
             pro_product_standard_price: formData.proProductStandardPrice,
-            pro_work_price: formData.proPriceMoreTaxes,
+            pro_work_price: formData.proWorkPrice,
             pro_comment: formData.comment
         }
 
@@ -81,12 +80,12 @@ export const serndReservation = (token, formData) => async dispatch => {
 
         console.log(token)
 
-        console.log(data)
+        console.log(formData)
 
         await axios.post(`${config.API_SERVER}/api/pro/reservation/valid`, data, headers)
         .then((res) => {
             if(res.status === 200){
-                dispatch(setAlert('Propuesta enviada', 'success'))
+                dispatch(setAlert('Propuesta enviada1', 'success'))
             }
         })
         .catch((error) => {

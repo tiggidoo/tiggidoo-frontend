@@ -156,5 +156,5 @@ export const updateScheduleAuth = (data) => async dispatch => {
         type: "LOGIN_SUCCESS",
         payload: datalog.payload
     }))
-    console.log('Paso 4  ---- : ', datalog.payload.pro.availability);
+
 }

@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Input(props) {
 
     const classes = useStyles();
-    const { id, placeholder, label, size, onBlur, defaultValue, error, type, width, variant, readOnly, mask, inputRef, color } = props;
+    const { id, placeholder, label, size, onBlur, defaultValue, error, type, width, variant, readOnly, mask, inputRef } = props;
     let customizedClass = classes.inputWidth;// = error.length === 0 ? classes.inputWidth : classes.errors;
 
     if (variant === 'outlined') {
@@ -97,7 +97,7 @@ export default function Input(props) {
             readOnlyPro = true;
         }
     }
-    console.log('este es el color', color)
+    
     let maskExists = '';
     if (mask !== undefined) {
         maskExists = mask;

@@ -2,7 +2,7 @@ import { Box, makeStyles } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { getRequest, serndReservation } from '../../../../store/actions/reservationAction'
+import { getRequest, sendReservationPro } from '../../../../store/actions/reservationAction'
 import Dashboard from '../../../layout/Dashboard'
 import PaperLayout from '../../../layout/PaperLayout'
 import OfferProposition from './component/request/OfferProposition'
@@ -64,8 +64,7 @@ const ShowNewReservation = () => {
     //console.log('Esta es la id:  --  ', reservation)
 
     const sendReservation = (dataForm) => {
-        console.log('No tiene nada que decisr: ', dataForm)
-        dispatch(serndReservation(access_token, dataForm))
+        dispatch(sendReservationPro(access_token, dataForm))
     }
 
     return (

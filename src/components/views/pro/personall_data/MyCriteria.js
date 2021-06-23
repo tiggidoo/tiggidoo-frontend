@@ -47,8 +47,6 @@ const useStyle = makeStyles((theme) => ({
 const MyCriteria = ({ updateProCriteria, criterion }) => {
     const classes = useStyle();
 
-    console.log('criterion: ', criterion)
-
     const [formData, setFormData] = useState({
         postCode: criterion.postcode,
         scope: criterion.scope,

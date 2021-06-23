@@ -111,8 +111,6 @@ const Data = ({auth, updateTaxesPro}) => {
         updateTaxesPro(formData.tpsTvq)        
     }
 
-    console.log(auth)
-
     return (
 
                 <Grid container>

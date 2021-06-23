@@ -181,7 +181,6 @@ const SignIn = ({ history }) => {
             if (isLoggedIn) {
                 history.push('/personal_data');
             }else{
-                console.log('No estamos logueados');
                 localStorage.clear();
             }
         }
