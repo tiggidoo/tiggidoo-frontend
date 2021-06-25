@@ -1,8 +1,11 @@
-import { Box, Grid, makeStyles, Typography, Fab, TextareaAutosize, Button } from '@material-ui/core'
+import { Box, Grid, makeStyles, Typography, Fab, TextareaAutosize, Button, IconButton } from '@material-ui/core'
 import SelectInput from '../../../../../share/inputs/SelectInput'
 import Input from '../../../../../share/inputs/Input'
 import { calculateTpsTvqAndTotal } from '../../../../../share/librery/librery'
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import React, { useState } from 'react'
+
 
 const useStyle = makeStyles((theme) => ({
     offre:{
@@ -63,12 +66,34 @@ const useStyle = makeStyles((theme) => ({
     tariff: {
         display:'flex',
         justifyContent: 'flex-end',
-        '& .MuiBox-root':{
-            margin: '0'
+        '& .MuiOutlinedInput-inputMarginDense':{
+            paddingRight: '35px'
         },
         '& .MuiOutlinedInput-input':{
             textAlign: 'right'
-        }
+        },
+        '& input[type=number]::-webkit-inner-spin-button':{
+            display: 'none',
+            webkitAppearance: 'none',
+        },
+        '& input[type=number]::-webkit-outer-spin-button':{
+            display: 'none',
+            webkitAppearance: 'none'
+        },
+        '& [type=number]': {
+            '-moz-appearance': 'textfield'
+        },
+        '&::-webkit-outer-spin-button': {
+          '-webkit-appearance': 'none',
+            margin: 0,
+        },
+        '&::-webkit-inner-spin-button': {
+          '-webkit-appearance': 'none',
+            margin: 0,
+        },
+        '& button:focus':{
+            outline: 'none'
+        }   
     },
     selectInput: {
         '& select.MuiNativeSelect-root': {
@@ -85,7 +110,7 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation, statusId }) => {
+const OfferProposition = ({ proWorkPrice, tiggidooPrice, isCalculateTax, sendReservation, statusId, reservationId }) => {
     const classes = useStyle()
 
     const serviceHour = [
@@ -164,18 +189,18 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation, statusI
     let res = {
         tps: 0, 
         tvq:0,
-        total: parseFloat(totalPrice,10) + 5
+        total: parseFloat(proWorkPrice,10) + 5
     }
-    res = calculateTpsTvqAndTotal(parseFloat(totalPrice,10), parseFloat(5,10), isCalculateTax)
+    res = calculateTpsTvqAndTotal(parseFloat(proWorkPrice,10), parseFloat(5,10), isCalculateTax)
 
     const [formData, setFormData] = useState({
-        id: 1,
+        id: reservationId,
         proStartTime: "8:00",
         proDuration: "1H00",
         proVacuumPrice: 5,
         proProductEcologicalPrice: 0,
         proProductStandardPrice: 0,
-        proWorkPrice: totalPrice,
+        proWorkPrice: proWorkPrice,
         proPriceMoreTaxes: res.total,
         proComment: "",
         tps: res.tps,
@@ -219,7 +244,21 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation, statusI
         sendReservation(formData)
     }
 
-    console.log('Valor:  ---  ', formData)
+    const removeProWorkPrice = (e) => {
+        e.preventDefault()
+
+        setFormData({ ...formData, 
+            'proWorkPrice':(parseInt(formData.proWorkPrice, 10) > 0) ? parseInt(formData.proWorkPrice, 10) - 1 : 0
+        })
+    }
+
+    const addProWorkPrice = (e) => {
+        e.preventDefault()
+        setFormData({ ...formData, 
+            'proWorkPrice':parseInt(formData.proWorkPrice, 10) + 1
+        })
+    }
+
     return (
         <Box>
             <Box mt={2}>
@@ -339,26 +378,45 @@ const OfferProposition = ({ totalPrice, isCalculateTax, sendReservation, statusI
                                             
                                             <Box display="flex" flexDirection="row" justifyContent ="space-between" mt={1}>
                                                 <Typography variant="h6">Estimation Tiggidoo</Typography>
-                                                <Typography variant="h6">{ `${totalPrice} $` }</Typography>
+                                                <Typography variant="h6">{ `${tiggidooPrice} $` }</Typography>
                                             </Box>
                                             <Box display="flex" flexDirection="row" justifyContent ="space-between" >
                                                 <Box style={{width: '50%'}}>
                                                     <Typography variant="h6">Votre tarif</Typography>
                                                 </Box>
                                                 <Box className={classes.tariff}>
-                                                    <Input
-                                                        id="proWorkPrice" 
-                                                        label="" 
-                                                        size="small" 
-                                                        type='number'
-                                                        width="135px"
-                                                        onBlur={e=>handleChange(e)} 
-                                                        defaultValue={formData.proWorkPrice} 
-                                                        variant="outlined" 
-                                                        readOnly={statusId === '1' ? false : true}
-                                                        color={color}
-                                                        error=""
-                                                    />
+                                                    <Box display="flex" alignItems="center">
+                                                        <Box>
+                                                            <IconButton style={{marginRight: '-40px', zIndex: '99'}} onClick={ e=>removeProWorkPrice(e) }>
+                                                                <Fab size="small" color="primary" style={{minHeight: '25px', width: '25px', height: '25px'}}>
+                                                                    <RemoveIcon  style={{color: '#fff', width: '19px', height: '19px'}}/>
+                                                                </Fab>
+                                                            </IconButton>
+                                                        </Box>
+                                                        <Box>
+                                                            <Input
+                                                                id="proWorkPrice" 
+                                                                label="" 
+                                                                size="small" 
+                                                                type='number'
+                                                                width="135px"
+                                                                onBlur={e=>handleChange(e)} 
+                                                                defaultValue={formData.proWorkPrice} 
+                                                                variant="outlined" 
+                                                                readOnly={true}
+                                                                color={color}
+                                                                error=""
+                                                            />
+                                                        </Box>
+                                                        <Box>
+                                                            <IconButton style={{marginLeft: '-50px'}} onClick={ e=>addProWorkPrice(e) }>
+                                                                <Fab size="small" color="primary" style={{minHeight: '25px', width: '25px', height: '25px'}}>
+                                                                    <AddIcon  style={{color: '#fff', width: '19px', height: '19px'}}/>
+                                                                </Fab>
+
+                                                            </IconButton>
+                                                        </Box>
+                                                    </Box>
                                                 </Box>
 
                                             </Box>

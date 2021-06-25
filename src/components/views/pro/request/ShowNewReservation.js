@@ -61,11 +61,11 @@ const ShowNewReservation = () => {
         dispatch(getRequest(access_token, id))
     }, [access_token, id, dispatch])
 
-    //console.log('Esta es la id:  --  ', reservation)
-
     const sendReservation = (dataForm) => {
         dispatch(sendReservationPro(access_token, dataForm))
     }
+
+    //console.log('Un ano de gracia', reservationInfo.pro_work_price)
 
     return (
         <Dashboard
@@ -98,10 +98,12 @@ const ShowNewReservation = () => {
                         
                         <Box className={classes.reqOffer}>
                             <OfferProposition 
-                                totalPrice={reservationInfo.reservation.total_price} 
+                                tiggidooPrice={reservationInfo.reservation.total_price} 
+                                proWorkPrice={ (statusId === null || statusId === '1') ? reservationInfo.reservation.total_price :  reservationInfo.pro_work_price} 
                                 isCalculateTax={pro.tax} 
                                 sendReservation={sendReservation} 
                                 statusId={statusId}
+                                reservationId={id}
                             />
                         </Box>
 
