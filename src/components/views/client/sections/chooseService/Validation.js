@@ -3,11 +3,23 @@ import { useState } from 'react'
 
 import { Typography, Box } from '@material-ui/core'
 import { Col, Row } from "react-bootstrap";
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 
 
 const Validation = ({ t }) => {
     const [value, setValue] = useState(0);
+
+    const [state, setState] = useState({
+        checkedA: false,
+        checkedB: false,
+      });
+
+    const handleChange = (event) => {
+        setState({ ...state, [event.target.name]: event.target.checked });
+    };
 
     return (
         <Box className="Validation">
@@ -56,16 +68,36 @@ const Validation = ({ t }) => {
                         <Typography variant="h6">{t("Client.Validation.bloc2_title")}</Typography>
 
                         <Box className="information_box">
-                            
+
                         </Box>
                     </Box>
                 </Col>
 
                 <Col md={3} className="Validation_col">
-                    <Box className="section__title">
+                    <Box className="">
                         <p className="blue__title">{t("Client.Localisation.section1_text2")}</p>
                         <p className="blue__title">{t("Client.Localisation.section1_text3")}</p>
                     </Box>
+
+                    <FormGroup>
+                        <FormControlLabel
+                            control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" color="primary"/>}
+                            label="Secondary"
+                        />
+
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={state.checkedB}
+                                    onChange={handleChange}
+                                    name="checkedB"
+                                    color="primary"
+                                />
+                            }
+                            label="Primary"
+                        />
+
+                    </FormGroup>
                 </Col>
             </Row>
 
