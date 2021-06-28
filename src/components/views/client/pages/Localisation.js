@@ -44,10 +44,11 @@ function Localisation({ t }) {
 
                 <Col md={2} className="Localisation_seperator__container">
                     <Box>
-                        <span></span>
+                        <span className="Localisation_seperator__befor"></span>
                         <p className="Localisation_seperator">
                             {t("Client.Localisation.ou")}
                         </p>
+                        <span className="Localisation_seperator__after"></span>
                     </Box>
                 </Col>
 
@@ -60,7 +61,7 @@ function Localisation({ t }) {
                         <p> <a href="#">{t("Client.Localisation.section2_text2")}</a></p>
                     </Box>
 
-                    <Button className="btn_green_bg">
+                    <Button className="btn_green_bg connect_link">
                         {t("Client.Localisation.section2_btn")}
                     </Button>
                 </Col>

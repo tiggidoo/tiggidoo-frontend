@@ -88,7 +88,7 @@ const Benefit = ({ t }) => {
 
                 <div className="options_list">
                     <OptionsCard hasCounter="true" />
-                    <OptionsCard title={t("Client.Benefit.section2_option2")} iconSrc="images/icon_spray.svg" description={t("Client.Benefit.section2_option2_desc")} hasCounter="true" onClick={handleClickOption}/>
+                    <OptionsCard title={t("Client.Benefit.section2_option2")} iconSrc="images/icon_spray.svg" description={t("Client.Benefit.section2_option2_desc")} hasCounter="true" onClick={handleClickOption} />
                     <OptionsCard title={t("Client.Benefit.section2_option3")} iconSrc="images/icon_fridge.svg" description={t("Client.Benefit.section2_option3_desc")} hasCounter="true" />
                     <OptionsCard title={t("Client.Benefit.section2_option4")} iconSrc="images/icon_bed.svg" description={t("Client.Benefit.section2_option4_desc")} />
                     <OptionsCard title={t("Client.Benefit.section2_option5")} iconSrc="images/icon_eco_spray.svg" description={t("Client.Benefit.section2_option5_desc")} />
@@ -157,6 +157,7 @@ const Benefit = ({ t }) => {
 
                         <FormControl required>
                             <InputLabel id="date_one">Les jeudis</InputLabel>
+
                             <Select
                                 labelId="date_one"
                                 id="date_one"
@@ -167,10 +168,11 @@ const Benefit = ({ t }) => {
                                 <option value={20}>{t("Client.Time.afternoon")}</option>
                                 <option value={30}>{t("Client.Time.any")}</option>
                             </Select>
-                            </FormControl>
-                            
-                            <FormControl required>
+                        </FormControl>
+
+                        <FormControl required>
                             <InputLabel id="date_two">Les samedis </InputLabel>
+
                             <Select
                                 labelId="date_two"
                                 id="date_two"
@@ -189,6 +191,7 @@ const Benefit = ({ t }) => {
                             <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">3</text></svg>
                             <Typography variant="h6">{t("Client.Benefit.section3_option3")}</Typography>
                         </Box>
+
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                             <KeyboardDatePicker
                                 disableToolbar

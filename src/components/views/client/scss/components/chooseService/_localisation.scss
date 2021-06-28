@@ -2,6 +2,11 @@
     margin: 400px auto 200px;
     max-width: 1300px;
 
+    @include breakpoint(tablet) {
+        margin: 318px 30px 89px;
+        min-height: 45vh;
+    }
+
     @include breakpoint(mobile) {
         margin: 270px auto 100px;
     }
@@ -36,7 +41,20 @@
         text-align: center;
 
         @include breakpoint(mobile) {
-           margin: 30px auto;
+            margin: 30px auto;
+        }
+
+        span::before {
+            content: "";
+            display: block;
+            border-left: 1px solid $gray;
+            height: 50px;
+            transform: translateX(50%);
+            margin: 20px;
+
+            @include breakpoint(mobile) {
+                display: none;
+            }
         }
     }
 
@@ -54,13 +72,6 @@
 
         @include breakpoint(mobile) {
             font-size: 15px;
-         }
-
-        span::before {
-            content: "";
-            display: block;
-            border-left: 1px solid $gray;
-            height: 100px;
         }
     }
 
@@ -72,9 +83,8 @@
         }
 
         & input:first-child {
-            @include breakpoint(tablet) {
-                width: 100%;
-            }
+            margin-right: 0;
+            width: 100%;
         }
     }
 
@@ -86,7 +96,7 @@
             width: 100%;
 
             @include breakpoint(tablet) {
-                font-size: 19px;
+                font-size: 15px;
                 padding: 10px 10px;
             }
         }
@@ -105,4 +115,10 @@
 .link {
     color: $dodger-blue_6;
     text-decoration: underline;
+}
+
+.btn_green_bg.connect_link{
+    @include breakpoint(tablet) {
+        font-size: 15px;
+    }
 }
