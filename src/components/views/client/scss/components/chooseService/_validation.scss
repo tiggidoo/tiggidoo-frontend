@@ -1,3 +1,51 @@
 .Validation{
     margin: 300px 50px auto;
+
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+        gap: 40px
+    }
+
+    .Validation_row{
+        margin-top: 30px;
+        margin-bottom: 60px;
+    }
+
+    .Validation_col{
+        background-color: #fff;
+        padding: 30px 20px;
+    }
+
+    .section__title{
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    h6 {
+        color: #0D0E12;
+        font-family: "Avenir_Black";
+        font-size: 17px;
+    }
+
+    .blue__title{
+        color: $dodger-blue_6;
+        font-family: "Avenir_Black";
+        text-transform: uppercase;
+    }
+
+    .validation_recap{
+        margin-top: 40px;
+    }
+
+    .recap_list{
+        color: $dove-gray_2;
+        font-size: 17px;
+    }
+
+    .recap_title{
+        font-size: 20px;
+        margin: 20px auto;
+    }
 }
