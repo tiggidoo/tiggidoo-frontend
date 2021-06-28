@@ -81,8 +81,9 @@ const Validation = ({ t }) => {
 
                     <FormGroup>
                         <FormControlLabel
+                        className="mb-5"
                             control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" color="primary"/>}
-                            label="Secondary"
+                            label="J’ai lu et accepté les termes et conditions d’utilisation."
                         />
 
                         <FormControlLabel
@@ -94,7 +95,7 @@ const Validation = ({ t }) => {
                                     color="primary"
                                 />
                             }
-                            label="Primary"
+                            label="Je confirme que le logement est une résidence personnelle, qui ne fait l’objet d’aucune location via des sites prestataires (Airbnb, Booking, Etc.)"
                         />
 
                     </FormGroup>
