@@ -59,10 +59,6 @@ const HeaderServ = ({ history }) => {
 		}
 	}, [])
 
-	function toggleCollapse() {
-		document.getElementById("clientNav").classList.toggle("menu_open");
-	}
-
 	const location = useLocation()
 
 	return (
@@ -74,7 +70,7 @@ const HeaderServ = ({ history }) => {
 			</Helmet>
 
 			<Navbar expand="xl" id="clientNav" className={`ServiceNav ${navBackground ? "ServiceNav__nav--scrolled" : ""}`}>
-				<Box className="NavBar__container">
+				<Box className={`NavBar__container ${location.pathname === '/thankyou'  ? "thankyou_nav" : ""}`}>
 					<Navbar.Brand href="#home">
 						<img
 							src={"images/logo_tiggidoo.svg"}
@@ -85,7 +81,7 @@ const HeaderServ = ({ history }) => {
 
 					<Navbar className="">
 						<Nav className="NavBar__menu">
-							<div className="d-none d-md-block">
+							<div className={`${location.pathname === '/thankyou' ? "d-none" : "d-none d-md-block"}`}>
 								<Stepper />
 							</div>
 							<Nav.Link
@@ -127,6 +123,12 @@ const HeaderServ = ({ history }) => {
 					<Typography component="h2" variant="h2">
 						{t("Client.Logement.sectionTitle3")}
 						<span className="step d-sm-block d-md-none">Etape 4/4</span>
+					</Typography>
+				}
+
+				{location.pathname === '/thankyou' &&
+					<Typography component="h2" variant="h2">
+						{t("Client.ThankyouPage.title")}
 					</Typography>
 				}
 

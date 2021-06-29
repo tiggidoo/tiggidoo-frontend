@@ -337,7 +337,7 @@
         "Footer": {
             "copyright": "© 2021 Plateforme Tiggidoo Inc. - Tous droits réservés"
         },
-        "Logement":{
+        "Logement": {
             "sectionTitle1": "LA DÉSCRIPTION DU LOGEMENT",
             "sectionTitle2": "CONTINUONS AVEC LA PRÉSTATION",
             "sectionTitle3": "VALIDONS ENFIN VOS INFORMATIONS",
@@ -406,7 +406,7 @@
             "section3_option2": "Choisissez le(s) créneau(x) horaire(s)",
             "section3_option3": "Saisissez la première date du ménage"
         },
-        "Days":{
+        "Days": {
             "dim": "Dim",
             "lun": "Lun",
             "mar": "Mar",
@@ -421,22 +421,22 @@
             "any": "Peu m’importe",
             "a-partir-du": "A PARTIR DU"
         },
-        "Validation":{
+        "Validation": {
             "intro": "Plus qu’un dernier clic et votre demande sera envoyé aux PROS. Vous recevrez alors dans votre espace de connexion la liste des PROS qui proposent leurs services pour votre demande. Alors, vous n’aurez plus qu’à choisir la personne que vous souhaitez et puis valider en réglant directement votre total en ligne.",
-            "bloc1_title":"J’OBTIENS MON RECAP",
+            "bloc1_title": "J’OBTIENS MON RECAP",
             "bloc1_texte1": "SERVICE DE MÉNAGE",
             "bloc1_texte2": "LOGEMENT",
             "bloc1_texte3": "FORMULE",
             "bloc1_texte4": "OPTIONS",
-            "bloc2_title":"JE RENSEIGNE MES INFORMATIONS",
-            "name":"Prénom",
-            "lastname":"Nom",
-            "email":"Courriel",
-            "phone":"Célulaire",
-            "password":"Mot de passe",
-            "confirm_password":"Confirmation mot de passe",
-            "force_password":"Force mot de passe",
-            "force_password_text":"C’est le bon chemin, continuez comme ça!",
+            "bloc2_title": "JE RENSEIGNE MES INFORMATIONS",
+            "name": "Prénom",
+            "lastname": "Nom",
+            "email": "Courriel",
+            "phone": "Célulaire",
+            "password": "Mot de passe",
+            "confirm_password": "Confirmation mot de passe",
+            "force_password": "Force mot de passe",
+            "force_password_text": "C’est le bon chemin, continuez comme ça!",
             "terms_and_conditions": "J’ai lu et accepté",
             "terms_and_conditions_link": "les termes et conditions d’utilisation.",
             "confirm_housing": "Je confirme que le logement est une résidence personnelle, qui ne fait l’objet d’aucune location via des sites prestataires (Airbnb, Booking, Etc.)",
@@ -458,6 +458,17 @@
             "section2_btn": "ACCÈDER À MON COMPTE",
             "footer": "L’offre de cette plateforme est à destination de résidence personnelle. Pour un service de ménage pour de la location saisonnière suivez",
             "footer_link": "ce lien"
+        },
+        "ThankyouPage": {
+            "title": "MERCI ET BIENVENUE",
+            "bloc1_text1": "MERCI",
+            "bloc1_text2": "VOTRE DEMANDE A BIEN ÉTAIT ENVOYÉ À NOS PROS",
+            "bloc1_text3": "CONNECTEZ-VOUS DÈS MAINTENANT POUR RETROUVER VOTRE DEMANDE ET VALIDEZ LE CHOIX D’UN PRO",
+            "bloc1_text4": "ACCÈDER À MON COMPTE",
+            "bloc2_text1": "ET MAINTENANT ?",
+            "bloc2_text2": "Connectez-vous pour accéder à votre compte en cliquant sur le bouton d’accès.Retrouvez le lien d’accès reçu dans votre courriel. Pensez à vérifier vos SPAM",
+            "bloc2_text3": "Parcourez et commencez à recevoir des réponses de propositions des PROS sur votre espace en ligne",
+            "bloc2_text4": "Sélectionnez le PRO qui vous correspond le plus à votre demande, validez et payez pour réserver votre prestation"
         }
     }
 }
