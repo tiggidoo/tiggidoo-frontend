@@ -110,38 +110,48 @@ const useStyle = makeStyles((theme) => ({
     }
 }))
 
-const OfferProposition = ({ proWorkPrice, tiggidooPrice, isCalculateTax, sendReservation, statusId, reservationId }) => {
+const OfferProposition = ({ 
+    proWorkPrice, 
+    tiggidooPrice, 
+    isCalculateTax, 
+    sendReservation, 
+    statusId, 
+    reservationId, 
+    activityDuration, 
+    activityVacuumPrice,
+    activityStartTime
+}) => {
     const classes = useStyle()
 
     const serviceHour = [
-        { id: '8:00', name: '8H00' },
-        { id: '8:30', name: '8H30' },
-        { id: '9:00', name: '9H00' },
-        { id: '9:30', name: '9H30' },
-        { id: '10:00', name: '10H00' },
-        { id: '10:30', name: '10H30' },
-        { id: '11:00', name: '11H00' },
-        { id: '11:30', name: '11H30' },
-        { id: '12:00', name: '12H00' },
-        { id: '12:30', name: '12H30' },
-        { id: '13:00', name: '13H00' },
-        { id: '13:30', name: '13H30' },
-        { id: '14:00', name: '14H00' },
-        { id: '14:30', name: '14H30' },
-        { id: '15:00', name: '15H00' },
-        { id: '15:30', name: '15H30' },
-        { id: '16:00', name: '16H00' },
-        { id: '16:30', name: '16H30' },
-        { id: '17:00', name: '17H00' },
-        { id: '17:30', name: '17H30' },
-        { id: '18:00', name: '18H00' },
-        { id: '18:30', name: '18H30' },
-        { id: '19:00', name: '19H00' },
-        { id: '19:30', name: '19H30' },
-        { id: '20:00', name: '20H00' },
-        { id: '20:30', name: '20H30' },
-        { id: '21:00', name: '21H00' },
-        { id: '21:30', name: '21H30' },
+        { id: '08:00:00', name: '8H00' },
+        { id: '08:30:00', name: '8H30' },
+        { id: '09:00:00', name: '9H00' },
+        { id: '09:30:00', name: '9H30' },
+        { id: '10:00:00', name: '10H00' },
+        { id: '10:30:00', name: '10H30' },
+        { id: '11:00:00', name: '11H00' },
+        { id: '11:30:00', name: '11H30' },
+        { id: '12:00:00', name: '12H00' },
+        { id: '12:30:00', name: '12H30' },
+        { id: '13:00:00', name: '13H00' },
+        { id: '13:30:00', name: '13H30' },
+        { id: '14:00:00', name: '14H00' },
+        { id: '14:30:00', name: '14H30' },
+        { id: '15:00:00', name: '15H00' },
+        { id: '15:30:00', name: '15H30' },
+        { id: '16:00:00', name: '16H00' },
+        { id: '16:30:00', name: '16H30' },
+        { id: '17:00:00', name: '17H00' },
+        { id: '17:30:00', name: '17H30' },
+        { id: '18:00:00', name: '18H00' },
+        { id: '18:30:00', name: '18H30' },
+        { id: '19:00:00', name: '19H00' },
+        { id: '19:30:00', name: '19H30' },
+        { id: '20:00:00', name: '20H00' },
+        { id: '20:30:00', name: '20H30' },
+        { id: '21:00:00', name: '21H00' },
+        { id: '21:30:00', name: '21H30' },
     ];
 
     const duration = [
@@ -195,9 +205,9 @@ const OfferProposition = ({ proWorkPrice, tiggidooPrice, isCalculateTax, sendRes
 
     const [formData, setFormData] = useState({
         id: reservationId,
-        proStartTime: "8:00",
-        proDuration: "1H00",
-        proVacuumPrice: 5,
+        proStartTime: activityStartTime,
+        proDuration: activityDuration,
+        proVacuumPrice: activityVacuumPrice,
         proProductEcologicalPrice: 0,
         proProductStandardPrice: 0,
         proWorkPrice: proWorkPrice,
@@ -207,6 +217,8 @@ const OfferProposition = ({ proWorkPrice, tiggidooPrice, isCalculateTax, sendRes
         tvq: res.tvq
 
     })
+
+    console.log('Frondia : ', statusId)
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -302,7 +314,7 @@ const OfferProposition = ({ proWorkPrice, tiggidooPrice, isCalculateTax, sendRes
                             </Grid>
                             <Grid item xs={12} sm={12} md={6}>
 
-                            <Box>
+                                <Box>
                                     <Box display="flex" flexDirection="row" mt={2}>
                                         <Box>
                                             <Fab size="small" color="primary" aria-label="add" style={{backgroundColor: color}}>2</Fab>

@@ -104,6 +104,9 @@ const ShowNewReservation = () => {
                                 sendReservation={sendReservation} 
                                 statusId={statusId}
                                 reservationId={id}
+                                activityDuration={reservationInfo.pro_duration}
+                                activityVacuumPrice={reservationInfo.pro_vacuum_price}
+                                activityStartTime={reservationInfo.pro_start_time}
                             />
                         </Box>
 

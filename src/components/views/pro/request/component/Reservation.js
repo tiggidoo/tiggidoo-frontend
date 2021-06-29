@@ -181,7 +181,7 @@ const Reservation = ({res, statusId}) =>{
                     <Box className={classes.infoRes}>
                         <Hidden smDown>
                             <Box className={classes.contArea} only="sm">
-                                <Typography variant="h6">ID REQUÊTE</Typography>
+                                <Typography variant="h6">ID RESERVATION</Typography>
                                 <Box>
                                     <Typography variant="h5">{res.uuid}</Typography>
                                 </Box>

@@ -162,7 +162,7 @@ const RequestsList = () => {
     setAnchorEl(null);
   };
 
-  console.log('PAPA')
+  console.log('no pasa nada')
 
   return (
     <Dashboard
