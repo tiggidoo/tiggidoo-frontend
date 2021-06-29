@@ -26,6 +26,7 @@ import ChooseService from "./components/views/client/pages/ChooseService";
 import { Provider } from 'react-redux'
 import store from './store'
 import Localisation from "./components/views/client/pages/Localisation";
+import ThankYouPage from "./components/views/client/pages/ThankYouPage";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
             <Route exact path="/housing" component={ ChooseService } />
             <Route exact path="/benefit" component={ ChooseService } />
             <Route exact path="/validation" component={ ChooseService } />
+            <Route exact path="/thankyou" component={ ThankYouPage } />
 
           </Switch>
         </div>
