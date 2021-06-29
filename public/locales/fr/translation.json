@@ -436,7 +436,12 @@
             "password":"Mot de passe",
             "confirm_password":"Confirmation mot de passe",
             "force_password":"Force mot de passe",
-            "force_password_text":"C’est le bon chemin, continuez comme ça!"
+            "force_password_text":"C’est le bon chemin, continuez comme ça!",
+            "terms_and_conditions": "J’ai lu et accepté",
+            "terms_and_conditions_link": "les termes et conditions d’utilisation.",
+            "confirm_housing": "Je confirme que le logement est une résidence personnelle, qui ne fait l’objet d’aucune location via des sites prestataires (Airbnb, Booking, Etc.)",
+            "submit": "ENVOYER MA DEMANDE",
+            "error_message": "Il semblerait que certains champs soient manquants"
         },
         "Localisation": {
             "title": "COMMENÇONS PAR VOTRE CODE POSTAL",
