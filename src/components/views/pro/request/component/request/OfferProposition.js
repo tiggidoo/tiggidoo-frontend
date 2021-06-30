@@ -26,10 +26,11 @@ const useStyle = makeStyles((theme) => ({
             margin: theme.spacing(3, 2)
         },
         '& .MuiFab-sizeSmall':{
-            '@media(max-width: 600px)':{
-                width: '35px',
-                height: '35px'
-            }
+            //'@media(max-width: 600px)':{
+                width: '33px',
+                height: '33px',
+                minHeight: '33px'
+            //}
         },
         '& textarea':{
             padding: '10px'
@@ -107,6 +108,12 @@ const useStyle = makeStyles((theme) => ({
     btnValidate: {
         color: '#fff',
         backgroundColor: theme.palette.secondary.main
+    },
+    btnCanceled:{
+        border: '2px solid #DA5564',
+        backgroundColor: 'transparent',
+        color: '#DA5564',
+        marginBottom: theme.spacing(2)
     }
 }))
 
@@ -115,6 +122,7 @@ const OfferProposition = ({
     tiggidooPrice, 
     isCalculateTax, 
     sendReservation, 
+    sendReservationCanceled,
     statusId, 
     reservationId, 
     activityDuration, 
@@ -162,15 +170,6 @@ const OfferProposition = ({
         { id: '03:00:00', name: '3H00' },
         { id: '03:30:00', name: '3H30' },
         { id: '04:00:00', name: '4H00' },
-        { id: '04:30:00', name: '4H30' },
-        { id: '05:00:00', name: '5H00' },
-        { id: '05:30:00', name: '5H30' },
-        { id: '06:00:00', name: '6H00' },
-        { id: '06:30:00', name: '6H30' },
-        { id: '07:00:00', name: '7H00' },
-        { id: '07:30:00', name: '7H30' },
-        { id: '08:00:00', name: '8H00' },
-        { id: '08:30:00', name: '8H30' },
     ];
 
     const additionals = [
@@ -217,8 +216,6 @@ const OfferProposition = ({
         tvq: res.tvq
 
     })
-
-    console.log('Frondia : ', statusId)
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -271,6 +268,11 @@ const OfferProposition = ({
         })
     }
 
+    const reservationCanceled = (e) => {
+        e.preventDefault()
+        sendReservationCanceled()
+    }
+
     return (
         <Box>
             <Box mt={2}>
@@ -302,7 +304,7 @@ const OfferProposition = ({
                                                             data={duration}
                                                             onChange={(e) => handleChange(e)}
                                                             defaultValue={formData.proDuration}
-                                                            disabled={true}
+                                                            disabled={(statusId === null || statusId === '1') ? false : true}
                                                             color={color}
                                                         />                 
                                                     </Box>
@@ -335,7 +337,7 @@ const OfferProposition = ({
                                                             data={serviceHour}
                                                             onChange={(e) => handleChange(e)}
                                                             defaultValue={formData.proStartTime}
-                                                            disabled={true}
+                                                            disabled={(statusId === null || statusId === '1') ? false : true}
                                                             color={color}
                                                         />                
                                                     </Box>
@@ -368,7 +370,7 @@ const OfferProposition = ({
                                                             data={additionals}
                                                             onChange={(e) => handleChange(e)}
                                                             defaultValue={formData.proVacuumPrice}
-                                                            disabled={true}
+                                                            disabled={(statusId === null || statusId === '1') ? false : true}
                                                             color={color}
                                                         />                
                                                     </Box>
@@ -398,6 +400,7 @@ const OfferProposition = ({
                                                 </Box>
                                                 <Box className={classes.tariff}>
                                                     <Box display="flex" alignItems="center">
+                                                    {(statusId === null || statusId === '1') && (
                                                         <Box>
                                                             <IconButton style={{marginRight: '-40px', zIndex: '99'}} onClick={ e=>removeProWorkPrice(e) }>
                                                                 <Fab size="small" color="primary" style={{minHeight: '25px', width: '25px', height: '25px'}}>
@@ -405,6 +408,7 @@ const OfferProposition = ({
                                                                 </Fab>
                                                             </IconButton>
                                                         </Box>
+                                                    )}
                                                         <Box>
                                                             <Input
                                                                 id="proWorkPrice" 
@@ -420,14 +424,16 @@ const OfferProposition = ({
                                                                 error=""
                                                             />
                                                         </Box>
-                                                        <Box>
-                                                            <IconButton style={{marginLeft: '-50px'}} onClick={ e=>addProWorkPrice(e) }>
-                                                                <Fab size="small" color="primary" style={{minHeight: '25px', width: '25px', height: '25px'}}>
-                                                                    <AddIcon  style={{color: '#fff', width: '19px', height: '19px'}}/>
-                                                                </Fab>
+                                                        {(statusId === null || statusId === '1') && (
+                                                            <Box>
+                                                                <IconButton style={{marginLeft: '-50px'}} onClick={ e=>addProWorkPrice(e) }>
+                                                                    <Fab size="small" color="primary" style={{minHeight: '25px', width: '25px', height: '25px'}}>
+                                                                        <AddIcon  style={{color: '#fff', width: '19px', height: '19px'}}/>
+                                                                    </Fab>
 
-                                                            </IconButton>
-                                                        </Box>
+                                                                </IconButton>
+                                                            </Box>
+                                                        )}                                                        
                                                     </Box>
                                                 </Box>
 
@@ -503,10 +509,20 @@ const OfferProposition = ({
                         </Box>
                         <Box my={2}>
                             <Button variant="contained" className={classes.btnValidate} onClick={e=>sendValidateData(e)}>
-                                VALIDER MA DEMANDER21
+                                VALIDER MA DEMANDER
                             </Button>
                         </Box>
                     </Box>
+                </Box>
+            )} 
+            {(statusId === '4') && (
+                <Box className={classes.btnArea}>
+                    <Button variant="contained" className={classes.btnCanceled} onClick={e=>reservationCanceled(e)}>
+                        ANNULER LA PRESTATION
+                    </Button>
+                    <Button variant="contained" color="primary">
+                        CONTACTER LE SUPPORT
+                    </Button>
                 </Box>
             )} 
         </Box>

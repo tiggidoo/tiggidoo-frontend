@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import Reservation from './component/Reservation'
 import { useDispatch, useSelector } from 'react-redux'
 import { getListRequest } from '../../../../store/actions/reservationAction'
+import Processing from '../../../layout/Processing'
 
 const NewReservationsList = ({ token, statusId }) => {
 
@@ -22,7 +23,7 @@ const NewReservationsList = ({ token, statusId }) => {
     return (
         <Box>
             {
-                reservations === null ? (<Box>No result</Box>) : 
+                reservations === null ? (<Processing />) : 
                 (
                     <Box >
                         {

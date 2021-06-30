@@ -92,7 +92,6 @@ const Availability = ({ availability, hancleChange }) => {
                                             handleChange={hancleChange}
                                             label=""
                                         />
-
                                     </Box>
                                 </TableCell>
                                 <TableCell align="center">

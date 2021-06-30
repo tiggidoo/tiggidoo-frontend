@@ -213,7 +213,7 @@ const RequestsList = () => {
                   <NewReservationsList token={access_token} statusId="2"/>
                 </Box>
             </TabPanel>
-            <TabPanel value={value} index={3}>
+            <TabPanel value={value} index={2}>
                 <Box className={classes.workArea}>
                   <NewReservationsList token={access_token} statusId="4"/>
                 </Box>

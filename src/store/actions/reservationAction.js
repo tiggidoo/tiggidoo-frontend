@@ -1,10 +1,14 @@
-import { GET_RESERVATIONS_LIST, GET_A_REQUEST } from './typesAction'
+import { GET_RESERVATIONS_LIST, GET_A_REQUEST, PROCESSING } from './typesAction'
 import axios from 'axios'
 import config from '../../config.json'
 import { setAlert } from './alertAction'
 
 export const getListRequest = (token, statusId) => async dispatch=>{
     try{
+        dispatch({
+            type: PROCESSING
+        })
+
         const headers = {
             headers: { 'Authorization': `Bearer ${token}` }
         }
@@ -12,6 +16,8 @@ export const getListRequest = (token, statusId) => async dispatch=>{
         const data = {
             statusId: parseInt(statusId, 10)
         }
+
+        console.log('este es el status:  ', data);
 
         await axios.post(`${config.API_SERVER}/api/pro/reservation/list`, data, headers)
         .then((res) =>{
@@ -96,4 +102,32 @@ export const sendReservationPro = (token, formData) => async dispatch => {
     }catch(error){
         console.log(error)
     }
+}
+
+export const reservationRefuse = (token, id) => async dispatch => {
+    try{
+
+        const headers = {
+            headers: {'Authorization': `Bearer ${token}`}
+        }
+
+        const data = {
+            id: id
+        }
+
+        await axios.post(`${config.API_SERVER}/api/pro/reservation/refuse`, data, headers)
+        .then((res) => {
+            console.log(res)
+            if(res.status === 200){
+                dispatch(setAlert('Réservation annulée', 'success'))
+            }
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+    }catch(error){
+        console.log(error)
+    }
+    
 }

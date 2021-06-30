@@ -2,12 +2,14 @@ import { Box, makeStyles } from '@material-ui/core'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { getRequest, sendReservationPro } from '../../../../store/actions/reservationAction'
+import { getRequest, reservationRefuse, sendReservationPro } from '../../../../store/actions/reservationAction'
 import Dashboard from '../../../layout/Dashboard'
 import PaperLayout from '../../../layout/PaperLayout'
 import OfferProposition from './component/request/OfferProposition'
 import ReqClientInfo from './component/request/ReqClientInfo'
 import ReqHeader from './component/request/ReqHeader'
+import AccesAndAccommoInfo from './component/request/AccesAndAccommoInfo'
+import AccommodationList from './component/request/AccommodationList'
 
 const useStyle = makeStyles((theme) => ({
     workArea:{
@@ -31,6 +33,15 @@ const useStyle = makeStyles((theme) => ({
         borderBottom: '2px solid #aba7a8',
         '@media(max-width: 600px)':{
             padding: theme.spacing(2, 0),
+        },
+        '& h4':{
+            fontWeight: 'bold'
+        },
+        '& .MuiIconButton-label':{
+            marginTop: '-19px'
+        },
+        '& .MuiFormControlLabel-label':{
+            fontSize: '1.7rem'
         }
     },
     reqOffer:{
@@ -65,6 +76,10 @@ const ShowNewReservation = () => {
         dispatch(sendReservationPro(access_token, dataForm))
     }
 
+    const sendReservationCanceled = () => {
+        dispatch(reservationRefuse(access_token, id))
+    }
+
     //console.log('Un ano de gracia', reservationInfo.pro_work_price)
 
     return (
@@ -95,6 +110,18 @@ const ShowNewReservation = () => {
                                 personalization={reservationInfo.reservation.housework.personalization} 
                             />
                         </Box>
+                        {(statusId === '4') && (
+                            <Box className={classes.reqClient}>
+                                <Box px={2} mb={1}>
+                                    <Box mb={3}>
+                                        <AccesAndAccommoInfo />    
+                                    </Box>
+                                    <Box>
+                                        <AccommodationList />
+                                    </Box>
+                                </Box>
+                            </Box>
+                        )}
                         
                         <Box className={classes.reqOffer}>
                             <OfferProposition 
@@ -102,6 +129,7 @@ const ShowNewReservation = () => {
                                 proWorkPrice={ (statusId === null || statusId === '1') ? reservationInfo.reservation.total_price :  reservationInfo.pro_work_price} 
                                 isCalculateTax={pro.tax} 
                                 sendReservation={sendReservation} 
+                                sendReservationCanceled={sendReservationCanceled}
                                 statusId={statusId}
                                 reservationId={id}
                                 activityDuration={reservationInfo.pro_duration}

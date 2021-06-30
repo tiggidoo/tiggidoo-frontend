@@ -1,8 +1,5 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import NativeSelect from '@material-ui/core/NativeSelect';
-import InputBase from '@material-ui/core/InputBase';
-import Box from '@material-ui/core/Box';
+import { Box, FormControl, makeStyles, withStyles, NativeSelect, InputBase } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const BootstrapInput = withStyles((theme) => ({
@@ -83,7 +80,7 @@ const buildOptions = (data) => {
 
 function SelectInput(props) {
     const classes = useStyles();
-    const { data, id, name, defaultValue, onChange, error, inputRef, width, color } = props;
+    const { data, id, name, defaultValue, onChange, error, inputRef, width, color, disabled } = props;
 
     let message = '';
     let styleSelect = classes.selectIcon;
@@ -102,26 +99,28 @@ function SelectInput(props) {
     
     return (
         <Box className={classes.selectArea}>
-            <NativeSelect
-                id={id}
-                name={name}
-                input={<BootstrapInput />}
-                className={styleSelect}
-                value={defaultValueExists}
-                onChange={onChange}
-                IconComponent = {ExpandMoreIcon}
-                inputRef = {inputRef !== undefined ? inputRef : null}
-                style={{
-                    width: width,
-                    color: color !== undefined ? color : '#000',
-                    fontWeight: color !== undefined ? 'bold' : '400'
-                }}
-            >
-                {buildOptions(data)}
-            </NativeSelect>
-            {(message.length > 0) && (
-                <span className={classes.errorMessage}>{error}</span>
-            )}
+            <FormControl disabled={ disabled === undefined ? false : disabled }>
+                <NativeSelect
+                    id={id}
+                    name={name}
+                    input={<BootstrapInput />}
+                    className={styleSelect}
+                    value={defaultValueExists}
+                    onChange={onChange}
+                    IconComponent = {ExpandMoreIcon}
+                    inputRef = {inputRef !== undefined ? inputRef : null}
+                    style={{
+                        width: width,
+                        color: color !== undefined ? color : '#000',
+                        fontWeight: color !== undefined ? 'bold' : '400'
+                    }}
+                >
+                    {buildOptions(data)}
+                </NativeSelect>
+                {(message.length > 0) && (
+                    <span className={classes.errorMessage}>{error}</span>
+                )}
+            </FormControl>
         </Box >
     )
 }
