@@ -95,7 +95,7 @@ const ReqHeader = ({ uuid, service, date, duration, reservationStatusId }) => {
                     <Typography variant="h6">DATE</Typography>                
                 </Box>
                 <Box>
-                    <Typography variant="h5">{getDateFormatDayMotnYear(date)}</Typography>
+                    <Typography variant="h5">{getDateFormatDayMotnYear(`${date} 00:00:00`)}</Typography>
                 </Box>
             </Box>
             

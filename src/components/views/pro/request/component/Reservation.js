@@ -173,7 +173,7 @@ const Reservation = ({res, statusId}) =>{
                                 </Box>
                             </Hidden>
                             <Typography variant="h6">
-                                {formateDateSlashes(res.start_date)}
+                                {formateDateSlashes(`${res.start_date} 00:00:00`)}
                             </Typography>
                         </Box>
                     </Box>
