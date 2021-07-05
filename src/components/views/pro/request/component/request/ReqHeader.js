@@ -9,7 +9,7 @@ const useStyle = makeStyles((theme)=> ({
         display:'flex',
         flexDirection:'row',
         justifyContent:'space-between',
-        alignItems: 'center',
+        //alignItems: 'center',
         padding: theme.spacing(4),
         '& h6':{
             color: '#737379',
@@ -56,7 +56,7 @@ const useStyle = makeStyles((theme)=> ({
     }
 }))
 
-const ReqHeader = ({ uuid, service, date, duration, reservationStatusId }) => {
+const ReqHeader = ({ uuid, service, date, optionDate, duration }) => {
     const classes = useStyle()
     let d = duration.split(':')
     d = `${d[0]}H${d[1]}`
@@ -71,6 +71,15 @@ const ReqHeader = ({ uuid, service, date, duration, reservationStatusId }) => {
 
     return (
         <Box className={classes.tittles}>
+            <Box className={classes.boxStyle}>
+                <Box>
+                    <Typography variant="h6">DATE</Typography>                
+                </Box>
+                <Box>
+                    <Typography variant="h5">{getDateFormatDayMotnYear(`${date} 00:00:00`)}</Typography>
+                    <Typography variant="h5">{getDateFormatDayMotnYear(`${optionDate} 00:00:00`)}</Typography>
+                </Box>
+            </Box>
             <Hidden smDown>
                 <Box className={classes.boxStyle}>
                     <Box>
@@ -87,15 +96,6 @@ const ReqHeader = ({ uuid, service, date, duration, reservationStatusId }) => {
                 </Box>
                 <Box>
                     <Typography variant="h5">{service.toUpperCase()}</Typography>
-                </Box>
-            </Box>
-            
-            <Box className={classes.boxStyle}>
-                <Box>
-                    <Typography variant="h6">DATE</Typography>                
-                </Box>
-                <Box>
-                    <Typography variant="h5">{getDateFormatDayMotnYear(`${date} 00:00:00`)}</Typography>
                 </Box>
             </Box>
             

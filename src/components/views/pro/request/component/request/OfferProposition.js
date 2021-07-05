@@ -1,7 +1,7 @@
 import { Box, Grid, makeStyles, Typography, Fab, TextareaAutosize, Button, IconButton } from '@material-ui/core'
 import SelectInput from '../../../../../share/inputs/SelectInput'
 import Input from '../../../../../share/inputs/Input'
-import { calculateTpsTvqAndTotal } from '../../../../../share/librery/librery'
+import { calculateTpsTvqAndTotal, getDateFormatDayMotnYear } from '../../../../../share/librery/librery'
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import React, { useState } from 'react'
@@ -48,10 +48,15 @@ const useStyle = makeStyles((theme) => ({
         },
         '& h6':{
             color: '#737379', 
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontSize: '1.4rem'
         },
         '& h4':{
-            color: '#000'
+            color: '#000',
+            fontSize: '1.7rem',
+            '@media(max-width: 1366px)':{
+                fontSize: '15px'
+            }
         }
     },
     btnArea: {
@@ -127,7 +132,10 @@ const OfferProposition = ({
     reservationId, 
     activityDuration, 
     activityVacuumPrice,
-    activityStartTime
+    activityStartTime,
+    reservationType,
+    date,
+    optionDate
 }) => {
     const classes = useStyle()
 
@@ -195,6 +203,11 @@ const OfferProposition = ({
         { id: '100', name: '100 $' },
     ];
 
+    const chooseDate = [
+        {id: date, name: getDateFormatDayMotnYear(`${date} 00:00:00`)},
+        {id: optionDate, name: getDateFormatDayMotnYear(`${optionDate} 00:00:00`)}
+    ];
+
     let res = {
         tps: 0, 
         tvq:0,
@@ -211,11 +224,14 @@ const OfferProposition = ({
         proProductStandardPrice: 0,
         proWorkPrice: proWorkPrice,
         proPriceMoreTaxes: res.total,
+        proStartDate: date,
         proComment: "",
         tps: res.tps,
         tvq: res.tvq
 
     })
+
+    console.log('Esta es la fecha magica:  -- ', chooseDate, reservationType, formData)
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -323,23 +339,39 @@ const OfferProposition = ({
                                         </Box>
                                         <Box className={classes.propositionOffre}>
                                             <Typography variant="h5">J’indique ma disponibilité</Typography>
-                                            <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
-                                                <Box mr={2}>
-                                                    <Typography variant="h6">CRÉNAU DEMANDÉ</Typography>
-                                                    <Typography variant="h5">Matin</Typography>
-                                                </Box>
+                                            <Box display="flex" flexDirection="column" mt={1} justifyContent="space-between">
+                                                <Typography variant="h6">CRÉNAU DEMANDÉ</Typography>
                                                 <Box>
-                                                    <Typography variant="h6">HEURE DÉBUT</Typography>
-                                                    <Box className={classes.selectInput} >
-                                                        <SelectInput
-                                                            id="proStartTime"
-                                                            name="proStartTime"
-                                                            data={serviceHour}
-                                                            onChange={(e) => handleChange(e)}
-                                                            defaultValue={formData.proStartTime}
-                                                            disabled={(statusId === null || statusId === '1') ? false : true}
-                                                            color={color}
-                                                        />                
+                                                    {(reservationType === 2) && (
+                                                        <Box display="flex" flexDirection="row" justifyContent="space-between" mb={1}>
+                                                            <Typography variant="h5">Jour de disponibilité</Typography>
+                                                            <Box className={classes.selectInput} >
+                                                                <SelectInput
+                                                                    id="proStartDate"
+                                                                    name="proStartDate"
+                                                                    data={chooseDate}
+                                                                    onChange={(e) => handleChange(e)}
+                                                                    defaultValue={formData.proStartTime}
+                                                                    disabled={(statusId === null || statusId === '1') ? false : true}
+                                                                    color={color}
+                                                                />                
+                                                            </Box>
+                                                        </Box>
+                                                    )}
+
+                                                    <Box display="flex" flexDirection="row" justifyContent="space-between">
+                                                        <Typography variant="h5">Matin</Typography>
+                                                        <Box className={classes.selectInput} >
+                                                            <SelectInput
+                                                                id="proStartTime"
+                                                                name="proStartTime"
+                                                                data={serviceHour}
+                                                                onChange={(e) => handleChange(e)}
+                                                                defaultValue={formData.proStartTime}
+                                                                disabled={(statusId === null || statusId === '1') ? false : true}
+                                                                color={color}
+                                                            />                
+                                                        </Box>
                                                     </Box>
                                                 </Box>
                                             </Box>

@@ -98,6 +98,7 @@ const ShowNewReservation = () => {
                                 uuid={reservationInfo.reservation.uuid} 
                                 service={reservationInfo.reservation.service.fr} 
                                 date={reservationInfo.reservation.housework.start_date} 
+                                optionDate={reservationInfo.reservation.housework.option_date} 
                                 duration={reservationInfo.reservation.total_duration} 
                             />
                         </Box>
@@ -135,6 +136,9 @@ const ShowNewReservation = () => {
                                 activityDuration={reservationInfo.pro_duration}
                                 activityVacuumPrice={reservationInfo.pro_vacuum_price}
                                 activityStartTime={reservationInfo.pro_start_time}
+                                reservationType={reservationInfo.reservation.housework.frequency.id}
+                                date={reservationInfo.reservation.housework.start_date} 
+                                optionDate={reservationInfo.reservation.housework.option_date} 
                             />
                         </Box>
 
