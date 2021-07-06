@@ -24,12 +24,31 @@ const Benefit = ({ t }) => {
     const [frequency, setFrequency] = useState(0);
     const [days, setDays] = useState({ su: false, mo: false, tu: false, we: false, th: true, fr: false, sa: true, selected: 2 });
     const [hours, setHours] = useState({ th: '', sa: '' });
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState(store.getState().estimation.settings.startDate ?? new Date());
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
+        const houseworkFrequencyId = store.getState().estimation.settings.houseworkFrequencyId;
+        const houseworkWeekTime = store.getState().estimation.settings.houseworkWeekTime;
+
+        if (houseworkFrequencyId) setFrequency(houseworkFrequencyId - 1);
+
+        if (houseworkWeekTime && Object.keys(houseworkWeekTime).length !== 0) {
+            let houseworkWeekTimeDays = { [Object.keys(houseworkWeekTime)[0]]: true };
+
+            if (Object.keys(houseworkWeekTime).length === 2) houseworkWeekTimeDays[Object.keys(houseworkWeekTime)[1]] = true;
+
+            setDays({ ...days, ...{ th: false, sa: false, selected: Object.keys(houseworkWeekTime).length}, ...houseworkWeekTimeDays});
+            setHours(houseworkWeekTime);
+        }
+
+        store.subscribe(() => {
+            setErrors(store.getState().estimation.benefitErrorsList);
+        });
+
         const requestBody = {
             ...store.getState().estimation.settings,
-            houseworkWeekTime: hours,
+            houseworkWeekTime: houseworkWeekTime ?? hours,
             startDate: date,
         };
 
@@ -84,6 +103,7 @@ const Benefit = ({ t }) => {
 
     const handleDateChange = (event, value) => {
         if (value.includes('_')) {
+            setDate(date);
             return;
         }
 
@@ -103,7 +123,7 @@ const Benefit = ({ t }) => {
         for (const day in days) {
             if (days[day] && day !== 'selected') {
                 toDisplay.push(
-                    <FormControl key={day} required>
+                    <FormControl key={day} required error={errors?.hours ? true : false}>
                         <InputLabel id={day}>Les {day}</InputLabel>
 
                         <Select
@@ -241,6 +261,7 @@ const Benefit = ({ t }) => {
                                 KeyboardButtonProps={{
                                     'aria-label': 'change date',
                                 }}
+                                error={errors?.date ? true : false}
                             />
                         </MuiPickersUtilsProvider>
                     </Box>

@@ -16,17 +16,7 @@ const initState = {
   settings: {
     housingCategoryId: 1,
     housingSizeId: null,
-    housingSpecificity: {
-      floor: 0,
-      bedroom: 0,
-      bathroom: 0,
-      washbasin: 0,
-      kitchen: 0,
-      salon: 0,
-      dining_room: 0,
-      shower: 0,
-      bathtub: 0,
-    },
+    housingSpecificity: null,
     houseworkFrequencyId: null,
     houseworkPersonalization: {     
       oven: 0,

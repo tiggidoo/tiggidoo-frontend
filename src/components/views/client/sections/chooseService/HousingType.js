@@ -22,47 +22,34 @@ const HousingType = ({ t }) => {
     const [housing, setHousing] = useState(store.getState().estimation.settings.housingCategoryId - 1);
 
     useEffect(() => {
-        const requestBody = { ...store.getState().estimation.settings, housingSpecificity: null };
+        const requestBody = { ...store.getState().estimation.settings };
 
         estimationHousingUpdate(requestBody)(dispatch);
         fetchEstimation(requestBody)(dispatch);
     }, []);
 
     const handleHousingChange = (event, value) => {
-        let requestBody = {
-            ...store.getState().estimation.settings,
-            housingCategoryId: value + 1,
-            housingSizeId: null,
-            housingSpecificity: {
-                floor: 0,
-                bedroom: 0,
-                bathroom: 0,
-                washbasin: 0,
-                kitchen: 0,
-                salon: 0,
-                dining_room: 0,
-                shower: 0,
-                bathtub: 0,
-            },
-            houseworkFrequencyId: null,
-            houseworkPersonalization: {     
-                oven: 0,
-                fridge: 0,
-                bed: 0,
-                vacuum: false,
-                product_ecological: false,
-                product_standard: false,
-                cat: '',
-                dog: '',
-            },
-        };
+        let requestBody = { ...store.getState().estimation.settings, housingCategoryId: value + 1 };
 
-        if (value === 0) {
-            requestBody = { ...requestBody, housingSpecificity: null };
-        }
+        if (value === 0) requestBody = { ...requestBody, housingSpecificity: null };
+        if (value === 0 || value === 2) requestBody = { ...requestBody, housingSizeId: null };
+        if ((value === 1 || value === 3) && !requestBody.housingSizeId) requestBody = { ...requestBody, housingSizeId: 1 };
 
-        if (value === 1 || value === 3) {
-            requestBody = { ...requestBody, housingSizeId: 1 };
+        if (value !== 0 && !requestBody.housingSpecificity) {
+            requestBody = {
+                ...requestBody,
+                housingSpecificity: {
+                    floor: 0,
+                    bedroom: 0,
+                    bathroom: 0,
+                    washbasin: 0,
+                    kitchen: 0,
+                    salon: 0,
+                    dining_room: 0,
+                    shower: 0,
+                    bathtub: 0,
+                },
+            };
         }
 
         estimationHousingUpdate(requestBody)(dispatch);
@@ -91,7 +78,7 @@ const HousingType = ({ t }) => {
             {housing === 2 && <ApartmentServices />}
             {housing === 3 && <LoftServices />}
         </Box>
-    )
+    );
 };
 
 export default withTranslation()(HousingType);

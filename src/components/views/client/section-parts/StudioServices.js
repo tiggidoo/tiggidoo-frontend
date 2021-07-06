@@ -1,5 +1,5 @@
 import { withTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useDispatch, useStore } from 'react-redux';
 import { estimationHousingUpdate, fetchEstimation } from '../../../../store/actions/estimationAction';
@@ -27,7 +27,16 @@ const StudioServices = ({ t }) => {
     const dispatch = useDispatch();
     const store = useStore();
 
-    const [animals, setAnimals] = useState({ dog: '', cat: '' });
+    const houseworkPersonalization = store.getState().estimation.settings.houseworkPersonalization;
+
+    const [animals, setAnimals] = useState({ dog: houseworkPersonalization.dog, cat: houseworkPersonalization.cat });
+    const [errors, setErrors] = useState({});
+
+    useEffect(() => {
+        store.subscribe(() => {
+            setErrors(store.getState().estimation.housingErrorsList);
+        });
+    }, []);
 
     const handleAnimalsChange = (event) => {
         const name = event.target.name;
@@ -35,15 +44,12 @@ const StudioServices = ({ t }) => {
 
         let requestBody = {
             ...store.getState().estimation.settings,
-            houseworkPersonalization: { ...store.getState().estimation.settings.houseworkPersonalization, [name]: value },
+            houseworkPersonalization: { ...houseworkPersonalization, [name]: value },
         };
 
         estimationHousingUpdate(requestBody)(dispatch);
         fetchEstimation(requestBody)(dispatch);
-        setAnimals({
-            ...animals,
-            [name]: value,
-        });
+        setAnimals({ ...animals, [name]: value });
     };
 
     return (
@@ -59,11 +65,11 @@ const StudioServices = ({ t }) => {
             </Box>
 
             <Box className="StudioServices__choice-form">
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} error={errors?.dog ? true : false}>
                     <InputLabel htmlFor="dog">
                         <img
                             src={"images/icon_animal.svg"}
-                            alt="cats"
+                            alt="animal"
                         />
                         {t("Client.Logement.housingSpecificity_10")}
                     </InputLabel>
@@ -82,11 +88,11 @@ const StudioServices = ({ t }) => {
                     </Select>
                 </FormControl>
 
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} error={errors?.cat ? true : false}>
                     <InputLabel htmlFor="cat">
                         <img
                             src={"images/icon_animal.svg"}
-                            alt="cats"
+                            alt="animal"
                         />
                         {t("Client.Logement.housingSpecificity_11")}
                     </InputLabel>
@@ -106,7 +112,7 @@ const StudioServices = ({ t }) => {
                 </FormControl>
             </Box>
         </Box>
-    )
+    );
 };
 
 export default withTranslation()(StudioServices);

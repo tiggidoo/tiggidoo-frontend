@@ -29,12 +29,21 @@ const CondoServices = ({ t }) => {
     const dispatch = useDispatch();
     const store = useStore();
 
-    const [housingSize, setHousingSize] = useState('');
-    const [animals, setAnimals] = useState({ dog: '', cat: '', other: '' });
+    const settings = store.getState().estimation.settings;
+
+    const [housingSize, setHousingSize] = useState(settings.housingSizeId);
+    const [animals, setAnimals] = useState({ dog: settings.houseworkPersonalization.dog, cat: settings.houseworkPersonalization.cat });
     const [housingSizesList, setHousingSizesList] = useState([]);
+    const [errors, setErrors] = useState({});
 
     const { i18n } = useTranslation();
     const lang = i18n.language;
+
+    useEffect(() => {
+        store.subscribe(() => {
+            setErrors(store.getState().estimation.housingErrorsList);
+        });
+    }, []);
 
     const handleHousingSizeChange = (event) => {
         const value = event.target.value;
@@ -60,10 +69,7 @@ const CondoServices = ({ t }) => {
 
         estimationHousingUpdate(requestBody)(dispatch);
         fetchEstimation(requestBody)(dispatch);
-        setAnimals({
-            ...animals,
-            [name]: value,
-        });
+        setAnimals({ ...animals, [name]: value });
     };
 
     const fetchHousingSizesList = async () => {
@@ -93,7 +99,7 @@ const CondoServices = ({ t }) => {
             <Typography variant="h3" className="HousingType__title">{t("Client.Logement.title2")}</Typography>
 
             <Box className="ComboServices__size">
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} error={errors?.housingSizeId ? true : false}>
                     <Select
                         value={housingSize}
                         onChange={handleHousingSizeChange}
@@ -103,7 +109,7 @@ const CondoServices = ({ t }) => {
                         }}
                         className="homeSize_select"
                     >
-                        <option aria-label="None" value="" />
+                        {/* <option aria-label="None" value="" /> */}
                         {housingSizes.map((homeSize, index) => (
                             <option key={index} value={index}>{homeSize}</option>
                         ))}
@@ -124,11 +130,11 @@ const CondoServices = ({ t }) => {
                 <Counter name="washbasin" title={t("Client.Logement.housingSpecificity_8")} iconSrc="images/icon_water.svg" />
                 <Counter name="floor" title={t("Client.Logement.housingSpecificity_9")} iconSrc="images/icon_stares.svg" description={t("Client.Logement.housingSpecificity_9_desc")}/>
 
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} error={errors?.dog ? true : false}>
                     <InputLabel htmlFor="dog">
                         <img
                             src={"images/icon_animal.svg"}
-                            alt="dogs"
+                            alt="animal"
                         />
                         {t("Client.Logement.housingSpecificity_10")}
                     </InputLabel>
@@ -147,11 +153,11 @@ const CondoServices = ({ t }) => {
                     </Select>
                 </FormControl>
 
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} error={errors?.cat ? true : false}>
                     <InputLabel htmlFor="cat">
                         <img
                             src={"images/icon_animal.svg"}
-                            alt="cats"
+                            alt="animal"
                         />
                         {t("Client.Logement.housingSpecificity_11")}
                     </InputLabel>
@@ -169,32 +175,9 @@ const CondoServices = ({ t }) => {
                         <option value={false}>Non</option>
                     </Select>
                 </FormControl>
-
-                <FormControl className={classes.formControl}>
-                    <InputLabel htmlFor="other">
-                        <img
-                            src={"images/icon_animal.svg"}
-                            alt="cats"
-                        />
-                        {t("Client.Logement.housingSpecificity_12")}
-                    </InputLabel>
-
-                    <Select
-                        value={animals.other}
-                        onChange={handleAnimalsChange}
-                        inputProps={{
-                            name: 'other',
-                            id: 'other',
-                        }}
-                    >
-                        <option aria-label="None" value="" />
-                        <option value={true}>Oui</option>
-                        <option value={false}>Non</option>
-                    </Select>
-                </FormControl>
             </Box>
         </Box>
-    )
+    );
 };
 
 export default withTranslation()(CondoServices);

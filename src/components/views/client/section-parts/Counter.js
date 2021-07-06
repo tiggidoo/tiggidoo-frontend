@@ -8,7 +8,7 @@ const Counter = ({ description, iconSrc, name, title }) => {
     const dispatch = useDispatch();
     const store = useStore();
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(store.getState().estimation.settings.housingSpecificity[name]);
 
     const updateStore = (newCount) => {
         let requestBody = {

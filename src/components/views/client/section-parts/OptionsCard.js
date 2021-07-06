@@ -8,9 +8,8 @@ const OptionsCard = ({ description, hasCounter, iconSrc, name, title }) => {
     const store = useStore();
     const dispatch = useDispatch();
 
-    const [count, setCount] = useState(0);
-    const [isActive, setIsActive] = useState(0);
-    const [isActiveCard, setIsActiveCard] = useState(false);
+    const [count, setCount] = useState(store.getState().estimation.settings.houseworkPersonalization[name]);
+    const [isActiveCard, setIsActiveCard] = useState(!!store.getState().estimation.settings.houseworkPersonalization[name]);
 
     const updateStore = (value) => {
         let requestBody = {
@@ -41,11 +40,8 @@ const OptionsCard = ({ description, hasCounter, iconSrc, name, title }) => {
     };
 
     const handleCardClick = () => {
-        const newIsActive = isActive ? false : true;
-
-        setIsActive(newIsActive);
-        setIsActiveCard(newIsActive);
-        updateStore(newIsActive);
+        setIsActiveCard(!isActiveCard);
+        updateStore(!isActiveCard);
     };
 
     return (

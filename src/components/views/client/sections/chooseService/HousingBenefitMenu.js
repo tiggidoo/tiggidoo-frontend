@@ -21,25 +21,15 @@ const HousingBenefitMenu = ({ t }) => {
     const store = useStore();
     const dispatch = useDispatch();
 
-    if (location.pathname === '/benefit' && !store.getState().estimation.housingSuccess) {
-        history.push('housing');
-    }
+    if (location.pathname === '/benefit' && !store.getState().estimation.housingSuccess) history.push('housing');
 
     const validateHousingStep = () => {
         const errors = {};
         const settings = store.getState().estimation.settings;
 
-        if (settings.houseworkPersonalization.dog === '') {
-            errors.dog = 'Can\'t be empty';
-        }
-
-        if (settings.houseworkPersonalization.cat === '') {
-            errors.cat = 'Can\'t be empty';
-        }
-
-        if (settings.houseworkFrequencyId === '') {
-            errors.houseworkFrequencyId = 'Can\'t be empty';
-        }
+        if (settings.houseworkPersonalization.dog === '') errors.dog = true;
+        if (settings.houseworkPersonalization.cat === '') errors.cat = true;
+        if (settings.housingSizeId === '') errors.housingSizeId = true;
 
         if (Object.keys(errors).length !== 0) estimationHousingValidationError(errors)(dispatch);
         else estimationHousingValidationSuccess()(dispatch);
@@ -51,18 +41,11 @@ const HousingBenefitMenu = ({ t }) => {
         const errors = {};
         const settings = store.getState().estimation.settings;
 
-        if (Object.keys(settings.houseworkWeekTime).length === 0) {
-            errors.days = 'You must select minimum 1 day';
-        }
+        if (Object.keys(settings.houseworkWeekTime).length === 0) errors.days = true;
+        if (!settings.startDate || !settings.startDate.includes('_')) errors.date = true;
 
         for (const day in settings.houseworkWeekTime) {
-            if (settings.houseworkWeekTime[day] === '') {
-                errors.hours = 'Can\'t be empty';
-            }
-        }
-
-        if (!settings.startDate) {
-            errors.date = 'Can\'t be empty';
+            if (settings.houseworkWeekTime[day] === '') errors.hours = true;
         }
 
         if (Object.keys(errors).length !== 0) estimationBenefitValidationError(errors)(dispatch);
@@ -86,11 +69,7 @@ const HousingBenefitMenu = ({ t }) => {
     const goToNextStep = () => {
         const errors = validateCurrentStep();
 
-        if (Object.keys(errors).length !== 0) {
-            console.log('Errors found!');
-            console.log(errors);
-            return;
-        }
+        if (Object.keys(errors).length !== 0) return;
 
         changeStep();
     };
