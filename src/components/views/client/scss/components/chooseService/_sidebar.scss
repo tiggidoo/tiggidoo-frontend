@@ -4,10 +4,12 @@
     margin-left: auto;
     background: #fff;
     position: sticky;
+    position: -webkit-sticky;
+    top: 330px;
 
     @include breakpoint(tablet) {
         margin-top: 0;
-        margin-right: auto
+        margin-right: auto;
     }
 
     h2 {
@@ -72,7 +74,7 @@
             border: 1px solid $shamrock;
         }
 
-        &~p {
+        & ~ p {
             color: #717171;
             font-size: 14px;
         }
