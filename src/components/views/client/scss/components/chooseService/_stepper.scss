@@ -2,23 +2,23 @@
     position: relative;
 
     &:not(:last-child) {
-        padding-right: 118px !important;
+        padding-right: 91px !important;
 
         @include breakpoint-reverse(xx-large) {
             padding-right: 200px !important;
         }
 
         @include breakpoint(tablet) {
-            padding-right: 30px !important;
+            padding-right: 20px !important;
         }
 
         &::after {
             content: "";
-            width: 90px;
+            width: 111px;
             height: 100%;
             position: absolute;
             top: -51px;
-            left: 56%;
+            left: 50%;
             background-image: linear-gradient(to right, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
             background-position: bottom;
             background-size: 19px 2px;
@@ -30,20 +30,21 @@
             }
 
             @include breakpoint(tablet) {
-                width: 50px;
-                left: 69%;
-                top: -44px;
+                width: 59px;
+                left: 65%;
+                top: -41px;
+                background-size: 10px 2px;
             }
         }
 
         &.MuiStep-completed {
             &::after {
                 content: "";
-                width: 90px;
+                width: 123px;
                 position: absolute;
                 border-bottom: 3px solid $dodger-blue_6;
-                top: -55px;
-                left: 56%;
+                top: -51px;
+                left: 50%;
                 background-image: none;
 
                 @include breakpoint-reverse(xx-large) {
@@ -52,9 +53,9 @@
                 }
 
                 @include breakpoint(tablet) {
-                    width: 50px;
+                    width: 59px;
                     left: 69%;
-                    top: -42px;
+                    top: -40px;
                 }
             }
         }
@@ -85,7 +86,7 @@
         }
     }
 
-    .MuiTypography-body2{
+    .MuiTypography-body2 {
         @include breakpoint(tablet) {
             font-size: 15px;
         }

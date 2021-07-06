@@ -121,7 +121,7 @@
     position: fixed;
     top: 0;
     z-index: 999;
-    padding: 57px 2% 30px 5%;
+    padding: 57px 5% 30px;
     width: 100%;
     display: block;
 
@@ -134,7 +134,7 @@
         max-width: 1600px;
         margin: auto;
         display: flex;
-        gap: 41px;
+        gap: 87px;
 
         &.thankyou_nav {
             justify-content: space-between;
@@ -203,6 +203,10 @@
             font-size: 12px;
             margin-top: 20px;
         }
+    }
+
+    .navbar-expand {
+        flex-grow: 1;
     }
 }
 
