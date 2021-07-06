@@ -30,6 +30,12 @@
             padding: 0;
             background-color: transparent;
         }
+
+        &>div.MuiBox-root.mb-5 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
     }
 
     .section__title {
@@ -150,6 +156,7 @@
         flex-wrap: wrap;
         gap: 20px 27px;
         margin-top: 47px;
+        justify-content: center;
     }
 
     .MuiInputLabel-formControl {
