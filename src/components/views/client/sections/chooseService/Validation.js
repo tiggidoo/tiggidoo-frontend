@@ -27,9 +27,9 @@ const Validation = ({ t }) => {
     const location = useLocation();
     const store = useStore();
 
-    if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) {
-        history.push('housing');
-    }
+    // if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) {
+    //     history.push('housing');
+    // }
 
     const [personalData, setPersonalData] = useState({
         firstname: '',
@@ -42,19 +42,17 @@ const Validation = ({ t }) => {
     const [conditionAcceptation, setConditionAcceptation] = useState({ cgu: false, personalHouse: false });
     const [displayPasswords, setDisplayPasswords] = useState({ password: false, confirmPassword: false });
     const [showInfo, setShowInfo] = useState(false);
-    const [hasValidData, setHasValidData] = useState(false);
+    const [errors, setErrors] = useState({});
 
     const handlePersonalDataChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
 
         setPersonalData({ ...personalData, [name]: value });
-        dataValidation({ ...conditionAcceptation, ...personalData, [name]: value });
     };
 
     const handleConditionAcceptationChange = (name) => {
         setConditionAcceptation({ ...conditionAcceptation, [name]: !conditionAcceptation[name] });
-        dataValidation({ ...personalData, ...conditionAcceptation, [name]: !conditionAcceptation[name] });
     };
 
     const handleDisplayPasswordClick = (event, name) => {
@@ -62,57 +60,63 @@ const Validation = ({ t }) => {
         setDisplayPasswords({ ...displayPasswords, [name]: !displayPasswords[name] });
     };
 
-    const dataValidation = (data) => {
+    const dataValidation = () => {
         const errors = {};
 
-        if (data.firstname === '') {
-            errors.firstname = 'Can\'t be empty';
+        if (personalData.firstname === '') {
+            errors.firstname = true;
         }
 
-        if (data.lastname === '') {
-            errors.lastname = 'Can\'t be empty';
+        if (personalData.lastname === '') {
+            errors.lastname = true;
         }
 
-        if (data.email === '') {
-            errors.email = 'Can\'t be empty';
+        if (personalData.email === '') {
+            errors.email = true;
         }
 
-        if (data.phone === '') {
-            errors.phone = 'Can\'t be empty';
+        if (personalData.phone === '') {
+            errors.phone = true;
         }
 
-        if (data.password === '') {
-            errors.password = 'Can\'t be empty';
-        } else if (data.confirmPassword === '') {
-            errors.confirmPassword = 'Can\'t be empty';
-        } else if (data.password !== data.confirmPassword) {
-            errors.password = 'Password and confirm password should be the same';
+        if (personalData.password === '') {
+            errors.password = true;
         }
 
-        if (!data.cgu) {
-            errors.cgu = 'Should be accepted';
+        if (personalData.confirmPassword === '') {
+            errors.confirmPassword = true;
         }
 
-        if (!data.personalHouse) {
-            errors.personalHouse = 'Should be accepted';
+        if (personalData.password !== personalData.confirmPassword) {
+            errors.password = true;
+            errors.confirmPassword = true;
         }
 
-        if (Object.keys(errors).length !== 0) {
-            setHasValidData(false);
-        } else {
-            setHasValidData(true);
+        if (!conditionAcceptation.cgu) {
+            errors.cgu = true;
         }
+
+        if (!conditionAcceptation.personalHouse) {
+            errors.personalHouse = true;
+        }
+
+        setErrors(errors);
+
+        return errors;
     };
 
     const submit = () => {
-        if (!hasValidData) {
+        const errors = dataValidation();
+
+        if (Object.keys(errors).length !== 0) {
             return;
         }
 
-        console.log('Submitted');
-        // TODO: Prepare request
+        const requestBody = { ...store.getState().estimation.settings, ...personalData};
+        
         // TODO: Send request
-        // TODO: Redirect to success page
+
+        history.push('thankyou');
     };
 
     const displaySpecificities = () => {
@@ -228,10 +232,40 @@ const Validation = ({ t }) => {
 
                     <Box className="information_box">
                         <form className="information_form" noValidate >
-                            <TextField id="lastname" name="firstname" value={personalData.firstname} onChange={handlePersonalDataChange} label={t("Client.Validation.lastname")} variant="outlined" />
-                            <TextField id="name" name="lastname" value={personalData.lastname} onChange={handlePersonalDataChange} label={t("Client.Validation.name")} variant="outlined" />
-                            <TextField id="email" name="email" value={personalData.email} onChange={handlePersonalDataChange} type="email" label={t("Client.Validation.email")} variant="outlined" />
-                            <TextField id="phone" name="phone" value={personalData.phone} onChange={handlePersonalDataChange} type="phone" label={t("Client.Validation.phone")} variant="outlined" />
+                            <TextField
+                                name="firstname"
+                                value={personalData.firstname}
+                                onChange={handlePersonalDataChange}
+                                label={t("Client.Validation.lastname")}
+                                variant="outlined"
+                                error={errors?.firstname ? true : false}
+                            />
+                            <TextField
+                                name="lastname"
+                                value={personalData.lastname}
+                                onChange={handlePersonalDataChange}
+                                label={t("Client.Validation.name")}
+                                variant="outlined"
+                                error={errors?.lastname ? true : false}
+                            />
+                            <TextField
+                                name="email"
+                                value={personalData.email}
+                                onChange={handlePersonalDataChange}
+                                type="email"
+                                label={t("Client.Validation.email")}
+                                variant="outlined"
+                                error={errors?.email ? true : false}
+                            />
+                            <TextField
+                                name="phone"
+                                value={personalData.phone}
+                                onChange={handlePersonalDataChange}
+                                type="phone"
+                                label={t("Client.Validation.phone")}
+                                variant="outlined"
+                                error={errors?.phone ? true : false}
+                            />
 
                             <FormControl variant="outlined">
                                 <InputLabel htmlFor="standard-adornment-password">{t("Client.Validation.password")}</InputLabel>
@@ -243,6 +277,7 @@ const Validation = ({ t }) => {
                                     name="password"
                                     value={personalData.password}
                                     onChange={handlePersonalDataChange}
+                                    error={errors?.password ? true : false}
                                     endAdornment={
                                         <InputAdornment className="visibility_button">
                                             <IconButton
@@ -266,6 +301,7 @@ const Validation = ({ t }) => {
                                     type={displayPasswords.confirmPassword ? 'text' : 'password'}
                                     value={personalData.confirmPassword}
                                     onChange={handlePersonalDataChange}
+                                    error={errors?.confirmPassword ? true : false}
                                     endAdornment={
                                         <InputAdornment className="visibility_button">
                                             <IconButton
@@ -307,6 +343,7 @@ const Validation = ({ t }) => {
                                         <Link to={'/terms'} className="terms_link">&nbsp;{t("Client.Validation.terms_and_conditions_link")}</Link>
                                     </div>
                                 }
+                                // error={errors?.cgu ? true : false}
                             />
 
                             <FormControlLabel
@@ -318,6 +355,7 @@ const Validation = ({ t }) => {
                                     />
                                 }
                                 label="Je confirme que le logement est une résidence personnelle, qui ne fait l’objet d’aucune location via des sites prestataires (Airbnb, Booking, Etc.)"
+                                // error={errors?.personalHouse ? true : false}
                             />
                         </FormGroup>
                     </Box>
@@ -326,17 +364,19 @@ const Validation = ({ t }) => {
                         {t("Client.Validation.submit")}
                     </Button>
 
-                    <Box className="error_box">
-                        <span>
-                            <img
-                                src={"../images/icon_error.png"}
-                                alt=""
-                                className="error_icon"
-                            />
-                        </span>
+                    {Object.keys(errors).length !== 0 &&
+                        <Box className="error_box">
+                            <span>
+                                <img
+                                    src={"../images/icon_error.png"}
+                                    alt=""
+                                    className="error_icon"
+                                />
+                            </span>
 
-                        <span className="error_message">{t("Client.Validation.error_message")}</span>
-                    </Box>
+                            <span className="error_message">{t("Client.Validation.error_message")}</span>
+                        </Box>
+                    }
                 </Col>
             </Row>
 
