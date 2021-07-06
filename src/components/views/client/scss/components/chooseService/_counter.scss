@@ -19,10 +19,18 @@
         display: flex;
         align-items: center;
         margin-bottom: 13px;
-        gap: 10px;
 
         @include breakpoint(mobile) {
             flex-direction: column;
+        }
+
+        img {
+            margin-right: 10px;
+
+            @include breakpoint(mobile) {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
         }
     }
 

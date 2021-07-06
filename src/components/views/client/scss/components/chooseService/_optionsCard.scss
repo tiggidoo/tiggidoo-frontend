@@ -5,30 +5,52 @@
     padding: 20px;
     cursor: pointer;
     border: solid 1px transparent;
+    margin-bottom: 43px;
+    margin-right: 43px;
+
+    &:nth-child(3n) {
+        @include breakpoint-reverse(tablet) {
+            margin-right: 0;
+        }
+    }
 
     @include breakpoint(mobile) {
         height: 149px;
+        margin-bottom: 20px;
+    }
+
+    @include breakpoint(tablet) {
+        margin-right: 0;
+    }
+
+    &:nth-child(2n + 1) {
+        @include breakpoint(tablet) {
+            margin-right: 43px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-right: 20px;
+        }
     }
 
     .options_card__header {
         display: flex;
         flex-grow: 1;
-        gap: 10px;
         align-items: center;
         margin-bottom: 16px;
 
         img {
             filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(45deg) brightness(102%) contrast(103%);
+            margin-right: 10px;
         }
 
         .counter {
             margin-left: auto;
             display: flex;
             align-items: center;
-            gap: 20px;
 
             p {
-                margin: 0 !important;
+                margin: 0 20px !important;
                 font-family: "Avenir_Black";
                 font-size: 29px;
                 color: $stack;
@@ -38,7 +60,7 @@
                 }
             }
 
-            .counter_btn{
+            .counter_btn {
                 font-family: "Avenir_Black";
                 font-size: 29px;
                 color: $dodger-blue_6;

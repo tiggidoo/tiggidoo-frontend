@@ -14,24 +14,28 @@
         margin-left: auto;
     }
 
+    .navbar-brand{
+        margin-right: 241px;
+
+        @include breakpoint-reverse(xx-large) {
+            margin-right: 226px;
+        }
+
+        @include breakpoint(tablet) {
+            margin-right: 41px;
+        }
+    }
+
     .NavBar__container {
         width: 100%;
         max-width: 1600px;
         margin: auto;
         display: flex;
-        gap: 241px;
-
-        @include breakpoint-reverse(xx-large) {
-            gap: 226px;
-        }
 
         @include breakpoint(desktop) {
             flex-wrap: wrap;
         }
 
-        @include breakpoint(tablet) {
-            gap: 41px;
-        }
     }
 
     .NavBar__menu {

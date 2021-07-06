@@ -11,12 +11,12 @@
         padding: 90px 5% 40px;
     }
 
-    h2{
+    h2 {
         color: #fff;
         margin-bottom: 89px;
     }
 
-    p{
+    p {
         font-family: "Avenir_Black";
         font-size: 20px;
         max-width: 140px;
@@ -26,11 +26,9 @@
         }
     }
 
-    &__row{
+    &__row {
         display: flex;
-        gap: 25px;
         align-items: flex-start;
-       
 
         @include breakpoint-reverse(mobile) {
             justify-content: center;
@@ -45,7 +43,9 @@
         }
     }
 
-    img{
+    img {
+        margin-right: 25px;
+
         @include breakpoint(mobile) {
             max-width: 30px;
         }
