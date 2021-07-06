@@ -218,6 +218,7 @@
         .MuiInput-input {
             width: 180px;
             font-size: 15px;
+            font-family: "Avenir_Regular";
 
             @include breakpoint(mobile){
                 width: 145px;
@@ -233,6 +234,10 @@
             @include breakpoint(tablet){
                 margin-right: 20px;
             }
+        }
+
+        .MuiInputBase-root {
+            font-family: "Avenir_Regular";
         }
     }
 
