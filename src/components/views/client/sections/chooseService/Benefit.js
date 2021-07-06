@@ -1,85 +1,148 @@
-import { withTranslation } from "react-i18next"
-import { useState } from 'react'
+import { withTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
-import { Typography, Box, BottomNavigationAction, BottomNavigation } from '@material-ui/core'
-import OptionsCard from "../../section-parts/OptionsCard";
+import { useDispatch, useStore } from 'react-redux';
+import { estimationBenefitUpdate, fetchEstimation } from '../../../../../store/actions/estimationAction';
+
+import { Typography, Box, BottomNavigationAction, BottomNavigation } from '@material-ui/core';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
+
 import DateFnsUtils from '@date-io/date-fns';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
+
+import OptionsCard from '../../section-parts/OptionsCard';
 
 const Benefit = ({ t }) => {
-    const [value, setValue] = useState(0);
-    const [state, setState] = useState({
-        dim: false,
-        lun: false,
-        mar: false,
-        mer: false,
-        jeu: true,
-        ven: false,
-        sam: true,
-    });
+    const store = useStore();
+    const dispatch = useDispatch();
 
-    const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
+    const [frequency, setFrequency] = useState(0);
+    const [days, setDays] = useState({ su: false, mo: false, tu: false, we: false, th: true, fr: false, sa: true, selected: 2 });
+    const [hours, setHours] = useState({ th: '', sa: '' });
+    const [date, setDate] = useState(new Date());
+
+    useEffect(() => {
+        const requestBody = {
+            ...store.getState().estimation.settings,
+            houseworkWeekTime: hours,
+            startDate: date,
+        };
+
+        estimationBenefitUpdate(requestBody)(dispatch);
+    }, []);
+
+    const handleFrequencyChange = (event, value) => {
+        const requestBody = {
+            ...store.getState().estimation.settings,
+            houseworkFrequencyId: value + 1,
+        };
+
+        estimationBenefitUpdate(requestBody)(dispatch);
+        fetchEstimation(requestBody)(dispatch);
+        setFrequency(value);
     };
 
-    const [date, setTime] = useState({
-        day_one: '',
-        day_two: '',
-    });
-
-    const handleChangeSelect = (event) => {
+    const handleDayChange = (event, value) => {
         const name = event.target.name;
-        setTime({
-            ...date,
-            [name]: event.target.value,
-        });
+        const requestBody = store.getState().estimation.settings;
+
+        let selectedDays = 0;
+
+        if (days.selected === 2 && days[name] === false) {
+            return;
+        }
+
+        if (days[name]) {
+            selectedDays = days.selected - 1;
+            delete requestBody.houseworkWeekTime[name];
+        } else {
+            selectedDays = days.selected + 1;
+            requestBody.houseworkWeekTime[name] = '';
+        }
+
+        setDays({ ...days, [name]: value, selected: selectedDays });
+        setHours(requestBody.houseworkWeekTime ?? {});
+        estimationBenefitUpdate(requestBody)(dispatch);
     };
 
-    const [selectedDate, setSelectedDate] = useState(new Date('2021-08-18T21:11:54'));
+    const handleHourChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        const requestBody = {
+            ...store.getState().estimation.settings,
+            houseworkWeekTime: { ...store.getState().estimation.settings.houseworkWeekTime, [name]: value },
+        };
 
-    const handleDateChangeDate = (date) => {
-        setSelectedDate(date);
+        setHours({ ...hours, [name]: value });
+        estimationBenefitUpdate(requestBody)(dispatch);
     };
 
-    const [isActive, setActive] = useState(false);
+    const handleDateChange = (event, value) => {
+        if (value.includes('_')) {
+            return;
+        }
 
-    const handleClickOption = () => {
-        setActive(!isActive);
-        console.log("clicked")
-    }
+        const segmentedDate = value.split('/');
+        const requestBody = {
+            ...store.getState().estimation.settings,
+            startDate: `${segmentedDate[2]}-${segmentedDate[0]}-${segmentedDate[1]}`,
+        };
+
+        setDate(value);
+        estimationBenefitUpdate(requestBody)(dispatch);
+    };
+
+    const displayHoursFromDays = () => {
+        let toDisplay = [];
+
+        for (const day in days) {
+            if (days[day] && day !== 'selected') {
+                toDisplay.push(
+                    <FormControl key={day} required>
+                        <InputLabel id={day}>Les {day}</InputLabel>
+
+                        <Select
+                            labelId={day}
+                            value={hours[day] ?? '' }
+                            onChange={handleHourChange}
+                            name={day}
+                        >
+                            <option value="" />
+                            <option value={1}>{t("Client.Time.morning")}</option>
+                            <option value={2}>{t("Client.Time.afternoon")}</option>
+                            <option value={3}>{t("Client.Time.any")}</option>
+                        </Select>
+                    </FormControl>
+                );
+            }
+        }
+
+        return toDisplay;
+    };
 
     return (
         <Box className="HousingType">
             <Typography variant="h3" className="HousingType__title">{t("Client.Benefit.title1")}</Typography>
 
             <BottomNavigation
-                value={value}
-                onChange={(event, newValue) => {
-                    setValue(newValue);
-                }}
-
+                value={frequency}
+                onChange={handleFrequencyChange}
                 showLabels
                 className="active beneift__freq"
             >
                 <BottomNavigationAction className="beneift__button" label={t("Client.Benefit.section1_title1")} />
-
                 <BottomNavigationAction className="beneift__button" label={t("Client.Benefit.section1_title2")} />
-
                 <BottomNavigationAction className="beneift__button" label={t("Client.Benefit.section1_title3")} />
-
             </BottomNavigation>
-            <span className={`beneift__button-subtitle ${value === 0 ? "active" : ""}`}> {t("Client.Benefit.section1_subtitle1")}  </span>
-            <span className={`beneift__button-subtitle ${value === 1 ? "active" : ""}`}> {t("Client.Benefit.section1_subtitle2")}  </span>
-            <span className={`beneift__button-subtitle ${value === 2 ? "active" : ""}`}> {t("Client.Benefit.section1_subtitle3")}  </span>
+
+            <span className={`beneift__button-subtitle ${frequency === 0 ? "active" : ""}`}>{t("Client.Benefit.section1_subtitle1")}</span>
+            <span className={`beneift__button-subtitle ${frequency === 1 ? "active" : ""}`}>{t("Client.Benefit.section1_subtitle2")}</span>
+            <span className={`beneift__button-subtitle ${frequency === 2 ? "active" : ""}`}>{t("Client.Benefit.section1_subtitle3")}</span>
 
             <Box className="options_box">
                 <Typography variant="h3" className="HousingType__title">{t("Client.Benefit.title2")}</Typography>
@@ -87,12 +150,12 @@ const Benefit = ({ t }) => {
                 <p>{t("Client.Benefit.section2_desc")}</p>
 
                 <div className="options_list">
-                    <OptionsCard hasCounter="true" />
-                    <OptionsCard title={t("Client.Benefit.section2_option2")} iconSrc="images/icon_spray.svg" description={t("Client.Benefit.section2_option2_desc")} hasCounter="true" onClick={handleClickOption} />
-                    <OptionsCard title={t("Client.Benefit.section2_option3")} iconSrc="images/icon_fridge.svg" description={t("Client.Benefit.section2_option3_desc")} hasCounter="true" />
-                    <OptionsCard title={t("Client.Benefit.section2_option4")} iconSrc="images/icon_bed.svg" description={t("Client.Benefit.section2_option4_desc")} />
-                    <OptionsCard title={t("Client.Benefit.section2_option5")} iconSrc="images/icon_eco_spray.svg" description={t("Client.Benefit.section2_option5_desc")} />
-                    <OptionsCard title={t("Client.Benefit.section2_option6")} iconSrc="images/icon_spray.svg" description={t("Client.Benefit.section2_option6_desc")} />
+                    <OptionsCard name="oven" title={t("Client.Benefit.section2_option1")} iconSrc="images/icon_oven.svg" description={t("Client.Benefit.section2_option1_desc")} hasCounter="true" />
+                    <OptionsCard name="fridge" title={t("Client.Benefit.section2_option2")} iconSrc="images/icon_fridge.svg" description={t("Client.Benefit.section2_option2_desc")} hasCounter="true" />
+                    <OptionsCard name="bed" title={t("Client.Benefit.section2_option3")} iconSrc="images/icon_bed.svg" description={t("Client.Benefit.section2_option3_desc")} hasCounter="true" />
+                    <OptionsCard name="vacuum" title={t("Client.Benefit.section2_option4")} iconSrc="images/icon_vacuum.svg" description={t("Client.Benefit.section2_option4_desc")} />
+                    <OptionsCard name="product_ecological" title={t("Client.Benefit.section2_option5")} iconSrc="images/icon_eco_spray.svg" description={t("Client.Benefit.section2_option5_desc")} />
+                    <OptionsCard name="product_standard" title={t("Client.Benefit.section2_option6")} iconSrc="images/icon_spray.svg" description={t("Client.Benefit.section2_option6_desc")} />
                 </div>
             </Box>
 
@@ -111,37 +174,37 @@ const Benefit = ({ t }) => {
                         <Box>
                             <FormGroup>
                                 <FormControlLabel
-                                    control={<Checkbox checked={state.dim} onChange={handleChange} name="dim" color="primary" />}
+                                    control={<Checkbox checked={days.su} onChange={handleDayChange} name="su" color="primary" />}
                                     label={t("Client.Days.dim")}
                                     labelPlacement="start"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox checked={state.lun} onChange={handleChange} name="lun" color="primary" />}
+                                    control={<Checkbox checked={days.mo} onChange={handleDayChange} name="mo" color="primary" />}
                                     label={t("Client.Days.lun")}
                                     labelPlacement="start"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox checked={state.mar} onChange={handleChange} name="mar" color="primary" />}
+                                    control={<Checkbox checked={days.tu} onChange={handleDayChange} name="tu" color="primary" />}
                                     label={t("Client.Days.mar")}
                                     labelPlacement="start"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox checked={state.mer} onChange={handleChange} name="mer" color="primary" />}
+                                    control={<Checkbox checked={days.we} onChange={handleDayChange} name="we" color="primary" />}
                                     label={t("Client.Days.mer")}
                                     labelPlacement="start"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox checked={state.jeu} onChange={handleChange} name="jeu" color="primary" />}
+                                    control={<Checkbox checked={days.th} onChange={handleDayChange} name="th" color="primary" />}
                                     label={t("Client.Days.jeu")}
                                     labelPlacement="start"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox checked={state.ven} onChange={handleChange} name="ven" color="primary" />}
+                                    control={<Checkbox checked={days.fr} onChange={handleDayChange} name="fr" color="primary" />}
                                     label={t("Client.Days.ven")}
                                     labelPlacement="start"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox checked={state.sam} onChange={handleChange} name="sam" color="primary" />}
+                                    control={<Checkbox checked={days.sa} onChange={handleDayChange} name="sa" color="primary" />}
                                     label={t("Client.Days.sam")}
                                     labelPlacement="start"
                                 />
@@ -155,35 +218,8 @@ const Benefit = ({ t }) => {
                             <Typography variant="h6">{t("Client.Benefit.section3_option2")}</Typography>
                         </Box>
 
-                        <FormControl required>
-                            <InputLabel id="date_one">Les jeudis</InputLabel>
+                        {displayHoursFromDays()}
 
-                            <Select
-                                labelId="date_one"
-                                id="date_one"
-                                value={date.date_one}
-                                onChange={handleChangeSelect}
-                            >
-                                <option value={10}>{t("Client.Time.morning")}</option>
-                                <option value={20}>{t("Client.Time.afternoon")}</option>
-                                <option value={30}>{t("Client.Time.any")}</option>
-                            </Select>
-                        </FormControl>
-
-                        <FormControl required>
-                            <InputLabel id="date_two">Les samedis </InputLabel>
-
-                            <Select
-                                labelId="date_two"
-                                id="date_two"
-                                value={date.date_two}
-                                onChange={handleChangeSelect}
-                            >
-                                <option value={10}>{t("Client.Time.morning")}</option>
-                                <option value={20}>{t("Client.Time.afternoon")}</option>
-                                <option value={30}>{t("Client.Time.any")}</option>
-                            </Select>
-                        </FormControl>
                     </Box>
 
                     <Box className="firstdate__container">
@@ -200,19 +236,18 @@ const Benefit = ({ t }) => {
                                 margin="normal"
                                 id="date-picker-inline"
                                 label={t("Client.Time.a-partir-du")}
-                                value={selectedDate}
-                                onChange={handleDateChangeDate}
+                                value={date}
+                                onChange={handleDateChange}
                                 KeyboardButtonProps={{
                                     'aria-label': 'change date',
                                 }}
                             />
-
                         </MuiPickersUtilsProvider>
                     </Box>
                 </Box>
             </Box>
         </Box>
-    )
-}
+    );
+};
 
-export default withTranslation()(Benefit)
+export default withTranslation()(Benefit);

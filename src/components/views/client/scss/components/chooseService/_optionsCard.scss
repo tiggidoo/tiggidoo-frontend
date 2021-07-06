@@ -4,6 +4,7 @@
     background: #fff;
     padding: 20px;
     cursor: pointer;
+    border: solid 1px transparent;
 
     @include breakpoint(mobile) {
         height: 149px;
@@ -15,6 +16,10 @@
         gap: 10px;
         align-items: center;
         margin-bottom: 16px;
+
+        img {
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(45deg) brightness(102%) contrast(103%);
+        }
 
         .counter {
             margin-left: auto;
@@ -70,6 +75,30 @@
 
             @include breakpoint(mobile) {
                 font-size: 12px;
+            }
+        }
+    }
+
+    &.active {
+        border: solid 1px #2880f9;
+
+        img {
+            filter: invert(51%) sepia(53%) saturate(5770%) hue-rotate(200deg) brightness(97%) contrast(102%);
+        }
+
+        .counter {
+            p {
+                color: #000;
+            }
+        }
+
+        h6 {
+            color: #000;
+        }
+
+        .options_card__desc {
+            p {
+                color: #000;
             }
         }
     }

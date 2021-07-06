@@ -1,36 +1,31 @@
 
-import "../scss/app.scss";
+import '../scss/app.scss';
 
-import { withTranslation } from "react-i18next"
-import { useHistory, useLocation } from "react-router-dom";
+import { withTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
-import Footer from "../../../layout/client/FooterServ";
-import HeaderServ from "../../../layout/client/HeaderServ";
+import Footer from '../../../layout/client/FooterServ';
+import HeaderServ from '../../../layout/client/HeaderServ';
 
-import Validation from "../sections/chooseService/Validation";
-import HousinBenefitMenu from "../sections/chooseService/HousinBenefitMenu";
-
+import HousingBenefitMenu from '../sections/chooseService/HousingBenefitMenu';
+import Validation from '../sections/chooseService/Validation';
 
 function ChooseService({ t }) {
-    const history = useHistory()
-    const location = useLocation()
-
-   
-    var block;
- 
-    if (location.pathname === '/housing' || location.pathname === '/benefit') {
-        block = <HousinBenefitMenu />;
-      } else if (location.pathname === '/validation'){
-        block = <Validation />;
-      }
+    const location = useLocation();
 
     return (
         <>
             <HeaderServ />
-            {block}
+            {(location.pathname === '/housing' || location.pathname === '/benefit') &&
+                <HousingBenefitMenu />
+            }
+
+            {location.pathname === '/validation' &&
+                <Validation />
+            }
             <Footer />
         </>
     )
-}
+};
 
-export default withTranslation()(ChooseService)
+export default withTranslation()(ChooseService);

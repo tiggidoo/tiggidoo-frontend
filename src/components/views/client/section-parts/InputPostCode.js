@@ -1,14 +1,28 @@
-import usePostCode from '../functions/usePostCode'
-import validate from '../functions/validateInfo'
+import { withTranslation } from "react-i18next";
+import PropTypes from 'prop-types';
 
-import { withTranslation } from "react-i18next"
-import PropTypes from 'prop-types'
+import { Box } from '@material-ui/core';
 
-import { Box } from '@material-ui/core'
-
+import Form from "../form/Form";
 
 const InputPostCode = ({ t, ClassColor }) => {
-    const { handleChange, values, handleSubmit, errors } = usePostCode(validate)
+    const { errors, values, handleChange, handleSubmit } = Form({
+        initValues: { postCode: '' },
+        validator: (values) => {
+            let errors = {};
+
+            if (!values.postCode.trim()) {
+                errors.postCode = 'Post code is required';
+            }
+
+            return errors;
+        },
+        onSubmit: ({ values, setErrors }) => {
+            // TODO: Send the postal code to know if this area is served
+
+            // Redirect to Housing
+        },
+    });
 
     return (
         <form action="" onSubmit={handleSubmit}>
@@ -27,6 +41,6 @@ InputPostCode.defaultProps = {
 
 InputPostCode.propTypes = {
     ClassColor: PropTypes.string,
-}
+};
 
-export default withTranslation()(InputPostCode)
+export default withTranslation()(InputPostCode);

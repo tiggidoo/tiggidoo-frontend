@@ -1,19 +1,35 @@
 
-import "../scss/app.scss";
+import '../scss/app.scss';
 
-import { withTranslation } from "react-i18next"
+import { withTranslation } from 'react-i18next';
+import { Col, Row } from 'react-bootstrap';
 
-import Footer from "../../../layout/client/FooterServ";
-import HeaderServ from "../../../layout/client/HeaderServ";
+import Footer from '../../../layout/client/FooterServ';
+import HeaderServ from '../../../layout/client/HeaderServ';
 
-import { Col, Row } from "react-bootstrap";
 import Button from '@material-ui/core/Button';
-import { Typography, Box } from '@material-ui/core'
-import usePostCode from '../functions/usePostCode'
-import validate from '../functions/validateInfo'
+import { Typography, Box } from '@material-ui/core';
+
+import Form from '../form/Form';
 
 function Localisation({ t }) {
-    const { handleChange, values, handleSubmit, errors } = usePostCode(validate)
+    const { errors, values, handleChange, handleSubmit } = Form({
+        initValues: { postCode: '' },
+        validator: (values) => {
+            let errors = {};
+
+            if (!values.postCode.trim()) {
+                errors.postCode = 'Post code is required';
+            }
+
+            return errors;
+        },
+        onSubmit: ({ values, setErrors }) => {
+            // TODO: Send the postal code to know if this area is served
+
+            // Redirect to Housing
+        },
+    });
 
     return (
         <div>
@@ -72,6 +88,6 @@ function Localisation({ t }) {
             <Footer />
         </div>
     )
-}
+};
 
-export default withTranslation()(Localisation)
+export default withTranslation()(Localisation);
