@@ -63,42 +63,25 @@ const Validation = ({ t }) => {
     const dataValidation = () => {
         const errors = {};
 
-        if (personalData.firstname === '') {
-            errors.firstname = true;
-        }
+        const firstname = personalData.firstname.trim();
+        const lastname = personalData.lastname.trim();
+        const email = personalData.email.trim().replace(/\s/g, '');
+        const phone = personalData.phone.trim().replace(/\D/g, '');
+        const password = personalData.password;
+        const confirmPassword = personalData.confirmPassword;
 
-        if (personalData.lastname === '') {
-            errors.lastname = true;
-        }
-
-        if (personalData.email === '') {
-            errors.email = true;
-        }
-
-        if (personalData.phone === '') {
-            errors.phone = true;
-        }
-
-        if (personalData.password === '') {
-            errors.password = true;
-        }
-
-        if (personalData.confirmPassword === '') {
-            errors.confirmPassword = true;
-        }
-
-        if (personalData.password !== personalData.confirmPassword) {
-            errors.password = true;
-            errors.confirmPassword = true;
-        }
-
-        if (!conditionAcceptation.cgu) {
-            errors.cgu = true;
-        }
-
-        if (!conditionAcceptation.personalHouse) {
-            errors.personalHouse = true;
-        }
+        if (firstname === '') errors.firstname = true;
+        if (lastname === '') errors.lastname = true;
+        if (email === '') errors.email = true;
+        if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) errors.email = true;
+        if (phone === '') errors.phone = true;
+        if (phone.length !== 10) errors.phone = true;
+        if (password === '') errors.password = true;
+        if (confirmPassword === '') errors.confirmPassword = true;
+        if (password !== confirmPassword) errors.password = errors.confirmPassword = true;
+    
+        if (!conditionAcceptation.cgu) errors.cgu = true;
+        if (!conditionAcceptation.personalHouse) errors.personalHouse = true;
 
         setErrors(errors);
 
@@ -112,8 +95,8 @@ const Validation = ({ t }) => {
             return;
         }
 
-        const requestBody = { ...store.getState().estimation.settings, ...personalData};
-        
+        const requestBody = { ...store.getState().estimation.settings, ...personalData };
+
         // TODO: Send request
 
         history.push('thankyou');
