@@ -197,7 +197,7 @@ const Benefit = ({ t }) => {
                     <Box className="days__container">
                         <Box className="section__title">
                             <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">1</text></svg>
-                            <Typography variant="h6">{t("Client.Benefit.section3_option1")}</Typography>
+                            <Typography className={`${errors.days ? "error" : ""}`} variant="h6">{t("Client.Benefit.section3_option1")}</Typography>
                         </Box>
 
                         <Box>
