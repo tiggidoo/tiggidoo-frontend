@@ -3,6 +3,7 @@ import '../scss/app.scss';
 
 import { withTranslation } from 'react-i18next';
 import { Col, Row } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 import Footer from '../../../layout/client/FooterServ';
 import HeaderServ from '../../../layout/client/HeaderServ';
@@ -13,13 +14,21 @@ import { Typography, Box } from '@material-ui/core';
 import Form from '../form/Form';
 
 function Localisation({ t }) {
+    const history = useHistory();
+
     const { errors, values, handleChange, handleSubmit } = Form({
         initValues: { postCode: '' },
         validator: (values) => {
             let errors = {};
 
-            if (!values.postCode.trim()) {
+            const postCode = values.postCode.trim();
+
+            if (!postCode || postCode === '') {
                 errors.postCode = 'Post code is required';
+            }
+
+            if (postCode && postCode !== '' && !(new RegExp(/^[a-zA-Z-0-9]{6,6}$/, 'g')).test(postCode)) {
+                errors.postCode = 'Invalid post code';
             }
 
             return errors;
@@ -27,7 +36,7 @@ function Localisation({ t }) {
         onSubmit: ({ values, setErrors }) => {
             // TODO: Send the postal code to know if this area is served
 
-            // Redirect to Housing
+            history.push('housing');
         },
     });
 
@@ -87,7 +96,7 @@ function Localisation({ t }) {
             </Row>
             <Footer />
         </div>
-    )
+    );
 };
 
 export default withTranslation()(Localisation);
