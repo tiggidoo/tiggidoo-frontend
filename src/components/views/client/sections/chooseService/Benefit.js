@@ -24,7 +24,7 @@ const Benefit = ({ t }) => {
     const [frequency, setFrequency] = useState(0);
     const [days, setDays] = useState({ su: false, mo: false, tu: false, we: false, th: true, fr: false, sa: true, selected: 2 });
     const [hours, setHours] = useState({ th: '', sa: '' });
-    const [date, setDate] = useState(store.getState().estimation.settings.startDate ?? new Date());
+    const [date, setDate] = useState(store.getState().estimation.settings.startDate ?? generateCurrentDateToString());
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
@@ -54,6 +54,15 @@ const Benefit = ({ t }) => {
 
         estimationBenefitUpdate(requestBody)(dispatch);
     }, []);
+
+    function generateCurrentDateToString() {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth() < 10 ? `0${currentDate.getMonth()}` : currentDate.getMonth();
+        const day = currentDate.getDate() < 10 ? `0${currentDate.getDate()}` : currentDate.getDate();
+
+        return `${year}-${month}-${day}`;
+    }
 
     const handleFrequencyChange = (event, value) => {
         const requestBody = {

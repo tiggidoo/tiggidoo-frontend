@@ -41,8 +41,8 @@ const HousingBenefitMenu = ({ t }) => {
         const errors = {};
         const settings = store.getState().estimation.settings;
 
-        if (Object.keys(settings.houseworkWeekTime).length === 0) errors.days = true;
-        if (!settings.startDate || !settings.startDate.includes('_')) errors.date = true;
+        if (settings.houseworkWeekTime && Object.keys(settings.houseworkWeekTime).length === 0) errors.days = true;
+        if (!settings.startDate || settings.startDate.includes('_')) errors.date = true;
 
         for (const day in settings.houseworkWeekTime) {
             if (settings.houseworkWeekTime[day] === '') errors.hours = true;

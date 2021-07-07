@@ -19,7 +19,7 @@ const Balance = ({ t }) => {
                 <h2>{t("Client.sideBar.estimation")}</h2>
                 <h4>${totalPrice}</h4>
             </div>
-            
+
             <Button onClick={() => setShowInfo(!showInfo)} className="balance__info">
                 {showInfo ? (
                    <p>{ t("Client.sideBar.close_info") }</p> 
@@ -34,7 +34,7 @@ const Balance = ({ t }) => {
                 </p>
             }
         </div>
-    )
+    );
 };
 
 export default withTranslation()(Balance);
