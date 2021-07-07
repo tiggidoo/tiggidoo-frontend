@@ -98,9 +98,9 @@ const HeaderServ = ({ history }) => {
 
 				{location.pathname === '/localisation' &&
 					<Typography component="h2" variant="h2">
-						{t("Client.Localisation.title")}
+						{t("Client.Location.title")}
 
-						<span className="step d-sm-block d-md-none">Etape 1/4</span>
+						<span className="step d-sm-block d-md-none">{t("Client.HeaderSteps")} 1/4</span>
 					</Typography>
 				}
 
@@ -108,21 +108,21 @@ const HeaderServ = ({ history }) => {
 					<Typography component="h2" variant="h2">
 						{t("Client.Logement.sectionTitle1")}
 
-						<span className="step d-sm-block d-md-none">Etape 2/4</span>
+						<span className="step d-sm-block d-md-none">{t("Client.HeaderSteps")} 2/4</span>
 					</Typography>
 				}
 
 				{location.pathname === '/benefit' &&
 					<Typography component="h2" variant="h2">
 						{t("Client.Logement.sectionTitle2")}
-						<span className="step d-sm-block d-md-none">Etape 3/4</span>
+						<span className="step d-sm-block d-md-none">{t("Client.HeaderSteps")} 3/4</span>
 					</Typography>
 				}
 
 				{location.pathname === '/validation' &&
 					<Typography component="h2" variant="h2">
 						{t("Client.Logement.sectionTitle3")}
-						<span className="step d-sm-block d-md-none">Etape 4/4</span>
+						<span className="step d-sm-block d-md-none">{t("Client.HeaderSteps")} 4/4</span>
 					</Typography>
 				}
 

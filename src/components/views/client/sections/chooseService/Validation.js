@@ -162,7 +162,7 @@ const Validation = ({ t }) => {
                         </Box>
 
                         <Box className="validation_recap">
-                            <p className="blue__title">{t("Client.Localisation.section1_text2")}</p>
+                            <p className="blue__title">{t("Client.Location.section1_text2")}</p>
 
                             <h5 className="recap_title">{t("Client.Validation.bloc1_texte2")}</h5>
 
@@ -305,8 +305,8 @@ const Validation = ({ t }) => {
                 <Col xl={3} md={12} className="Validation_col">
                     <Box className="Validation_col">
                         <Box className="mb-5">
-                            <p className="blue__title">{t("Client.Localisation.section1_text2")}</p>
-                            <p className="blue__title">{t("Client.Localisation.section1_text3")}</p>
+                            <p className="blue__title">{t("Client.Location.section1_text2")}</p>
+                            <p className="blue__title">{t("Client.Location.section1_text3")}</p>
                         </Box>
 
                         <FormGroup>

@@ -55,7 +55,7 @@ function ThankYouPage({ t }) {
                 </Col>
             </Row>
             <Row className="localisation_footer">
-                <p>{t("Client.Localisation.footer")} <a href="#" className="link">{t("Client.Localisation.footer_link")} </a></p>
+                <p>{t("Client.Location.footer")} <a href="#" className="link">{t("Client.Location.footer_link")} </a></p>
             </Row>
             <Footer />
         </div>

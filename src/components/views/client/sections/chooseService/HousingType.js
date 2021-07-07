@@ -67,10 +67,10 @@ const HousingType = ({ t }) => {
                 showLabels
                 className="active HousingType__navigation"
             >
-                <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType1")} icon={<StudioIcon />} />
-                <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType2")} icon={<CondoIcon />} />
-                <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType3")} icon={<AppartmentIcon />} />
-                <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType4")} icon={<LoftIcon />} />
+                <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType_studio")} icon={<StudioIcon />} />
+                <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType_condo")} icon={<CondoIcon />} />
+                <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType_appartement")} icon={<AppartmentIcon />} />
+                <BottomNavigationAction className="HousingType__button" label={t("Client.Logement.housingType_loft")} icon={<LoftIcon />} />
             </BottomNavigation>
 
             {housing === 0 && <StudioServices />}
