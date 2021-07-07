@@ -416,7 +416,8 @@
             "morning": "Mornin (8H -13H)",
             "afternoon": "Afternoon (13H -19H)",
             "any": "I do not care",
-            "a-partir-du": "FROM THE"
+            "a-partir-du": "FROM THE",
+            "every": "Every"
         },
         "Validation": {
             "intro": "Just one last click and your request will be sent to the PROS. You will receive proposals in your login area from the PROS who are offering their services in response to your request. Finally, all you have to do is choose the person you want and confirm by completing your payment online.",
@@ -467,8 +468,8 @@
             "bloc2_text3": "Browse and start receiving proposals from PROS in your online space.",
             "bloc2_text4": "Select the PRO who best meets your request, confirm and pay for your service."
         },
-        "yes": "Oui",
-        "no": "Non",
+        "yes": "Yes",
+        "no": "No",
         "HeaderSteps": "Step"
     }
 }

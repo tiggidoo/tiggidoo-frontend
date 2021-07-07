@@ -336,7 +336,7 @@ const Validation = ({ t }) => {
                                         color="primary"
                                     />
                                 }
-                                label="Je confirme que le logement est une résidence personnelle, qui ne fait l’objet d’aucune location via des sites prestataires (Airbnb, Booking, Etc.)"
+                                label={t("Client.Validation.confirm_housing")}
                             />
                         </FormGroup>
                     </Box>

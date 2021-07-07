@@ -133,7 +133,7 @@ const Benefit = ({ t }) => {
             if (days[day] && day !== 'selected') {
                 toDisplay.push(
                     <FormControl key={day} required error={errors?.hours ? true : false}>
-                        <InputLabel id={day}>Les {day}</InputLabel>
+                        <InputLabel id={day}>{t("Client.Time.every")} {day}</InputLabel>
 
                         <Select
                             labelId={day}
