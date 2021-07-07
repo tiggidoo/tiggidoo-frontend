@@ -49,14 +49,13 @@ function ThankYouPage({ t }) {
                             <p>{t("Client.ThankyouPage.bloc2_text4")}</p>
                         </Box>
                     </Box>
-
-
-
                 </Col>
             </Row>
+
             <Row className="localisation_footer">
                 <p>{t("Client.Location.footer")} <a href="#" className="link">{t("Client.Location.footer_link")} </a></p>
             </Row>
+            
             <Footer />
         </div>
     )
