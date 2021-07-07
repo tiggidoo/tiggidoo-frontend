@@ -329,7 +329,7 @@ const Validation = ({ t }) => {
 
                         <FormGroup>
                             <FormControlLabel
-                                className="mb-5 mt-5"
+                                className={`mb-5 mt-5 ${errors.cgu ? "error" : ""}`}
                                 control={
                                     <Checkbox
                                         checked={conditionAcceptation.cgu}
@@ -339,14 +339,15 @@ const Validation = ({ t }) => {
                                 }
                                 label={
                                     <div>
-                                        <span>{t("Client.Validation.terms_and_conditions")}</span>
-                                        <Link to={'/terms'} className="terms_link">&nbsp;{t("Client.Validation.terms_and_conditions_link")}</Link>
+                                        <span>{t("Client.Validation.terms_and_conditions")}&nbsp;</span>
+                                        <Link to={'/terms'} className="terms_link">{t("Client.Validation.terms_and_conditions_link")}</Link>
                                     </div>
                                 }
                                 // error={errors?.cgu ? true : false}
                             />
 
                             <FormControlLabel
+                                className={`${errors.personalHouse ? "error" : ""}`}
                                 control={
                                     <Checkbox
                                         checked={conditionAcceptation.personalHouse}

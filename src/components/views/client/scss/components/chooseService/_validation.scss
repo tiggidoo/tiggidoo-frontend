@@ -99,6 +99,16 @@
         @include breakpoint(mobile) {
             font-size: 14px;
         }
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    .error {
+        .MuiCheckbox-root {
+            color: $coral-red;
+        }
     }
 
     .MuiCheckbox-root {
