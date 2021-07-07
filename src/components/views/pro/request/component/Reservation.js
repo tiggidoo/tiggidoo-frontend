@@ -131,8 +131,6 @@ const Reservation = ({res, statusId}) =>{
     let duration = res.total_duration.split(':')
     duration = `${parseInt(duration[0], 10)}H${parseInt(duration[1], 10)}`
 
-    console.log('Esta es al reservacion: ', res)
-
     let color = '#2880fb'
     if(statusId === '1'){        
         if(res.has_consulted !== 1){
@@ -180,7 +178,7 @@ const Reservation = ({res, statusId}) =>{
 
                     <Box className={classes.infoRes}>
                         <Hidden smDown>
-                            <Box className={classes.contArea} only="sm">
+                            <Box className={classes.contArea}>
                                 <Typography variant="h6">ID RESERVATION</Typography>
                                 <Box>
                                     <Typography variant="h5">{res.uuid}</Typography>
@@ -201,6 +199,7 @@ const Reservation = ({res, statusId}) =>{
                                 <Typography variant="h5">{res.en}</Typography>
                             </Box>
                         </Box>
+                        
                         <Box className={classes.contArea}>
                             <Typography variant="h6">HEURE</Typography>
                             <Box>
@@ -213,6 +212,7 @@ const Reservation = ({res, statusId}) =>{
                                 <Typography variant="h5">{duration}</Typography>
                             </Box>
                         </Box>
+
                         <Box className={classes.contArea}>
                             <Typography variant="h6">TARIF DE BASE</Typography>
                             <Box display="flex" flexDirection="row" alignContent="center" alignItems="center">
@@ -224,6 +224,7 @@ const Reservation = ({res, statusId}) =>{
                                 </Box>
                             </Box>
                         </Box>
+                        
                     </Box>            
 
                     <Box display="flex" flexDirection="column" justifyContent="center">
@@ -235,6 +236,7 @@ const Reservation = ({res, statusId}) =>{
                             </Link>
                         </Box>
                     </Box>
+
                 </Box>
             </Box>
         </Box>

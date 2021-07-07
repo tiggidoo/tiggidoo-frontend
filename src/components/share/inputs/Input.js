@@ -124,8 +124,8 @@ export default function Input(props) {
                             inputComponent: MaskTelephone
                         }}
                         style={{
-                            '& .MuiOutlinedInput-input':{
-                                color: 'red'
+                            '& .MuiOutlinedInputInput':{
+                                color: '#dc3545'
                             }
                         }}
                         inputRef = {inputRef !== undefined ? inputRef : null}
@@ -153,11 +153,11 @@ export default function Input(props) {
                         InputProps={{
                             readOnly: readOnlyPro,
                             autoComplete: 'off',
-                            color: 'red'
+                            //color: '#dc3545'
                         }}
                         style={{
-                            '& .MuiOutlinedInput-input':{
-                                color: 'red'
+                            '& .MuiOutlinedInputInput':{
+                                color: '#dc3545'
                             }
                         }}
                         inputRef = {inputRef !== undefined ? inputRef : null}

@@ -162,8 +162,6 @@ const RequestsList = () => {
     setAnchorEl(null);
   };
 
-  console.log('no pasa nada')
-
   return (
     <Dashboard
         user = { pro }

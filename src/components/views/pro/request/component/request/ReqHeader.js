@@ -3,6 +3,7 @@ import { Hidden } from '@material-ui/core'
 import { Box } from '@material-ui/core'
 import React from 'react'
 import { getDateFormatDayMotnYear } from '../../../../../share/librery/librery'
+import config from '../../../../../../config.json'
 
 const useStyle = makeStyles((theme)=> ({
     tittles: {
@@ -18,7 +19,10 @@ const useStyle = makeStyles((theme)=> ({
         },
         '& h5':{
             fontWeight: 'bold',
-            color: '#000'
+            color: '#000',
+            '@media(max-width: 1200px)': {
+                fontSize: '18px'
+            }
         },
         '@media(max-width: 600px)':{
             display:'flex',
@@ -29,7 +33,7 @@ const useStyle = makeStyles((theme)=> ({
     ,
     statusStyle: {
         fontSize: "1.4rem",
-        color: "white",
+        color: "#fff",
         width: '10.4rem',
         height: '3.6rem',
         fontWeight: 'bold',
@@ -51,23 +55,28 @@ const useStyle = makeStyles((theme)=> ({
       backgroundColor: '#983ef2'
     },
     boxStyle:{
-        width: '50%',
-        padding: theme.spacing(1,0)
+        padding: theme.spacing(1,0),
+        '@media(max-width: 600px)':{
+            width: '50%',
+        }
     }
 }))
 
-const ReqHeader = ({ uuid, service, date, optionDate, duration }) => {
+const ReqHeader = ({ uuid, service, duration, statusId, formule, time }) => {
     const classes = useStyle()
     let d = duration.split(':')
     d = `${d[0]}H${d[1]}`
     
-    // let messageBtn = 'NOUVELLE'
-    // let btnStyle = classes.statusStyle + ' ' + classes.btnNew
-    
-    // if(reservationStatusId === '1'){
-    //     btnStyle = btnStyle + ' ' + classes.btnWaitting
-    //     messageBtn = 'EN ATTENTE'
-    // }
+    const getDay = new Date(`${time[0].week_date} 00:00:00`)
+    const getOptionDay = new Date(`${time[1].week_date} 00:00:00`)
+ 
+    let color = '#2880fb'
+    if(statusId === '2'){
+        color = '#FF8925'
+    }
+    if(statusId === '4'){
+        color = '#28CC8B'
+    }
 
     return (
         <Box className={classes.tittles}>
@@ -76,8 +85,15 @@ const ReqHeader = ({ uuid, service, date, optionDate, duration }) => {
                     <Typography variant="h6">DATE</Typography>                
                 </Box>
                 <Box>
-                    <Typography variant="h5">{getDateFormatDayMotnYear(`${date} 00:00:00`)}</Typography>
-                    <Typography variant="h5">{getDateFormatDayMotnYear(`${optionDate} 00:00:00`)}</Typography>
+                    <Typography variant="h5" style={{color: color}}>
+                        {config.DAYS_EN[getDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${time[0].week_date} 00:00:00`)}
+                    </Typography>
+                    {(time[1].week_date !== null) && (
+                        <Typography variant="h5" style={{color: color}}>
+                            {config.DAYS_EN[getOptionDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${time[1].week_date} 00:00:00`)}
+                        </Typography>
+                    )}
+                    
                 </Box>
             </Box>
             <Hidden smDown>
@@ -113,7 +129,7 @@ const ReqHeader = ({ uuid, service, date, optionDate, duration }) => {
                     <Typography variant="h6">FORMULE</Typography>                
                 </Box>
                 <Box>
-                    <Typography variant="h5">Hebdo</Typography>
+                    <Typography variant="h5">{ formule }</Typography>
                 </Box>
             </Box>
         </Box>

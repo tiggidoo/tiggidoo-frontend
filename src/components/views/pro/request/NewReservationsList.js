@@ -19,7 +19,6 @@ const NewReservationsList = ({ token, statusId }) => {
         dispatch(getListRequest(token, statusId))
     }, [token, statusId, dispatch])
 
-
     return (
         <Box>
             {
@@ -29,7 +28,7 @@ const NewReservationsList = ({ token, statusId }) => {
                         {
                             reservations.map((res, index) => {
                                 return(
-                                    <Reservation res={res} statusId={statusId}/>
+                                    <Reservation key={index} res={res} statusId={statusId}/>
                                 )
                             })
                         }

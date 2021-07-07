@@ -50,6 +50,7 @@ export const getDateFormatDayMotnYear = (date) => {
  export const calculateTpsTvqAndTotal = (workPrice, vacuumPrice, isCalculateTax) => {
   let tps = 0.00
   let tvq = 0.00
+  
   if(isCalculateTax !== null && isCalculateTax !== 0){
     tps = ((workPrice + vacuumPrice)*parseFloat(config.TPS, 10))/100
     tps = tps.toFixed(2)

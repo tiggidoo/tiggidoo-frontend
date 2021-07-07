@@ -73,31 +73,27 @@ export const sendReservationPro = (token, formData) => async dispatch => {
 
         const content = {            
             id: formData.id,
+            pro_start_date: formData.proStartDate,
             pro_start_time: formData.proStartTime,
             pro_duration: formData.proDuration,
             pro_vacuum_price: formData.proVacuumPrice,
             pro_product_ecological_price: formData.proProductEcologicalPrice,
             pro_product_standard_price: formData.proProductStandardPrice,
             pro_work_price: formData.proWorkPrice,
-            pro_comment: formData.comment
+            pro_comment: formData.proComment
         }
 
         const data = JSON.stringify(content);
 
-        console.log(token)
-
-        console.log(formData)
-
         await axios.post(`${config.API_SERVER}/api/pro/reservation/valid`, data, headers)
         .then((res) => {
             if(res.status === 200){
-                dispatch(setAlert('Propuesta enviada1', 'success'))
+                dispatch(setAlert('La proposition a été envoyée', 'success'))
             }
         })
         .catch((error) => {
             console.log(error)
         })
-
 
     }catch(error){
         console.log(error)

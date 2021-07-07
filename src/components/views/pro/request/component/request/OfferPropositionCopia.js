@@ -4,7 +4,6 @@ import Input from '../../../../../share/inputs/Input'
 import { calculateTpsTvqAndTotal, getDateFormatDayMotnYear } from '../../../../../share/librery/librery'
 import AddIcon from '@material-ui/icons/Add'
 import RemoveIcon from '@material-ui/icons/Remove'
-import Popup from '../../../../../share/popup/Popup'
 import config from '../../../../../../config.json'
 import React, { useState } from 'react'
 
@@ -130,19 +129,6 @@ const useStyle = makeStyles((theme) => ({
         backgroundColor: 'transparent',
         color: '#DA5564',
         marginBottom: theme.spacing(2)
-    },
-    iconStyle: {
-        color: '#fff', 
-        width: '19px', 
-        height: '19px', 
-        marginTop: '-24px'
-    },
-    circle:{
-        minHeight: '25px', 
-        width: '25px', 
-        height: '25px', 
-        borderRadius: '50%', 
-        backgroundColor: theme.palette.primary.main
     }
 }))
 
@@ -158,7 +144,8 @@ const OfferProposition = ({
     activityVacuumPrice,
     activityStartTime,
     reservationType,
-    time
+    date,
+    optionDate
 }) => {
     const classes = useStyle()
 
@@ -204,7 +191,6 @@ const OfferProposition = ({
     ];
 
     const additionals = [
-        { id: '0', name: '0 $' },
         { id: '5', name: '5 $' },
         { id: '10', name: '10 $' },
         { id: '15', name: '15 $' },
@@ -227,17 +213,16 @@ const OfferProposition = ({
         { id: '100', name: '100 $' },
     ];
 
-    const getDay = new Date(`${time[0].week_date} 00:00:00`)
-    const getOptionDay = new Date(`${time[1].week_date} 00:00:00`)
-
-    let disDay = config.DAYS_EN[getDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${time[0].week_date} 00:00:00`)
+    const getDay = new Date(`${date} 00:00:00`)
+    const getOptionDay = new Date(`${optionDate} 00:00:00`)
+    let disDay = config.DAYS_EN[getDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${date} 00:00:00`)
     disDay = disDay.substring(0, disDay.length - 4)
-    let disOptionDay = config.DAYS_EN[getOptionDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${time[1].week_date} 00:00:00`)
+    let disOptionDay = config.DAYS_EN[getOptionDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${optionDate} 00:00:00`)
     disOptionDay = disOptionDay.substring(0, disOptionDay.length - 4)
 
     const chooseDate = [
-        {id: time[0].week_date, name: disDay },
-        {id: time[1].week_date, name: disOptionDay }
+        {id: date, name: disDay },
+        {id: optionDate, name: disOptionDay }
     ];
 
     let res = {
@@ -245,22 +230,22 @@ const OfferProposition = ({
         tvq:0,
         total: parseFloat(proWorkPrice,10) + 5
     }
-    res = calculateTpsTvqAndTotal(parseFloat(proWorkPrice,10), (activityVacuumPrice === null || activityVacuumPrice === undefined) ? 0 : parseInt(activityVacuumPrice,10), isCalculateTax)
+    res = calculateTpsTvqAndTotal(parseFloat(proWorkPrice,10), parseFloat(5,10), isCalculateTax)
 
-    const [openPopup, setOpenPopup] = useState(false)
     const [formData, setFormData] = useState({
         id: reservationId,
-        proStartTime: (activityStartTime === null || activityStartTime === undefined) ? '12:30:00' : activityStartTime,
-        proDuration: (activityDuration === null || activityDuration === undefined) ? '01:30:00' : activityDuration,
-        proVacuumPrice: (activityVacuumPrice === null || activityVacuumPrice === undefined) ? '0' : activityVacuumPrice,
+        proStartTime: activityStartTime === null ? 0 : activityStartTime,
+        proDuration: activityDuration === null ? 0 : activityDuration,
+        proVacuumPrice: activityVacuumPrice === null ? 0 : activityVacuumPrice,
         proProductEcologicalPrice: 0,
         proProductStandardPrice: 0,
         proWorkPrice: proWorkPrice,
         proPriceMoreTaxes: res.total,
-        proStartDate: time[0].week_date,
+        proStartDate: date,
         proComment: "",
         tps: res.tps,
         tvq: res.tvq
+
     })
 
     const handleChange = (e) => {
@@ -292,36 +277,23 @@ const OfferProposition = ({
         color = '#28CC8B'
     }
 
-    const sendValidateData = () => {
+    const sendValidateData = (e) => {
+        e.preventDefault()
         sendReservation(formData)
-        setOpenPopup(!openPopup)
     }
 
     const removeProWorkPrice = (e) => {
         e.preventDefault()
-        const { proWorkPrice, proVacuumPrice }= formData
-
-        res = calculateTpsTvqAndTotal((parseInt(proWorkPrice, 10) > 0) ? parseInt(proWorkPrice, 10) - 1 : 0, parseFloat(proVacuumPrice,10), isCalculateTax)
 
         setFormData({ ...formData, 
-            'proWorkPrice':(parseInt(proWorkPrice, 10) > 0) ? parseInt(proWorkPrice, 10) - 1 : 0,
-            'proPriceMoreTaxes': res.total,
-            'tps': res.tps,
-            'tvq': res.tvq
+            'proWorkPrice':(parseInt(formData.proWorkPrice, 10) > 0) ? parseInt(formData.proWorkPrice, 10) - 1 : 0
         })
     }
 
     const addProWorkPrice = (e) => {
         e.preventDefault()
-        const { proWorkPrice, proVacuumPrice }= formData
-
-        res = calculateTpsTvqAndTotal(parseInt(proWorkPrice, 10) + 1, parseFloat(proVacuumPrice,10), isCalculateTax)
-
         setFormData({ ...formData, 
-            'proWorkPrice':parseInt(proWorkPrice, 10) + 1,
-            'proPriceMoreTaxes': res.total,
-            'tps': res.tps,
-            'tvq': res.tvq
+            'proWorkPrice':parseInt(formData.proWorkPrice, 10) + 1
         })
     }
 
@@ -330,31 +302,13 @@ const OfferProposition = ({
         sendReservationCanceled()
     }
 
-    const handleOpenPopup = (e) => {
-        e.preventDefault()
-        setOpenPopup(!openPopup)
-    }
-
-    const handleClosePopup = (e) => {
-        e.preventDefault()
-        setOpenPopup(!openPopup)
-    };
-
     return (
         <Box>
-
-            <Popup 
-                openPopup={openPopup} 
-                handleClosePopup={handleClosePopup} 
-                runFunction={sendValidateData} 
-                message="Voulez-vous envoyer la proposition?"
-            />
-
             <Box mt={2}>
                 <Box className={classes.offre} style={{borderColor: color}}>
                     <Box className={classes.propo}>
                         <Typography variant="h4" style={{color: color}}>PROPOSITION D'OFFRE</Typography>
-                        <Grid container>
+                        <Grid container maxWidth="sm">
                             <Grid item xs={12} sm={12} md={6}>
                                 <Box>
                                     <Box display="flex" flexDirection="row" mt={2}>
@@ -493,9 +447,9 @@ const OfferProposition = ({
                                                     {(statusId === null || statusId === '1') && (
                                                         <Box>
                                                             <IconButton style={{marginRight: '-40px', zIndex: '99'}} onClick={ e=>removeProWorkPrice(e) }>
-                                                                <Box className={classes.circle}>
-                                                                    <RemoveIcon className={classes.iconStyle}/>
-                                                                </Box>
+                                                                <Fab size="small" color="primary" style={{minHeight: '25px', width: '25px', height: '25px'}}>
+                                                                    <RemoveIcon  style={{color: '#fff', width: '19px', height: '19px'}}/>
+                                                                </Fab>
                                                             </IconButton>
                                                         </Box>
                                                     )}
@@ -517,9 +471,9 @@ const OfferProposition = ({
                                                         {(statusId === null || statusId === '1') && (
                                                             <Box>
                                                                 <IconButton style={{marginLeft: '-50px'}} onClick={ e=>addProWorkPrice(e) }>
-                                                                    <Box className={classes.circle}>
-                                                                        <AddIcon className={classes.iconStyle}/>
-                                                                    </Box>
+                                                                    <Fab size="small" color="primary" style={{minHeight: '25px', width: '25px', height: '25px'}}>
+                                                                        <AddIcon  style={{color: '#fff', width: '19px', height: '19px'}}/>
+                                                                    </Fab>
 
                                                                 </IconButton>
                                                             </Box>
@@ -583,14 +537,7 @@ const OfferProposition = ({
                                         </Box>
                                         <Box className={classes.propositionOffre} ml={1} >
                                             <Typography variant="h5">Je souhaite faire un commentaire</Typography>
-                                            <TextareaAutosize 
-                                                name="proComment" 
-                                                aria-label="minimum height" 
-                                                rowsMin={3} 
-                                                placeholder="Enter a comment" 
-                                                style={{width: '100%', marginTop: '16px'}} 
-                                                onChange={(e) => handleChange(e)}
-                                            />
+                                            <TextareaAutosize aria-label="minimum height" rowsMin={3} placeholder="Minimum 3 rows" style={{width: '100%', marginTop: '16px'}} />
                                         </Box>
                                     </Box>
                                 </Box>
@@ -605,7 +552,7 @@ const OfferProposition = ({
                             </Button>
                         </Box>
                         <Box my={2}>
-                            <Button variant="contained" className={classes.btnValidate} onClick={e => handleOpenPopup(e)}>
+                            <Button variant="contained" className={classes.btnValidate} onClick={e=>sendValidateData(e)}>
                                 VALIDER MA DEMANDER
                             </Button>
                         </Box>

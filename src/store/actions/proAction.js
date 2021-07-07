@@ -24,7 +24,7 @@ export const udateAvailabilities = (token, proId, enableTime) => async dispatch 
             }
         }
         const data = JSON.stringify(content);
-
+        
         axios.post(`${config.API_SERVER}/api/pro/availability/update`, data, headers)
         .then(res => {
             if (res.status === 200) {

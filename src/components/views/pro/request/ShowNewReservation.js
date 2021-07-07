@@ -65,22 +65,18 @@ const ShowNewReservation = () => {
     const dispatch = useDispatch()
     const { id, statusId } = useParams()
 
-
-    console.log(statusId);
-
     useEffect(() => {
         dispatch(getRequest(access_token, id))
     }, [access_token, id, dispatch])
 
     const sendReservation = (dataForm) => {
         dispatch(sendReservationPro(access_token, dataForm))
+
     }
 
     const sendReservationCanceled = () => {
         dispatch(reservationRefuse(access_token, id))
     }
-
-    //console.log('Un ano de gracia', reservationInfo.pro_work_price)
 
     return (
         <Dashboard
@@ -90,17 +86,18 @@ const ShowNewReservation = () => {
         >
             {(reservationInfo !== null) && (
                 <Box className={classes.workArea}>
-                    
                     <PaperLayout>
 
                         <Box className={classes.reqHeader}>
                             <ReqHeader 
                                 uuid={reservationInfo.reservation.uuid} 
                                 service={reservationInfo.reservation.service.fr} 
+                                duration={reservationInfo.reservation.total_duration} 
+                                formule={reservationInfo.reservation.housework.frequency.fr}
+                                statusId={statusId}
                                 date={reservationInfo.reservation.housework.start_date} 
                                 optionDate={reservationInfo.reservation.housework.option_date} 
-                                duration={reservationInfo.reservation.total_duration} 
-                            />
+                                time={reservationInfo.reservation.housework.time}                            />
                         </Box>
 
                         <Box className={classes.reqClient}>
@@ -137,8 +134,7 @@ const ShowNewReservation = () => {
                                 activityVacuumPrice={reservationInfo.pro_vacuum_price}
                                 activityStartTime={reservationInfo.pro_start_time}
                                 reservationType={reservationInfo.reservation.housework.frequency.id}
-                                date={reservationInfo.reservation.housework.start_date} 
-                                optionDate={reservationInfo.reservation.housework.option_date} 
+                                time={reservationInfo.reservation.housework.time}
                             />
                         </Box>
 

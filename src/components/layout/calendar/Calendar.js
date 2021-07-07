@@ -160,6 +160,7 @@ const Calendar = ({ value, onChange, availability }) => {
   }
 
   function isBloqued(day) {
+    //day.day() === 0 ? 6 : day.day()-1
     const dayPos = availability[config.DAYS_EN[day.isoWeekday()].substring(0,2)]
     return dayPos;
   }
