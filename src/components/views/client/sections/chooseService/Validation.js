@@ -326,7 +326,6 @@ const Validation = ({ t }) => {
                                         <Link to={'/terms'} className="terms_link">{t("Client.Validation.terms_and_conditions_link")}</Link>
                                     </div>
                                 }
-                                // error={errors?.cgu ? true : false}
                             />
 
                             <FormControlLabel
@@ -339,7 +338,6 @@ const Validation = ({ t }) => {
                                     />
                                 }
                                 label="Je confirme que le logement est une résidence personnelle, qui ne fait l’objet d’aucune location via des sites prestataires (Airbnb, Booking, Etc.)"
-                                // error={errors?.personalHouse ? true : false}
                             />
                         </FormGroup>
                     </Box>
