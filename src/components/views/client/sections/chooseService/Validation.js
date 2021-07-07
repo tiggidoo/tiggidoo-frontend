@@ -27,9 +27,7 @@ const Validation = ({ t }) => {
     const location = useLocation();
     const store = useStore();
 
-    if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) {
-        history.push('housing');
-    }
+    if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) history.push('housing');
 
     const [personalData, setPersonalData] = useState({
         firstname: '',
@@ -98,6 +96,7 @@ const Validation = ({ t }) => {
         const requestBody = { ...store.getState().estimation.settings, ...personalData };
 
         // TODO: Send request
+        
 
         history.push('thankyou');
     };
