@@ -480,7 +480,7 @@
         "no": "Non",
         "HeaderSteps": "Étape",
         "Error":{
-            "postcode_invalid": "Code postal invalide",
+            "postcode_invalid_format": "Code postal invalide. Le format doit être du type H3G0C7 ou H3G 0C7",
             "postcode_required": "Code postal est requis"
         }
     }

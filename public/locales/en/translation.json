@@ -478,7 +478,7 @@
         "no": "No",
         "HeaderSteps": "Step",
         "Error":{
-            "postcode_invalid": "Invalid post code",
+            "postcode_invalid_format": "Invalid post code format. Must be H3G0C7 or H3G 0C7",
             "postcode_required": "Post code is required"
         }
     }
