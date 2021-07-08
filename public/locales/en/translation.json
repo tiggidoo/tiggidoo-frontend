@@ -442,9 +442,9 @@
             "confirm_housing": "I confirm that the home is a personal residence and is not rented out via online marketplaces (Airbnb, Booking, etc.)",
             "submit": "Send my request",
             "error_message": "It seems certain fields are missing",
-            "frequency_selected_oneshot": "One shot",
-            "frequency_selected_Weekly": "Weekly",
-            "frequency_selected_Bi-monthly": "Bi-monthly"
+            "frequency_selected_1": "One shot",
+            "frequency_selected_2": "Weekly",
+            "frequency_selected_3": "Bi-monthly"
         },
         "Location": {
             "title": "LET'S START WITH YOUR POSTAL CODE",

@@ -444,9 +444,9 @@
             "confirm_housing": "Je confirme que le logement est une résidence personnelle, qui ne fait l’objet d’aucune location via des sites prestataires (Airbnb, Booking, Etc.)",
             "submit": "ENVOYER MA DEMANDE",
             "error_message": "Il semblerait que certains champs soient manquants",
-            "frequency_selected_oneshot": "One shot",
-            "frequency_selected_weekly": "HEBDOMADAIRE",
-            "frequency_selected_bi-monthly": "BI-MENSUEL"
+            "frequency_selected_1": "One shot",
+            "frequency_selected_2": "HEBDOMADAIRE",
+            "frequency_selected_3": "BI-MENSUEL"
         },
         "Location": {
             "title": "COMMENÇONS PAR VOTRE CODE POSTAL",
