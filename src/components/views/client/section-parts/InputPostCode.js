@@ -37,7 +37,7 @@ const InputPostCode = ({ t, ClassColor }) => {
                     country: 'Canada',
                     postcode: values.postCode,
                     lat: '32.231245',
-                    lng: '12.562348'
+                    lng: '12.562348',
                 },
             };
 

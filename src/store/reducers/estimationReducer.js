@@ -6,9 +6,11 @@ import {
   ESTIMATION_BENEFIT_VALIDATION_ERROR,
   ESTIMATION_BENEFIT_UPDATE,
   FETCH_ESTIMATION,
+  ESTIMATION_LOCATION_UPDATE,
 } from '../actions/typesAction';
 
 const initState = {
+  address: null,
   calculation: {
     totalDuration: 0,
     totalPrice: 0,
@@ -40,6 +42,12 @@ const initState = {
 
 const estimationReducer = (state = initState, action) => {
   switch (action.type) {
+    case ESTIMATION_LOCATION_UPDATE:
+      return {
+        ...state,
+        ...{ settings: action.payload },
+      };
+
     case ESTIMATION_HOUSING_UPDATE:
       return {
         ...state,
