@@ -30,10 +30,10 @@ const Validation = ({ t }) => {
     if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) history.push('housing');
 
     const [personalData, setPersonalData] = useState({
-        firstname: '',
-        lastname: '',
+        firstName: '',
+        lastName: '',
         email: '',
-        phone: '',
+        telephone: '',
         password: '',
         confirmPassword: '',
     });
@@ -61,19 +61,19 @@ const Validation = ({ t }) => {
     const dataValidation = () => {
         const errors = {};
 
-        const firstname = personalData.firstname.trim();
-        const lastname = personalData.lastname.trim();
+        const firstName = personalData.firstName.trim();
+        const lastName = personalData.lastName.trim();
         const email = personalData.email.trim().replace(/\s/g, '');
-        const phone = personalData.phone.trim().replace(/\D/g, '');
+        const telephone = personalData.telephone.trim().replace(/\D/g, '');
         const password = personalData.password;
         const confirmPassword = personalData.confirmPassword;
 
-        if (firstname === '') errors.firstname = true;
-        if (lastname === '') errors.lastname = true;
+        if (firstName === '') errors.firstName = true;
+        if (lastName === '') errors.lastName = true;
         if (email === '') errors.email = true;
         if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) errors.email = true;
-        if (phone === '') errors.phone = true;
-        if (phone.length !== 10) errors.phone = true;
+        if (telephone === '') errors.telephone = true;
+        if (telephone.length !== 10) errors.telephone = true;
         if (password === '') errors.password = true;
         if (confirmPassword === '') errors.confirmPassword = true;
         if (password !== confirmPassword) errors.password = errors.confirmPassword = true;
@@ -89,7 +89,7 @@ const Validation = ({ t }) => {
     const submit = () => {
         if (Object.keys(dataValidation()).length !== 0) return;
 
-        const requestBody = { ...store.getState().estimation.settings, ...personalData };
+        const requestBody = { ...store.getState().estimation.settings, ...personalData, lag: 'fr' };
 
         fetch(`https://www.api-tiggidoo.com/api/register/client`, {
             method: 'POST',
@@ -218,20 +218,20 @@ const Validation = ({ t }) => {
                     <Box className="information_box">
                         <form className="information_form" noValidate >
                             <TextField
-                                name="firstname"
-                                value={personalData.firstname}
+                                name="firstName"
+                                value={personalData.firstName}
                                 onChange={handlePersonalDataChange}
                                 label={t("Client.Validation.name")}
                                 variant="outlined"
-                                error={errors?.firstname ? true : false}
+                                error={errors?.firstName ? true : false}
                             />
                             <TextField
-                                name="lastname"
-                                value={personalData.lastname}
+                                name="lastName"
+                                value={personalData.lastName}
                                 onChange={handlePersonalDataChange}
                                 label={t("Client.Validation.lastname")}
                                 variant="outlined"
-                                error={errors?.lastname ? true : false}
+                                error={errors?.lastName ? true : false}
                             />
                             <TextField
                                 name="email"
@@ -243,13 +243,13 @@ const Validation = ({ t }) => {
                                 error={errors?.email ? true : false}
                             />
                             <TextField
-                                name="phone"
-                                value={personalData.phone}
+                                name="telephone"
+                                value={personalData.telephone}
                                 onChange={handlePersonalDataChange}
                                 type="phone"
                                 label={t("Client.Validation.phone")}
                                 variant="outlined"
-                                error={errors?.phone ? true : false}
+                                error={errors?.telephone ? true : false}
                             />
 
                             <FormControl variant="outlined">
