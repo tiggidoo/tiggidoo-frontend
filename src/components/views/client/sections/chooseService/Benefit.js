@@ -17,14 +17,22 @@ import DateFnsUtils from '@date-io/date-fns';
 
 import OptionsCard from '../../section-parts/OptionsCard';
 
+import { findClosestDate, generateCurrentDateToString } from '../../utils/date';
+
+const weekDay = { su: 1, mo: 2, tu: 3, we: 4, th: 5, fr: 6, sa: 7 };
+const reverseWeekDay = ['', 'su', 'mo', 'tu', 'we', 'th', 'fr', 'sa'];
+
 const Benefit = ({ t }) => {
     const store = useStore();
     const dispatch = useDispatch();
 
     const [frequency, setFrequency] = useState(0);
     const [days, setDays] = useState({ su: false, mo: false, tu: false, we: false, th: true, fr: false, sa: true, selected: 2 });
-    const [hours, setHours] = useState({ th: '', sa: '' });
     const [date, setDate] = useState(store.getState().estimation.settings.startDate ?? generateCurrentDateToString());
+    const [hours, setHours] = useState([
+        { weekDay: weekDay.th, weekDate: findClosestDate(weekDay.th, date), period: '' },
+        { weekDay: weekDay.sa, weekDate: findClosestDate(weekDay.sa, date), period: '' },
+    ]);
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
@@ -34,11 +42,12 @@ const Benefit = ({ t }) => {
         if (houseworkFrequencyId) setFrequency(houseworkFrequencyId - 1);
 
         if (houseworkWeekTime && Object.keys(houseworkWeekTime).length !== 0) {
-            let houseworkWeekTimeDays = { [Object.keys(houseworkWeekTime)[0]]: true };
+            console.log(houseworkWeekTime);
+            let houseworkWeekTimeDays = { [reverseWeekDay(houseworkWeekTime[0]['weekDay'])]: true };
 
-            if (Object.keys(houseworkWeekTime).length === 2) houseworkWeekTimeDays[Object.keys(houseworkWeekTime)[1]] = true;
+            if (Object.keys(houseworkWeekTime).length === 2) houseworkWeekTimeDays[reverseWeekDay(houseworkWeekTime[1]['weekDay'])] = true;
 
-            setDays({ ...days, ...{ th: false, sa: false, selected: Object.keys(houseworkWeekTime).length}, ...houseworkWeekTimeDays});
+            setDays({ ...days, ...{ th: false, sa: false, selected: houseworkWeekTime.length}, ...houseworkWeekTimeDays});
             setHours(houseworkWeekTime);
         }
 
@@ -54,15 +63,6 @@ const Benefit = ({ t }) => {
 
         estimationBenefitUpdate(requestBody)(dispatch);
     }, []);
-
-    function generateCurrentDateToString() {
-        const currentDate = new Date();
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth() < 10 ? `0${currentDate.getMonth()}` : currentDate.getMonth();
-        const day = currentDate.getDate() < 10 ? `0${currentDate.getDate()}` : currentDate.getDate();
-
-        return `${year}-${month}-${day}`;
-    }
 
     const handleFrequencyChange = (event, value) => {
         const requestBody = {
@@ -81,16 +81,14 @@ const Benefit = ({ t }) => {
 
         let selectedDays = 0;
 
-        if (days.selected === 2 && days[name] === false) {
-            return;
-        }
+        if (days.selected === 2 && days[name] === false) return;
 
         if (days[name]) {
             selectedDays = days.selected - 1;
-            delete requestBody.houseworkWeekTime[name];
+            requestBody.houseworkWeekTime.splice(requestBody.houseworkWeekTime.findIndex((element) => element.weekDay === weekDay[name]), 1);
         } else {
             selectedDays = days.selected + 1;
-            requestBody.houseworkWeekTime[name] = '';
+            requestBody.houseworkWeekTime.push({ weekDay: weekDay[name], weekDate: findClosestDate(weekDay[name], date), period: '' });
         }
 
         setDays({ ...days, [name]: value, selected: selectedDays });
@@ -101,12 +99,14 @@ const Benefit = ({ t }) => {
     const handleHourChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        const requestBody = {
-            ...store.getState().estimation.settings,
-            houseworkWeekTime: { ...store.getState().estimation.settings.houseworkWeekTime, [name]: value },
-        };
+        const requestBody = store.getState().estimation.settings;
 
-        setHours({ ...hours, [name]: value });
+        requestBody.houseworkWeekTime = requestBody.houseworkWeekTime.map((element) => {
+            if (element.weekDay === weekDay[name]) element.period = value;
+            return element;
+        });
+
+        setHours(requestBody.houseworkWeekTime);
         estimationBenefitUpdate(requestBody)(dispatch);
     };
 
@@ -117,12 +117,19 @@ const Benefit = ({ t }) => {
         }
 
         const segmentedDate = value.split('/');
+        const startDate = `${segmentedDate[2]}-${segmentedDate[0]}-${segmentedDate[1]}`;
         const requestBody = {
             ...store.getState().estimation.settings,
-            startDate: `${segmentedDate[2]}-${segmentedDate[0]}-${segmentedDate[1]}`,
+            startDate,
         };
 
+        requestBody.houseworkWeekTime = requestBody.houseworkWeekTime.map((element) => {
+            element.weekDate = findClosestDate(element.weekDay, startDate);
+            return element;
+        });
+
         setDate(value);
+        setHours(requestBody.houseworkWeekTime);
         estimationBenefitUpdate(requestBody)(dispatch);
     };
 
@@ -137,7 +144,7 @@ const Benefit = ({ t }) => {
 
                         <Select
                             labelId={day}
-                            value={hours[day] ?? '' }
+                            value={(hours.find((element) => element.weekDay === weekDay[day]))?.period ?? '' }
                             onChange={handleHourChange}
                             name={day}
                         >
