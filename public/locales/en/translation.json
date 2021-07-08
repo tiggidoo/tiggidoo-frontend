@@ -349,14 +349,14 @@
             "housingType_studio_text2": "The kitchen, the living area and the bedroom area are in the same space",
             "housingType_studio_text3": "Must not exceed 60 square meters.",
             "housingSpecificity_kitchen": "Kitchen(s)",
-            "housingSpecificity_livingroom": "Living room(s)",
+            "housingSpecificity_salon": "Living room(s)",
             "housingSpecificity_dining_room": "Dining room (s)",
             "housingSpecificity_bedroom": "Bedroom(s)",
             "housingSpecificity_bedroom_desc": "Including office(s)",
             "housingSpecificity_bathroom": "Bathroom(s)",
             "housingSpecificity_shower": "Shower(s)",
             "housingSpecificity_bathtub": "Bathtub(s)",
-            "housingSpecificity_washroom": "Washroom(s)",
+            "housingSpecificity_washbasin": "Washroom(s)",
             "housingSpecificity_floor": "Floor(s)",
             "housingSpecificity_floor_desc": "A basement is considered a floor",
             "houseworkPersonalization_dog": "Dog(s)",
@@ -401,7 +401,9 @@
             "section3_desc": "Dans un premier temps, indiquez vos jours de disponibilité pour le ménage (2 maximum), ensuite veuillez indiquez la date de début du premier ménage, ainsi que les créneaux horaires souhaités.",
             "section3_option1": "Indicate the available day for the cleaning and then select the preferred time slot.",
             "section3_option2": "Choose the date of the cleaning",
-            "section3_option3": "Choose the time slot"
+            "section3_option3": "Choose the time slot",
+            "houseworkPersonalization_dog": "Dog(s)",
+            "houseworkPersonalization_cat": "Cat(s)"
         },
         "Days": {
             "dim": "Sun",
@@ -439,7 +441,10 @@
             "terms_and_conditions_link": "the terms and conditions of use.",
             "confirm_housing": "I confirm that the home is a personal residence and is not rented out via online marketplaces (Airbnb, Booking, etc.)",
             "submit": "Send my request",
-            "error_message": "It seems certain fields are missing"
+            "error_message": "It seems certain fields are missing",
+            "frequency_selected_oneshot": "One shot",
+            "frequency_selected_Weekly": "Weekly",
+            "frequency_selected_Bi-monthly": "Bi-monthly"
         },
         "Location": {
             "title": "LET'S START WITH YOUR POSTAL CODE",
