@@ -87,17 +87,21 @@ const Validation = ({ t }) => {
     };
 
     const submit = () => {
-        const errors = dataValidation();
-
-        if (Object.keys(errors).length !== 0) {
-            return;
-        }
+        if (Object.keys(dataValidation()).length !== 0) return;
 
         const requestBody = { ...store.getState().estimation.settings, ...personalData };
 
-        // TODO: Send request
-
-        history.push('thankyou');
+        fetch(`https://www.api-tiggidoo.com/api/register/client`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(requestBody),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.error) console.log(data.error);
+                else history.push('thankyou');
+            })
+            .catch((err) => console.log(err));
     };
 
     const displaySpecificities = () => {
@@ -217,7 +221,7 @@ const Validation = ({ t }) => {
                                 name="firstname"
                                 value={personalData.firstname}
                                 onChange={handlePersonalDataChange}
-                                label={t("Client.Validation.lastname")}
+                                label={t("Client.Validation.name")}
                                 variant="outlined"
                                 error={errors?.firstname ? true : false}
                             />
@@ -225,7 +229,7 @@ const Validation = ({ t }) => {
                                 name="lastname"
                                 value={personalData.lastname}
                                 onChange={handlePersonalDataChange}
-                                label={t("Client.Validation.name")}
+                                label={t("Client.Validation.lastname")}
                                 variant="outlined"
                                 error={errors?.lastname ? true : false}
                             />
