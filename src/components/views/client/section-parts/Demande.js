@@ -1,12 +1,20 @@
+import { useEffect, useState } from "react";
 import { withTranslation } from "react-i18next"
 
 import { useStore } from 'react-redux';
 
 const Demande = ({ t }) => {
     const store = useStore();
+    const [settings, setSettings] = useState(store.getState().estimation.settings);
+
+    useEffect(() => {
+        store.subscribe(() => {
+            setSettings(store.getState().estimation.settings);
+        });
+    }, []);
 
     const displaySpecificities = () => {
-        const specificities = store.getState().estimation.settings.housingSpecificity;
+        const specificities = settings.housingSpecificity;
 
         let elements = [];
 
@@ -18,8 +26,8 @@ const Demande = ({ t }) => {
     };
 
     const displayFormula = () => {
-        const houseworkFrequencyId = store.getState().estimation.settings.houseworkFrequencyId;
-        const startDate = store.getState().estimation.settings.startDate;
+        const houseworkFrequencyId = settings.houseworkFrequencyId;
+        const startDate = settings.startDate;
 
         let elements = [];
 
@@ -31,7 +39,7 @@ const Demande = ({ t }) => {
     };
 
     const displayOptions = () => {
-        const options = store.getState().estimation.settings.houseworkPersonalization;
+        const options = settings.houseworkPersonalization;
 
         let elements = [];
 
