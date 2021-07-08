@@ -51,7 +51,6 @@ const Demande = ({ t }) => {
             <h2>{t("Client.sideBar.demande")}</h2>
 
             <h4>{t("Client.sideBar.housing")}</h4>
-            <h4>{t("Client.sideBar.housing")}</h4>
 
             <ul className="recap_list">
                 {displaySpecificities()}
