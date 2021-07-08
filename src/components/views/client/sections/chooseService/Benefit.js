@@ -37,7 +37,7 @@ const Benefit = ({ t }) => {
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        const houseworkFrequencyId = store.getState().estimation.settings.houseworkFrequencyId;
+        const houseworkFrequencyId = store.getState().estimation.settings.houseworkFrequencyId ?? 1;
         const houseworkWeekTime = store.getState().estimation.settings.houseworkWeekTime;
 
         if (houseworkFrequencyId) setFrequency(houseworkFrequencyId - 1);
@@ -58,6 +58,7 @@ const Benefit = ({ t }) => {
         const requestBody = {
             ...store.getState().estimation.settings,
             houseworkWeekTime: houseworkWeekTime ?? hours,
+            houseworkFrequencyId,
             startDate: date,
         };
 
