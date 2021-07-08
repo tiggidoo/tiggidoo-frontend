@@ -42,9 +42,9 @@ const Benefit = ({ t }) => {
         if (houseworkFrequencyId) setFrequency(houseworkFrequencyId - 1);
 
         if (houseworkWeekTime && houseworkWeekTime.length !== 0) {
-            let houseworkWeekTimeDays = { [reverseWeekDay(houseworkWeekTime[0]['weekDay'])]: true };
+            let houseworkWeekTimeDays = { [reverseWeekDay[houseworkWeekTime[0]['weekDay']]]: true };
 
-            if (houseworkWeekTime.length === 2) houseworkWeekTimeDays[reverseWeekDay(houseworkWeekTime[1]['weekDay'])] = true;
+            if (houseworkWeekTime.length === 2) houseworkWeekTimeDays[reverseWeekDay[houseworkWeekTime[1]['weekDay']]] = true;
 
             setDays({ ...days, ...{ th: false, sa: false, selected: houseworkWeekTime.length}, ...houseworkWeekTimeDays});
             setHours(houseworkWeekTime);

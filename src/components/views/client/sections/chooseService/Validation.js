@@ -96,7 +96,6 @@ const Validation = ({ t }) => {
         const requestBody = { ...store.getState().estimation.settings, ...personalData };
 
         // TODO: Send request
-        
 
         history.push('thankyou');
     };
