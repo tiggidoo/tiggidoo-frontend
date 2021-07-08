@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { withTranslation } from "react-i18next"
+import { useEffect, useState } from 'react';
+import { withTranslation } from 'react-i18next';
 
 import { useStore } from 'react-redux';
 
@@ -58,25 +58,37 @@ const Demande = ({ t }) => {
         <div className="demande__housing_specification">
             <h2>{t("Client.sideBar.demande")}</h2>
 
-            <h4>{t("Client.sideBar.housing")}</h4>
+            {store.getState().estimation.houseCategoryId !== 1 && (
+                <>
+                    <h4>{t("Client.sideBar.housing")}</h4>
 
-            <ul className="recap_list">
-                {displaySpecificities()}
-            </ul>
+                    <ul className="recap_list">
+                        {displaySpecificities()}
+                    </ul>
+                </>
+            )}
 
-            <h4>{t("Client.Validation.bloc1_texte3")}</h4>
+            {store.getState().estimation.housingSuccess && (
+                <>
+                    <h4>{t("Client.Validation.bloc1_texte3")}</h4>
 
-            <ul className="recap_list">
-                {displayFormula()}
-            </ul>
+                    <ul className="recap_list">
+                        {displayFormula()}
+                    </ul>
+                </>
+            )}
 
-            <h4>{t("Client.Validation.bloc1_texte4")}</h4>
+            {store.getState().estimation.housingSuccess && (
+                <>
+                    <h4>{t("Client.Validation.bloc1_texte4")}</h4>
 
-            <ul className="recap_list">
-                {displayOptions()}
-            </ul>
+                    <ul className="recap_list">
+                        {displayOptions()}
+                    </ul>
+                </>
+            )}
         </div>
-    )
+    );
 };
 
-export default withTranslation()(Demande)
+export default withTranslation()(Demande);
