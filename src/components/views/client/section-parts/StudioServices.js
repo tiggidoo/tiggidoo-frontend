@@ -57,10 +57,11 @@ const StudioServices = ({ t }) => {
             <Typography variant="h3" className="HousingType__title">{t("Client.Logement.title3")}</Typography>
 
             <Box>
-                <p>{t("Client.Logement.housingType1_text1")}</p>
+                <p>{t("Client.Logement.housingType_studio_text1")}</p>
+                
                 <ul className="StudioServices__list">
-                    <li>{t("Client.Logement.housingType1_text2")}</li>
-                    <li>{t("Client.Logement.housingType1_text3")}</li>
+                    <li>{t("Client.Logement.housingType_studio_text2")}</li>
+                    <li>{t("Client.Logement.housingType_studio_text3")}</li>
                 </ul>
             </Box>
 
@@ -71,7 +72,7 @@ const StudioServices = ({ t }) => {
                             src={"images/icon_animal.svg"}
                             alt="animal"
                         />
-                        {t("Client.Logement.housingSpecificity_10")}
+                        {t("Client.Logement.housingSpecificity_dog")}
                     </InputLabel>
 
                     <Select
@@ -83,8 +84,8 @@ const StudioServices = ({ t }) => {
                         }}
                     >
                         <option aria-label="None" value="" />
-                        <option value={true}>Oui</option>
-                        <option value={false}>Non</option>
+                        <option value={true}>{t("Client.yes")}</option>
+                        <option value={false}>{t("Client.no")}</option>
                     </Select>
                 </FormControl>
 
@@ -94,7 +95,7 @@ const StudioServices = ({ t }) => {
                             src={"images/icon_animal.svg"}
                             alt="animal"
                         />
-                        {t("Client.Logement.housingSpecificity_11")}
+                        {t("Client.Logement.housingSpecificity_cat")}
                     </InputLabel>
 
                     <Select
@@ -106,8 +107,8 @@ const StudioServices = ({ t }) => {
                         }}
                     >
                         <option aria-label="None" value="" />
-                        <option value={true}>Oui</option>
-                        <option value={false}>Non</option>
+                        <option value={true}>{t("Client.yes")}</option>
+                        <option value={false}>{t("Client.no")}</option>
                     </Select>
                 </FormControl>
             </Box>

@@ -344,27 +344,26 @@
             "title1": "TYPE DE LOGEMENT",
             "title2": "TAILLE DU LOGEMENT",
             "title3": "SPÉCIFICITÉS DU LOGEMENT",
-            "housingType1": "Studio",
-            "housingType2": "MAISON",
-            "housingType3": "APPARTEMENT",
-            "housingType4": "LOFT",
-            "housingType1_text1": "Si votre logement est de type studio, alors il doit respecter les éléments suivants :",
-            "housingType1_text2": "La cuisine, l’espace salon et l’espace chambre sont dans un même espace",
-            "housingType1_text3": "Ne doit pas dépasser 60 mètres carrés.",
-            "housingSpecificity_1": "Cuisine(s)",
-            "housingSpecificity_2": "Salon(s)",
-            "housingSpecificity_3": "Salle à manger",
-            "housingSpecificity_4": "Chambre(s)",
-            "housingSpecificity_4_desc": "Bureau(x) inclut",
-            "housingSpecificity_5": "Salle(s) de bain",
-            "housingSpecificity_6": "Douche(s)",
-            "housingSpecificity_7": "Baignoire(s)",
-            "housingSpecificity_8": "Salle(s) d’eau",
-            "housingSpecificity_9": "Étage(s)",
-            "housingSpecificity_9_desc": "Un sous-sol est considéré comme un étage",
-            "housingSpecificity_10": "Chien(s)",
-            "housingSpecificity_11": "Chat(s)",
-            "housingSpecificity_12": "Autre(s)",
+            "housingType_studio": "Studio",
+            "housingType_condo": "MAISON",
+            "housingType_appartement": "APPARTEMENT",
+            "housingType_loft": "LOFT",
+            "housingType_studio_text1": "Si votre logement est de type studio, alors il doit respecter les éléments suivants :",
+            "housingType_studio_text2": "La cuisine, l’espace salon et l’espace chambre sont dans un même espace",
+            "housingType_studio_text3": "Ne doit pas dépasser 60 mètres carrés.",
+            "housingSpecificity_kitchen": "Cuisine(s)",
+            "housingSpecificity_livingroom": "Salon(s)",
+            "housingSpecificity_diningroom": "Salle à manger",
+            "housingSpecificity_bedroom": "Chambre(s)",
+            "housingSpecificity_bedroom_desc": "Bureau(x) inclut",
+            "housingSpecificity_bathroom": "Salle(s) de bain",
+            "housingSpecificity_shower": "Douche(s)",
+            "housingSpecificity_bathtub": "Baignoire(s)",
+            "housingSpecificity_washroom": "Salle(s) d’eau",
+            "housingSpecificity_floor": "Étage(s)",
+            "housingSpecificity_floor_desc": "Un sous-sol est considéré comme un étage",
+            "housingSpecificity_dog": "Chien(s)",
+            "housingSpecificity_cat": "Chat(s)",
             "back": "Retour",
             "footer_text": "L’offre de cette plateforme est à destination de résidence personnelle. Pour un service de ménage pour de la location saisonnière suivez",
             "footer_link": "ce lien."
@@ -419,7 +418,8 @@
             "morning": "Matin (8H -13H)",
             "afternoon": "Aprem (13H -19H)",
             "any": "Peu m’importe",
-            "a-partir-du": "A PARTIR DU"
+            "a-partir-du": "A PARTIR DU",
+            "every": "Les"
         },
         "Validation": {
             "intro": "Plus qu’un dernier clic et votre demande sera envoyé aux PROS. Vous recevrez alors dans votre espace de connexion la liste des PROS qui proposent leurs services pour votre demande. Alors, vous n’aurez plus qu’à choisir la personne que vous souhaitez et puis valider en réglant directement votre total en ligne.",
@@ -443,7 +443,7 @@
             "submit": "ENVOYER MA DEMANDE",
             "error_message": "Il semblerait que certains champs soient manquants"
         },
-        "Localisation": {
+        "Location": {
             "title": "COMMENÇONS PAR VOTRE CODE POSTAL",
             "section1_title": "VOUS ÊTES NOUVEAU CLIENT ?",
             "section1_text1": "Indiquez votre code postal afin de savoir si votre zone est desservie par nos services.",
@@ -469,6 +469,9 @@
             "bloc2_text2": "Connectez-vous pour accéder à votre compte en cliquant sur le bouton d’accès.Retrouvez le lien d’accès reçu dans votre courriel. Pensez à vérifier vos SPAM",
             "bloc2_text3": "Parcourez et commencez à recevoir des réponses de propositions des PROS sur votre espace en ligne",
             "bloc2_text4": "Sélectionnez le PRO qui vous correspond le plus à votre demande, validez et payez pour réserver votre prestation"
-        }
+        },
+        "yes": "Oui",
+        "no": "Non",
+        "HeaderSteps": "Étape"
     }
 }

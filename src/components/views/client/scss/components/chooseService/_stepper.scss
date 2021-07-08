@@ -113,6 +113,10 @@
         }
     }
 
+    .MuiStepLabel-label{
+        text-transform: uppercase;
+    }
+
     .MuiStepLabel-label.MuiStepLabel-completed {
         font-family: "Avenir_Black";
     }
@@ -120,5 +124,11 @@
     .MuiStepLabel-label.MuiStepLabel-active {
         font-family: "Avenir_Black";
         color: $dove-gray_3;
+    }
+
+    .MuiStepLabel-labelContainer {
+        min-width: 110px;
+        margin: auto;
+        text-align: center;
     }
 }

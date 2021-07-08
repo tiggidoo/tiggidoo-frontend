@@ -45,13 +45,13 @@ function Localisation({ t }) {
             <HeaderServ />
             <Row className="Localisation">
                 <Col md={5}>
-                    <Typography variant="h3" className="">{t("Client.Localisation.section1_title")}</Typography>
+                    <Typography variant="h3">{t("Client.Location.section1_title")}</Typography>
 
-                    <p>{t("Client.Localisation.section1_text1")}</p>
+                    <p>{t("Client.Location.section1_text1")}</p>
 
                     <Box className="Localisation_subtext">
-                        <p>{t("Client.Localisation.section1_text2")}</p>
-                        <p>{t("Client.Localisation.section1_text3")}</p>
+                        <p>{t("Client.Location.section1_text2")}</p>
+                        <p>{t("Client.Location.section1_text3")}</p>
                     </Box>
 
                     <Box className="post_code__form">
@@ -60,7 +60,7 @@ function Localisation({ t }) {
                                 <input id="postCode" type='text' name="postCode" placeholder={t("Client.Hero.postCodeLabel")} value={values.postCode} onChange={handleChange}></input>
                             </Box>
 
-                            <input type='submit' value={t("Client.Localisation.section1_btn")} className="btn_green_bg" ></input>
+                            <input type='submit' value={t("Client.Location.section1_btn")} className="btn_green_bg" ></input>
 
                             {errors.postCode && <p className='error'>{errors.postCode}</p>}
                         </form>
@@ -71,29 +71,31 @@ function Localisation({ t }) {
                     <Box>
                         <span className="Localisation_seperator__befor"></span>
                         <p className="Localisation_seperator">
-                            {t("Client.Localisation.ou")}
+                            {t("Client.Location.ou")}
                         </p>
                         <span className="Localisation_seperator__after"></span>
                     </Box>
                 </Col>
 
-                <Col md={5} className="">
-                    <Typography variant="h3" className="">{t("Client.Localisation.section2_title")}</Typography>
+                <Col md={5}>
+                    <Typography variant="h3">{t("Client.Location.section2_title")}</Typography>
 
-                    <p>{t("Client.Localisation.section2_text1")}</p>
+                    <p>{t("Client.Location.section2_text1")}</p>
 
                     <Box className="Localisation_subtext">
-                        <p> <a href="#">{t("Client.Localisation.section2_text2")}</a></p>
+                        <p> <a href="#">{t("Client.Location.section2_text2")}</a></p>
                     </Box>
 
                     <Button className="btn_green_bg connect_link">
-                        {t("Client.Localisation.section2_btn")}
+                        {t("Client.Location.section2_btn")}
                     </Button>
                 </Col>
             </Row>
+
             <Row className="localisation_footer">
-                <p>{t("Client.Localisation.footer")} <a href="#" className="link">{t("Client.Localisation.footer_link")} </a></p>
+                <p>{t("Client.Location.footer")} <a href="#" className="link">{t("Client.Location.footer_link")} </a></p>
             </Row>
+
             <Footer />
         </div>
     );

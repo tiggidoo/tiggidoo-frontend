@@ -120,15 +120,14 @@ const CondoServices = ({ t }) => {
             <Typography variant="h2" className="HousingType__title">{t("Client.Logement.title3")}</Typography>
 
             <Box className="StudioServices__choice-form">
-                <Counter name="kitchen" title={t("Client.Logement.housingSpecificity_1")} iconSrc="images/icon_kitchen.svg" />
-                <Counter name="salon" title={t("Client.Logement.housingSpecificity_2")} iconSrc="images/icon_sofa.svg" />
-                <Counter name="dining_room" title={t("Client.Logement.housingSpecificity_3")} iconSrc="images/icon_hotel.svg" />
-                <Counter name="bedroom" title={t("Client.Logement.housingSpecificity_4")} iconSrc="images/icon_moon.svg" description={t("Client.Logement.housingSpecificity_4_desc")}/>
-                <Counter name="bathroom" title={t("Client.Logement.housingSpecificity_5")} iconSrc="images/icon_washbasin.svg" />
-                <Counter name="shower" title={t("Client.Logement.housingSpecificity_6")} iconSrc="images/icon_shower.svg" />
-                <Counter name="bathtub" title={t("Client.Logement.housingSpecificity_7")} iconSrc="images/icon_bathtub.svg" />
-                <Counter name="washbasin" title={t("Client.Logement.housingSpecificity_8")} iconSrc="images/icon_water.svg" />
-                <Counter name="floor" title={t("Client.Logement.housingSpecificity_9")} iconSrc="images/icon_stares.svg" description={t("Client.Logement.housingSpecificity_9_desc")}/>
+                <Counter name="salon" title={t("Client.Logement.housingSpecificity_livingroom")} iconSrc="images/icon_sofa.svg" />
+                <Counter name="dining_room" title={t("Client.Logement.housingSpecificity_diningroom")} iconSrc="images/icon_hotel.svg" />
+                <Counter name="bedroom" title={t("Client.Logement.housingSpecificity_bedroom")} iconSrc="images/icon_moon.svg" description={t("Client.Logement.housingSpecificity_bedroom_desc")}/>
+                <Counter name="bathroom" title={t("Client.Logement.housingSpecificity_bathroom")} iconSrc="images/icon_washbasin.svg" />
+                <Counter name="shower" title={t("Client.Logement.housingSpecificity_shower")} iconSrc="images/icon_shower.svg" />
+                <Counter name="bathtub" title={t("Client.Logement.housingSpecificity_bathtub")} iconSrc="images/icon_bathtub.svg" />
+                <Counter name="washbasin" title={t("Client.Logement.housingSpecificity_washroom")} iconSrc="images/icon_water.svg" />
+                <Counter name="floor" title={t("Client.Logement.housingSpecificity_floor")} iconSrc="images/icon_stares.svg" description={t("Client.Logement.housingSpecificity_floor_desc")}/>
 
                 <FormControl className={classes.formControl} error={errors?.dog ? true : false}>
                     <InputLabel htmlFor="dog">
@@ -136,7 +135,7 @@ const CondoServices = ({ t }) => {
                             src={"images/icon_animal.svg"}
                             alt="animal"
                         />
-                        {t("Client.Logement.housingSpecificity_10")}
+                        {t("Client.Logement.housingSpecificity_dog")}
                     </InputLabel>
 
                     <Select
@@ -148,8 +147,8 @@ const CondoServices = ({ t }) => {
                         }}
                     >
                         <option aria-label="None" value="" />
-                        <option value={true}>Oui</option>
-                        <option value={false}>Non</option>
+                        <option value={true}>{t("Client.yes")}</option>
+                        <option value={false}>{t("Client.no")}</option>
                     </Select>
                 </FormControl>
 
@@ -159,7 +158,7 @@ const CondoServices = ({ t }) => {
                             src={"images/icon_animal.svg"}
                             alt="animal"
                         />
-                        {t("Client.Logement.housingSpecificity_11")}
+                        {t("Client.Logement.housingSpecificity_cat")}
                     </InputLabel>
 
                     <Select
@@ -171,8 +170,8 @@ const CondoServices = ({ t }) => {
                         }}
                     >
                         <option aria-label="None" value="" />
-                        <option value={true}>Oui</option>
-                        <option value={false}>Non</option>
+                        <option value={true}>{t("Client.yes")}</option>
+                        <option value={false}>{t("Client.no")}</option>
                     </Select>
                 </FormControl>
             </Box>
