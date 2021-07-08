@@ -8,6 +8,10 @@
             text-align: center !important;
         }
     }
+
+    .MuiInputLabel-root {
+        font-family: "Avenir_Regular";
+    }
 }
 
 .HousingType {
@@ -55,10 +59,10 @@
     }
 
     &__button {
-        height: 130px !important;
-        max-height: 130px !important;
-        width: 150px !important;
-        max-width: 150px !important;
+        height: 140px !important;
+        max-height: 140px !important;
+        width: 140px !important;
+        max-width: 140px !important;
         background: #fff;
         background-color: #fff !important;
         display: grid;
@@ -67,7 +71,6 @@
 
         @include breakpoint(tablet) {
             margin-right: 0 !important;
-
         }
 
         @include breakpoint(mobile) {
@@ -134,17 +137,12 @@ option {
 
     .StudioServices__choice-form {
         display: flex;
-        gap: 52px;
         flex-wrap: wrap;
         margin-bottom: 100px;
         margin-top: 30px;
 
         @include breakpoint(tablet) {
             justify-content: center;
-        }
-
-        @include breakpoint(mobile) {
-            gap: 29px;
         }
 
         label {
@@ -171,6 +169,23 @@ option {
                 font-size: 14px !important;
             }
         }
+
+        .counter_container,
+        .MuiFormControl-root {
+            margin-right: 52px;
+            margin-bottom: 52px;
+
+            @include breakpoint(tablet) {
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-right: 14.5px;
+                margin-left: 14.5px;
+                margin-bottom: 29px;
+            }
+        }
     }
 
     .StudioServices__list {
@@ -192,6 +207,7 @@ option {
         }
     }
 }
+
 .MuiSelect-selectMenu {
     background: #fff;
 }
@@ -213,6 +229,7 @@ option {
         margin-right: 11px;
     }
 }
+
 label + .MuiInput-formControl {
     margin-top: 0 !important;
 }
@@ -220,6 +237,18 @@ label + .MuiInput-formControl {
 .MuiSelect-select.MuiSelect-select {
     padding-left: 24px;
 }
+
+.Mui-error{
+    .MuiInputBase-input {
+        background: #fff !important;
+        border: 2px solid $coral-red !important;
+    }
+
+    &.MuiInputLabel-formControl{
+        color: $coral-red !important;
+    }
+}
+
 /*------------------------------------------------------------------
 [Combo Srvices] 
 */

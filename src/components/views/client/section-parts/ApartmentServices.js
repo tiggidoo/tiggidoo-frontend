@@ -11,26 +11,28 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
+import Counter from './Counter';
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
-
-        '@media (max-width:599px)': {
-            minWidth: "97px",
-            margin: 0,
-        }
+         
+      '@media (max-width:599px)': { 
+        minWidth: "97px",
+        margin: 0,
+      }
     },
 }));
 
-const StudioServices = ({ t }) => {
+const ApartmentServices = ({ t }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const store = useStore();
 
-    const houseworkPersonalization = store.getState().estimation.settings.houseworkPersonalization;
+    const settings = store.getState().estimation.settings;
 
-    const [animals, setAnimals] = useState({ dog: houseworkPersonalization.dog, cat: houseworkPersonalization.cat });
+    const [animals, setAnimals] = useState({ dog: settings.houseworkPersonalization.dog, cat: settings.houseworkPersonalization.cat });
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
@@ -45,7 +47,7 @@ const StudioServices = ({ t }) => {
 
         let requestBody = {
             ...store.getState().estimation.settings,
-            houseworkPersonalization: { ...houseworkPersonalization, [name]: value },
+            houseworkPersonalization: { ...store.getState().estimation.settings.houseworkPersonalization, [name]: value },
         };
 
         estimationHousingUpdate(requestBody)(dispatch);
@@ -57,16 +59,17 @@ const StudioServices = ({ t }) => {
         <Box className="StudioServices__choice-container">
             <Typography variant="h3" className="HousingType__title">{t("Client.Logement.title3")}</Typography>
 
-            <Box>
-                <p>{t("Client.Logement.housingType_studio_text1")}</p>
-
-                <ul className="StudioServices__list">
-                    <li>{t("Client.Logement.housingType_studio_text2")}</li>
-                    <li>{t("Client.Logement.housingType_studio_text3")}</li>
-                </ul>
-            </Box>
-
             <Box className="StudioServices__choice-form">
+                <Counter name="kitchen" title={t("Client.Logement.housingSpecificity_kitchen")} iconSrc="images/icon_kitchen.svg" />
+                <Counter name="salon" title={t("Client.Logement.housingSpecificity_salon")} iconSrc="images/icon_sofa.svg" />
+                <Counter name="dining_room" title={t("Client.Logement.housingSpecificity_dining_room")} iconSrc="images/icon_hotel.svg" />
+                <Counter name="bedroom" title={t("Client.Logement.housingSpecificity_bedroom")} iconSrc="images/icon_moon.svg" description={t("Client.Logement.housingSpecificity_bedroom_desc")}/>
+                <Counter name="bathroom" title={t("Client.Logement.housingSpecificity_bathroom")} iconSrc="images/icon_washbasin.svg" />
+                <Counter name="shower" title={t("Client.Logement.housingSpecificity_shower")} iconSrc="images/icon_shower.svg" />
+                <Counter name="bathtub" title={t("Client.Logement.housingSpecificity_bathtub")} iconSrc="images/icon_bathtub.svg" />
+                <Counter name="washbasin" title={t("Client.Logement.housingSpecificity_washbasin")} iconSrc="images/icon_water.svg" />
+                <Counter name="floor" title={t("Client.Logement.housingSpecificity_floor")} iconSrc="images/icon_stares.svg" description={t("Client.Logement.housingSpecificity_floor_desc")}/>
+
                 <FormControl className={classes.formControl} error={errors?.dog ? true : false}>
                     <InputLabel htmlFor="dog">
                         <img
@@ -83,9 +86,8 @@ const StudioServices = ({ t }) => {
                             name: 'dog',
                             id: 'dog',
                         }}
-
                     >
-                        <MenuItem aria-label="None" value="" />
+                        <MenuItem value=""></MenuItem>
                         <MenuItem value={true}>{t("Client.yes")}</MenuItem>
                         <MenuItem value={false}>{t("Client.no")}</MenuItem>
                     </Select>
@@ -107,9 +109,9 @@ const StudioServices = ({ t }) => {
                             name: 'cat',
                             id: 'cat',
                         }}
-
+                        className="select"
                     >
-                        <MenuItem aria-label="None" value=""></MenuItem>
+                        <MenuItem value=""></MenuItem>
                         <MenuItem value={true}>{t("Client.yes")}</MenuItem>
                         <MenuItem value={false}>{t("Client.no")}</MenuItem>
                     </Select>
@@ -119,4 +121,4 @@ const StudioServices = ({ t }) => {
     );
 };
 
-export default withTranslation()(StudioServices);
+export default withTranslation()(ApartmentServices);

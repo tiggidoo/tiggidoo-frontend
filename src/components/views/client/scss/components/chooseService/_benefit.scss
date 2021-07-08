@@ -13,11 +13,17 @@
         max-height: 100px !important;
         width: 180px !important;
         min-width: 180px !important;
-        margin-right: 0 !important;
+        margin-right: 15px !important;
+        margin-left: 15px !important;
+        margin-bottom: 49px !important;
     }
 
-    &.MuiButtonBase-root {
-        align-items: baseline;
+    .MuiBottomNavigationAction-wrapper {
+        margin-top: -53px;
+
+        @include breakpoint(tablet) {
+            margin-top: -37px;
+        }
     }
 
     .MuiBottomNavigationAction-label {
@@ -64,7 +70,6 @@
 
     @include breakpoint(tablet) {
         flex-wrap: wrap;
-        gap: 49px;
     }
 
     @include breakpoint(mobile) {
@@ -94,7 +99,7 @@
 
         @for $i from 1 to 4 {
             &:nth-of-type(#{$i}) {
-                left: 0px + (($i - 1) * 227);
+                left: 0px + (($i - 1) * 215);
             }
         }
     }
@@ -129,14 +134,9 @@
 .options_list {
     display: flex;
     flex-wrap: wrap;
-    gap: 43px;
 
     @include breakpoint(tablet) {
         justify-content: center;
-    }
-
-    @include breakpoint(mobile){
-        gap: 20px;
     }
 }
 
@@ -218,6 +218,7 @@
         .MuiInput-input {
             width: 180px;
             font-size: 15px;
+            font-family: "Avenir_Regular";
 
             @include breakpoint(mobile){
                 width: 145px;
@@ -233,6 +234,10 @@
             @include breakpoint(tablet){
                 margin-right: 20px;
             }
+        }
+
+        .MuiInputBase-root {
+            font-family: "Avenir_Regular";
         }
     }
 

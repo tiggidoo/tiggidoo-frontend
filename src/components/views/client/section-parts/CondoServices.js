@@ -1,182 +1,183 @@
-import { withTranslation, useTranslation } from "react-i18next"
-import { useState, useEffect } from 'react'
+import { withTranslation, useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
+
+import { useDispatch, useStore } from 'react-redux';
+import { estimationHousingUpdate, fetchEstimation } from '../../../../store/actions/estimationAction';
+
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core'
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Counter from "./Counter";
+import MenuItem from '@material-ui/core/MenuItem';
 
+import Counter from './Counter';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
-         
-      '@media (max-width:599px)': { 
-        minWidth: "97px",
-        margin: 0
-      }
+
+        '@media (max-width:599px)': {
+            minWidth: "97px",
+            margin: 0
+        }
     },
 }));
 
 const CondoServices = ({ t }) => {
-    const classes = useStyles()
+    const classes = useStyles();
+    const dispatch = useDispatch();
+    const store = useStore();
 
-    // Get language 
+    const settings = store.getState().estimation.settings;
+
+    const [housingSize, setHousingSize] = useState(settings.housingSizeId);
+    const [animals, setAnimals] = useState({ dog: settings.houseworkPersonalization.dog, cat: settings.houseworkPersonalization.cat });
+    const [housingSizesList, setHousingSizesList] = useState([]);
+    const [errors, setErrors] = useState({});
+
     const { i18n } = useTranslation();
     const lang = i18n.language;
 
-    const [state, setState] = useState({
-        dog: '',
-        name: 'hai',
-    });
-
-    // Handle select box change
-    const handleChange = (event) => {
-        const name = event.target.name;
-        setState({
-            ...state,
-            [name]: event.target.value,
+    useEffect(() => {
+        store.subscribe(() => {
+            setErrors(store.getState().estimation.housingErrorsList);
         });
+    }, []);
+
+    const handleHousingSizeChange = (event) => {
+        const value = event.target.value;
+
+        let requestBody = {
+            ...store.getState().estimation.settings,
+            housingSizeId: value,
+        };
+
+        estimationHousingUpdate(requestBody)(dispatch);
+        fetchEstimation(requestBody)(dispatch);
+        setHousingSize(value);
     };
 
-    const [sizes, setHomeSizes] = useState([])
+    const handleAnimalsChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
 
-    useEffect(() => {
-        const getHomeSizes = async () => {
-            const sizesFromServer = await fetchHomeSizes()
-            setHomeSizes(sizesFromServer.sizes)
-        }
+        let requestBody = {
+            ...store.getState().estimation.settings,
+            houseworkPersonalization: { ...store.getState().estimation.settings.houseworkPersonalization, [name]: value },
+        };
 
-        getHomeSizes()
+        estimationHousingUpdate(requestBody)(dispatch);
+        fetchEstimation(requestBody)(dispatch);
+        setAnimals({ ...animals, [name]: value });
+    };
 
-    }, [])
+    const fetchHousingSizesList = async () => {
+        const res = await fetch(`https://www.api-tiggidoo.com/api/housingSizeList/${lang}`);
+        const data = await res.json();
 
-    // Fetch home sizes
-    const fetchHomeSizes = async () => {
-        const res = await fetch(`https://www.api-tiggidoo.com/api/housingSizeList/${lang}`)
-        const data = await res.json()
-
-        return data
+        return data;
     }
 
-    // Convert home sizes to array
-    const homeSizeArray = []
-    for (const [key, value] of Object.entries(sizes)) {
-        homeSizeArray[key] = value
+    useEffect(() => {
+        const getHousingSizesList = async () => {
+            const sizesFromServer = await fetchHousingSizesList();
+            setHousingSizesList(sizesFromServer.sizes);
+        }
+
+        getHousingSizesList();
+    }, []);
+
+    const housingSizes = [];
+
+    for (const [key, value] of Object.entries(housingSizesList)) {
+        housingSizes[key] = value;
     }
 
     return (
         <Box className="StudioServices__choice-container">
             <Typography variant="h3" className="HousingType__title">{t("Client.Logement.title2")}</Typography>
+
             <Box className="ComboServices__size">
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} error={errors?.housingSizeId ? true : false}>
                     <Select
-                        value={state.homeSize}
-                        onChange={handleChange}
+                        value={housingSize}
+                        onChange={handleHousingSizeChange}
                         inputProps={{
-                            name: 'homeSize',
-                            id: 'homeSize',
+                            name: 'housingSize',
+                            id: 'housingSize',
                         }}
                         className="homeSize_select"
                     >
-                        <option aria-label="None" value="" />
-
-                        {homeSizeArray.map((homeSize, index) => (
-                            <option value={index}>{homeSize} </option>
+                        {housingSizes.map((homeSize, index) => (
+                            <MenuItem key={index} value={index}>{homeSize}</MenuItem>
                         ))}
-
                     </Select>
-
                 </FormControl>
             </Box>
 
             <Typography variant="h2" className="HousingType__title">{t("Client.Logement.title3")}</Typography>
 
             <Box className="StudioServices__choice-form">
-                <Counter title={t("Client.Logement.housingSpecificity_1")} iconSrc="images/icon_kitchen.svg" />
-                <Counter title={t("Client.Logement.housingSpecificity_2")} iconSrc="images/icon_sofa.svg" />
-                <Counter title={t("Client.Logement.housingSpecificity_3")} iconSrc="images/icon_hotel.svg" />
-                <Counter title={t("Client.Logement.housingSpecificity_4")} iconSrc="images/icon_moon.svg" description={t("Client.Logement.housingSpecificity_4_desc")}/>
-                <Counter title={t("Client.Logement.housingSpecificity_5")} iconSrc="images/icon_washbasin.svg" />
-                <Counter title={t("Client.Logement.housingSpecificity_6")} iconSrc="images/icon_shower.svg" />
-                <Counter title={t("Client.Logement.housingSpecificity_7")} iconSrc="images/icon_bathtub.svg" />
-                <Counter title={t("Client.Logement.housingSpecificity_8")} iconSrc="images/icon_water.svg" />
-                <Counter title={t("Client.Logement.housingSpecificity_9")} iconSrc="images/icon_stares.svg" description={t("Client.Logement.housingSpecificity_9_desc")}/>
+                <Counter name="kitchen" title={t("Client.Logement.housingSpecificity_kitchen")} iconSrc="images/icon_kitchen.svg" />
+                <Counter name="salon" title={t("Client.Logement.housingSpecificity_salon")} iconSrc="images/icon_sofa.svg" />
+                <Counter name="dining_room" title={t("Client.Logement.housingSpecificity_dining_room")} iconSrc="images/icon_hotel.svg" />
+                <Counter name="bedroom" title={t("Client.Logement.housingSpecificity_bedroom")} iconSrc="images/icon_moon.svg" description={t("Client.Logement.housingSpecificity_bedroom_desc")} />
+                <Counter name="bathroom" title={t("Client.Logement.housingSpecificity_bathroom")} iconSrc="images/icon_washbasin.svg" />
+                <Counter name="shower" title={t("Client.Logement.housingSpecificity_shower")} iconSrc="images/icon_shower.svg" />
+                <Counter name="bathtub" title={t("Client.Logement.housingSpecificity_bathtub")} iconSrc="images/icon_bathtub.svg" />
+                <Counter name="washbasin" title={t("Client.Logement.housingSpecificity_washbasin")} iconSrc="images/icon_water.svg" />
+                <Counter name="floor" title={t("Client.Logement.housingSpecificity_floor")} iconSrc="images/icon_stares.svg" description={t("Client.Logement.housingSpecificity_floor_desc")} />
 
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} error={errors?.dog ? true : false}>
                     <InputLabel htmlFor="dog">
                         <img
                             src={"images/icon_animal.svg"}
-                            alt="dogs"
+                            alt="animal"
                         />
-                        {t("Client.Logement.housingSpecificity_10")}
+                        {t("Client.Logement.houseworkPersonalization_dog")}
                     </InputLabel>
 
                     <Select
-                        value={state.dog}
-                        onChange={handleChange}
+                        value={animals.dog}
+                        onChange={handleAnimalsChange}
                         inputProps={{
                             name: 'dog',
                             id: 'dog',
                         }}
                     >
-                        <option aria-label="None" value="" />
-                        <option value={10}>Oui</option>
-                        <option value={20}>Non</option>
+                        <MenuItem value=""></MenuItem>
+                        <MenuItem value={true}>{t("Client.yes")}</MenuItem>
+                        <MenuItem value={false}>{t("Client.no")}</MenuItem>
                     </Select>
-
                 </FormControl>
 
-                <FormControl className={classes.formControl}>
+                <FormControl className={classes.formControl} error={errors?.cat ? true : false}>
                     <InputLabel htmlFor="cat">
                         <img
                             src={"images/icon_animal.svg"}
-                            alt="cats"
+                            alt="animal"
                         />
-                        {t("Client.Logement.housingSpecificity_11")}
+                        {t("Client.Logement.houseworkPersonalization_cat")}
                     </InputLabel>
 
                     <Select
-                        value={state.dog}
-                        onChange={handleChange}
+                        value={animals.cat}
+                        onChange={handleAnimalsChange}
                         inputProps={{
                             name: 'cat',
                             id: 'cat',
                         }}
                     >
-                        <option aria-label="None" value="" />
-                        <option value={10}>Oui</option>
-                        <option value={20}>Non</option>
-                    </Select>
-                </FormControl>
-
-                <FormControl className={classes.formControl}>
-                    <InputLabel htmlFor="other">
-                        <img
-                            src={"images/icon_animal.svg"}
-                            alt="cats"
-                        />
-                        {t("Client.Logement.housingSpecificity_12")}
-                    </InputLabel>
-
-                    <Select
-                        value={state.dog}
-                        onChange={handleChange}
-                        inputProps={{
-                            name: 'other',
-                            id: 'other',
-                        }}
-                    >
-                        <option aria-label="None" value="" />
-                        <option value={10}>Oui</option>
-                        <option value={20}>Non</option>
+                        <MenuItem value=""></MenuItem>
+                        <MenuItem value={true}>{t("Client.yes")}</MenuItem>
+                        <MenuItem value={false}>{t("Client.no")}</MenuItem>
                     </Select>
                 </FormControl>
             </Box>
         </Box>
-    )
-}
+    );
+};
 
-export default withTranslation()(CondoServices)
+export default withTranslation()(CondoServices);

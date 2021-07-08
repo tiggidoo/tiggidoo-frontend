@@ -30,6 +30,12 @@
             padding: 0;
             background-color: transparent;
         }
+
+        &>div.MuiBox-root.mb-5 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
     }
 
     .section__title {
@@ -40,7 +46,7 @@
 
     h6 {
         color: #0d0e12;
-        font-family: "Avenir_Black";
+        font-family: "Avenir_Black" !important;
         font-size: 17px;
 
         @include breakpoint(mobile) {
@@ -93,6 +99,16 @@
         @include breakpoint(mobile) {
             font-size: 14px;
         }
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    .error {
+        .MuiCheckbox-root {
+            color: $coral-red;
+        }
     }
 
     .MuiCheckbox-root {
@@ -116,6 +132,7 @@
         padding: 30px 41px !important;
         width: 100%;
         border-radius: 0 !important;
+        font-family: "Avenir_Black";
 
         @include breakpoint(mobile) {
             padding: 19px 15px !important;
@@ -149,6 +166,7 @@
         flex-wrap: wrap;
         gap: 20px 27px;
         margin-top: 47px;
+        justify-content: center;
     }
 
     .MuiInputLabel-formControl {

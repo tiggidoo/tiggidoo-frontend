@@ -4,10 +4,12 @@
     margin-left: auto;
     background: #fff;
     position: sticky;
+    position: -webkit-sticky;
+    top: 330px;
 
     @include breakpoint(tablet) {
         margin-top: 0;
-        margin-right: auto
+        margin-right: auto;
     }
 
     h2 {
@@ -25,6 +27,7 @@
         padding: 30px 100px !important;
         width: 100%;
         border-radius: 0 !important;
+        font-family: "Avenir_Black" !important;
 
         @include breakpoint(mobile) {
             padding: 14px 63px !important;
@@ -69,6 +72,11 @@
         &:active {
             outline: none;
             border: 1px solid $shamrock;
+        }
+
+        & ~ p {
+            color: #717171;
+            font-size: 14px;
         }
     }
 }

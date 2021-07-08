@@ -15,6 +15,11 @@
         padding: 0;
     }
 
+    img {
+        height: auto;
+        width: 100%;
+    }
+
     &__img {
         max-width: 700px;
         height: auto;
@@ -23,10 +28,6 @@
         @include breakpoint-reverse(xx-large) {
             margin-top: 134px;
             max-width: 750px;
-        }
-
-        @include breakpoint(tablet) {
-            margin-top: 0;
         }
     }
 
@@ -111,7 +112,7 @@
     }
 
     @include breakpoint(tablet) {
-        width: 64%;
+        max-width: 450px;
     }
 
     @include breakpoint(mobile) {
