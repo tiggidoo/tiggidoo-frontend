@@ -9,16 +9,17 @@ import { Box, Typography } from '@material-ui/core'
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
-        
-      '@media (max-width:599px)': { 
-        minWidth: "97px",
-        margin: 0,
-      }
+
+        '@media (max-width:599px)': {
+            minWidth: "97px",
+            margin: 0,
+        }
     },
 }));
 
@@ -58,7 +59,7 @@ const StudioServices = ({ t }) => {
 
             <Box>
                 <p>{t("Client.Logement.housingType_studio_text1")}</p>
-                
+
                 <ul className="StudioServices__list">
                     <li>{t("Client.Logement.housingType_studio_text2")}</li>
                     <li>{t("Client.Logement.housingType_studio_text3")}</li>
@@ -82,10 +83,11 @@ const StudioServices = ({ t }) => {
                             name: 'dog',
                             id: 'dog',
                         }}
+
                     >
-                        <option aria-label="None" value="" />
-                        <option value={true}>{t("Client.yes")}</option>
-                        <option value={false}>{t("Client.no")}</option>
+                        <MenuItem aria-label="None" value="" />
+                        <MenuItem value={true}>{t("Client.yes")}</MenuItem>
+                        <MenuItem value={false}>{t("Client.no")}</MenuItem>
                     </Select>
                 </FormControl>
 
@@ -105,10 +107,11 @@ const StudioServices = ({ t }) => {
                             name: 'cat',
                             id: 'cat',
                         }}
+
                     >
-                        <option aria-label="None" value="" />
-                        <option value={true}>{t("Client.yes")}</option>
-                        <option value={false}>{t("Client.no")}</option>
+                        <MenuItem aria-label="None" value=""></MenuItem>
+                        <MenuItem value={true}>{t("Client.yes")}</MenuItem>
+                        <MenuItem value={false}>{t("Client.no")}</MenuItem>
                     </Select>
                 </FormControl>
             </Box>
