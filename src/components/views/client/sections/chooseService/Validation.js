@@ -123,9 +123,9 @@ const Validation = ({ t }) => {
 
         for (const option in options) {
             if (typeof options[option] === 'number') {
-                elements.push(<li key={option}>{options[option]} {t(`Client.Logement.houseworkPersonalization_${option}`)}</li>);
+                elements.push(<li key={option}>{options[option]} {t(`Client.Benefit.houseworkPersonalization_${option}`)}</li>);
             } else {
-                elements.push(<li key={option}>{t(`Client.Logement.houseworkPersonalization_${option}`)}</li>);
+                elements.push(<li key={option}>{t(`Client.Benefit.houseworkPersonalization_${option}`)}</li>);
             }
         }
 

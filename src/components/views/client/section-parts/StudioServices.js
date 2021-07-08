@@ -73,7 +73,7 @@ const StudioServices = ({ t }) => {
                             src={"images/icon_animal.svg"}
                             alt="animal"
                         />
-                        {t("Client.Logement.housingSpecificity_dog")}
+                        {t("Client.Logement.houseworkPersonalization_dog")}
                     </InputLabel>
 
                     <Select
@@ -97,7 +97,7 @@ const StudioServices = ({ t }) => {
                             src={"images/icon_animal.svg"}
                             alt="animal"
                         />
-                        {t("Client.Logement.housingSpecificity_cat")}
+                        {t("Client.Logement.houseworkPersonalization_cat")}
                     </InputLabel>
 
                     <Select

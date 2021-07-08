@@ -62,7 +62,7 @@ const LoftServices = ({ t }) => {
             <Box className="StudioServices__choice-form">
                 <Counter name="kitchen" title={t("Client.Logement.housingSpecificity_kitchen")} iconSrc="images/icon_kitchen.svg" />
                 <Counter name="salon" title={t("Client.Logement.housingSpecificity_livingroom")} iconSrc="images/icon_sofa.svg" />
-                <Counter name="dining_room" title={t("Client.Logement.housingSpecificity_diningroom")} iconSrc="images/icon_hotel.svg" />
+                <Counter name="dining_room" title={t("Client.Logement.housingSpecificity_dining_room")} iconSrc="images/icon_hotel.svg" />
                 <Counter name="bedroom" title={t("Client.Logement.housingSpecificity_bedroom")} iconSrc="images/icon_moon.svg" description={t("Client.Logement.housingSpecificity_bedroom_desc")}/>
                 <Counter name="bathroom" title={t("Client.Logement.housingSpecificity_bathroom")} iconSrc="images/icon_washbasin.svg" />
                 <Counter name="shower" title={t("Client.Logement.housingSpecificity_shower")} iconSrc="images/icon_shower.svg" />
@@ -77,7 +77,7 @@ const LoftServices = ({ t }) => {
                             alt="animal"
                         />
                         
-                        {t("Client.Logement.housingSpecificity_dog")}
+                        {t("Client.Logement.houseworkPersonalization_dog")}
                     </InputLabel>
 
                     <Select
@@ -100,7 +100,7 @@ const LoftServices = ({ t }) => {
                             src={"images/icon_animal.svg"}
                             alt="animal"
                         />
-                        {t("Client.Logement.housingSpecificity_cat")}
+                        {t("Client.Logement.houseworkPersonalization_cat")}
                     </InputLabel>
 
                     <Select

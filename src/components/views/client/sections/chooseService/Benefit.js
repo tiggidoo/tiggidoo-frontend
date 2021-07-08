@@ -187,12 +187,12 @@ const Benefit = ({ t }) => {
                 <p>{t("Client.Benefit.section2_desc")}</p>
 
                 <div className="options_list">
-                    <OptionsCard name="oven" title={t("Client.Benefit.section2_option1")} iconSrc="images/icon_oven.svg" description={t("Client.Benefit.section2_option1_desc")} hasCounter="true" />
-                    <OptionsCard name="fridge" title={t("Client.Benefit.section2_option2")} iconSrc="images/icon_fridge.svg" description={t("Client.Benefit.section2_option2_desc")} hasCounter="true" />
-                    <OptionsCard name="bed" title={t("Client.Benefit.section2_option3")} iconSrc="images/icon_bed.svg" description={t("Client.Benefit.section2_option3_desc")} hasCounter="true" />
-                    <OptionsCard name="vacuum" title={t("Client.Benefit.section2_option4")} iconSrc="images/icon_vacuum.svg" description={t("Client.Benefit.section2_option4_desc")} />
-                    <OptionsCard name="product_ecological" title={t("Client.Benefit.section2_option5")} iconSrc="images/icon_eco_spray.svg" description={t("Client.Benefit.section2_option5_desc")} />
-                    <OptionsCard name="product_standard" title={t("Client.Benefit.section2_option6")} iconSrc="images/icon_spray.svg" description={t("Client.Benefit.section2_option6_desc")} />
+                    <OptionsCard name="oven" title={t("Client.Benefit.houseworkPersonalization_oven")} iconSrc="images/icon_oven.svg" description={t("Client.Benefit.section2_option1_desc")} hasCounter="true" />
+                    <OptionsCard name="fridge" title={t("Client.Benefit.houseworkPersonalization_fridge")} iconSrc="images/icon_fridge.svg" description={t("Client.Benefit.section2_option2_desc")} hasCounter="true" />
+                    <OptionsCard name="bed" title={t("Client.Benefit.houseworkPersonalization_bed")} iconSrc="images/icon_bed.svg" description={t("Client.Benefit.section2_option3_desc")} hasCounter="true" />
+                    <OptionsCard name="vacuum" title={t("Client.Benefit.houseworkPersonalization_vacuum")} iconSrc="images/icon_vacuum.svg" description={t("Client.Benefit.section2_option4_desc")} />
+                    <OptionsCard name="product_ecological" title={t("Client.Benefit.houseworkPersonalization_product_ecological")} iconSrc="images/icon_eco_spray.svg" description={t("Client.Benefit.section2_option5_desc")} />
+                    <OptionsCard name="product_standard" title={t("Client.Benefit.houseworkPersonalization_product_standard")} iconSrc="images/icon_spray.svg" description={t("Client.Benefit.section2_option6_desc")} />
                 </div>
             </Box>
 
