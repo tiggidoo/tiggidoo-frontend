@@ -90,6 +90,7 @@ const Validation = ({ t }) => {
         if (Object.keys(dataValidation()).length !== 0) return;
 
         const requestBody = { ...store.getState().estimation.settings, ...personalData, lag: 'fr' };
+        requestBody.telephone = `+1${requestBody.telephone}`;
 
         fetch(`https://www.api-tiggidoo.com/api/register/client`, {
             method: 'POST',
