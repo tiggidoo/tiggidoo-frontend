@@ -58,7 +58,7 @@ const Demande = ({ t }) => {
         <div className="demande__housing_specification">
             <h2>{t("Client.sideBar.demande")}</h2>
 
-            {store.getState().estimation.houseCategoryId !== 1 && (
+            {store.getState().estimation.houseCategoryId !== 0 && (
                 <>
                     <h4>{t("Client.sideBar.housing")}</h4>
 
