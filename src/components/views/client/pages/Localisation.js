@@ -36,18 +36,15 @@ function Localisation({ t }) {
         onSubmit: ({ values, setErrors }) => {
             // TODO: Make request to validate post code
 
-            console.log('Postal code');
-            console.log(values);
-
             const requestBody = {
                 ...store.getState().estimation.settings,
                 address: {
-                    city: "montreal",
-                    province: "QC",
-                    country: "Canada",
-                    postcode: "H9S 7Y8",
-                    lat: "32.231245",
-                    lng: "12.562348"
+                    city: 'Montreal',
+                    province: 'QC',
+                    country: 'Canada',
+                    postcode: values.postCode,
+                    lat: '32.231245',
+                    lng: '12.562348'
                 },
             };
 
