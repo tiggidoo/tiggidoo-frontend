@@ -5,6 +5,9 @@ import { withTranslation } from 'react-i18next';
 import { Col, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
+import { useDispatch, useStore } from 'react-redux';
+import { estimationLocationUpdate } from '../../../../store/actions/estimationAction';
+
 import Footer from '../../../layout/client/FooterServ';
 import HeaderServ from '../../../layout/client/HeaderServ';
 
@@ -14,6 +17,8 @@ import { Typography, Box } from '@material-ui/core';
 import Form from '../form/Form';
 
 function Localisation({ t }) {
+    const store = useStore();
+    const dispatch = useDispatch();
     const history = useHistory();
 
     const { errors, values, handleChange, handleSubmit } = Form({
@@ -23,18 +28,30 @@ function Localisation({ t }) {
 
             const postCode = values.postCode.trim();
 
-            if (!postCode || postCode === '') {
-                errors.postCode = 'Post code is required';
-            }
-
-            if (postCode && postCode !== '' && !(new RegExp(/^[a-zA-Z-0-9]{6,6}$/, 'g')).test(postCode)) {
-                errors.postCode = 'Invalid post code';
-            }
+            if (!postCode || postCode === '') errors.postCode = 'Post code is required';
+            if (postCode && postCode !== '' && !(new RegExp(/^[a-zA-Z-0-9]{6,6}$/, 'g')).test(postCode)) errors.postCode = 'Invalid post code';
 
             return errors;
         },
         onSubmit: ({ values, setErrors }) => {
-            // TODO: Send the postal code to know if this area is served
+            // TODO: Make request to validate post code
+
+            console.log('Postal code');
+            console.log(values);
+
+            const requestBody = {
+                ...store.getState().estimation.settings,
+                address: {
+                    city: "montreal",
+                    province: "QC",
+                    country: "Canada",
+                    postcode: "H9S 7Y8",
+                    lat: "32.231245",
+                    lng: "12.562348"
+                },
+            };
+
+            estimationLocationUpdate(requestBody)(dispatch);
 
             history.push('housing');
         },

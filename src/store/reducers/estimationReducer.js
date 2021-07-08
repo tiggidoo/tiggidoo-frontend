@@ -14,6 +14,7 @@ const initState = {
     totalPrice: 0,
   },
   settings: {
+    serviceId: 1,
     housingCategoryId: 1,
     housingSizeId: null,
     housingSpecificity: null,

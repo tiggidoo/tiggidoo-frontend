@@ -7,8 +7,16 @@ import {
     ESTIMATION_HOUSING_UPDATE,
     ESTIMATION_HOUSING_VALIDATION_ERROR,
     ESTIMATION_HOUSING_VALIDATION_SUCCESS,
+    ESTIMATION_LOCATION_UPDATE,
     FETCH_ESTIMATION,
 } from './typesAction';
+
+export const estimationLocationUpdate = payload => dispatch => {
+    dispatch({
+        type: ESTIMATION_LOCATION_UPDATE,
+        payload,
+    });
+};
 
 export const estimationHousingUpdate = payload => dispatch => {
     dispatch({
