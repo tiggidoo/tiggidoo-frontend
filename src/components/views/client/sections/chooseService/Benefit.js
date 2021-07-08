@@ -12,6 +12,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import DateFnsUtils from '@date-io/date-fns';
 
@@ -148,10 +149,10 @@ const Benefit = ({ t }) => {
                             onChange={handleHourChange}
                             name={day}
                         >
-                            <option value="" />
-                            <option value={1}>{t("Client.Time.morning")}</option>
-                            <option value={2}>{t("Client.Time.afternoon")}</option>
-                            <option value={3}>{t("Client.Time.any")}</option>
+                            <MenuItem value="" ></MenuItem>
+                            <MenuItem value={1}>{t("Client.Time.morning")}</MenuItem>
+                            <MenuItem value={2}>{t("Client.Time.afternoon")}</MenuItem>
+                            <MenuItem value={3}>{t("Client.Time.any")}</MenuItem>
                         </Select>
                     </FormControl>
                 );
