@@ -61,6 +61,7 @@ const Benefit = ({ t }) => {
         };
 
         estimationBenefitUpdate(requestBody)(dispatch);
+        fetchEstimation(requestBody)(dispatch);
     }, []);
 
     const handleFrequencyChange = (event, value) => {
