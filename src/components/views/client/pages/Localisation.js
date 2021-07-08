@@ -29,7 +29,7 @@ function Localisation({ t }) {
             const postCode = values.postCode.trim().replace(/[^0-9A-Z]/g, '');
 
             if (!postCode || postCode === '') errors.postCode = t("Client.Error.postcode_required");
-            if (postCode && postCode !== '' && !(new RegExp(/^([A-Z]{1})([0-9]{1})([A-Z]{1})([0-9]{1})([A-Z]{1})([0-9]{1})$/, 'g')).test(postCode)) errors.postCode = t("Client.Error.postcode_invalid");
+            if (postCode && postCode !== '' && !(new RegExp(/^([A-Z]{1})([0-9]{1})([A-Z]{1})([0-9]{1})([A-Z]{1})([0-9]{1})$/, 'g')).test(postCode)) errors.postCode = t("Client.Error.postcode_invalid_format");
 
             return errors;
         },
