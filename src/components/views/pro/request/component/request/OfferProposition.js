@@ -1,12 +1,12 @@
 import { Box, Grid, makeStyles, Typography, Fab, TextareaAutosize, Button, IconButton } from '@material-ui/core'
 import SelectInput from '../../../../../share/inputs/SelectInput'
 import Input from '../../../../../share/inputs/Input'
-import { calculateTpsTvqAndTotal, getDateFormatDayMotnYear } from '../../../../../share/librery/librery'
+import { calculateTpsTvqAndTotal, getDateFormatDayMotnYear, functionHour } from '../../../../../share/librery/librery'
 import AddIcon from '@material-ui/icons/Add'
 import RemoveIcon from '@material-ui/icons/Remove'
 import Popup from '../../../../../share/popup/Popup'
 import config from '../../../../../../config.json'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const useStyle = makeStyles((theme) => ({
     offre:{
@@ -111,7 +111,6 @@ const useStyle = makeStyles((theme) => ({
     selectInput: {
         '& select.MuiNativeSelect-root': {
             width: '100px !important',
-            fontSize: '15px',
             '@media(max-width: 600px)':{
                 width: '85px !important',
             }
@@ -135,7 +134,7 @@ const useStyle = makeStyles((theme) => ({
         color: '#fff', 
         width: '19px', 
         height: '19px', 
-        marginTop: '-24px'
+        marginTop: '-25px'
     },
     circle:{
         minHeight: '25px', 
@@ -147,51 +146,23 @@ const useStyle = makeStyles((theme) => ({
 }))
 
 const OfferProposition = ({ 
-    proWorkPrice, 
     tiggidooPrice, 
+    proWorkPrice, 
     isCalculateTax, 
     sendReservation, 
     sendReservationCanceled,
     statusId, 
     reservationId, 
-    activityDuration, 
-    activityVacuumPrice,
-    activityStartTime,
     reservationType,
-    time
+    activityVacuumPrice,
+    housework,
+    getHourProToBlockFunction,
+    tymeScheduleActivities,
+    dispatchGetHourProToBlockFunction
 }) => {
     const classes = useStyle()
 
-    const serviceHour = [
-        { id: '08:00:00', name: '8H00' },
-        { id: '08:30:00', name: '8H30' },
-        { id: '09:00:00', name: '9H00' },
-        { id: '09:30:00', name: '9H30' },
-        { id: '10:00:00', name: '10H00' },
-        { id: '10:30:00', name: '10H30' },
-        { id: '11:00:00', name: '11H00' },
-        { id: '11:30:00', name: '11H30' },
-        { id: '12:00:00', name: '12H00' },
-        { id: '12:30:00', name: '12H30' },
-        { id: '13:00:00', name: '13H00' },
-        { id: '13:30:00', name: '13H30' },
-        { id: '14:00:00', name: '14H00' },
-        { id: '14:30:00', name: '14H30' },
-        { id: '15:00:00', name: '15H00' },
-        { id: '15:30:00', name: '15H30' },
-        { id: '16:00:00', name: '16H00' },
-        { id: '16:30:00', name: '16H30' },
-        { id: '17:00:00', name: '17H00' },
-        { id: '17:30:00', name: '17H30' },
-        { id: '18:00:00', name: '18H00' },
-        { id: '18:30:00', name: '18H30' },
-        { id: '19:00:00', name: '19H00' },
-        { id: '19:30:00', name: '19H30' },
-        { id: '20:00:00', name: '20H00' },
-        { id: '20:30:00', name: '20H30' },
-        { id: '21:00:00', name: '21H00' },
-        { id: '21:30:00', name: '21H30' },
-    ];
+    const [serviceHour, setServiceHour] = useState()
 
     const duration = [
         { id: '01:00:00', name: '1H00' },
@@ -227,41 +198,88 @@ const OfferProposition = ({
         { id: '100', name: '100 $' },
     ];
 
-    const getDay = new Date(`${time[0].week_date} 00:00:00`)
-    const getOptionDay = new Date(`${time[1].week_date} 00:00:00`)
-
-    let disDay = config.DAYS_EN[getDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${time[0].week_date} 00:00:00`)
+    const getDay = new Date(`${housework.time[0].week_date} 00:00:00`)
+    let disDay = config.DAYS_EN[getDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${housework.time[0].week_date} 00:00:00`)
     disDay = disDay.substring(0, disDay.length - 4)
-    let disOptionDay = config.DAYS_EN[getOptionDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${time[1].week_date} 00:00:00`)
-    disOptionDay = disOptionDay.substring(0, disOptionDay.length - 4)
 
     const chooseDate = [
-        {id: time[0].week_date, name: disDay },
-        {id: time[1].week_date, name: disOptionDay }
+        {id: housework.time[0].week_date, name: disDay },
     ];
+
+    let getOptionDay = null
+    let disOptionDay = null
+    if((housework.time.length === 2)){
+        getOptionDay = new Date(`${housework.time[1].week_date} 00:00:00`)
+        disOptionDay = config.DAYS_EN[getOptionDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${housework.time[1].week_date} 00:00:00`)
+        disOptionDay = disOptionDay.substring(0, disOptionDay.length - 4)
+        chooseDate.push({id: housework.time[1].week_date, name: disOptionDay })
+    }
 
     let res = {
         tps: 0, 
         tvq:0,
         total: parseFloat(proWorkPrice,10) + 5
     }
+
     res = calculateTpsTvqAndTotal(parseFloat(proWorkPrice,10), (activityVacuumPrice === null || activityVacuumPrice === undefined) ? 0 : parseInt(activityVacuumPrice,10), isCalculateTax)
 
     const [openPopup, setOpenPopup] = useState(false)
     const [formData, setFormData] = useState({
         id: reservationId,
-        proStartTime: (activityStartTime === null || activityStartTime === undefined) ? '12:30:00' : activityStartTime,
-        proDuration: (activityDuration === null || activityDuration === undefined) ? '01:30:00' : activityDuration,
+        proStartTime: '',
+        proDuration: '',
+        proStartDate: '',
         proVacuumPrice: (activityVacuumPrice === null || activityVacuumPrice === undefined) ? '0' : activityVacuumPrice,
         proProductEcologicalPrice: 0,
         proProductStandardPrice: 0,
         proWorkPrice: proWorkPrice,
         proPriceMoreTaxes: res.total,
-        proStartDate: time[0].week_date,
         proComment: "",
         tps: res.tps,
         tvq: res.tvq
     })
+
+    useEffect(()=>{
+        if(!formData.proStartDate){
+            let offreInfo = {
+                proStartDate: housework.time[0].week_date,
+                proStartTime: housework.time[0].pro_start_time,
+                proDuration: housework.time[0].pro_duration,
+                period: housework.time[0].period
+            }           
+
+            if(!(statusId === null || statusId === 1)){
+                if(housework.frequency.id !== 1){
+                    if(housework.time[1].pro_start_time !== null){
+                        offreInfo = {
+                            proStartDate: housework.time[1].week_date,
+                            proStartTime: housework.time[1].pro_start_time,
+                            proDuration: housework.time[1].pro_duration,
+                            period: housework.time[1].period
+                        }
+                    }
+                }
+            }    
+            
+            setFormData({
+                ...formData,
+                proStartTime: offreInfo.proStartTime,
+                proDuration: offreInfo.proDuration,
+                proStartDate: offreInfo.proStartDate
+            })
+        }
+
+    },[statusId, housework, formData])
+
+    useEffect(() => {
+        if(reservationType === 1 && tymeScheduleActivities.length === 0 && formData.proStartDate){
+            dispatchGetHourProToBlockFunction(formData.proStartDate)
+        }
+    }, [reservationType, formData.proStartDate, tymeScheduleActivities, dispatchGetHourProToBlockFunction])
+
+    useEffect(() =>{
+        setServiceHour(functionHour(tymeScheduleActivities, formData.proStartDate))
+    },[tymeScheduleActivities, formData.proStartDate])
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -275,6 +293,19 @@ const OfferProposition = ({
         if(e.target.name === 'proWorkPrice'){
             res = calculateTpsTvqAndTotal(parseFloat(e.target.value,10), parseFloat(proVacuumPrice,10), isCalculateTax)
         }
+
+        setFormData({ ...formData, 
+            [e.target.name]:e.target.value,
+            'proPriceMoreTaxes': res.total,
+            'tps': res.tps,
+            'tvq': res.tvq
+        })
+    }
+
+    const handleChangeAndApi = (e) => {
+        e.preventDefault()
+
+        getHourProToBlockFunction(e.target.value)
 
         setFormData({ ...formData, 
             [e.target.name]:e.target.value,
@@ -400,22 +431,25 @@ const OfferProposition = ({
                                             <Box display="flex" flexDirection="column" mt={1} justifyContent="space-between">
                                                 <Typography variant="h6">CRÉNAU DEMANDÉ</Typography>
                                                 <Box>
-                                                    {(reservationType === 2) && (
-                                                        <Box display="flex" flexDirection="row" justifyContent="space-between" mb={1}>
-                                                            <Typography variant="h5">Jour de disponibilité</Typography>
-                                                            <Box className={classes.selectInput} >
-                                                                <SelectInput
-                                                                    id="proStartDate"
-                                                                    name="proStartDate"
-                                                                    data={chooseDate}
-                                                                    onChange={(e) => handleChange(e)}
-                                                                    defaultValue={formData.proStartDate}
-                                                                    disabled={(statusId === null || statusId === '1') ? false : true}
-                                                                    color={color}
-                                                                />                
-                                                            </Box>
+                                                    <Box 
+                                                        display="flex" 
+                                                        flexDirection="row" 
+                                                        justifyContent="space-between" 
+                                                        mb={1}
+                                                    >
+                                                        <Typography variant="h5">Jour de disponibilité</Typography>
+                                                        <Box className={classes.selectInput} >
+                                                            <SelectInput
+                                                                id="proStartDate"
+                                                                name="proStartDate"
+                                                                data={chooseDate}
+                                                                onChange={(e) => handleChangeAndApi(e)}
+                                                                defaultValue={formData.proStartDate}
+                                                                disabled={(statusId === null || statusId === '1') ? false : true}
+                                                                color={color}
+                                                            />                
                                                         </Box>
-                                                    )}
+                                                    </Box>
 
                                                     <Box display="flex" flexDirection="row" justifyContent="space-between">
                                                         <Typography variant="h5">Matin</Typography>
@@ -446,13 +480,12 @@ const OfferProposition = ({
                                         </Box>
                                         <Box className={classes.propositionOffre}>
                                             <Typography variant="h5">Je renseigne le tarif des options</Typography>
-                                            <Box display="flex" flexDirection="row" mt={1} justifyContent="space-between">
-                                                <Box mr={2}>
+                                            <Box display="flex" flexDirection="column">
+                                                <Box display="flex" flexDirection="row">
                                                     <Typography variant="h6">EXTRA(S) DEMANDÉ(S)</Typography>
-                                                    <Typography variant="h5"> Aspirateur et mope</Typography>
                                                 </Box>
-                                                <Box>
-                                                    <Typography variant="h6">PRIX</Typography>
+                                                <Box display="flex" flexDirection="row" justifyContent="space-between">
+                                                    <Typography variant="h5"> Aspirateur et mope</Typography>
                                                     <Box className={classes.selectInput} >
                                                         <SelectInput
                                                             id="proVacuumPrice"
@@ -624,8 +657,6 @@ const OfferProposition = ({
                     </Button>
                 </Box>
             )} 
-
-
         </Box>
     )
 }

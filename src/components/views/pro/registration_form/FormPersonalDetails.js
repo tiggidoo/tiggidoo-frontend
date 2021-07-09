@@ -502,7 +502,6 @@ class FormPersonalDetails extends Component {
                                 value={values.telephone}              
                                 disableCountryCode={false}
                                 disableDropdown={true}
-                                //onlyCountries={['ca', 'us', 'fr', 'es', 'ch', 'be']}
                                 regions={['north-america', 'europe']}
                                 enableSearch={true}
                                 onChange={handleChangePhone}

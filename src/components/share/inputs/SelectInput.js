@@ -45,8 +45,14 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(1),
         '& .MuiNativeSelect-icon': {
             top: 'calc(50% - 15px)',
-            borderLeft: '1px solid gray',
+            //borderLeft: '1px solid gray',
             color: theme.palette.primary.main
+        },
+        '& .MuiInputBase-input':{
+            height: '2rem',
+            '@media(max-width: 600px)':{
+                fontSize: '14px',                
+            }
         }
     },
     selectIcon:{
@@ -92,8 +98,10 @@ function SelectInput(props) {
         }
     }
 
-    let defaultValueExists = '';
-    if (defaultValue !== undefined || defaultValue !== null) {
+    let defaultValueExists;
+    if (!defaultValue) {
+        defaultValueExists = "";
+    }else{
         defaultValueExists = defaultValue;
     }
     

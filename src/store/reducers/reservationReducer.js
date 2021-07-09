@@ -1,8 +1,9 @@
-import { GET_RESERVATIONS_LIST, GET_A_REQUEST, PROCESSING } from '../actions/typesAction'
+import { GET_RESERVATIONS_LIST, GET_A_REQUEST, PROCESSING, GET_TIME_SCHEDULED_ACTIVITIES } from '../actions/typesAction'
 
 const initState = {
     reservations: null,
-    reservation: null
+    reservation: null,
+    tymeScheduleActivities: []
 };
 
 const reservationReducer = (state = initState, action) => {
@@ -23,9 +24,13 @@ const reservationReducer = (state = initState, action) => {
                 reservations: null,
                 reservation: payload
             };
+        case GET_TIME_SCHEDULED_ACTIVITIES:
+            return{
+                ...state,
+                tymeScheduleActivities: payload
+            }
         default:
             return initState
-
     }
 }
 

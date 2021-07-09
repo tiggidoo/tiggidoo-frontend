@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { getRequest, reservationRefuse, sendReservationPro } from '../../../../store/actions/reservationAction'
+import { getTimeSheetPro } from '../../../../store/actions/proAction'
 import Dashboard from '../../../layout/Dashboard'
 import PaperLayout from '../../../layout/PaperLayout'
 import OfferProposition from './component/request/OfferProposition'
@@ -55,10 +56,12 @@ const useStyle = makeStyles((theme) => ({
 const ShowNewReservation = () => {
     const classes = useStyle()
 
-    const { auth:{pro, access_token, isLoggedIn}, reservationInfo } = useSelector(
+    const { auth:{pro, access_token, isLoggedIn}, reservationInfo, tymeScheduleActivities } = useSelector(
         state => ({
             auth: state.auth,
-            reservationInfo: state.reservation.reservation
+            reservationInfo: state.reservation.reservation,
+            tymeScheduleActivities: state.reservation.tymeScheduleActivities,
+           // frequency: state.reservation.reservation.housework.frequency
         })
     )
 
@@ -66,17 +69,28 @@ const ShowNewReservation = () => {
     const { id, statusId } = useParams()
 
     useEffect(() => {
-        dispatch(getRequest(access_token, id))
-    }, [access_token, id, dispatch])
+        if(reservationInfo === null){
+            dispatch(getRequest(access_token, id))
+        }
+    }, [access_token, id, reservationInfo, dispatch])
 
     const sendReservation = (dataForm) => {
         dispatch(sendReservationPro(access_token, dataForm))
-
     }
 
     const sendReservationCanceled = () => {
         dispatch(reservationRefuse(access_token, id))
     }
+
+    const dispatchGetHourProToBlockFunction = (date) => {
+        dispatch(getTimeSheetPro(access_token, date))
+    }
+
+    const getHourProToBlockFunction = (date) => {
+        dispatchGetHourProToBlockFunction(date)
+    }
+
+    console.log('Paso por aqui')
 
     return (
         <Dashboard
@@ -93,11 +107,9 @@ const ShowNewReservation = () => {
                                 uuid={reservationInfo.reservation.uuid} 
                                 service={reservationInfo.reservation.service.fr} 
                                 duration={reservationInfo.reservation.total_duration} 
-                                formule={reservationInfo.reservation.housework.frequency.fr}
                                 statusId={statusId}
-                                date={reservationInfo.reservation.housework.start_date} 
-                                optionDate={reservationInfo.reservation.housework.option_date} 
-                                time={reservationInfo.reservation.housework.time}                            />
+                                housework={reservationInfo.reservation.housework}                     
+                            />
                         </Box>
 
                         <Box className={classes.reqClient}>
@@ -130,11 +142,12 @@ const ShowNewReservation = () => {
                                 sendReservationCanceled={sendReservationCanceled}
                                 statusId={statusId}
                                 reservationId={id}
-                                activityDuration={reservationInfo.pro_duration}
+                                reservationType={reservationInfo.reservation.housework.frequency.id}                    
                                 activityVacuumPrice={reservationInfo.pro_vacuum_price}
-                                activityStartTime={reservationInfo.pro_start_time}
-                                reservationType={reservationInfo.reservation.housework.frequency.id}
-                                time={reservationInfo.reservation.housework.time}
+                                housework={reservationInfo.reservation.housework}
+                                getHourProToBlockFunction={getHourProToBlockFunction}
+                                tymeScheduleActivities = { tymeScheduleActivities }
+                                dispatchGetHourProToBlockFunction={dispatchGetHourProToBlockFunction}
                             />
                         </Box>
 

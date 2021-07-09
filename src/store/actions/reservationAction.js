@@ -48,7 +48,6 @@ export const getRequest = (token, id) => async dispatch => {
         await axios.post(`${config.API_SERVER}/api/pro/reservation/show`, data, headers)
         .then((res) =>{
             if(res.status === 200){
-                console.log('Esta esl al informacion del pro"   ====   ---- ', res)
                 dispatch({
                     type: GET_A_REQUEST,
                     payload: res.data.pro_reservation

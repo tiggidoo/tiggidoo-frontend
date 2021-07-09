@@ -1,7 +1,7 @@
 import { makeStyles, Typography } from '@material-ui/core'
 import { Hidden } from '@material-ui/core'
 import { Box } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { getDateFormatDayMotnYear } from '../../../../../share/librery/librery'
 import config from '../../../../../../config.json'
 
@@ -62,14 +62,30 @@ const useStyle = makeStyles((theme)=> ({
     }
 }))
 
-const ReqHeader = ({ uuid, service, duration, statusId, formule, time }) => {
+const ReqHeader = ({ uuid, service, duration, statusId, housework }) => {
     const classes = useStyle()
+
     let d = duration.split(':')
     d = `${d[0]}H${d[1]}`
-    
-    const getDay = new Date(`${time[0].week_date} 00:00:00`)
-    const getOptionDay = new Date(`${time[1].week_date} 00:00:00`)
- 
+    //theHourOneIsChosen
+    let theHourOneIsChosen = true
+    if((statusId !== null && statusId !== '1')){
+        d = housework.time[0].pro_duration
+        if(housework.frequency.id !== 1){
+            if(housework.time[1].pro_start_time !== null){
+                d = housework.time[1].pro_duration.slice(0, -3).replace(':', 'H')
+                theHourOneIsChosen = false
+            }    
+        }
+    }
+
+    const getDay = new Date(`${housework.time[0].week_date} 00:00:00`)
+    let getOptionDay = null
+    if((housework.time.length === 2)){
+        getOptionDay = new Date(`${housework.time[1].week_date} 00:00:00`)
+    }
+
+
     let color = '#2880fb'
     if(statusId === '2'){
         color = '#FF8925'
@@ -85,12 +101,15 @@ const ReqHeader = ({ uuid, service, duration, statusId, formule, time }) => {
                     <Typography variant="h6">DATE</Typography>                
                 </Box>
                 <Box>
-                    <Typography variant="h5" style={{color: color}}>
-                        {config.DAYS_EN[getDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${time[0].week_date} 00:00:00`)}
-                    </Typography>
-                    {(time[1].week_date !== null) && (
+                    {(theHourOneIsChosen || statusId === null || statusId === '1') && (
                         <Typography variant="h5" style={{color: color}}>
-                            {config.DAYS_EN[getOptionDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${time[1].week_date} 00:00:00`)}
+                            {config.DAYS_EN[getDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${housework.time[0].week_date} 00:00:00`)}
+                        </Typography>
+                    )}
+                    
+                    {((housework.time.length === 2 && (statusId === null || statusId === '1')) || !theHourOneIsChosen) && (
+                        <Typography variant="h5" style={{color: color}}>
+                            {config.DAYS_EN[getOptionDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${housework.time[1].week_date} 00:00:00`)}
                         </Typography>
                     )}
                     
@@ -117,7 +136,7 @@ const ReqHeader = ({ uuid, service, duration, statusId, formule, time }) => {
             
             <Box className={classes.boxStyle}>
                 <Box>
-                    <Typography variant="h6">TEMPS ESTIMÉ</Typography>                
+                    <Typography variant="h6">ESTIMATIN TIGGIDOO</Typography>                
                 </Box>
                 <Box>
                     <Typography variant="h5">{d}</Typography>
@@ -129,7 +148,7 @@ const ReqHeader = ({ uuid, service, duration, statusId, formule, time }) => {
                     <Typography variant="h6">FORMULE</Typography>                
                 </Box>
                 <Box>
-                    <Typography variant="h5">{ formule }</Typography>
+                    <Typography variant="h5">{ housework.frequency.fr }</Typography>
                 </Box>
             </Box>
         </Box>

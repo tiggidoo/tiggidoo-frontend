@@ -1,4 +1,4 @@
-import { UPDATE_MY_CRITERIA } from './typesAction';
+import { UPDATE_MY_CRITERIA, GET_TIME_SCHEDULED_ACTIVITIES } from './typesAction';
 import axios from 'axios';
 import { setAlert } from './alertAction';
 import config from '../../config.json';
@@ -121,6 +121,36 @@ export const updateTaxes = (token, status, pro) => async dispatch => {
                     payload: pro
                 })
                 dispatch(setAlert('Taxes Updated', 'success'))
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
+    }catch(error){
+        console.log(error)
+    }
+}
+
+export const getTimeSheetPro = (token, date) => async dispatch => {
+    try{
+
+        const headers = {
+            headers: {'Authorization': `Bearer ${token}`}
+        }
+
+        const data = {
+            date: date
+        }
+
+        await axios.post(`${config.API_SERVER}/api/pro/reservation/timeSheet`, data, headers)
+        .then((res) => {
+            console.log('Esta es la respuesta del Api: ', res)
+            if(res.status === 200){
+                dispatch({
+                    type: GET_TIME_SCHEDULED_ACTIVITIES,
+                    payload: res.data.timeSheet
+                })
             }
         })
         .catch((error) => {
