@@ -4,7 +4,7 @@
     text-align: center;
     width: 1000px;
     background-color: #fff;
-    padding: 30px;
+    padding: 40px;
 
     h2 {
         font-size: 25px;
@@ -13,5 +13,29 @@
 
     h3 {
         font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+}
+
+.sms_code__wrapper{
+    margin: 50px auto;
+
+    input {
+        border: none !important;
+        border-bottom: 2px solid $dodger-blue_6 !important;
+        font-size: 30px;
+        letter-spacing: 14px;
+        text-align: center;
+        font-family: "Avenir_Regular";
+    }
+
+    .MuiInput-underline::after, .MuiInput-underline::before {
+        display: none;
+    }
+
+    .sms_code__subtext{
+        color: $dove-gray_1;
+        margin-top: 10px;
     }
 }

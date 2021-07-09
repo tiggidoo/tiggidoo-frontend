@@ -10,6 +10,7 @@ import { Col, Row } from "react-bootstrap"
 import Button from '@material-ui/core/Button'
 import { Typography, Box } from '@material-ui/core'
 import CodeInput from "../section-parts/CodeInput"
+import SmsIcon from '@material-ui/icons/Sms';
 
 function SmsValidation({ t }) {
     return (
@@ -25,7 +26,8 @@ function SmsValidation({ t }) {
                 <CodeInput />
 
                 <p>{t("Client.Sms_validation.text3")}</p>
-                <p>{t("Client.Sms_validation.text4")}</p>
+
+                <p className="blue_text"> <SmsIcon color="disabled" /> {t("Client.Sms_validation.text4")}</p>
 
             </Box>
 
