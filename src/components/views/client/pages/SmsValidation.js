@@ -26,6 +26,14 @@ function SmsValidation({ t }) {
         return <></>;
     }
 
+    const handleResendSmsClick = () => {
+        fetch('https://www.api-tiggidoo.com/api/twilio/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ telephone: store.getState().estimation.settings.telephone }),
+        });
+    };
+
     const displayPhoneNumber = () => {
         const phone = store.getState().estimation.settings.telephone;
 
@@ -35,10 +43,11 @@ function SmsValidation({ t }) {
     return (
         <div>
             <HeaderServ />
+
             <Box className="sms_validation">
                 <Typography variant="h2">{t("Client.Sms_validation.title")}</Typography>
 
-                <Typography variant="h3">{t("Client.Sms_validation.phone")} <span>{displayPhoneNumber()}</span></Typography>
+                <Typography variant="h3">{t("Client.Sms_validation.phone")}<span>{displayPhoneNumber()}</span></Typography>
 
                 <p>{t("Client.Sms_validation.text1")}</p>
 
@@ -46,12 +55,11 @@ function SmsValidation({ t }) {
 
                 <p>{t("Client.Sms_validation.text3")}</p>
 
-                <p className="blue_text"> <SmsIcon color="disabled" /> {t("Client.Sms_validation.text4")}</p>
-
+                <p className="blue_text" onClick={handleResendSmsClick}><SmsIcon color="disabled" />{t("Client.Sms_validation.text4")}</p>
             </Box>
 
             <Row className="localisation_footer">
-                <p>{t("Client.Location.footer")} <a href="#" className="link">{t("Client.Location.footer_link")}</a></p>
+                <p>{t("Client.Location.footer")}<a href="#" className="link">{t("Client.Location.footer_link")}</a></p>
             </Row>
 
             <Footer />

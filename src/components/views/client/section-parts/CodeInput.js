@@ -35,7 +35,7 @@ const CodeInput = ({ t }) => {
                 else history.push('thankyou');
             })
             .catch((err) => console.log(err));
-    }
+    };
 
     return (
         <div className="sms_code__wrapper">
