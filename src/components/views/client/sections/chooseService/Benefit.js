@@ -47,7 +47,7 @@ const Benefit = ({ t }) => {
 
             if (houseworkWeekTime.length === 2) houseworkWeekTimeDays[reverseWeekDay[houseworkWeekTime[1]['weekDay']]] = true;
 
-            setDays({ ...days, ...{ th: false, sa: false, selected: houseworkWeekTime.length}, ...houseworkWeekTimeDays});
+            setDays({ ...days, ...{ th: false, sa: false, selected: houseworkWeekTime.length }, ...houseworkWeekTimeDays });
             setHours(houseworkWeekTime);
         }
 
@@ -146,7 +146,7 @@ const Benefit = ({ t }) => {
 
                         <Select
                             labelId={day}
-                            value={(hours.find((element) => element.weekDay === weekDay[day]))?.period ?? '' }
+                            value={(hours.find((element) => element.weekDay === weekDay[day]))?.period ?? ''}
                             onChange={handleHourChange}
                             name={day}
                         >
@@ -195,6 +195,16 @@ const Benefit = ({ t }) => {
                     <OptionsCard name="product_ecological" title={t("Client.Benefit.houseworkPersonalization_product_ecological")} iconSrc="images/icon_eco_spray.svg" description={t("Client.Benefit.section2_option5_desc")} />
                     <OptionsCard name="product_standard" title={t("Client.Benefit.houseworkPersonalization_product_standard")} iconSrc="images/icon_spray.svg" description={t("Client.Benefit.section2_option6_desc")} />
                 </div>
+
+                <FormControlLabel
+                    // className={`mb-5 mt-5 ${errors.cgu ? "error" : ""}`}
+                    control={
+                        <Checkbox
+                            color="primary"
+                        />
+                    }
+                    label={t("Client.Benefit.section2_agree")}
+                />
             </Box>
 
             <Box className="date_box">

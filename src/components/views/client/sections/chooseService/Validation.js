@@ -307,7 +307,7 @@ const Validation = ({ t }) => {
                             </FormControl>
                         </form>
 
-                        <LinearProgress className="mt-5 progress" variant="determinate" value={50} />
+                        <LinearProgress className="progress" variant="determinate" value={50} />
                     </Box>
                 </Col>
 

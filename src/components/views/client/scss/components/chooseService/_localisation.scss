@@ -1,6 +1,10 @@
 .Localisation {
-    margin: 400px auto 200px;
+    margin: 300px auto 100px;
     max-width: 1300px;
+
+    .col-md-5 {
+        padding: 0;
+    }
 
     @include breakpoint(tablet) {
         margin: 318px 30px 89px;
@@ -8,7 +12,7 @@
     }
 
     @include breakpoint(mobile) {
-        margin: 270px auto 100px;
+        margin: 270px 20px 51px;
     }
 
     h3 {
@@ -104,7 +108,16 @@
 }
 
 .localisation_footer {
-    margin: 30px 20px;
+    margin: 30px auto;
+    max-width: 1300px;
+
+    @include breakpoint(tablet) {
+        margin: 30px;
+    }
+
+    @include breakpoint(mobile) {
+        margin: 20px;
+    }
 
     p {
         font-size: 15px;

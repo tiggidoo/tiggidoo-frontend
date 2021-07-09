@@ -125,7 +125,7 @@
     position: fixed;
     top: 0;
     z-index: 999;
-    padding: 57px 5% 30px;
+    padding: 40px 5%;
     width: 100%;
     display: block;
 
@@ -138,35 +138,43 @@
         max-width: 1600px;
         margin: auto;
         display: flex;
-        gap: 87px;
 
         &.thankyou_nav {
             justify-content: space-between;
         }
         
-        @include breakpoint-reverse(xx-large) {
-            gap: 100px;
-        }
-
         @include breakpoint(desktop) {
             flex-wrap: wrap;
         }
 
         @include breakpoint(tablet) {
-            gap: 10px;
             flex-wrap: nowrap;
         }
 
         @include breakpoint(mobile) {
             flex-wrap: wrap;
-            gap: 30px;
             justify-content: space-between;
+        }
+
+        .navbar-brand{
+            margin-right: 87px;
+
+            @include breakpoint-reverse(xx-large) {
+                margin-right: 100px;
+            }
+
+            @include breakpoint(tablet) {
+                margin-right: 10px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-right: 30px;
+            }
         }
     }
 
     .MuiStepper-root {
         padding: 0;
-        margin-top: 36px;
 
         @include breakpoint(tablet) {
             margin-top: 0;
@@ -244,4 +252,8 @@
 
 .nav-link {
     align-self: center;
+}
+
+.NavBar__language__item.active {
+    border: none !important;
 }
