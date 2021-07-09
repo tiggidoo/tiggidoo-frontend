@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 
 import { withRouter } from "react-router";
 
+import { Link } from 'react-router-dom'
 import { Box } from '@material-ui/core'
 
 
@@ -57,7 +58,7 @@ const HeaderCL = ({ history }) => {
 		}
 	}, [])
 
-	function toggleCollapse (){
+	function toggleCollapse() {
 		document.getElementById("clientNav").classList.toggle("menu_open");
 	}
 
@@ -68,7 +69,7 @@ const HeaderCL = ({ history }) => {
 				<meta name="description" content={t("SEO.meta.description")} />
 				<meta name="keywords" content={t("SEO.meta.keywords")} />
 			</Helmet>
-			 
+
 			<Navbar expand="xl" id="clientNav" className={`clientNav ${navBackground ? "clientNav__nav--scrolled" : ""}`}>
 				<Box className="NavBar__container">
 					<Navbar.Brand href="#home">
@@ -78,14 +79,10 @@ const HeaderCL = ({ history }) => {
 							alt=""
 						/>
 					</Navbar.Brand>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => toggleCollapse()}/>
+					<Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => toggleCollapse()} />
 
 					<Navbar.Collapse className="">
 						<Nav className="NavBar__menu">
-							{/* <Nav.Link href="#" className="NavBar__item">
-								{t("Client.Nav.home")}
-							</Nav.Link> */}
-
 							<Nav.Link href="#" className="NavBar__item">
 								{t("Client.Nav.services")}
 							</Nav.Link>
@@ -94,26 +91,20 @@ const HeaderCL = ({ history }) => {
 								{t("Client.Nav.becomeTodo")}
 							</Nav.Link>
 
-							{/* <Nav.Link href="#" className="NavBar__item">
-								{t("Client.Nav.login")}
-							</Nav.Link> */}
-						
+							{(isLoggedIn) ?
+								(
+									<Button href="#home" size="lg" className="btn btn_nav" onClick={e => logOut(e)}>
+										{t("Nav.menu.logout")}
+									</Button>
+								)
+								:
+								(
+									<Button href="/login" size="lg" className="btn btn_nav">
+										{t("Nav.menu.login")}
+									</Button>
+								)
+							}
 
-						{(isLoggedIn) ?
-							(
-								<Button href="#home" size="lg" className="btn btn_nav" onClick={e => logOut(e)}>
-									{t("Nav.menu.logout")}
-								</Button>
-							)
-							:
-							(
-								<Button href="/login" size="lg" className="btn btn_nav">
-									{t("Nav.menu.login")}
-								</Button>
-							)
-						}
-
-						
 							<Nav.Link
 								href="#"
 								className="NavBar__language__item NavBar__item"
@@ -121,6 +112,20 @@ const HeaderCL = ({ history }) => {
 							>
 								{langLabel}
 							</Nav.Link>
+
+							<Box className="d-flex justify-content-around">
+                                <Link to="www.facebook.com" className="animated_icon" target="_blanc">
+                                    <img src={"images/facebook-tiggidoo.svg"} alt="Facebook" className="iconFacebook" />
+                                </Link>
+
+                                <Link to="https://www.linkedin.com/" className="animated_icon" target="_blanc">
+                                    <img src={"images/linkedin-tiggidoo.svg"} alt="LinkedIn" className="iconLinkedin" />
+                                </Link>
+
+                                <Link to="https://instagram.com/" className="animated_icon" target="_blanc">
+                                    <img src={"images/instgram-tiggidoo.svg"} alt="Instagrame" className="iconInstagram" />
+                                </Link>
+                            </Box>
 						</Nav>
 					</Navbar.Collapse>
 				</Box>

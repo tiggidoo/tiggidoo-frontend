@@ -1,6 +1,6 @@
 .Clexperts {
     background-color: #fff;
-    padding: 100px 5% 170px;
+    padding: 100px 5%;
 
     @include breakpoint-reverse(xx-large) {
         padding: 158px 5% 270px;

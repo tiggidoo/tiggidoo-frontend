@@ -200,8 +200,13 @@
         .MuiFormControl-root:nth-child(2n+1){
             margin-right: 14px;
 
+            @include breakpoint(tablet) {
+                margin-left: 14px;
+            }
+
             @include breakpoint(mobile) {
                 margin-right: 0;
+                margin-left: 0;
             }
         }
 
@@ -235,7 +240,7 @@
     }
 
     .MuiOutlinedInput-input {
-        padding: 39px 36px 12px 14px;
+        padding: 39px 13px 12px 14px;
         font-family: "Avenir_Regular";
         font-size: 17px;
 
@@ -338,6 +343,15 @@
 
     .MuiLinearProgress-colorPrimary {
         background-color: #aaaaaa;
+        margin-left: 6%;
+
+        @include breakpoint(tablet) {
+            margin-left: 91px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-left: 0;
+        }
     }
 
     .MuiLinearProgress-barColorPrimary {
