@@ -57,7 +57,7 @@ export default function HorizontalLinearStepper() {
                         if (index === 2) {
                             stepProps.active = true;
                         }
-                    } else if (location.pathname === '/validation') {
+                    } else if (location.pathname === '/validation' || location.pathname === '/sms_validation' ) {
                         if (index === 1) {
                             stepProps.completed = true;
                         }

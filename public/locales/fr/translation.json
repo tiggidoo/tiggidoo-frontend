@@ -482,6 +482,14 @@
         "Error":{
             "postcode_invalid_format": "Code postal invalide. Le format doit être du type H3G0C7 ou H3G 0C7",
             "postcode_required": "Code postal est requis"
+        },
+        "Sms_validation":{
+            "title": "Verification of the validation code",
+            "phone": "Phone Number",
+            "text1": "To continue, enter the validation code sent by message on your phone",
+            "text2": "Enter the 6-digit code",
+            "text3": "Don’t receive the text message",
+            "text4": "Return the text message"
         }
     }
 }

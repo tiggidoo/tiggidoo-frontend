@@ -119,7 +119,7 @@ const HeaderServ = ({ history }) => {
 					</Typography>
 				}
 
-				{location.pathname === '/validation' &&
+				{(location.pathname === '/validation' || location.pathname === '/sms_validation') &&
 					<Typography component="h2" variant="h2">
 						{t("Client.Logement.sectionTitle3")}
 						<span className="step d-sm-block d-md-none">{t("Client.HeaderSteps")} 4/4</span>

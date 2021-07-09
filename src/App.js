@@ -20,13 +20,14 @@ import Help from "./components/views/pro/help/Help";
 import Activities from "./components/views/pro/activity/Activities";
 import Info from "./components/views/pro/personall_data/Info";
 
-import ClientHome from "./components/views/client/pages/ClientHome";
-import ChooseService from "./components/views/client/pages/ChooseService";
-
 import { Provider } from 'react-redux'
 import store from './store'
+
+import ClientHome from "./components/views/client/pages/ClientHome";
+import ChooseService from "./components/views/client/pages/ChooseService";
 import Localisation from "./components/views/client/pages/Localisation";
 import ThankYouPage from "./components/views/client/pages/ThankYouPage";
+import SmsValidation from "./components/views/client/pages/SmsValidation";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
             <Route exact path="/benefit" component={ ChooseService } />
             <Route exact path="/validation" component={ ChooseService } />
             <Route exact path="/thankyou" component={ ThankYouPage } />
+            <Route exact path="/sms_validation" component={ SmsValidation } />
 
           </Switch>
         </div>
