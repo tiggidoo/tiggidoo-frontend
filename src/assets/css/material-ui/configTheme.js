@@ -43,6 +43,9 @@ const theme = createMuiTheme({
       margin: 0,
       textAlign: "center",
       
+      '@media (max-width:769px)': { 
+        fontSize: "30px",
+      },
       '@media (max-width:599px)': { 
         fontSize: "20px",
       }

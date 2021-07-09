@@ -8,7 +8,7 @@
     .row {
         margin-right: 0;
         margin-left: 0;
-        gap: 40px;
+        // gap: 40px;
     }
 
     .Validation_row {
@@ -18,8 +18,19 @@
         justify-content: center;
     }
 
-    .Validation_firstCol{
+    .Validation_firstCol {
         background-color: #fff;
+        margin-right: 40px;
+
+        @include breakpoint(tablet) {
+            margin-bottom: 40px;
+            margin-right: 0;
+        }
+
+        .Validation_col {
+            margin-right: 0;
+            margin-bottom: 0 !important;
+        }
     }
 
     .Validation_col {
@@ -31,17 +42,34 @@
             background-color: transparent;
         }
 
-        &>div.MuiBox-root.mb-5 {
+        & > div.MuiBox-root.mb-5 {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+        }
+
+        &:not(:last-child) {
+            margin-right: 40px;
+
+            @include breakpoint(tablet) {
+                margin-bottom: 40px;
+                margin-right: 0;
+            }
+        }
+
+        .Validation_col {
+            margin-right: 0;
+            margin-bottom: 0;
         }
     }
 
     .section__title {
         display: flex;
-        gap: 10px;
         align-items: center;
+
+        h6 {
+            margin-left: 10px;
+        }
     }
 
     h6 {
@@ -166,9 +194,20 @@
     .information_form {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px 27px;
         margin-top: 47px;
         justify-content: center;
+
+        .MuiFormControl-root:nth-child(2n+1){
+            margin-right: 14px;
+
+            @include breakpoint(mobile) {
+                margin-right: 0;
+            }
+        }
+
+        .MuiFormControl-root{
+            margin-bottom: 27px;
+        }
     }
 
     .MuiInputLabel-formControl {
@@ -294,14 +333,14 @@
     }
 
     .estimation_price {
-        color: $dodger-blue_6
+        color: $dodger-blue_6;
     }
 
-    .MuiLinearProgress-colorPrimary{
-        background-color: #AAAAAA;
+    .MuiLinearProgress-colorPrimary {
+        background-color: #aaaaaa;
     }
 
-    .MuiLinearProgress-barColorPrimary{
-        background-color: #F79C09;
+    .MuiLinearProgress-barColorPrimary {
+        background-color: #f79c09;
     }
 }
