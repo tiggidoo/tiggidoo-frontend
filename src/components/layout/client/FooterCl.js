@@ -66,7 +66,7 @@ function FooterCl({ t }) {
                                 <Typography variant="h5">{t("Footer.titleIcons")}</Typography>
                             </Box>
 
-                            <Box className="d-flex justify-content-around">
+                            {/* <Box className="d-flex justify-content-around">
                                 <Link to="www.facebook.com" className="animated_icon" target="_blanc">
                                     <img src={"images/facebook-tiggidoo.svg"} alt="Facebook" className="iconFacebook" />
                                 </Link>
@@ -79,7 +79,7 @@ function FooterCl({ t }) {
                                     <img src={"images/instgram-tiggidoo.svg"} alt="Instagrame" className="iconInstagram" />
                                 </Link>
                             </Box>
-                        
+                         */}
                     </Box>
                 </Box>
 

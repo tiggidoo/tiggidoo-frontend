@@ -1,7 +1,7 @@
 .Cladvantages {
     background-color: $azure-blue;
     color: #fff;
-    padding: 90px 5% 120px;
+    padding: 90px 5%;
 
     @include breakpoint(tablet) {
         padding: 90px 5% 45px;
