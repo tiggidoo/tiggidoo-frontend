@@ -6,8 +6,7 @@ import { withTranslation } from "react-i18next"
 import Footer from "../../../layout/client/FooterServ"
 import HeaderServ from "../../../layout/client/HeaderServ"
 
-import { Col, Row } from "react-bootstrap"
-import Button from '@material-ui/core/Button'
+import { Row } from "react-bootstrap"
 import { Typography, Box } from '@material-ui/core'
 import CodeInput from "../section-parts/CodeInput"
 import SmsIcon from '@material-ui/icons/Sms';

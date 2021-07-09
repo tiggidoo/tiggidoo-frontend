@@ -6,15 +6,31 @@
     background-color: #fff;
     padding: 40px;
 
+    @include breakpoint(tablet) {
+        width: 700px;
+    }
+
+    @include breakpoint(mobile) {
+        width: 300px;
+        margin: 263px auto 0;
+    }
+
     h2 {
         font-size: 25px;
 
+        @include breakpoint(mobile) {
+            font-size: 20px;
+        }
     }
 
     h3 {
         font-size: 20px;
         margin-top: 20px;
         margin-bottom: 40px;
+
+        @include breakpoint(mobile) {
+            font-size: 18px;
+        }
     }
 }
 
@@ -28,6 +44,10 @@
         letter-spacing: 14px;
         text-align: center;
         font-family: "Avenir_Regular";
+
+        @include breakpoint(mobile) {
+            font-size: 25px;
+        }
     }
 
     .MuiInput-underline::after, .MuiInput-underline::before {
