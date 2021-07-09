@@ -29,11 +29,6 @@ const Validation = ({ t }) => {
     const store = useStore();
     const dispatch = useDispatch();
 
-    if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) {
-        history.push('housing');
-        return <></>;
-    }
-
     const [personalData, setPersonalData] = useState({
         firstName: '',
         lastName: '',
@@ -46,6 +41,11 @@ const Validation = ({ t }) => {
     const [displayPasswords, setDisplayPasswords] = useState({ password: false, confirmPassword: false });
     const [showInfo, setShowInfo] = useState(false);
     const [errors, setErrors] = useState({});
+
+    if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) {
+        history.push('housing');
+        return <></>;
+    }
 
     const handlePersonalDataChange = (event) => {
         const name = event.target.name;
