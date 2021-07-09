@@ -3,7 +3,8 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-import { useStore } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
+import { estimationPersonalDataUpdate } from '../../../../../store/actions/estimationAction';
 
 import { Typography, Box } from '@material-ui/core'
 import FormGroup from '@material-ui/core/FormGroup';
@@ -26,8 +27,12 @@ const Validation = ({ t }) => {
     const history = useHistory();
     const location = useLocation();
     const store = useStore();
+    const dispatch = useDispatch();
 
-    if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) history.push('housing');
+    if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) {
+        history.push('housing');
+        return <></>;
+    }
 
     const [personalData, setPersonalData] = useState({
         firstName: '',
@@ -92,17 +97,17 @@ const Validation = ({ t }) => {
         const requestBody = { ...store.getState().estimation.settings, ...personalData, lag: 'fr' };
         requestBody.telephone = `+1${requestBody.telephone}`;
 
-        fetch(`https://www.api-tiggidoo.com/api/register/client`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(requestBody),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.error) console.log(data.error);
-                else history.push('thankyou');
-            })
-            .catch((err) => console.log(err));
+        estimationPersonalDataUpdate(requestBody)(dispatch);
+
+        try {
+            fetch('https://www.api-tiggidoo.com/api/twilio/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ telephone: requestBody.telephone }),
+            }).then(() => history.push('sms_validation'));
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const displaySpecificities = () => {

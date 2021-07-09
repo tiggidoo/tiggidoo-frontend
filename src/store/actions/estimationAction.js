@@ -8,6 +8,7 @@ import {
     ESTIMATION_HOUSING_VALIDATION_ERROR,
     ESTIMATION_HOUSING_VALIDATION_SUCCESS,
     ESTIMATION_LOCATION_UPDATE,
+    ESTIMATION_PERSONAL_DATA_UPDATE,
     FETCH_ESTIMATION,
 } from './typesAction';
 
@@ -54,6 +55,13 @@ export const estimationBenefitValidationSuccess = () => dispatch => {
 export const estimationBenefitValidationError = (payload) => dispatch => {
     dispatch({
         type: ESTIMATION_BENEFIT_VALIDATION_ERROR,
+        payload,
+    });
+};
+
+export const estimationPersonalDataUpdate = payload => dispatch => {
+    dispatch({
+        type: ESTIMATION_PERSONAL_DATA_UPDATE,
         payload,
     });
 };
