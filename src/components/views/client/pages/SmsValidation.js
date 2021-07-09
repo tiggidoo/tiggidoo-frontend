@@ -18,7 +18,7 @@ function SmsValidation({ t }) {
             <Box className="sms_validation">
                 <Typography variant="h2">{t("Client.Sms_validation.title")}</Typography>
 
-                <Typography variant="h3">{t("Client.Sms_validation.phone")}</Typography>
+                <Typography variant="h3">{t("Client.Sms_validation.phone")} <span>+1 (438)-929 9932</span></Typography>
 
                 <p>{t("Client.Sms_validation.text1")}</p>
 
