@@ -7,6 +7,7 @@ import {
   ESTIMATION_BENEFIT_UPDATE,
   FETCH_ESTIMATION,
   ESTIMATION_LOCATION_UPDATE,
+  ESTIMATION_PERSONAL_DATA_UPDATE,
 } from '../actions/typesAction';
 
 const initState = {
@@ -90,6 +91,12 @@ const estimationReducer = (state = initState, action) => {
         benefitSuccess: false,
         benefitError: true,
         benefitErrorsList: action.payload,
+      };
+
+    case ESTIMATION_PERSONAL_DATA_UPDATE:
+      return {
+        ...state,
+        ...{ settings: action.payload },
       };
 
     case FETCH_ESTIMATION:

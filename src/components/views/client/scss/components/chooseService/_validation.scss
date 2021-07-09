@@ -48,6 +48,7 @@
         color: #0d0e12;
         font-family: "Avenir_Black" !important;
         font-size: 17px;
+        text-transform: uppercase;
 
         @include breakpoint(mobile) {
             font-size: 14px;
@@ -81,6 +82,7 @@
     .recap_title {
         font-size: 20px;
         margin: 20px auto;
+        text-transform: uppercase;
 
         @include breakpoint(mobile) {
             font-size: 16px;

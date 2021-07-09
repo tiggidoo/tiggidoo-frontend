@@ -130,5 +130,10 @@
         min-width: 110px;
         margin: auto;
         text-align: center;
+
+        @include breakpoint(tablet) {
+            min-width: 93px;
+        }
+    
     }
 }

@@ -1,0 +1,61 @@
+
+.sms_validation{
+    margin: 300px auto 0;
+    text-align: center;
+    width: 1000px;
+    background-color: #fff;
+    padding: 40px;
+
+    @include breakpoint(tablet) {
+        width: 700px;
+    }
+
+    @include breakpoint(mobile) {
+        width: 300px;
+        margin: 263px auto 0;
+    }
+
+    h2 {
+        font-size: 25px;
+
+        @include breakpoint(mobile) {
+            font-size: 20px;
+        }
+    }
+
+    h3 {
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+
+        @include breakpoint(mobile) {
+            font-size: 18px;
+        }
+    }
+}
+
+.sms_code__wrapper{
+    margin: 50px auto;
+
+    input {
+        border: none !important;
+        border-bottom: 2px solid $dodger-blue_6 !important;
+        font-size: 30px;
+        letter-spacing: 14px;
+        text-align: center;
+        font-family: "Avenir_Regular";
+
+        @include breakpoint(mobile) {
+            font-size: 25px;
+        }
+    }
+
+    .MuiInput-underline::after, .MuiInput-underline::before {
+        display: none;
+    }
+
+    .sms_code__subtext{
+        color: $dove-gray_1;
+        margin-top: 10px;
+    }
+}

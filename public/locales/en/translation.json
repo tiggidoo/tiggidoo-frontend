@@ -480,6 +480,14 @@
         "Error":{
             "postcode_invalid_format": "Invalid post code format. Must be H3G0C7 or H3G 0C7",
             "postcode_required": "Post code is required"
+        },
+        "Sms_validation":{
+            "title": "Verification of the validation code",
+            "phone": "Phone Number",
+            "text1": "To continue, enter the validation code sent by message on your phone",
+            "text2": "Enter the 6-digit code",
+            "text3": "Don’t receive the text message",
+            "text4": "Return the text message"
         }
     }
 }

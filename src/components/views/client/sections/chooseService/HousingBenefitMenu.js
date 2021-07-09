@@ -21,8 +21,15 @@ const HousingBenefitMenu = ({ t }) => {
     const store = useStore();
     const dispatch = useDispatch();
 
-    if (location.pathname === '/housing' && !store.getState().estimation.settings.address) history.push('localisation');
-    if (location.pathname === '/benefit' && !store.getState().estimation.housingSuccess) history.push('housing');
+    if (location.pathname === '/housing' && !store.getState().estimation.settings.address) {
+        history.push('localisation');
+        return <></>;
+    }
+
+    if (location.pathname === '/benefit' && !store.getState().estimation.housingSuccess) {
+        history.push('housing');
+        return <></>;
+    };
 
     const validateHousingStep = () => {
         const errors = {};
