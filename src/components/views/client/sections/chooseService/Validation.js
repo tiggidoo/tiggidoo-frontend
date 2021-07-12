@@ -49,7 +49,10 @@ const Validation = ({ t }) => {
 
     const handlePersonalDataChange = (event) => {
         const name = event.target.name;
-        const value = event.target.value;
+        let value = event.target.value;
+
+        if (name === 'email') value = value.trim().replace(/\s/g, '');
+        if (name === 'telephone') value = value.trim().replace(/\D/g, '');
 
         setPersonalData({ ...personalData, [name]: value });
     };

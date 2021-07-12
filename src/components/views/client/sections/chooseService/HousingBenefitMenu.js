@@ -14,12 +14,15 @@ import HousingType from '../../sections/chooseService/HousingType';
 import Demande from '../../section-parts/Demande';
 import Balance from '../../section-parts/Balance';
 import Benefit from '../../sections/chooseService/Benefit';
+import { useState } from 'react';
 
 const HousingBenefitMenu = ({ t }) => {
     const history = useHistory();
     const location = useLocation();
     const store = useStore();
     const dispatch = useDispatch();
+
+    const [errors, setErrors] = useState({});
 
     if (location.pathname === '/housing' && !store.getState().estimation.settings.address) {
         history.push('localisation');
@@ -77,6 +80,8 @@ const HousingBenefitMenu = ({ t }) => {
 
     const goToNextStep = () => {
         const errors = validateCurrentStep();
+
+        setErrors(errors);
         
         if (Object.keys(errors).length !== 0) return;
 
@@ -111,19 +116,19 @@ const HousingBenefitMenu = ({ t }) => {
                             {t("Client.sideBar.demande_submit")}
                         </Button>
                         </div>
-                        {Object.keys(validateCurrentStep()).length !== 0 &&
-                        <Box className="error_box">
-                            <span>
-                                <img
-                                    src={"../images/icon_error.png"}
-                                    alt=""
-                                    className="error_icon"
-                                />
-                            </span>
+                        {Object.keys(errors).length !== 0 &&
+                            <Box className="error_box">
+                                <span>
+                                    <img
+                                        src={"../images/icon_error.png"}
+                                        alt=""
+                                        className="error_icon"
+                                    />
+                                </span>
 
-                            <span className="error_message">{t("Client.Validation.error_message")}</span>
-                        </Box>
-                    }
+                                <span className="error_message">{t("Client.Validation.error_message")}</span>
+                            </Box>
+                        }
                     </div>
 
                    

@@ -18,7 +18,7 @@ import DateFnsUtils from '@date-io/date-fns';
 
 import OptionsCard from '../../section-parts/OptionsCard';
 
-import { findClosestDate, generateCurrentDateToString } from '../../utils/date';
+import { findClosestDate } from '../../utils/date';
 
 const weekDay = { su: 1, mo: 2, tu: 3, we: 4, th: 5, fr: 6, sa: 7 };
 const reverseWeekDay = ['', 'su', 'mo', 'tu', 'we', 'th', 'fr', 'sa'];
@@ -29,11 +29,8 @@ const Benefit = ({ t }) => {
 
     const [frequency, setFrequency] = useState(0);
     const [days, setDays] = useState({ su: false, mo: false, tu: false, we: false, th: false, fr: false, sa: false, selected: 0 });
-    const [date, setDate] = useState(store.getState().estimation.settings.startDate ?? generateCurrentDateToString());
-    const [hours, setHours] = useState([
-        { weekDay: weekDay.th, weekDate: findClosestDate(weekDay.th, date), period: '' },
-        { weekDay: weekDay.sa, weekDate: findClosestDate(weekDay.sa, date), period: '' },
-    ]);
+    const [date, setDate] = useState(store.getState().estimation.settings.startDate ?? null);
+    const [hours, setHours] = useState([]);
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
@@ -47,13 +44,11 @@ const Benefit = ({ t }) => {
 
             if (houseworkWeekTime.length === 2) houseworkWeekTimeDays[reverseWeekDay[houseworkWeekTime[1]['weekDay']]] = true;
 
-            setDays({ ...days, ...{ th: false, sa: false, selected: houseworkWeekTime.length }, ...houseworkWeekTimeDays });
+            setDays({ ...days, ...{ selected: houseworkWeekTime.length }, ...houseworkWeekTimeDays });
             setHours(houseworkWeekTime);
         }
 
-        store.subscribe(() => {
-            setErrors(store.getState().estimation.benefitErrorsList);
-        });
+        store.subscribe(() => { setErrors(store.getState().estimation.benefitErrorsList); });
 
         const requestBody = {
             ...store.getState().estimation.settings,
@@ -67,10 +62,7 @@ const Benefit = ({ t }) => {
     }, []);
 
     const handleFrequencyChange = (event, value) => {
-        const requestBody = {
-            ...store.getState().estimation.settings,
-            houseworkFrequencyId: value + 1,
-        };
+        const requestBody = { ...store.getState().estimation.settings, houseworkFrequencyId: value + 1 };
 
         estimationBenefitUpdate(requestBody)(dispatch);
         fetchEstimation(requestBody)(dispatch);
@@ -90,7 +82,7 @@ const Benefit = ({ t }) => {
             requestBody.houseworkWeekTime.splice(requestBody.houseworkWeekTime.findIndex((element) => element.weekDay === weekDay[name]), 1);
         } else {
             selectedDays = days.selected + 1;
-            requestBody.houseworkWeekTime.push({ weekDay: weekDay[name], weekDate: findClosestDate(weekDay[name], date), period: '' });
+            requestBody.houseworkWeekTime.push({ weekDay: weekDay[name], weekDate: date ? findClosestDate(weekDay[name], date) : '', period: '' });
         }
 
         setDays({ ...days, [name]: value, selected: selectedDays });
@@ -113,22 +105,33 @@ const Benefit = ({ t }) => {
     };
 
     const handleDateChange = (event, value) => {
-        if (value.includes('_')) {
+        if (!value || value.includes('_')) {
             setDate(date);
             return;
         }
 
         const segmentedDate = value.split('/');
         const startDate = `${segmentedDate[2]}-${segmentedDate[0]}-${segmentedDate[1]}`;
-        const requestBody = {
-            ...store.getState().estimation.settings,
-            startDate,
-        };
+
+        if (!(new Date(value))) {
+            setDate(date);
+            return;
+        }
+
+        const weekDay = (new Date(startDate)).getDay() + 1;
+        const requestBody = { ...store.getState().estimation.settings, startDate };
 
         requestBody.houseworkWeekTime = requestBody.houseworkWeekTime.map((element) => {
             element.weekDate = findClosestDate(element.weekDay, startDate);
             return element;
         });
+
+        if (frequency === 0) {
+            if (hours.length !== 0) requestBody.houseworkWeekTime = [];
+
+            requestBody.houseworkWeekTime.push({ weekDay: weekDay, weekDate: findClosestDate(weekDay, startDate), period: '' });
+            setDays({ ...{ su: false, mo: false, tu: false, we: false, th: false, fr: false, sa: false }, [reverseWeekDay[weekDay]]: true, selected: 1 });
+        }
 
         setDate(value);
         setHours(requestBody.houseworkWeekTime);
@@ -209,7 +212,7 @@ const Benefit = ({ t }) => {
             <Box className="date_box">
                 <Typography variant="h3" className="HousingType__title">{t("Client.Benefit.title3")}</Typography>
 
-                {frequency == 0 &&
+                {frequency === 0 &&
                     <>
                         <p>{t("Client.Benefit.section3_desc1")}</p>
 
