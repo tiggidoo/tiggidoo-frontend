@@ -435,8 +435,6 @@
             "phone": "Cell number",
             "password": "Password",
             "confirm_password": "Confirm password",
-            "force_password": "Password strength",
-            "force_password_text": "That's a good start, keep going!",
             "terms_and_conditions": "I have read and accept",
             "terms_and_conditions_link": "the terms and conditions of use.",
             "confirm_housing": "I confirm that the home is a personal residence and is not rented out via online marketplaces (Airbnb, Booking, etc.)",
@@ -447,11 +445,11 @@
             "frequency_selected_3": "Bi-monthly",
             "frequency_selected_null": "",
             "password_strength": "Password strength",
-            "password_strength_message_1": "Sentence 1",
-            "password_strength_message_2": "Sentence 2",
-            "password_strength_message_3": "Sentence 3",
-            "password_strength_message_4": "Sentence 4",
-            "password_strength_message_5": "Sentence 5"
+            "password_strength_message_1": "Weak password",
+            "password_strength_message_2": "That's a good start, keep going!",
+            "password_strength_message_3": "Medium password",
+            "password_strength_message_4": "Satrong password",
+            "password_strength_message_5": "Very Strong password"
         },
         "Location": {
             "title": "LET'S START WITH YOUR POSTAL CODE",

@@ -353,10 +353,10 @@ const Validation = ({ t }) => {
                             </FormControl>
 
                             {personalData.password.length > 0 &&
-                                <div class={{width: '100%'}}>
-                                    <Typography variant="body2">{t('Client.Validation.password_strength')}</Typography>
+                                <div className="progress_bar">
+                                    <p className="password_strength">{t('Client.Validation.password_strength')}</p>
                                     <LinearProgress className="progress" variant="determinate" value={getPasswordStrength(personalData.password) * 20} />
-                                    <Typography variant="body2">{t(`Client.Validation.password_strength_message_${getPasswordStrength(personalData.password)}`)}</Typography>
+                                    <p className="password_strength_message">{t(`Client.Validation.password_strength_message_${getPasswordStrength(personalData.password)}`)}</p>
                                 </div>
                             }
                         </form>

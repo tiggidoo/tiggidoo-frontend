@@ -197,7 +197,7 @@
         margin-top: 47px;
         justify-content: center;
 
-        .MuiFormControl-root:nth-child(2n+1){
+        .MuiFormControl-root:nth-child(2n + 1) {
             margin-right: 14px;
 
             @include breakpoint(tablet) {
@@ -210,7 +210,7 @@
             }
         }
 
-        .MuiFormControl-root{
+        .MuiFormControl-root {
             margin-bottom: 27px;
         }
     }
@@ -280,6 +280,39 @@
         }
     }
 
+    .progress_bar {
+        width: 100%;
+        margin-left: 6%;
+
+        @include breakpoint(tablet) {
+            margin-left: 91px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-left: 0;
+        }
+    }
+
+    .password_strength {
+        font-family: "Avenir_Heavy";
+        color: #1d1e21;
+        font-size: 15px;
+
+        @include breakpoint(mobile) {
+            font-size: 12px;
+        }
+    }
+
+    .password_strength_message {
+        color: #a5a4a6;
+        font-size: 14px;
+        margin-top: 1rem;
+
+        @include breakpoint(mobile) {
+            font-size: 11px;
+        }
+    }
+
     .estimation_box {
         border-top: solid 2px $dove-gray_2;
     }
@@ -343,18 +376,25 @@
 
     .MuiLinearProgress-colorPrimary {
         background-color: #aaaaaa;
-        margin-left: 6%;
 
-        @include breakpoint(tablet) {
-            margin-left: 91px;
+        &[aria-valuenow="20"] {
+            .MuiLinearProgress-barColorPrimary {
+                background-color: $coral-red;
+            }
         }
 
-        @include breakpoint(mobile) {
-            margin-left: 0;
+        &[aria-valuenow="40"],
+        &[aria-valuenow="60"] {
+            .MuiLinearProgress-barColorPrimary {
+                background-color: #f79c09;
+            }
         }
-    }
 
-    .MuiLinearProgress-barColorPrimary {
-        background-color: #f79c09;
+        &[aria-valuenow="80"],
+        &[aria-valuenow="100"] {
+            .MuiLinearProgress-barColorPrimary {
+                background-color: $shamrock;
+            }
+        }
     }
 }

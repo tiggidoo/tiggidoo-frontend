@@ -131,6 +131,18 @@
     }
 }
 
+.options_box {
+    .MuiFormControlLabel-label {
+        font-family: "Avenir_Regular";
+        font-size: 17px;
+        min-width: 35px;
+
+        @include breakpoint(mobile){
+            font-size: 15px;
+        }
+    }
+}
+
 .options_list {
     display: flex;
     flex-wrap: wrap;
