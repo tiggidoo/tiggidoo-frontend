@@ -158,6 +158,52 @@ const Validation = ({ t }) => {
         return elements;
     };
 
+    const getPasswordStrength = (password) => {
+        if (!password || password === '') return 1;
+
+        const hasUppers = /[A-Z]/.test(password);
+        const hasLowers = /[a-z]/.test(password);
+        const hasSpecialChars =  /\W|_/.test(password);
+        const hasNumeric = /[0-9]/.test(password);
+
+        if (password.length > 8 && hasUppers && hasLowers && hasSpecialChars && hasNumeric) {
+            return 5;
+        }
+
+        if (password.length > 8 &&
+            (
+                (hasUppers && hasLowers && hasSpecialChars) ||
+                (hasUppers && hasLowers && hasNumeric) ||
+                (hasUppers && hasSpecialChars && hasNumeric) ||
+                (hasLowers && hasSpecialChars && hasNumeric)
+            )
+        ) {
+            return 4;
+        }
+
+        if (password.length > 8 &&
+            (
+                (hasUppers && (hasLowers || hasSpecialChars || hasNumeric)) ||
+                (hasLowers && (hasSpecialChars || hasNumeric)) ||
+                (hasSpecialChars && hasNumeric)
+            )
+        ) {
+            return 3;
+        }
+
+        if (password.length > 6 &&
+            (
+                (hasUppers && (hasLowers || hasSpecialChars || hasNumeric)) ||
+                (hasLowers && (hasSpecialChars || hasNumeric)) ||
+                (hasSpecialChars && hasNumeric)
+            )
+        ) {
+            return 2;
+        }
+
+        return 1;
+    };
+
     return (
         <Box className="Validation">
             <p>{t("Client.Validation.intro")}</p>
@@ -305,9 +351,15 @@ const Validation = ({ t }) => {
                                     }
                                 />
                             </FormControl>
-                        </form>
 
-                        <LinearProgress className="progress" variant="determinate" value={50} />
+                            {personalData.password.length > 0 &&
+                                <div class={{width: '100%'}}>
+                                    <Typography variant="body2">{t('Client.Validation.password_strength')}</Typography>
+                                    <LinearProgress className="progress" variant="determinate" value={getPasswordStrength(personalData.password) * 20} />
+                                    <Typography variant="body2">{t(`Client.Validation.password_strength_message_${getPasswordStrength(personalData.password)}`)}</Typography>
+                                </div>
+                            }
+                        </form>
                     </Box>
                 </Col>
 
