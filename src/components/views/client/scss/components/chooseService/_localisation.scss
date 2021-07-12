@@ -21,15 +21,9 @@
 
     .Localisation_subtext {
         display: flex;
-        gap: 30px;
 
         @include breakpoint(tablet) {
             flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        @include breakpoint(mobile) {
-            gap: 18px;
         }
 
         p {
@@ -37,6 +31,22 @@
             text-transform: uppercase;
             color: $dodger-blue_6;
             font-size: 17px;
+
+            @include breakpoint(mobile) {
+                font-size: 13px;
+            }
+
+            &:first-child {
+                margin-right: 30px;
+
+                @include breakpoint(tablet) {
+                    margin-right: 20px;
+                }
+
+                @include breakpoint(mobile) {
+                    margin-right: 18px;
+                }
+            }
         }
     }
 
@@ -130,7 +140,7 @@
     text-decoration: underline;
 }
 
-.btn_green_bg.connect_link{
+.btn_green_bg.connect_link {
     @include breakpoint(tablet) {
         font-size: 15px;
     }

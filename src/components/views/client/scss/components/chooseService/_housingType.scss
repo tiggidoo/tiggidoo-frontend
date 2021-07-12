@@ -47,6 +47,11 @@
         height: inherit;
         background-color: transparent;
 
+        @include breakpoint(tablet) {
+            max-width: 633px;
+            margin: auto
+        }
+
         @include breakpoint(mobile) {
             flex-wrap: wrap;
             // gap: 17px;
@@ -57,8 +62,7 @@
         justify-content: flex-start !important;
 
         @include breakpoint(tablet) {
-            justify-content: space-between !important;
-            gap: 10px;
+            justify-content: center !important;
         }
     }
 
@@ -74,7 +78,7 @@
         margin-right: 50px !important;
 
         @include breakpoint(tablet) {
-            margin-right: 0 !important;
+            margin-right: 10px !important;
         }
 
         @include breakpoint(mobile) {
@@ -82,7 +86,7 @@
             max-height: 100px !important;
             width: 100px !important;
             max-width: 100px !important;
-            margin: auto !important;
+            margin: 20px !important;
         }
 
         &.MuiBottomNavigationAction-root.Mui-selected {

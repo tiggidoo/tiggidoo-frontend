@@ -104,7 +104,19 @@
 
         @for $i from 1 to 4 {
             &:nth-of-type(#{$i}) {
-                left: 0px + (($i - 1) * 215);
+                left: 140px + (($i - 1) * 215);
+            }
+        }
+    }
+
+    @include breakpoint(ipad) {
+        width: 180px;
+        top: 125px;
+        font-size: 15px;
+
+        @for $i from 1 to 4 {
+            &:nth-of-type(#{$i}) {
+                left: 16px + (($i - 1) * 215);
             }
         }
     }
