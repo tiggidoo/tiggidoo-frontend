@@ -35,7 +35,7 @@ const Demande = ({ t }) => {
 
         elements.push(<li key="1">{t(`Client.Validation.frequency_selected_${houseworkFrequencyId}`)}</li>);
 
-        elements.push(<li key="3">{t('Client.Time.a-partir-du', { date: startDate })}</li>);
+        if (settings.houseworkFrequencyId !== 1) elements.push(<li key="3">{t('Client.Time.a-partir-du', { date: startDate })}</li>);
 
         return elements;
     };
@@ -59,15 +59,11 @@ const Demande = ({ t }) => {
         <div className="demande__housing_specification">
             <h2>{t("Client.sideBar.demande")}</h2>
 
-            {store.getState().estimation.housingCategoryId !== 1 && (
-                <>
-                    <h4>{t("Client.sideBar.housing")}</h4>
+            <h4>{t("Client.sideBar.housing")} ({t(`Client.Logement.housingCategory_${settings.housingCategoryId}`)})</h4>
 
-                    <ul className="recap_list">
-                        {displaySpecificities()}
-                    </ul>
-                </>
-            )}
+            <ul className="recap_list">
+                {displaySpecificities()}
+            </ul>
 
             {store.getState().estimation.housingSuccess && (
                 <>
@@ -79,15 +75,11 @@ const Demande = ({ t }) => {
                 </>
             )}
 
-            {store.getState().estimation.housingSuccess && (
-                <>
-                    <h4>{t("Client.Validation.bloc1_texte4")}</h4>
+            <h4>{t("Client.Validation.bloc1_texte4")}</h4>
 
-                    <ul className="recap_list">
-                        {displayOptions()}
-                    </ul>
-                </>
-            )}
+            <ul className="recap_list">
+                {displayOptions()}
+            </ul>
         </div>
     );
 };

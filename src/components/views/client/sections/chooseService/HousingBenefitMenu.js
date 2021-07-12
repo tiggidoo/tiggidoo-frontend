@@ -54,6 +54,7 @@ const HousingBenefitMenu = ({ t }) => {
 
         if (settings.houseworkWeekTime && settings.houseworkWeekTime.length === 0) errors.days = true;
         if (!settings.startDate || settings.startDate.includes('_')) errors.date = true;
+        if (!settings.houseworkPersonalization.product_ecological && !settings.houseworkPersonalization.product_standard && !settings.suppliesAcceptation) errors.suppliesAcceptation = true;
 
         for (const day in settings.houseworkWeekTime) {
             if (settings.houseworkWeekTime[day]['period'] === '') errors.hours = true;
