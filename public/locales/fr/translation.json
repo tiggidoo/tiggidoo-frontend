@@ -448,8 +448,6 @@
             "phone": "Célulaire",
             "password": "Mot de passe",
             "confirm_password": "Confirmation mot de passe",
-            "force_password": "Force mot de passe",
-            "force_password_text": "C’est le bon chemin, continuez comme ça!",
             "terms_and_conditions": "J’ai lu et accepté",
             "terms_and_conditions_link": "les termes et conditions d’utilisation.",
             "confirm_housing": "Je confirme que le logement est une résidence personnelle, qui ne fait l’objet d’aucune location via des sites prestataires (Airbnb, Booking, Etc.)",
@@ -459,6 +457,12 @@
             "frequency_selected_2": "Hebdomadaire",
             "frequency_selected_3": "Bi-mensuel",
             "frequency_selected_null": ""
+            "password_strength": "Force du mot de passe",
+            "password_strength_message_1": "Mot de passe faible",
+            "password_strength_message_2": "C’est le bon chemin, continuez comme ça!",
+            "password_strength_message_3": "Mot de passe moyen",
+            "password_strength_message_4": "Mot de passe fort",
+            "password_strength_message_5": "Mot de passe très fort"
         },
         "Location": {
             "title": "COMMENÇONS PAR VOTRE CODE POSTAL",
