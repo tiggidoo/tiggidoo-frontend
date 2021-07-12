@@ -1,6 +1,6 @@
 
 .sms_validation{
-    margin: 300px auto 0;
+    margin: 100px auto 0;
     text-align: center;
     width: 1000px;
     background-color: #fff;
@@ -12,7 +12,7 @@
 
     @include breakpoint(mobile) {
         width: 300px;
-        margin: 263px auto 0;
+        margin: 63px auto 0;
     }
 
     h2 {
