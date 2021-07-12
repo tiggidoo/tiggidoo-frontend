@@ -1,5 +1,5 @@
 .Localisation {
-    margin: 300px auto 100px;
+    margin: 100px auto;
     max-width: 1300px;
 
     .col-md-5 {
@@ -7,12 +7,12 @@
     }
 
     @include breakpoint(tablet) {
-        margin: 318px 30px 89px;
+        margin: 48px 30px 53px;
         min-height: 45vh;
     }
 
     @include breakpoint(mobile) {
-        margin: 270px 20px 51px;
+        margin: 46px 20px 51px;
     }
 
     h3 {

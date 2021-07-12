@@ -1,11 +1,11 @@
 .sidebar {
-    margin-top: 330px;
+    margin-top: 130px;
     max-width: 350px;
     margin-left: auto;
     background: #fff;
     position: sticky;
     position: -webkit-sticky;
-    top: 330px;
+    top: 86px;
 
     @include breakpoint(tablet) {
         margin-top: 0;
