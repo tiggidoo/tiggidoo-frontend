@@ -378,7 +378,7 @@
             "title1": "Cleaning frequency",
             "title2": "Personalize your cleaning",
             "title3": "Time and date of the cleaning",
-            "section1_title1": "ONE SHOT",
+            "section1_title1": "One Shot",
             "section1_subtitle1": "1 time",
             "section1_title2": "Weekly",
             "section1_subtitle2": "1 time per week",
@@ -398,7 +398,8 @@
             "houseworkPersonalization_product_standard": "Products",
             "section2_option6_desc": "The PRO uses standard cleaning products",
             "section2_agree": "I agree to provide all necessary cleaning products for a successful service.",
-            "section3_desc": "Dans un premier temps, indiquez vos jours de disponibilité pour le ménage (2 maximum), ensuite veuillez indiquez la date de début du premier ménage, ainsi que les créneaux horaires souhaités.",
+            "section3_desc1": "Indicate the day of availability for cleaning, then please indicate the desired time slot..",
+            "section3_desc2": "First, indicate your days of availability for cleaning (2 maximum), then please indicate the start date of the first cleaning, as well as the desired time slots.",
             "section3_option1": "Indicate the available day for the cleaning and then select the preferred time slot.",
             "section3_option2": "Choose the date of the cleaning",
             "section3_option3": "Choose the time slot",
@@ -414,11 +415,20 @@
             "ven": "Fri",
             "sam": "Sat"
         },
+        "FullDays": {
+            "su": "Sunday",
+            "mo": "Monday",
+            "tu": "Tuesday",
+            "we": "Wednesday",
+            "th": "Thursday",
+            "fr": "Friday",
+            "sa": "Saterday"
+        },
         "Time": {
             "morning": "Mornig (8H -13H)",
             "afternoon": "Afternoon (13H -19H)",
             "any": "I do not care",
-            "a-partir-du": "FROM THE",
+            "a-partir-du": "From the",
             "every": "Every"
         },
         "Validation": {

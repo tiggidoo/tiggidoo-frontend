@@ -18,6 +18,10 @@
         margin-bottom: 49px !important;
     }
 
+    @include breakpoint(mobile) {
+        margin-bottom: 17px !important;
+    }
+
     .MuiBottomNavigationAction-wrapper {
         margin-top: -53px;
 
@@ -31,13 +35,14 @@
         font-size: 20px;
         font-family: "Avenir_Black";
         color: $dodger-blue_6;
+        text-transform: uppercase;
 
         @include breakpoint(tablet) {
             font-size: 18px;
             margin-top: 15px;
         }
 
-        @include breakpoint(mobile){
+        @include breakpoint(mobile) {
             font-size: 15px;
         }
 
@@ -99,7 +104,19 @@
 
         @for $i from 1 to 4 {
             &:nth-of-type(#{$i}) {
-                left: 0px + (($i - 1) * 215);
+                left: 140px + (($i - 1) * 215);
+            }
+        }
+    }
+
+    @include breakpoint(ipad) {
+        width: 180px;
+        top: 125px;
+        font-size: 15px;
+
+        @for $i from 1 to 4 {
+            &:nth-of-type(#{$i}) {
+                left: 16px + (($i - 1) * 215);
             }
         }
     }
@@ -126,6 +143,10 @@
 .date_box {
     margin-top: 80px;
 
+    @include breakpoint(tablet) {
+        margin-top: 40px;
+    }
+
     p {
         margin-bottom: 30px;
     }
@@ -146,22 +167,21 @@
     padding: 35px 20px;
     margin-bottom: 70px;
 
-    @include breakpoint(tablet){
+    @include breakpoint(tablet) {
         flex-wrap: wrap;
         gap: 30px;
     }
-    
-    @include breakpoint(mobile){
+
+    @include breakpoint(mobile) {
         padding: 25px 10px;
         gap: 20px;
     }
-    
 
     h6 {
         font-size: 17px !important;
         color: #000;
 
-        @include breakpoint(mobile){
+        @include breakpoint(mobile) {
             font-size: 15px !important;
         }
     }
@@ -180,7 +200,7 @@
     .firstdate__container,
     .days__container,
     .hours__container {
-        padding: 0 20px;
+        padding: 0 8px;
     }
 
     .days__container {
@@ -197,7 +217,7 @@
             font-size: 17px;
             min-width: 35px;
 
-            @include breakpoint(mobile){
+            @include breakpoint(mobile) {
                 font-size: 15px;
             }
         }
@@ -211,7 +231,7 @@
             text-transform: uppercase;
             margin-bottom: 10px !important;
 
-            @include breakpoint(mobile){
+            @include breakpoint(mobile) {
                 font-size: 15px !important;
             }
         }
@@ -221,7 +241,7 @@
             font-size: 15px;
             font-family: "Avenir_Regular";
 
-            @include breakpoint(mobile){
+            @include breakpoint(mobile) {
                 width: 145px;
                 font-size: 12px;
             }
@@ -231,8 +251,8 @@
             margin-bottom: 30px;
         }
 
-        .MuiFormControl-root{
-            @include breakpoint(tablet){
+        .MuiFormControl-root {
+            @include breakpoint(tablet) {
                 margin-right: 20px;
             }
         }
@@ -240,20 +260,33 @@
         .MuiInputBase-root {
             font-family: "Avenir_Regular";
         }
+
+        .section__title {
+            min-width: 277px;
+
+            @include breakpoint(mobile) {
+                min-width: 177px;
+            }
+        }
     }
 
     .firstdate__container {
         .MuiFormControl-marginNormal {
             margin-top: 0;
             min-width: 250px;
+
+            @include breakpoint(mobile) {
+                min-width: 177px;
+            }
         }
 
         label {
             font-family: "Avenir_Black";
             font-size: 17px;
             margin-bottom: 10px !important;
+            text-transform: uppercase;
 
-            @include breakpoint(mobile){
+            @include breakpoint(mobile) {
                 font-size: 15px;
             }
         }
@@ -267,7 +300,7 @@
             font-size: 17px;
             padding-left: 20px;
 
-            @include breakpoint(mobile){
+            @include breakpoint(mobile) {
                 font-size: 15px;
             }
         }
@@ -275,7 +308,8 @@
         .MuiInputBase-formControl {
             border: 2px solid $gray;
 
-            &::before {
+            &::before,
+            &::after {
                 border: none;
                 content: none;
             }
@@ -283,6 +317,10 @@
             &:focus,
             &:active {
                 border: 2px solid $dodger-blue_6;
+            }
+
+            &.Mui-error {
+                border: 2px solid $coral-red;
             }
         }
 

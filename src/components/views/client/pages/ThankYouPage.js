@@ -1,17 +1,20 @@
 
-import "../scss/app.scss"
+import '../scss/app.scss';
 
-import { withTranslation } from "react-i18next"
+import { withTranslation } from 'react-i18next';
+import { Col, Row } from 'react-bootstrap';
 
-import Footer from "../../../layout/client/FooterServ"
-import HeaderServ from "../../../layout/client/HeaderServ"
+import { useStore } from 'react-redux';
 
-import { Col, Row } from "react-bootstrap"
-import Button from '@material-ui/core/Button'
-import { Typography, Box } from '@material-ui/core'
+import Footer from '../../../layout/client/FooterServ';
+import HeaderServ from '../../../layout/client/HeaderServ';
 
+import Button from '@material-ui/core/Button';
+import { Typography, Box } from '@material-ui/core';
 
 function ThankYouPage({ t }) {
+    const store = useStore();
+
     return (
         <div>
             <HeaderServ />
@@ -23,7 +26,7 @@ function ThankYouPage({ t }) {
                         className="finished_icon"
                     />
 
-                    <Typography variant="h2" className="mb-5">{t("Client.ThankyouPage.bloc1_text1")} <span className="blue_text">Maxim</span></Typography>
+                    <Typography variant="h2" className="mb-5">{t("Client.ThankyouPage.bloc1_text1")} <span className="blue_text">{store.getState().estimation.settings.firstName}</span></Typography>
                     <Typography variant="h2" className="mb-3">{t("Client.ThankyouPage.bloc1_text2")}</Typography>
                     <Typography variant="h3" className="blue_text">{t("Client.ThankyouPage.bloc1_text3")}</Typography>
 
@@ -58,7 +61,7 @@ function ThankYouPage({ t }) {
             
             <Footer />
         </div>
-    )
-}
+    );
+};
 
-export default withTranslation()(ThankYouPage)
+export default withTranslation()(ThankYouPage);

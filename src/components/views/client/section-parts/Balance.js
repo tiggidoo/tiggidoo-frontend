@@ -17,7 +17,7 @@ const Balance = ({ t }) => {
         <div className="demande__balance">
             <div className="balance__title">
                 <h2>{t("Client.sideBar.estimation")}</h2>
-                <h4>${totalPrice}</h4>
+                <h4>{totalPrice} <span>$</span></h4>
             </div>
 
             <Button onClick={() => setShowInfo(!showInfo)} className="balance__info">

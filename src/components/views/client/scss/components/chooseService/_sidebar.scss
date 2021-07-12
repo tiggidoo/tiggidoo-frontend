@@ -1,11 +1,10 @@
 .sidebar {
-    margin-top: 330px;
+    margin-top: 130px;
     max-width: 350px;
     margin-left: auto;
-    background: #fff;
     position: sticky;
     position: -webkit-sticky;
-    top: 330px;
+    top: 86px;
 
     @include breakpoint(tablet) {
         margin-top: 0;
@@ -86,4 +85,21 @@
 .balance__title {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    h4 {
+        font-size: 30px;
+
+        @include breakpoint(mobile) {
+            font-size: 20px;
+        }
+
+        span {
+            color: $dodger-blue_6;
+        }
+    }
+}
+
+.sidebar_inner {
+    background: #fff;
 }
