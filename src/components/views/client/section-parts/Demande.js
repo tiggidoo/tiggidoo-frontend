@@ -19,7 +19,9 @@ const Demande = ({ t }) => {
         let elements = [];
 
         for (const specificity in specificities) {
-            elements.push(<li key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
+            if (specificities[specificity] !== 0) {
+                elements.push(<li key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
+            }
         }
 
         return elements;
@@ -44,13 +46,12 @@ const Demande = ({ t }) => {
         let elements = [];
 
         for (const option in options) {
-            if (typeof options[option] === 'number') {
+            if (typeof options[option] === 'number' && options[option] !== 0) {
                 elements.push(<li key={option}>{options[option]} {t(`Client.Benefit.houseworkPersonalization_${option}`)}</li>);
-            } else {
+            } else if (options[option] == true) {
                 elements.push(<li key={option}>{t(`Client.Benefit.houseworkPersonalization_${option}`)}</li>);
             }
         }
-
         return elements;
     };
 

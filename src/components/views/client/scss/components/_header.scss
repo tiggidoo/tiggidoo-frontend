@@ -109,7 +109,7 @@
 }
 
 .clientNav__nav--scrolled {
-    padding: 46px 2% 29px 5%;
+    padding: 22px 5%;
 
     @include breakpoint(tablet) {
         padding: 30px 5%;
@@ -121,10 +121,6 @@
 */
 .ServiceNav {
     background: #fff;
-    transition: ease-in 0.3s;
-    position: fixed;
-    top: 0;
-    z-index: 999;
     padding: 40px 5%;
     width: 100%;
     display: block;

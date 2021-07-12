@@ -24,17 +24,15 @@ const CodeInput = ({ t }) => {
     const submit = (sms) => {
         const requestBody = { ...store.getState().estimation.settings, sms };
 
-        fetch('https://www.api-tiggidoo.com/api/register/client', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(requestBody),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.error) console.log(data.error);
-                else history.push('thankyou');
-            })
-            .catch((err) => console.log(err));
+        try {
+            fetch('https://www.api-tiggidoo.com/api/register/client', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestBody),
+            }).then((res) => history.push('thankyou'));
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     return (
