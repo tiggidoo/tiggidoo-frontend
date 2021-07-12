@@ -102,7 +102,8 @@
     }
 
     &.active {
-        border: solid 1px #2880f9;
+        border: solid 2px #2880f9;
+        box-shadow: 0px 3px 6px #00000029;
 
         img {
             filter: invert(51%) sepia(53%) saturate(5770%) hue-rotate(200deg) brightness(97%) contrast(102%);

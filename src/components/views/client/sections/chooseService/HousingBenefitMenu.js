@@ -74,9 +74,10 @@ const HousingBenefitMenu = ({ t }) => {
         if (location.pathname === '/benefit') history.push('validation');
     };
 
+
     const goToNextStep = () => {
         const errors = validateCurrentStep();
-
+        
         if (Object.keys(errors).length !== 0) return;
 
         changeStep();
@@ -102,13 +103,30 @@ const HousingBenefitMenu = ({ t }) => {
 
                 <Col xl={3} lg={12} md={12} sm={12}>
                     <div className="sidebar">
+                        <div className="sidebar_inner"> 
                         <Demande />
                         <Balance />
 
                         <Button variant="contained" className="sidebar__submit" onClick={goToNextStep}>
                             {t("Client.sideBar.demande_submit")}
                         </Button>
+                        </div>
+                        {Object.keys(validateCurrentStep()).length !== 0 &&
+                        <Box className="error_box">
+                            <span>
+                                <img
+                                    src={"../images/icon_error.png"}
+                                    alt=""
+                                    className="error_icon"
+                                />
+                            </span>
+
+                            <span className="error_message">{t("Client.Validation.error_message")}</span>
+                        </Box>
+                    }
                     </div>
+
+                   
                 </Col>
             </Row>
 

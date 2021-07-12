@@ -82,7 +82,7 @@ const Validation = ({ t }) => {
         if (password === '') errors.password = true;
         if (confirmPassword === '') errors.confirmPassword = true;
         if (password !== confirmPassword) errors.password = errors.confirmPassword = true;
-    
+
         if (!conditionAcceptation.cgu) errors.cgu = true;
         if (!conditionAcceptation.personalHouse) errors.personalHouse = true;
 
@@ -116,7 +116,9 @@ const Validation = ({ t }) => {
         let elements = [];
 
         for (const specificity in specificities) {
-            elements.push(<li key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
+            if (specificities[specificity] !== 0) {
+                elements.push(<li key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
+            }
         }
 
         return elements;
@@ -128,9 +130,9 @@ const Validation = ({ t }) => {
         let elements = [];
 
         for (const option in options) {
-            if (typeof options[option] === 'number') {
+            if (typeof options[option] === 'number' && options[option] !== 0) {
                 elements.push(<li key={option}>{options[option]} {t(`Client.Benefit.houseworkPersonalization_${option}`)}</li>);
-            } else {
+            } else if (options[option] == true) {
                 elements.push(<li key={option}>{t(`Client.Benefit.houseworkPersonalization_${option}`)}</li>);
             }
         }
@@ -152,7 +154,7 @@ const Validation = ({ t }) => {
         // } else {
         //     elements.push(<li key="2">{t('Client.Validation.days_selected', { [Object.keys(houseworkWeekTime)[0]]: Object.values(houseworkWeekTime)[0], [Object.keys(houseworkWeekTime)[1]]: Object.values(houseworkWeekTime)[1] })}</li>);
         // }
-        
+
         elements.push(<li key="3">{t('Client.Time.a-partir-du', { date: startDate })}</li>);
 
         return elements;
@@ -171,7 +173,7 @@ const Validation = ({ t }) => {
                         </Box>
 
                         <Box className="validation_recap">
-                            <p className="blue__title">{t("Client.Location.section1_text2")}</p>
+                            <p className="blue__title">{t("Client.Validation.bloc1_texte1")}</p>
 
                             <h5 className="recap_title">{t("Client.Validation.bloc1_texte2")}</h5>
 
@@ -372,7 +374,7 @@ const Validation = ({ t }) => {
 
             <div className="services_footer">
                 <p>{t("Client.Logement.footer_text")} <a href="http://">{t("Client.Logement.footer_link")}</a></p>
-            </div>                         
+            </div>
         </Box>
     )
 };

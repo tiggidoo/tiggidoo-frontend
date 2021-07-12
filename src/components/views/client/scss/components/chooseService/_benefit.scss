@@ -35,6 +35,7 @@
         font-size: 20px;
         font-family: "Avenir_Black";
         color: $dodger-blue_6;
+        text-transform: uppercase;
 
         @include breakpoint(tablet) {
             font-size: 18px;
@@ -271,6 +272,7 @@
             font-family: "Avenir_Black";
             font-size: 17px;
             margin-bottom: 10px !important;
+            text-transform: uppercase;
 
             @include breakpoint(mobile) {
                 font-size: 15px;
@@ -294,7 +296,8 @@
         .MuiInputBase-formControl {
             border: 2px solid $gray;
 
-            &::before {
+            &::before,
+            &::after {
                 border: none;
                 content: none;
             }
@@ -302,6 +305,10 @@
             &:focus,
             &:active {
                 border: 2px solid $dodger-blue_6;
+            }
+
+            &.Mui-error {
+                border: 2px solid $coral-red;
             }
         }
 

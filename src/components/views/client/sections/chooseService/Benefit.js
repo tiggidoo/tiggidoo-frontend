@@ -142,7 +142,7 @@ const Benefit = ({ t }) => {
             if (days[day] && day !== 'selected') {
                 toDisplay.push(
                     <FormControl key={day} required error={errors?.hours ? true : false}>
-                        <InputLabel id={day}>{t("Client.Time.every")} {day}</InputLabel>
+                        <InputLabel id={day}>{t("Client.Time.every")} {t(`Client.FullDays.${day}`)}</InputLabel>
 
                         <Select
                             labelId={day}
@@ -223,6 +223,7 @@ const Benefit = ({ t }) => {
 
                                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                         <KeyboardDatePicker
+                                            disablePast
                                             disableToolbar
                                             variant="inline"
                                             format="MM/dd/yyyy"
@@ -238,111 +239,112 @@ const Benefit = ({ t }) => {
                                         />
                                     </MuiPickersUtilsProvider>
                                 </Box>
+                            </Box>
 
-                                <Box className="hours__container">
-                                    <Box className="section__title">
-                                        <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">2</text></svg>
-                                        <Typography variant="h6">{t("Client.Benefit.section3_option2")}</Typography>
-                                    </Box>
-
-                                    {displayHoursFromDays()}
-
+                            <Box className="hours__container">
+                                <Box className="section__title">
+                                    <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">2</text></svg>
+                                    <Typography variant="h6">{t("Client.Benefit.section3_option2")}</Typography>
                                 </Box>
+
+                                {displayHoursFromDays()}
+
                             </Box>
                         </Box>
                     </>
                 }
 
-                        {frequency !== 0 && <>
-                            <p>{t("Client.Benefit.section3_desc2")}</p>
+                {frequency !== 0 && <>
+                    <p>{t("Client.Benefit.section3_desc2")}</p>
 
-                            <Box className="date_box__container">
-                                <Box className="days__container">
-                                    <Box className="section__title">
-                                        <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">1</text></svg>
-                                        <Typography className={`${errors.days ? "error" : ""}`} variant="h6">{t("Client.Benefit.section3_option1")}</Typography>
-                                    </Box>
-
-                                    <Box>
-                                        <FormGroup>
-                                            <FormControlLabel
-                                                control={<Checkbox checked={days.su} onChange={handleDayChange} name="su" color="primary" />}
-                                                label={t("Client.Days.dim")}
-                                                labelPlacement="start"
-                                            />
-                                            <FormControlLabel
-                                                control={<Checkbox checked={days.mo} onChange={handleDayChange} name="mo" color="primary" />}
-                                                label={t("Client.Days.lun")}
-                                                labelPlacement="start"
-                                            />
-                                            <FormControlLabel
-                                                control={<Checkbox checked={days.tu} onChange={handleDayChange} name="tu" color="primary" />}
-                                                label={t("Client.Days.mar")}
-                                                labelPlacement="start"
-                                            />
-                                            <FormControlLabel
-                                                control={<Checkbox checked={days.we} onChange={handleDayChange} name="we" color="primary" />}
-                                                label={t("Client.Days.mer")}
-                                                labelPlacement="start"
-                                            />
-                                            <FormControlLabel
-                                                control={<Checkbox checked={days.th} onChange={handleDayChange} name="th" color="primary" />}
-                                                label={t("Client.Days.jeu")}
-                                                labelPlacement="start"
-                                            />
-                                            <FormControlLabel
-                                                control={<Checkbox checked={days.fr} onChange={handleDayChange} name="fr" color="primary" />}
-                                                label={t("Client.Days.ven")}
-                                                labelPlacement="start"
-                                            />
-                                            <FormControlLabel
-                                                control={<Checkbox checked={days.sa} onChange={handleDayChange} name="sa" color="primary" />}
-                                                label={t("Client.Days.sam")}
-                                                labelPlacement="start"
-                                            />
-                                        </FormGroup>
-                                    </Box>
-                                </Box>
-
-                                <Box className="hours__container">
-                                    <Box className="section__title">
-                                        <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">2</text></svg>
-                                        <Typography variant="h6">{t("Client.Benefit.section3_option2")}</Typography>
-                                    </Box>
-
-                                    {displayHoursFromDays()}
-
-                                </Box>
-
-                                <Box className="firstdate__container">
-                                    <Box className="section__title">
-                                        <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">3</text></svg>
-                                        <Typography variant="h6">{t("Client.Benefit.section3_option3")}</Typography>
-                                    </Box>
-
-                                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                        <KeyboardDatePicker
-                                            disableToolbar
-                                            variant="inline"
-                                            format="MM/dd/yyyy"
-                                            margin="normal"
-                                            id="date-picker-inline"
-                                            label={t("Client.Time.a-partir-du")}
-                                            value={date}
-                                            onChange={handleDateChange}
-                                            KeyboardButtonProps={{
-                                                'aria-label': 'change date',
-                                            }}
-                                            error={errors?.date ? true : false}
-                                        />
-                                    </MuiPickersUtilsProvider>
-                                </Box>
+                    <Box className="date_box__container">
+                        <Box className="days__container">
+                            <Box className="section__title">
+                                <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">1</text></svg>
+                                <Typography className={`${errors.days ? "error" : ""}`} variant="h6">{t("Client.Benefit.section3_option1")}</Typography>
                             </Box>
-                        </>
-                        }
+
+                            <Box>
+                                <FormGroup>
+                                    <FormControlLabel
+                                        control={<Checkbox checked={days.su} onChange={handleDayChange} name="su" color="primary" />}
+                                        label={t("Client.Days.dim")}
+                                        labelPlacement="start"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={days.mo} onChange={handleDayChange} name="mo" color="primary" />}
+                                        label={t("Client.Days.lun")}
+                                        labelPlacement="start"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={days.tu} onChange={handleDayChange} name="tu" color="primary" />}
+                                        label={t("Client.Days.mar")}
+                                        labelPlacement="start"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={days.we} onChange={handleDayChange} name="we" color="primary" />}
+                                        label={t("Client.Days.mer")}
+                                        labelPlacement="start"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={days.th} onChange={handleDayChange} name="th" color="primary" />}
+                                        label={t("Client.Days.jeu")}
+                                        labelPlacement="start"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={days.fr} onChange={handleDayChange} name="fr" color="primary" />}
+                                        label={t("Client.Days.ven")}
+                                        labelPlacement="start"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox checked={days.sa} onChange={handleDayChange} name="sa" color="primary" />}
+                                        label={t("Client.Days.sam")}
+                                        labelPlacement="start"
+                                    />
+                                </FormGroup>
+                            </Box>
+                        </Box>
+
+                        <Box className="hours__container">
+                            <Box className="section__title">
+                                <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">2</text></svg>
+                                <Typography className={`${errors.hours ? "error" : ""}`} variant="h6">{t("Client.Benefit.section3_option2")}</Typography>
+                            </Box>
+
+                            {displayHoursFromDays()}
+
+                        </Box>
+
+                        <Box className="firstdate__container">
+                            <Box className="section__title">
+                                <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">3</text></svg>
+                                <Typography className={`${errors.date ? "error" : ""}`} variant="h6">{t("Client.Benefit.section3_option3")}</Typography>
+                            </Box>
+
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <KeyboardDatePicker
+                                    disableToolbar
+                                    disablePast
+                                    variant="inline"
+                                    format="MM/dd/yyyy"
+                                    margin="normal"
+                                    id="date-picker-inline"
+                                    label={t("Client.Time.a-partir-du")}
+                                    value={date}
+                                    onChange={handleDateChange}
+                                    KeyboardButtonProps={{
+                                        'aria-label': 'change date',
+                                    }}
+                                    error={errors?.date ? true : false}
+                                />
+                            </MuiPickersUtilsProvider>
+                        </Box>
                     </Box>
+                </>
+                }
+            </Box>
         </Box>
-            );
+    );
 };
 
-            export default withTranslation()(Benefit);
+export default withTranslation()(Benefit);
