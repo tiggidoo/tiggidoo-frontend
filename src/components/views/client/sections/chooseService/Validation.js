@@ -23,6 +23,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { VisibilityIcon } from '../../section-parts/icons/VisibilityIcon';
 import { VisibilityOffIcon } from '../../section-parts/icons/VisibilityOffIcon';
 
+import { startDateToTextualDate } from '../../utils/date';
+
 const Validation = ({ t }) => {
     const history = useHistory();
     const location = useLocation();
@@ -41,6 +43,7 @@ const Validation = ({ t }) => {
     const [displayPasswords, setDisplayPasswords] = useState({ password: false, confirmPassword: false });
     const [showInfo, setShowInfo] = useState(false);
     const [errors, setErrors] = useState({});
+    const [displayMore, setDisplayMore] = useState(false);
 
     if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) {
         history.push('housing');
@@ -116,11 +119,13 @@ const Validation = ({ t }) => {
     const displaySpecificities = () => {
         const specificities = store.getState().estimation.settings.housingSpecificity;
 
+        let maxDisplayedElement = 5;
         let elements = [];
 
         for (const specificity in specificities) {
             if (specificities[specificity] !== 0) {
-                elements.push(<li key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
+                elements.push(<li style={{display: maxDisplayedElement < 1 && !displayMore ? 'none' : 'block'}} key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
+                maxDisplayedElement--;
             }
         }
 
@@ -158,7 +163,7 @@ const Validation = ({ t }) => {
         //     elements.push(<li key="2">{t('Client.Validation.days_selected', { [Object.keys(houseworkWeekTime)[0]]: Object.values(houseworkWeekTime)[0], [Object.keys(houseworkWeekTime)[1]]: Object.values(houseworkWeekTime)[1] })}</li>);
         // }
 
-        elements.push(<li key="3">{t('Client.Time.a-partir-du', { date: startDate })}</li>);
+        if (startDate) elements.push(<li key="3">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(startDate) })}</li>);
 
         return elements;
     };
@@ -168,7 +173,7 @@ const Validation = ({ t }) => {
 
         const hasUppers = /[A-Z]/.test(password);
         const hasLowers = /[a-z]/.test(password);
-        const hasSpecialChars =  /\W|_/.test(password);
+        const hasSpecialChars = /\W|_/.test(password);
         const hasNumeric = /[0-9]/.test(password);
 
         if (password.length > 8 && hasUppers && hasLowers && hasSpecialChars && hasNumeric) {
@@ -227,7 +232,25 @@ const Validation = ({ t }) => {
                             <h5 className="recap_title">{t("Client.Validation.bloc1_texte2")}</h5>
 
                             <ul className="recap_list">
+                                <li>
+                                    {t(`Client.Logement.housingCategory_${store.getState().estimation.settings.housingCategoryId}`)}
+
+                                    <span> </span>
+
+                                    {store.getState().estimation.settings.housingCategoryId === 2 &&
+                                        t(`Client.Logement.housingSize_${store.getState().estimation.settings.housingSizeId}`).toLowerCase()
+                                    }
+                                </li>
+                                
                                 {displaySpecificities()}
+
+                                <Button className="see_more_btn" onClick={() => setDisplayMore(!displayMore)}>
+                                    {displayMore ? (
+                                        <p className="see_more_text">{ t("Client.sideBar.see_less") }</p> 
+                                    ):(
+                                        <p className="see_more_text">{t("Client.sideBar.see_more")}</p> 
+                                    )}
+                                </Button>
                             </ul>
 
                             <h5 className="recap_title">{t("Client.Validation.bloc1_texte3")}</h5>

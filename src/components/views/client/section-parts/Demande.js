@@ -3,6 +3,8 @@ import { withTranslation } from 'react-i18next';
 
 import { useStore } from 'react-redux';
 
+import { startDateToTextualDate } from '../utils/date';
+
 const Demande = ({ t }) => {
     const store = useStore();
     const [settings, setSettings] = useState(store.getState().estimation.settings);
@@ -34,8 +36,7 @@ const Demande = ({ t }) => {
         let elements = [];
 
         elements.push(<li key="1">{t(`Client.Validation.frequency_selected_${houseworkFrequencyId}`)}</li>);
-
-        elements.push(<li key="3">{t('Client.Time.a-partir-du', { date: startDate })}</li>);
+        if (startDate) elements.push(<li key="3">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(startDate) })}</li>);
 
         return elements;
     };
@@ -59,15 +60,21 @@ const Demande = ({ t }) => {
         <div className="demande__housing_specification">
             <h2>{t("Client.sideBar.demande")}</h2>
 
-            {store.getState().estimation.housingCategoryId !== 1 && (
-                <>
-                    <h4>{t("Client.sideBar.housing")}</h4>
+            <h4>{t("Client.sideBar.housing")}</h4>
 
-                    <ul className="recap_list">
-                        {displaySpecificities()}
-                    </ul>
-                </>
-            )}
+            <ul className="recap_list">
+                <li>
+                    {t(`Client.Logement.housingCategory_${store.getState().estimation.settings.housingCategoryId}`)}
+
+                    <span> </span>
+
+                    {store.getState().estimation.settings.housingCategoryId === 2 &&
+                        t(`Client.Logement.housingSize_${store.getState().estimation.settings.housingSizeId}`).toLowerCase()
+                    }
+                </li>
+                
+                {displaySpecificities()}
+            </ul>
 
             {store.getState().estimation.housingSuccess && (
                 <>
@@ -79,15 +86,11 @@ const Demande = ({ t }) => {
                 </>
             )}
 
-            {store.getState().estimation.housingSuccess && (
-                <>
-                    <h4>{t("Client.Validation.bloc1_texte4")}</h4>
+            <h4>{t("Client.Validation.bloc1_texte4")}</h4>
 
-                    <ul className="recap_list">
-                        {displayOptions()}
-                    </ul>
-                </>
-            )}
+            <ul className="recap_list">
+                {displayOptions()}
+            </ul>
         </div>
     );
 };

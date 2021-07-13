@@ -81,6 +81,22 @@
     }
 }
 
-.MuiButton-label{
+.MuiButton-label {
     font-family: "Avenir_Black";
+}
+
+.see_more_btn {
+    padding: 0 !important;
+    
+    &:hover {
+        background-color: #fff !important;
+    }
+
+    .see_more_text {
+        font-size: 16px;
+        text-decoration: underline;
+        color: #2a81f9;
+        font-family: "Avenir_Regular";
+        text-transform: initial;
+    }
 }

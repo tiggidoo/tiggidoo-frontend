@@ -366,7 +366,19 @@
             "houseworkPersonalization_cat": "Chat(s)",
             "back": "Retour",
             "footer_text": "L’offre de cette plateforme est à destination de résidence personnelle. Pour un service de ménage pour de la location saisonnière suivez",
-            "footer_link": "ce lien."
+            "footer_link": "ce lien.",
+            "housingCategory_1": "Studio",
+            "housingCategory_2": "Maison",
+            "housingCategory_3": "Appartement",
+            "housingCategory_4": "Loft",
+            "housingSize_1": "Moins que et 500 pieds carrés",
+            "housingSize_2": "Entre 510 et 750 pieds carrés",
+            "housingSize_3": "Entre 710 et 1000 pieds carrés",
+            "housingSize_4": "Entre 1001 et 1250 pieds carrés",
+            "housingSize_5": "Entre 1251 et 1500 pieds carrés",
+            "housingSize_6": "Entre 1501 et 1750 pieds carrés",
+            "housingSize_7": "Entre 1751 et 2000 pieds carrés",
+            "housingSize_8": "Plus que 2001 pieds carrés"
         },
         "sideBar": {
             "demande": "VOTRE DEMANDE",
@@ -375,7 +387,9 @@
             "open_info": "Information",
             "close_info": "Fermer information",
             "info_text": "Le prix affiché est une estimation faite à partir des prix moyen du marché de chaque ville. Celle-ci peut évoluer en fonction des spécificités du logement ou de la demande. TIGGIDOO décline toute responsabilité si le prix final est différent de l’estimation.",
-            "demande_submit": "CONTINUER"
+            "demande_submit": "CONTINUER",
+            "see_more": "Voir plus",
+            "see_less": "Voir moins"
         },
         "Benefit": {
             "title1": "FRÉQUENCE DU MÉNAGE",
@@ -388,7 +402,7 @@
             "section1_title3": "Bi-mensuel",
             "section1_subtitle3": "1 semaine sur deux",
             "section2_desc": "Sélectionnez les options que vous souhaiteriez pour votre prestation. Le détail du prix vous sera communiquer lors des propositions des PROS dans votre espace personnel.",
-            "houseworkPersonalization_oven": "FOUR",
+            "houseworkPersonalization_oven": "Four",
             "section2_option1_desc": "Nettoyage complet si un produit décapent est mis à disposition",
             "houseworkPersonalization_fridge": "Frigo",
             "section2_option2_desc": "Nettoyage complet si les denrées alimentaires ont étaient enlevés",
@@ -427,12 +441,37 @@
             "fr": "Vendredi",
             "sa": "Samedi"
         },
+        "FullDaysByNumber": [
+            "Dimanche",
+            "Lundi",
+            "Mardi",
+            "Mercredi",
+            "Jeudi",
+            "Vendredi",
+            "Samedi"
+        ],
+        "FullMonthsByNumber": [
+            "Janvier",
+            "Février",
+            "Mars",
+            "Avril",
+            "Mai",
+            "Juin",
+            "Juillet",
+            "Août",
+            "Septembre",
+            "Octobre",
+            "Novembre",
+            "Décembre"
+        ],
         "Time": {
             "morning": "Matin (8H -13H)",
             "afternoon": "Aprem (13H -19H)",
             "any": "Peu m’importe",
-            "a-partir-du": "A partir du",
-            "every": "Les"
+            "from_the": "A partir du",
+            "from_the_with_date": "A partir du {{date}}",
+            "every": "Les",
+            "date": "Date"
         },
         "Validation": {
             "intro": "Plus qu’un dernier clic et votre demande sera envoyé aux PROS. Vous recevrez alors dans votre espace de connexion la liste des PROS qui proposent leurs services pour votre demande. Alors, vous n’aurez plus qu’à choisir la personne que vous souhaitez et puis valider en réglant directement votre total en ligne.",
