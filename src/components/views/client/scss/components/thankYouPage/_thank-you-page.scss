@@ -36,8 +36,11 @@
 
     .finalsteps{
         display: flex;
-        gap: 30px;
         align-items: center;
         margin-bottom: 44px;
+
+        svg {
+            margin-right: 30px;
+        }
     }
 }
