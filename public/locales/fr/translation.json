@@ -427,11 +427,35 @@
             "fr": "Vendredi",
             "sa": "Samedi"
         },
+        "FullDaysByNumber": [
+            "Dimanche",
+            "Lundi",
+            "Mardi",
+            "Mercredi",
+            "Jeudi",
+            "Vendredi",
+            "Samedi"
+        ],
+        "FullMonthsByNumber": [
+            "Janvier",
+            "Février",
+            "Mars",
+            "Avril",
+            "Mai",
+            "Juin",
+            "Juillet",
+            "Août",
+            "Septembre",
+            "Octobre",
+            "Novembre",
+            "Décembre"
+        ],
         "Time": {
             "morning": "Matin (8H -13H)",
             "afternoon": "Aprem (13H -19H)",
             "any": "Peu m’importe",
             "from_the": "A partir du",
+            "from_the_with_date": "A partir du {{date}}",
             "every": "Les"
         },
         "Validation": {

@@ -424,11 +424,35 @@
             "fr": "Friday",
             "sa": "Saterday"
         },
+        "FullDaysByNumber": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "FullMonthsByNumber": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "Mai",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ],
         "Time": {
             "morning": "Mornig (8H -13H)",
             "afternoon": "Afternoon (13H -19H)",
             "any": "I do not care",
             "from_the": "From the",
+            "from_the_with_date": "From the {{date}}",
             "every": "Every"
         },
         "Validation": {

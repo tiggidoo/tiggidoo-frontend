@@ -3,6 +3,8 @@ import { withTranslation } from 'react-i18next';
 
 import { useStore } from 'react-redux';
 
+import { startDateToTextualDate } from '../utils/date';
+
 const Demande = ({ t }) => {
     const store = useStore();
     const [settings, setSettings] = useState(store.getState().estimation.settings);
@@ -34,8 +36,7 @@ const Demande = ({ t }) => {
         let elements = [];
 
         elements.push(<li key="1">{t(`Client.Validation.frequency_selected_${houseworkFrequencyId}`)}</li>);
-
-        if (settings.houseworkFrequencyId !== 1) elements.push(<li key="3">{t('Client.Time.from_the', { date: startDate })}</li>);
+        if (startDate) elements.push(<li key="3">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(startDate) })}</li>);
 
         return elements;
     };

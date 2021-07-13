@@ -23,6 +23,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { VisibilityIcon } from '../../section-parts/icons/VisibilityIcon';
 import { VisibilityOffIcon } from '../../section-parts/icons/VisibilityOffIcon';
 
+import { startDateToTextualDate } from '../../utils/date';
+
 const Validation = ({ t }) => {
     const history = useHistory();
     const location = useLocation();
@@ -158,7 +160,7 @@ const Validation = ({ t }) => {
         //     elements.push(<li key="2">{t('Client.Validation.days_selected', { [Object.keys(houseworkWeekTime)[0]]: Object.values(houseworkWeekTime)[0], [Object.keys(houseworkWeekTime)[1]]: Object.values(houseworkWeekTime)[1] })}</li>);
         // }
 
-        elements.push(<li key="3">{t('Client.Time.from_the', { date: startDate })}</li>);
+        if (startDate) elements.push(<li key="3">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(startDate) })}</li>);
 
         return elements;
     };
