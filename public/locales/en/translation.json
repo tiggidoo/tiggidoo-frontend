@@ -367,7 +367,15 @@
             "housingCategory_1": "Studio",
             "housingCategory_2": "House",
             "housingCategory_3": "Appartement",
-            "housingCategory_4": "Loft"
+            "housingCategory_4": "Loft",
+            "housingSize_1": "Less than 510 square feet",
+            "housingSize_2": "Between 510 and 750 square feet",
+            "housingSize_3": "Between 710 and 1000 square feet",
+            "housingSize_4": "Between 1001 and 1250 square feet",
+            "housingSize_5": "Between 1251 and 1500 square feet",
+            "housingSize_6": "Between 1501 and 1750 square feet",
+            "housingSize_7": "Between 1751 and 2000 square feet",
+            "housingSize_8": "More than 2001 square feet"
         },
         "sideBar": {
             "demande": "YOUR REQUEST",

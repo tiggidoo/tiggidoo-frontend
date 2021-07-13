@@ -232,7 +232,14 @@ const Validation = ({ t }) => {
                             <h5 className="recap_title">{t("Client.Validation.bloc1_texte2")}</h5>
 
                             <ul className="recap_list">
-                                <li>{t(`Client.Logement.housingCategory_${store.getState().estimation.settings.housingCategoryId}`)}</li>
+                                <li>
+                                    {t(`Client.Logement.housingCategory_${store.getState().estimation.settings.housingCategoryId}`)}
+
+                                    {store.getState().estimation.settings.housingCategoryId === 2 &&
+                                        t(`Client.Logement.housingSize_${store.getState().estimation.settings.housingCategoryId}`)
+                                    }
+                                </li>
+                                
                                 {displaySpecificities()}
 
                                 <Button className="see_more_btn" onClick={() => setDisplayMore(!displayMore)}>
