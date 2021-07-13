@@ -42,8 +42,8 @@ function Services({ t }) {
                             <img src={"images/icon_simplicity.svg"} alt="" />
                         </Box>
 
-                        <Box className="DPServices__boxTitle">
-                            <Typography variant="h4" className="mb-4 pb-5">
+                        <Box className="ClServices__boxTitle">
+                            <Typography variant="h4">
                                 {t("Client.Services.serviceTitre2")}
                             </Typography>
 
@@ -65,7 +65,7 @@ function Services({ t }) {
                             <img src={"images/icon_quality.svg"} alt="" />
                         </Box>
 
-                        <Box className="DPServices__boxTitle">
+                        <Box className="ClServices__boxTitle">
                             <Typography variant="h4">{t("Client.Services.serviceTitre3")}</Typography>
                         </Box>
 
@@ -85,7 +85,7 @@ function Services({ t }) {
                             <img src={"images/icon_flexibility.svg"} alt="" />
                         </Box>
 
-                        <Box className="DPServices__boxTitle">
+                        <Box className="ClServices__boxTitle">
                             <Typography variant="h4">{t("Client.Services.serviceTitre4")}</Typography>
                         </Box>
 
