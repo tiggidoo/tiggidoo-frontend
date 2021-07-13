@@ -63,7 +63,15 @@ const Demande = ({ t }) => {
             <h4>{t("Client.sideBar.housing")}</h4>
 
             <ul className="recap_list">
-                <li>{t(`Client.Logement.housingCategory_${settings.housingCategoryId}`)}</li>
+                <li>
+                    {t(`Client.Logement.housingCategory_${store.getState().estimation.settings.housingCategoryId}`)}
+
+                    <span> </span>
+
+                    {store.getState().estimation.settings.housingCategoryId === 2 &&
+                        t(`Client.Logement.housingSize_${store.getState().estimation.settings.housingCategoryId}`).toLowerCase()
+                    }
+                </li>
                 
                 {displaySpecificities()}
             </ul>

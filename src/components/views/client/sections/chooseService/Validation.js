@@ -235,8 +235,10 @@ const Validation = ({ t }) => {
                                 <li>
                                     {t(`Client.Logement.housingCategory_${store.getState().estimation.settings.housingCategoryId}`)}
 
+                                    <span> </span>
+
                                     {store.getState().estimation.settings.housingCategoryId === 2 &&
-                                        t(`Client.Logement.housingSize_${store.getState().estimation.settings.housingCategoryId}`)
+                                        t(`Client.Logement.housingSize_${store.getState().estimation.settings.housingCategoryId}`).toLowerCase()
                                     }
                                 </li>
                                 
