@@ -14,12 +14,15 @@ import AccommodationList from './component/request/AccommodationList'
 
 const useStyle = makeStyles((theme) => ({
     workArea:{
-        padding: theme.spacing(4,2),
+        //padding: theme.spacing(4,2),
         '& .MuiPaper-root':{
-            padding: theme.spacing(4,0)
+            padding: theme.spacing(4,0),
+            '@media(max-width: 1024px)':{
+                padding: theme.spacing(0)
+            }
         },
-        '@media(max-width: 600px)':{
-            padding: theme.spacing(4,0)
+        '@media(max-width: 1024px)':{
+            padding: theme.spacing(0)
         }
     },
     reqHeader:{
@@ -89,9 +92,7 @@ const ShowNewReservation = () => {
     const getHourProToBlockFunction = (date) => {
         dispatchGetHourProToBlockFunction(date)
     }
-
-    console.log('Paso por aqui')
-
+    
     return (
         <Dashboard
             user = { pro }

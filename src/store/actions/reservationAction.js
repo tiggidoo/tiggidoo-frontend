@@ -84,6 +84,8 @@ export const sendReservationPro = (token, formData) => async dispatch => {
 
         const data = JSON.stringify(content);
 
+        //console.log('This is the data.', data)
+
         await axios.post(`${config.API_SERVER}/api/pro/reservation/valid`, data, headers)
         .then((res) => {
             if(res.status === 200){

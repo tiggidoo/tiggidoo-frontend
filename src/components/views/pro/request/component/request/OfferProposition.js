@@ -142,6 +142,18 @@ const useStyle = makeStyles((theme) => ({
         height: '25px', 
         borderRadius: '50%', 
         backgroundColor: theme.palette.primary.main
+    },
+    btnRetired:{
+        display: 'flex', 
+        justifyContent:'flex-end',
+        margin: theme.spacing(3, 2),
+        '@media(max-width: 600px)':{
+            justifyContent:'center'
+        }
+    },
+    btnOffreRetired:{
+        color: '#fff',
+        background: '#D94D5D 0% 0% no-repeat padding-box'
     }
 }))
 
@@ -272,7 +284,8 @@ const OfferProposition = ({
     },[statusId, housework, formData])
 
     useEffect(() => {
-        if(reservationType === 1 && tymeScheduleActivities.length === 0 && formData.proStartDate){
+        console.log('Dispatch Fun 21:')
+        if(reservationType === 1 && tymeScheduleActivities && formData.proStartDate){
             dispatchGetHourProToBlockFunction(formData.proStartDate)
         }
     }, [reservationType, formData.proStartDate, tymeScheduleActivities, dispatchGetHourProToBlockFunction])
@@ -646,6 +659,13 @@ const OfferProposition = ({
                 </Box>
             )} 
 
+            {(statusId === '2') && (
+                <Box className={classes.btnRetired}>
+                    <Button variant="contained" className={classes.btnOffreRetired} >
+                        RETIRER MON OFFRE
+                    </Button>
+                </Box>
+            )} 
 
             {(statusId === '4') && (
                 <Box className={classes.btnArea}>

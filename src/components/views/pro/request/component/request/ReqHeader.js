@@ -70,10 +70,10 @@ const ReqHeader = ({ uuid, service, duration, statusId, housework }) => {
     //theHourOneIsChosen
     let theHourOneIsChosen = true
     if((statusId !== null && statusId !== '1')){
-        d = housework.time[0].pro_duration
+        //d = housework.time[0].pro_duration
         if(housework.frequency.id !== 1){
             if(housework.time[1].pro_start_time !== null){
-                d = housework.time[1].pro_duration.slice(0, -3).replace(':', 'H')
+                //d = housework.time[1].pro_duration.slice(0, -3).replace(':', 'H')
                 theHourOneIsChosen = false
             }    
         }
@@ -98,17 +98,17 @@ const ReqHeader = ({ uuid, service, duration, statusId, housework }) => {
         <Box className={classes.tittles}>
             <Box className={classes.boxStyle}>
                 <Box>
-                    <Typography variant="h6">DATE</Typography>                
+                    <Typography variant="h5">DATE</Typography>                
                 </Box>
                 <Box>
                     {(theHourOneIsChosen || statusId === null || statusId === '1') && (
-                        <Typography variant="h5" style={{color: color}}>
+                        <Typography variant="h6" style={{color: color}}>
                             {config.DAYS_EN[getDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${housework.time[0].week_date} 00:00:00`)}
                         </Typography>
                     )}
                     
                     {((housework.time.length === 2 && (statusId === null || statusId === '1')) || !theHourOneIsChosen) && (
-                        <Typography variant="h5" style={{color: color}}>
+                        <Typography variant="h6" style={{color: color}}>
                             {config.DAYS_EN[getOptionDay.getDay()] + ' ' + getDateFormatDayMotnYear(`${housework.time[1].week_date} 00:00:00`)}
                         </Typography>
                     )}
@@ -118,39 +118,43 @@ const ReqHeader = ({ uuid, service, duration, statusId, housework }) => {
             <Hidden smDown>
                 <Box className={classes.boxStyle}>
                     <Box>
-                        <Typography variant="h6">ID REQUÊTE</Typography>                
+                        <Typography variant="h5">ID REQUÊTE</Typography>                
                     </Box>
                     <Box>
-                        <Typography variant="h5">{uuid}</Typography>
+                        <Typography variant="h6">{uuid}</Typography>
                     </Box>
                 </Box>
             </Hidden>
             <Box className={classes.boxStyle}>
                 <Box>
-                    <Typography variant="h6">SERVICE</Typography>                
+                    <Typography variant="h5">SERVICE</Typography>                
                 </Box>
                 <Box>
-                    <Typography variant="h5">{service.toUpperCase()}</Typography>
+                    <Typography variant="h6">{service.toUpperCase()}</Typography>
                 </Box>
             </Box>
-            
-            <Box className={classes.boxStyle}>
-                <Box>
-                    <Typography variant="h6">ESTIMATIN TIGGIDOO</Typography>                
+            {(statusId !== '4') && (
+                <Box className={classes.boxStyle}>
+                    <Box>
+                        <Typography variant="h5">ESTIMATION TIGGIDOO</Typography>                
+                    </Box>
+                    <Box>
+                        <Typography variant="h6">{d}</Typography>
+                    </Box>
                 </Box>
-                <Box>
-                    <Typography variant="h5">{d}</Typography>
-                </Box>
-            </Box>
+            )}
 
-            <Box className={classes.boxStyle}>
-                <Box>
-                    <Typography variant="h6">FORMULE</Typography>                
+            {(statusId !== '4') && (
+                <Box className={classes.boxStyle}>
+                    <Box>
+                        <Typography variant="h5">FORMULE</Typography>                
+                    </Box>
+                    <Box>
+                        <Typography variant="h6">{ housework.frequency.fr }</Typography>
+                    </Box>
                 </Box>
-                <Box>
-                    <Typography variant="h5">{ housework.frequency.fr }</Typography>
-                </Box>
-            </Box>
+            )}
+
         </Box>
     )
 }

@@ -43,63 +43,131 @@ const ReqClientInfo = ({housing, client, totalPrice, personalization}) => {
         <Box className={classes.clientArea}>
 
             <Grid container>
-                <Grid item xs={12} sm={12} md={6}>
+                <Grid item xs={12} sm={6} md={6}>
                     <Box className={classes.boxClient}>
                         <Box mb={1}>
                             <Typography variant="h4">DESCRIPTION DU LOGEMENT</Typography>
                         </Box>
                         <Box display="flex">                
                             <Box mr={3}>
-                                <Box mb={2}>
+
+                                <Box>
                                     <Typography variant="h6">{housing.category.fr}</Typography>                        
                                 </Box>
+                                {
+                                    (housing.specificity.floor > 0) && (
+                                        <Box>
+                                            <Typography variant="h6">{`${housing.specificity.floor} etage(s)`}</Typography>
+                                        </Box>
+                                    )
+                                }
+                                {
+                                    (housing.specificity.kitchen > 0) && (
+                                        <Box>
+                                            <Typography variant="h6">{`${housing.specificity.kitchen} cuisine(s)`}</Typography>
+                                        </Box>
+                                    )
+                                }
+                                {
+                                    (housing.specificity.salon > 0) && (
+                                        <Box>
+                                            <Typography variant="h6">{`${housing.specificity.salon} salon(s)`}</Typography>
+                                        </Box>
+                                    )
+                                }
+                                {
+                                    (housing.specificity.dining_room > 0) && (
+                                        <Box>
+                                            <Typography variant="h6">{`${housing.specificity.dining_room} salle(s) a manger`}</Typography>
+                                        </Box>
+                                    )
+                                }
+                                {
+                                    (housing.specificity.bedroom > 0) && (
+                                        <Box>
+                                            <Typography variant="h6">{`${housing.specificity.bedroom} chambre(s)`}</Typography>
+                                        </Box>
+                                    )
+                                }
+                                {
+                                    (housing.specificity.bathroom > 0) && (
+                                        <Box>
+                                            <Typography variant="h6">{`${housing.specificity.bathroom} salle(s) de bain`}</Typography>
+                                        </Box>
+                                    )
+                                }
+                                {
+                                    (housing.specificity.shower > 0) && (
+                                        <Box>
+                                            <Typography variant="h6">{`${housing.specificity.shower} douche(s)`}</Typography>
+                                        </Box>
+                                    )
+                                }
+                                {
+                                    (housing.specificity.bathtub > 0) && (
+                                        <Box>
+                                            <Typography variant="h6">{`${housing.specificity.bathtub} baignoire(s)`}</Typography>
+                                        </Box>
+                                    )
+                                }
+                                {
+                                    (housing.specificity.washbasin > 0) && (
+                                        <Box>
+                                            <Typography variant="h6">{`${housing.specificity.washbasin} salle(s) d'eau`}</Typography>
+                                        </Box>
+                                    )
+                                }
+
                                 <Box>
-                                    <Typography variant="h6">{`${housing.specificity.floor} etage(s)`}</Typography>
-                                </Box>
-                                <Box>
-                                    <Typography variant="h6">{`${housing.specificity.kitchen} cuisine(s)`}</Typography>
-                                </Box>
-                                <Box>
-                                    <Typography variant="h6">{`${housing.specificity.salon} salon(s)`}</Typography>
-                                </Box>
-                                <Box>
-                                    <Typography variant="h6">{`${housing.specificity.dining_room} salle(s) a manger`}</Typography>
-                                </Box>
-                                <Box>
-                                    <Typography variant="h6">{`${housing.specificity.bedroom} chambre(s)`}</Typography>
-                                </Box>
-                                <Box>
-                                    <Typography variant="h6">{`${housing.specificity.bathroom} salle(s) de bain`}</Typography>
-                                </Box>
-                                <Box>
-                                    <Typography variant="h6">{`${housing.specificity.shower} douche(s)`}</Typography>
-                                </Box>
-                                <Box>
-                                    <Typography variant="h6">{`${housing.specificity.bathtub} baignoire(s)`}</Typography>
-                                </Box>
-                                <Box>
-                                    <Typography variant="h6">{`${housing.specificity.washbasin} salle(s) d'eau`}</Typography>
-                                </Box>
-                            </Box>
-                            <Box>
-                                <Box>
-                                    <Box mb={2}>
+                                    <Box mt={2}>
                                         <Typography variant="h6">PERSONALISSATION</Typography>
                                     </Box>
-                                    <Typography variant="h6">{`Aspirateur - ${personalization.vacuum !== 0 ? 'Oui': 'None'}`}</Typography>
-                                    <Typography variant="h6">{`Fridge - ${personalization.fridge > 0 ? 'Oui': 'None'}`}</Typography>
-                                    <Typography variant="h6">{`Four - ${personalization.oven !== 0 ? 'Oui': 'None'}`}</Typography>
-                                    <Typography variant="h6">{`Product standard - ${personalization.product_standard !== 0 ? 'Oui': 'None'}`}</Typography>
-                                    <Typography variant="h6">{`Product ecological - ${personalization.product_ecological !== 0 ? 'Oui': 'None'}`}</Typography>
-                                    <Typography variant="h6">{`Lits - ${personalization.bed > 0 ? 'Oui': 'None'}`}</Typography>
-                                    <Typography variant="h6">{`Chats - ${personalization.cat !== 0 ? 'Oui': 'None'}`}</Typography>
-                                    <Typography variant="h6">{`Chiens - ${personalization.dog !== 0 ? 'Oui': 'None'}`}</Typography>
+                                    {
+                                        (personalization.vacuum !== 0) && (
+                                            <Typography variant="h6">{`Aspirateur - ${personalization.vacuum !== 0 ? 'Oui': 'None'}`}</Typography>
+                                        )
+                                    }
+                                    {
+                                        (personalization.fridge !== 0) && (
+                                            <Typography variant="h6">{`Fridge - ${personalization.fridge > 0 ? 'Oui': 'None'}`}</Typography>
+                                        )
+                                    }
+                                    {
+                                        (personalization.oven !== 0) && (
+                                            <Typography variant="h6">{`Four - ${personalization.oven !== 0 ? 'Oui': 'None'}`}</Typography>
+                                        )
+                                    }
+                                    {
+                                        (personalization.product_standard !== 0) && (
+                                            <Typography variant="h6">{`Product standard - ${personalization.product_standard !== 0 ? 'Oui': 'None'}`}</Typography>
+                                        )
+                                    }
+                                    {
+                                        (personalization.product_ecological !== 0) && (
+                                            <Typography variant="h6">{`Product ecological - ${personalization.product_ecological !== 0 ? 'Oui': 'None'}`}</Typography>
+                                        )
+                                    }
+                                    {
+                                        (personalization.bed !== 0) && (
+                                            <Typography variant="h6">{`Lits - ${personalization.bed > 0 ? 'Oui': 'None'}`}</Typography>
+                                        )
+                                    }
+                                    {
+                                        (personalization.cat !== 0) && (
+                                            <Typography variant="h6">{`Chats - ${personalization.cat !== 0 ? 'Oui': 'None'}`}</Typography>
+                                        )
+                                    }
+                                    {
+                                        (personalization.dog !== 0) && (
+                                            <Typography variant="h6">{`Chiens - ${personalization.dog !== 0 ? 'Oui': 'None'}`}</Typography>
+                                        )
+                                    }
                                 </Box>
                             </Box>
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} sm={12} md={6}>
+                <Grid item xs={12} sm={6} md={6}>
                     <Box className={classes.boxClient}>
                         <Box mb={1}>
                             <Typography variant="h4">LOCALISATION</Typography>

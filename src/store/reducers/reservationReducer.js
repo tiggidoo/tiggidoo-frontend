@@ -3,7 +3,7 @@ import { GET_RESERVATIONS_LIST, GET_A_REQUEST, PROCESSING, GET_TIME_SCHEDULED_AC
 const initState = {
     reservations: null,
     reservation: null,
-    tymeScheduleActivities: []
+    tymeScheduleActivities: null
 };
 
 const reservationReducer = (state = initState, action) => {
