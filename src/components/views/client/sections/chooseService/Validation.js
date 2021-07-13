@@ -170,7 +170,7 @@ const Validation = ({ t }) => {
 
         const hasUppers = /[A-Z]/.test(password);
         const hasLowers = /[a-z]/.test(password);
-        const hasSpecialChars =  /\W|_/.test(password);
+        const hasSpecialChars = /\W|_/.test(password);
         const hasNumeric = /[0-9]/.test(password);
 
         if (password.length > 8 && hasUppers && hasLowers && hasSpecialChars && hasNumeric) {
@@ -229,6 +229,7 @@ const Validation = ({ t }) => {
                             <h5 className="recap_title">{t("Client.Validation.bloc1_texte2")}</h5>
 
                             <ul className="recap_list">
+                                <li>{t(`Client.Logement.housingCategory_${store.getState().estimation.settings.housingCategoryId}`)}</li>
                                 {displaySpecificities()}
                             </ul>
 
