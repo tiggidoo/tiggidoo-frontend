@@ -363,7 +363,11 @@
             "houseworkPersonalization_cat": "Cat(s)",
             "back": "Back",
             "footer_text": "This platform is reserved for personal residences. If you are looking for a cleaning service for a short-term rental,",
-            "footer_link": "click here."
+            "footer_link": "click here.",
+            "housingCategory_1": "Studio",
+            "housingCategory_2": "House",
+            "housingCategory_3": "Appartement",
+            "housingCategory_4": "Loft"
         },
         "sideBar": {
             "demande": "YOUR REQUEST",
@@ -453,7 +457,8 @@
             "any": "I do not care",
             "from_the": "From the",
             "from_the_with_date": "From the {{date}}",
-            "every": "Every"
+            "every": "Every",
+            "date": "Date"
         },
         "Validation": {
             "intro": "Just one last click and your request will be sent to the PROS. You will receive proposals in your login area from the PROS who are offering their services in response to your request. Finally, all you have to do is choose the person you want and confirm by completing your payment online.",
@@ -515,11 +520,11 @@
         "yes": "Yes",
         "no": "No",
         "HeaderSteps": "Step",
-        "Error":{
+        "Error": {
             "postcode_invalid_format": "Invalid post code format. Must be H3G0C7 or H3G 0C7",
             "postcode_required": "Post code is required"
         },
-        "Sms_validation":{
+        "Sms_validation": {
             "title": "Verification of the validation code",
             "phone": "Phone Number",
             "text1": "To continue, enter the validation code sent by message on your phone",

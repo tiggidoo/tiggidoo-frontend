@@ -106,15 +106,6 @@
         }
     }
 
-    .recap_list {
-        color: $dove-gray_2;
-        font-size: 17px;
-
-        @include breakpoint(mobile) {
-            font-size: 14px;
-        }
-    }
-
     .recap_title {
         font-size: 20px;
         margin: 20px auto;
@@ -386,6 +377,15 @@
                 background-color: $shamrock;
             }
         }
+    }
+}
+
+.recap_list {
+    color: $dove-gray_2;
+    font-size: 17px;
+
+    @include breakpoint(mobile) {
+        font-size: 14px;
     }
 }
 

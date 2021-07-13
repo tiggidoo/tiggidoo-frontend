@@ -158,7 +158,7 @@
         font-size: 17px;
         min-width: 35px;
 
-        @include breakpoint(mobile){
+        @include breakpoint(mobile) {
             font-size: 15px;
         }
     }
@@ -178,15 +178,15 @@
     display: flex;
     padding: 35px 20px;
     margin-bottom: 70px;
+    justify-content: space-around;
 
     @include breakpoint(tablet) {
         flex-wrap: wrap;
-        gap: 30px;
+        justify-content: flex-start;
     }
 
     @include breakpoint(mobile) {
         padding: 25px 10px;
-        gap: 20px;
     }
 
     h6 {
@@ -216,6 +216,14 @@
     }
 
     .days__container {
+        @include breakpoint(tablet) {
+            margin-bottom: 30px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-bottom: 20px;
+        }
+
         .MuiFormGroup-root {
             display: inherit;
             column-count: 3;
@@ -339,5 +347,46 @@
         .MuiSvgIcon-root {
             fill: $dodger-blue_6;
         }
+    }
+}
+
+.one_shot_date {
+    display: flex;
+    flex-direction: row !important;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-left: 20px !important;
+
+    label {
+        margin-right: 20px;
+    }
+
+    .MuiInputBase-formControl {
+        max-width: 189px;
+    }
+
+    #date-picker-inline-helper-text {
+        color: $coral-red;
+        font-size: 17px;
+        font-family: "Avenir_Regular";
+    }
+}
+
+.one_shot_hours {
+
+    .MuiFormControl-root {
+        display: flex;
+        flex-direction: row !important;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin-left: 20px;
+    }
+
+    label {
+        margin-right: 20px;
+    }
+
+    .MuiInputBase-formControl {
+        max-width: 189px;
     }
 }

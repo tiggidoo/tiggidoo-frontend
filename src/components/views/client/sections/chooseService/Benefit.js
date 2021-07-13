@@ -246,11 +246,12 @@ const Benefit = ({ t }) => {
                                         <KeyboardDatePicker
                                             disablePast
                                             disableToolbar
+                                            className="one_shot_date"
                                             variant="inline"
                                             format="MM/dd/yyyy"
                                             margin="normal"
                                             id="date-picker-inline"
-                                            label={t("Client.Time.from_the")}
+                                            label={t("Client.Time.date")}
                                             value={date}
                                             onChange={handleDateChange}
                                             KeyboardButtonProps={{
@@ -262,7 +263,7 @@ const Benefit = ({ t }) => {
                                 </Box>
                             </Box>
 
-                            <Box className="hours__container">
+                            <Box className="hours__container one_shot_hours">
                                 <Box className="section__title">
                                     <svg className="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"></circle><text className="MuiStepIcon-text" x="12" y="16" textAnchor="middle">2</text></svg>
                                     <Typography variant="h6">{t("Client.Benefit.section3_option2")}</Typography>
