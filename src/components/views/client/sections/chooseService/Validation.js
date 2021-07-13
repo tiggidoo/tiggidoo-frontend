@@ -235,11 +235,11 @@ const Validation = ({ t }) => {
                                 <li>{t(`Client.Logement.housingCategory_${store.getState().estimation.settings.housingCategoryId}`)}</li>
                                 {displaySpecificities()}
 
-                                <Button onClick={() => setDisplayMore(!displayMore)}>
+                                <Button className="see_more_btn" onClick={() => setDisplayMore(!displayMore)}>
                                     {displayMore ? (
-                                        <p>{ t("Client.sideBar.see_less") }</p> 
+                                        <p className="see_more_text">{ t("Client.sideBar.see_less") }</p> 
                                     ):(
-                                        <p>{t("Client.sideBar.see_more")}</p> 
+                                        <p className="see_more_text">{t("Client.sideBar.see_more")}</p> 
                                     )}
                                 </Button>
                             </ul>
