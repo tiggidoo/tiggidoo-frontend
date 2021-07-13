@@ -43,6 +43,7 @@ const Validation = ({ t }) => {
     const [displayPasswords, setDisplayPasswords] = useState({ password: false, confirmPassword: false });
     const [showInfo, setShowInfo] = useState(false);
     const [errors, setErrors] = useState({});
+    const [displayMore, setDisplayMore] = useState(false);
 
     if (location.pathname === '/validation' && !store.getState().estimation.benefitSuccess) {
         history.push('housing');
@@ -118,11 +119,13 @@ const Validation = ({ t }) => {
     const displaySpecificities = () => {
         const specificities = store.getState().estimation.settings.housingSpecificity;
 
+        let maxDisplayedElement = 5;
         let elements = [];
 
         for (const specificity in specificities) {
             if (specificities[specificity] !== 0) {
-                elements.push(<li key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
+                elements.push(<li style={{display: maxDisplayedElement < 1 && !displayMore ? 'none' : 'block'}} key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
+                maxDisplayedElement--;
             }
         }
 
@@ -230,6 +233,14 @@ const Validation = ({ t }) => {
 
                             <ul className="recap_list">
                                 {displaySpecificities()}
+
+                                <Button onClick={() => setDisplayMore(!displayMore)}>
+                                    {displayMore ? (
+                                        <p>{ t("Client.sideBar.see_less") }</p> 
+                                    ):(
+                                        <p>{t("Client.sideBar.see_more")}</p> 
+                                    )}
+                                </Button>
                             </ul>
 
                             <h5 className="recap_title">{t("Client.Validation.bloc1_texte3")}</h5>

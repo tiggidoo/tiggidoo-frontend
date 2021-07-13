@@ -372,7 +372,9 @@
             "open_info": "Information",
             "close_info": "Close information",
             "info_text": "The listed price is an estimate made according to the average market price in each city. This can change depending on the details of the residence and the request. TIGGIDOO declines any responsibiliy if the final price differs from the estimate.",
-            "demande_submit": "Continue"
+            "demande_submit": "Continue",
+            "see_more": "See more",
+            "see_less": "See less"
         },
         "Benefit": {
             "title1": "Cleaning frequency",

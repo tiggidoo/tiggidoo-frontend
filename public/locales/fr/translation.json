@@ -375,7 +375,9 @@
             "open_info": "Information",
             "close_info": "Fermer information",
             "info_text": "Le prix affiché est une estimation faite à partir des prix moyen du marché de chaque ville. Celle-ci peut évoluer en fonction des spécificités du logement ou de la demande. TIGGIDOO décline toute responsabilité si le prix final est différent de l’estimation.",
-            "demande_submit": "CONTINUER"
+            "demande_submit": "CONTINUER",
+            "see_more": "Voir plus",
+            "see_less": "Voir moins"
         },
         "Benefit": {
             "title1": "FRÉQUENCE DU MÉNAGE",
