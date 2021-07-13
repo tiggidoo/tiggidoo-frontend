@@ -431,7 +431,7 @@
             "morning": "Matin (8H -13H)",
             "afternoon": "Aprem (13H -19H)",
             "any": "Peu m’importe",
-            "a-partir-du": "A partir du",
+            "from_the": "A partir du",
             "every": "Les"
         },
         "Validation": {

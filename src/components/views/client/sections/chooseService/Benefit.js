@@ -250,7 +250,7 @@ const Benefit = ({ t }) => {
                                             format="MM/dd/yyyy"
                                             margin="normal"
                                             id="date-picker-inline"
-                                            label={t("Client.Time.a-partir-du")}
+                                            label={t("Client.Time.from_the")}
                                             value={date}
                                             onChange={handleDateChange}
                                             KeyboardButtonProps={{
@@ -350,7 +350,7 @@ const Benefit = ({ t }) => {
                                     format="MM/dd/yyyy"
                                     margin="normal"
                                     id="date-picker-inline"
-                                    label={t("Client.Time.a-partir-du")}
+                                    label={t("Client.Time.from_the")}
                                     value={date}
                                     onChange={handleDateChange}
                                     KeyboardButtonProps={{

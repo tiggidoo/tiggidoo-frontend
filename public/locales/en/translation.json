@@ -428,7 +428,7 @@
             "morning": "Mornig (8H -13H)",
             "afternoon": "Afternoon (13H -19H)",
             "any": "I do not care",
-            "a-partir-du": "From the",
+            "from_the": "From the",
             "every": "Every"
         },
         "Validation": {

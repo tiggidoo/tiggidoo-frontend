@@ -158,7 +158,7 @@ const Validation = ({ t }) => {
         //     elements.push(<li key="2">{t('Client.Validation.days_selected', { [Object.keys(houseworkWeekTime)[0]]: Object.values(houseworkWeekTime)[0], [Object.keys(houseworkWeekTime)[1]]: Object.values(houseworkWeekTime)[1] })}</li>);
         // }
 
-        elements.push(<li key="3">{t('Client.Time.a-partir-du', { date: startDate })}</li>);
+        elements.push(<li key="3">{t('Client.Time.from_the', { date: startDate })}</li>);
 
         return elements;
     };

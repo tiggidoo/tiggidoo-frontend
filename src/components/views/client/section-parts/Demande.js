@@ -35,7 +35,7 @@ const Demande = ({ t }) => {
 
         elements.push(<li key="1">{t(`Client.Validation.frequency_selected_${houseworkFrequencyId}`)}</li>);
 
-        if (settings.houseworkFrequencyId !== 1) elements.push(<li key="3">{t('Client.Time.a-partir-du', { date: startDate })}</li>);
+        if (settings.houseworkFrequencyId !== 1) elements.push(<li key="3">{t('Client.Time.from_the', { date: startDate })}</li>);
 
         return elements;
     };
