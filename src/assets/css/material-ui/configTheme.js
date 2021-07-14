@@ -76,7 +76,7 @@ const theme = createMuiTheme({
       fontFamily: "Avenir_Black",
 
       margin: 0,
-      color: "#fff",
+      //color: "#fff",
 
       '@media (max-width:768px)': { 
         fontSize: "15px",

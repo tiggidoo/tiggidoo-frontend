@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f58c0aec.chunk.css",
+    "main.js": "/static/js/main.b88ec9e2.chunk.js",
+    "main.js.map": "/static/js/main.b88ec9e2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8ca3d727.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8ca3d727.js.map",
+    "static/css/2.06f91319.chunk.css": "/static/css/2.06f91319.chunk.css",
+    "static/js/2.fbe6bfd5.chunk.js": "/static/js/2.fbe6bfd5.chunk.js",
+    "static/js/2.fbe6bfd5.chunk.js.map": "/static/js/2.fbe6bfd5.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.06f91319.chunk.css.map": "/static/css/2.06f91319.chunk.css.map",
+    "static/css/main.f58c0aec.chunk.css.map": "/static/css/main.f58c0aec.chunk.css.map",
+    "static/js/2.fbe6bfd5.chunk.js.LICENSE.txt": "/static/js/2.fbe6bfd5.chunk.js.LICENSE.txt",
+    "static/media/app.scss": "/static/media/cl_steps_section_bg.f1a9da25.svg",
+    "static/media/becomepro.scss": "/static/media/arriere-plan-2.085ae830.svg",
+    "static/media/intro.scss": "/static/media/arriere-plan.549801f5.svg",
+    "static/media/getFetch.cjs": "/static/media/getFetch.d7d6010d.cjs",
+    "static/media/styles.css": "/static/media/revicons.e8746a62.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8ca3d727.js",
+    "static/css/2.06f91319.chunk.css",
+    "static/js/2.fbe6bfd5.chunk.js",
+    "static/css/main.f58c0aec.chunk.css",
+    "static/js/main.b88ec9e2.chunk.js"
+  ]
+}

@@ -1,255 +1,549 @@
 {
-  "SEO": {
-    "title":"Tiggidoo : la plateforme des préposés à l'entretien ménager",
-    "meta":{
-      "description": "Tiggidoo, nouvelle plateforme de service de ménage résidentiel! Trouvez une aide ménagère, parmi les professionnels qualifiés en entretien ménager",
-      "keywords": "Tiggidoo, service de ménage, une aide ménagère, un entretien ménager"
+    "SEO": {
+        "title": "Tiggidoo : la plateforme des préposés à l'entretien ménager",
+        "meta": {
+            "description": "Tiggidoo, nouvelle plateforme de service de ménage résidentiel! Trouvez une aide ménagère, parmi les professionnels qualifiés en entretien ménager",
+            "keywords": "Tiggidoo, service de ménage, une aide ménagère, un entretien ménager"
+        }
+    },
+    "Nav": {
+        "menu": {
+            "login": "Connexion",
+            "logout": "Déconnecter",
+            "becomeTodo": "Devenez un Todoo"
+        }
+    },
+    "Footer": {
+        "titleIcons": "Suivez-nous",
+        "copyRight": "2020 Tiggidoo - @ Tous droits réservés",
+        "ul1": {
+            "title": "Découvrir",
+            "li": {
+                "text1": "Découvrez nos services",
+                "text2": "Trouver un professionnel",
+                "text3": "Devenir Pro",
+                "text4": "Connexion"
+            }
+        },
+        "ul2": {
+            "title": "Informations utiles",
+            "li": {
+                "text1": "FAQ",
+                "text2": "Termes & Conditions",
+                "text3": "CGV/CGU"
+            }
+        }
+    },
+    "months": {
+        "January": "JANVIER",
+        "February": "FÉVRIER",
+        "March": "MARS",
+        "April": "AVRIL",
+        "May": "MAI",
+        "June": "JUIN",
+        "July": "JUILLET",
+        "August": "AOÛT",
+        "September": "SEPTEMBRE",
+        "October": "OCTOBRE",
+        "November": "NOVEMBRE",
+        "December": "DÉCEMBRE"
+    },
+    "BecomeProfesional": {
+        "section_1": {
+            "title": "Tiggidoo connecte les professionnels du ménage résidentiel et leurs futurs clients",
+            "paragraph_1": "Sans frais, sans engagement et sans complication, la plateforme Tiggidoo vous permet de recevoir des offres d’emploi et de les gérer comme bon vous semble.",
+            "paragraph_2": "Profitez en plus d’outils de gestion intégrés à votre compte pro conçus spécialement pour vous faciliter la tâche. ",
+            "paragraph_3": "Tiggidoo est la solution idéale pour tous les travailleurs autonomes en entretien ménager qui souhaitent augmenter leurs revenus.",
+            "button": "Devenez un Todoo"
+        },
+        "section_2": {
+            "title": "Une plateforme qui améliore votre organisation au quotidien",
+            "li1": "Inscription gratuite sans engagement",
+            "li2": "Création simple et facile de votre compte pro",
+            "li3": "Gestion de votre calendrier et horaire",
+            "li4": "Facturation automatisée et centralisée",
+            "li5": "Soutien technique de l’équipe Tiggidoo",
+            "button": "Je m’inscris"
+        },
+        "section_3": {
+            "title": "Comment ça fonctionne?",
+            "description_1": "C’est vous le patron! Vous décidez où et quand vous travaillez",
+            "description_2": "Bingo! Votre profil est sélectionné par votre futur client",
+            "step_1": "Soyez immédiatement prévenu par courriel lorsqu’une nouvelle offre est arrivée sur votre compte pro",
+            "step_2": "Visualisez l’offre client que vous êtes libre d’accepter ou de refuser",
+            "step_3": "Effectuez un ménage de qualité, obtenez un avis positif sur votre profil",
+            "step_4": "Obtenez vos honoraires rapidement et de façon sécurisée. "
+        },
+        "section_4": {
+            "title": "Proposez vos services comme aide de ménage avec Tiggidoo",
+            "evaluaton": "Éval moyenne",
+            "service": "Prestation(s)"
+        },
+        "section_5": {
+            "title": "En 3 étapes simples",
+            "step_1": {
+                "title": "Répondez à quelques questions",
+                "description": "Complétez le formulaire d’inscription en ligne. Simple et rapide, il permet à l’équipe Tiggidoo de faire une pré-sélection des futurs Todoo. "
+            },
+            "step_2": {
+                "title": "Participez à une entrevue à distance",
+                "description": "À ce stade ci, une entrevue par vidéoconférence de quelques minutes nous permet de bien préciser les attentes d’un côté comme de l’autre. Nous validons aussi toutes vos informations et répondons à vos questions. "
+            },
+            "step_3": {
+                "title": "Rejoignez enfin la gang des Todoo",
+                "description": "Votre profil est mis en ligne aussitôt que votre inscription est complète. Vous recevez désormais chaque notification par courriel dès qu’une offre de prestation correspond à vos critères de sélection."
+            }
+        },
+        "section_6": {
+            "title": "Prêt à augmenter votre revenu?",
+            "description": "Débutez dès maintenant le processus de recrutement. Vous obtiendrez une réponse en moins de 48h.",
+            "button": "Devenez un Todoo"
+        },
+        "section_7": {
+            "title": "Les 4 critères essentiels pour intégrer la plateforme Tiggidoo",
+            "paragraph_1": "La plateforme Tiggidoo est un intermédiaire entre des personnes à la recherche d’un service de ménage de qualité et des travailleurs autonomes experts en entretien ménager. Le lien de confiance, le respect et l’engagement envers la qualité sont les valeurs fondamentales de notre entreprise. C’est pourquoi vous devez répondre à quelques critères pour devenir un Todoo et recevoir des demandes de prestation via notre plateforme. ",
+            "button": "Devenez un Todoo",
+            "step_1": {
+                "title": "Une identité vérifiée",
+                "description": "Pour des raisons de sécurité évidentes, nous procédons à la vérification de l’identité de tous les travailleurs autonomes qui s’inscrivent sur la plateforme Tiggidoo."
+            },
+            "step_2": {
+                "title": "Un compte bancaire valide",
+                "description": "Vous devez posséder un compte bancaire à votre nom pour le versement de vos honoraires suite à la réalisation de vos prestations d’entretien ménager."
+            },
+            "step_3": {
+                "title": "Un accès à Internet",
+                "description": "D’un ordinateur ou d’un cellulaire, une connexion internet est primordiale pour le bon déroulement de vos activités sur la plateforme Tiggidoo."
+            },
+            "step_4": {
+                "title": "Le respect de notre charte de qualité",
+                "description": "Afin d’offrir un service impeccable à chaque client, vous devez vous engager à respecter nos conditions générales, les termes de chaque prestation et notre charte de qualité."
+            }
+        },
+        "section_8": {
+            "title": "Un service 100% humain",
+            "description": "Vous avez besoin de quelques informations supplémentaires? N’hésitez surtout pas à nous poser vos questions, un humain vous répond avec rapidité et bonne humeur.",
+            "button": "Contactez-nous"
+        }
+    },
+    "ProForm": {
+        "validations": {
+            "firstName": "Le prénom est requis",
+            "lastName": "Le nom est requis",
+            "telephoneFilds": "Le numéro de téléphone doit avoir 10 chiffres",
+            "telephoneEmpty": "Le numéro de téléphone est requis",
+            "email": "Le courriel n'est pas valide",
+            "languages": "Choisir au moins une langue",
+            "refer": "Ce champ est obligatoire",
+            "emailConfirmation": "Email de confirmation non reçu",
+            "integrationPlatform": "Choisir au moins une option",
+            "photo": "Une photo est requise pour l'inscription",
+            "cellPhoneLabelError": "Ce courriel et numéro de téléphone existe déjà",
+            "street": "La rue est obligatoire",
+            "city": "La ville est obligatoire",
+            "province": "La province est obligatoire",
+            "country": "Le pays est obligatoire",
+            "postCode": "Le code postal est obligatoire"
+        },
+        "FormPersonalDetails": {
+            "title": "Rejoins dès aujourd'hui la gang des Todoo!",
+            "description1": "Pour intégrer la plateforme Tiggidoo, merci de remplir ce formulaire. Nous étudierons ta",
+            "description2": "candidature et en moins de 48H tu recevras une réponse de la part de notre équipe",
+            "firstNameLabel": "Prénom",
+            "firstNameInput": "Prénom",
+            "lastNameLabel": "Nom",
+            "lastNameInput": "Nom",
+            "birthDayLabel": "Date de naissance",
+            "cellPhoneLabel": "Numéro de cellulaire",
+            "emaillLabel": "Courriel",
+            "address": {
+                "title": "Adresse",
+                "street": "Rue",
+                "city": "Ville",
+                "province": "Province",
+                "country": "Pays",
+                "postCode": "Code postal"
+            },
+            "groupCheckBox_1": {
+                "title": "Quelles langues parles-tu ?",
+                "checkBoxLabel2": "Anglais",
+                "checkBoxLabel1": "Français",
+                "checkBoxLabel3": "Espagnol",
+                "checkBoxLabel4": "Portugais",
+                "checkBoxLabel5": "Arabe"
+            },
+            "groupCheckBox_2": {
+                "title": "As-tu plus de 18 ans, avec une autorisation de travail au canada ?",
+                "checkBoxLabel1": "Oui",
+                "checkBoxLabel2": "Non"
+            },
+            "groupCheckBox_3": {
+                "title": "As-tu des antécédents criminels ?",
+                "desctiption": "(Une vérification judiciaire sera effectuée.)",
+                "checkBoxLabel1": "Oui",
+                "checkBoxLabel2": "Non"
+            },
+            "services": "Prestations de service",
+            "button": "SUIVANT"
+        },
+        "FormPersonalBackground": {
+            "title": "Quel est ton parcours ?",
+            "groupCheckBox_1": {
+                "title": "As-tu déjà travaillé en tant que préposé à l’entretien ménager ?",
+                "checkBoxLabel1": "Oui",
+                "checkBoxLabel2": "Non"
+            },
+            "referencesTitle": "Indique les coordonnées de deux personnes référentes pour qui tu as travaillé :",
+            "referencesSubTitle": "Nous contacterons ces deux références",
+            "firstContactTitle": "Premier contact",
+            "secondContactTitle": "Deuxième contact",
+            "firstNameLabel": "Prénom",
+            "lastNamelabel": "Nom",
+            "email": "Courriel",
+            "cellPhone": "Cellulaire",
+            "company": "Entreprise",
+            "jobName": "Poste occupé",
+            "finishDate": "Date de départ",
+            "groupCheckBox_2": {
+                "title": "Pourquoi souhaites-tu intégrer la plateforme de Tiggidoo ?",
+                "checkBoxLabel1": "Travail régulier",
+                "checkBoxLabel2": "Travail d’appoint",
+                "checkBoxLabel3": "Revenus supplémentaires",
+                "checkBoxLabel4": "Visibilité",
+                "checkBoxLabel5": "Concept"
+            },
+            "knowUsLabel": "Comment nous as-tu connu?",
+            "buttonBack": "RETOUR",
+            "buttonNext": "SUIVANT"
+        },
+        "FormAdditionalInformation": {
+            "title": "Quelques informations te concernant",
+            "subtitle": "Nous avons besoin de quelques informations te concernant",
+            "groupCheckBox_1": {
+                "title": "As-tu un smartphone avec un accès aux données ?",
+                "checkBoxLabel1": "Oui",
+                "checkBoxLabel2": "Non"
+            },
+            "paragraph": "Chez Tiggidoo, la communication est primordiale. On doit pouvoir se joindre à n’importe quel moment. C’est pourquoi nous insistons sur la nécessité d’avoir un cellulaire intelligent avec des données",
+            "groupCheckBox_2": {
+                "title": "As-tu des allergies quelconques ou des problèmes de santé ?",
+                "checkBoxLabel1": "Oui",
+                "checkBoxLabel2": "Non"
+            },
+            "sicksLabel": "Si oui, préciser ici…",
+            "paragraph_2": "Ne pas préciser l’allergie ou le problème de santé pourrait entraîner un refus d’inscription de notre part",
+            "titlePhoto": "Pour terminer, nous avons besoin de ta photo",
+            "paragraphPhoto": "Joins une photo professionnelle. Elle sera utilisée pour créer ton profil dans ton compte et sur la plateforme",
+            "photoType": "Formats de fichier : png, jpg, jpeg",
+            "titleButton": "Joindre un fichier",
+            "MyPhoto": "Ma photo",
+            "example": "Pour exemple",
+            "buttonBack": "Retour",
+            "buttonNext": "VALIDER L'INSCRIPTION"
+        },
+        "Confirmation": {
+            "title": "Merci",
+            "subTitle": "Votre formulaire est à l’étude par notre équipe",
+            "description1": "L’humain est au coeur de nos valeurs, nous mettons un point d’honneur à étudier minutieusement chaque candidature",
+            "description2": "Nous vous contacterons dès qu’une décision sera effective concernant votre dossier",
+            "description3": "Wait & Clean",
+            "description4": "Merci",
+            "description5": "L’équipe de recrutement de Tiggidoo",
+            "button": "ACCUEIL"
+        }
+    },
+    "Client": {
+        "Nav": {
+            "home": "Accueil",
+            "services": "Services",
+            "becomeTodo": "Devenir un Todoo",
+            "login": "S’identifier"
+        },
+        "Hero": {
+            "title1": "La PLATEFORME",
+            "title2": "DES SERVICES ESSENTIELS",
+            "text1": "vous connecte avec des spécialistes de l’entretien ménager résidentiel. Recevez instantanément une estimation en ligne, Lancez votre requête et obtenez des profils qualifiés de préposés au ménage.",
+            "text2_1": "C’est",
+            "text2_2": "simple, rapide",
+            "text2_3": "et",
+            "text2_4": "sans engagement.",
+            "text3": " ESSAYEZ DÈS MAINTENANT!",
+            "postCodeLabel": "SAISISSEZ VOTRE CODE POSTAL",
+            "postCodeBtn": "Commencer",
+            "postCodeText1": "Vous avez déjà un compte ?",
+            "postCodeText2": "Connectez-vous",
+            "postCodeText3": "à votre espace"
+        },
+        "Services": {
+            "title": "LA PLATEFORME QUI VOUS MÉNAGE",
+            "serviceTitre1": "SÉCURITÉ",
+            "service1Text1": "Processus strict du recrutement des Todoo",
+            "service1Text2": "Prestations de services assurées",
+            "service1Text3": "Paiement en ligné sécurisé",
+            "serviceTitre2": "SIMPLICITÉ",
+            "service2Text1": "Estimation en ligne simple et rapide",
+            "service2Text2": "Choix du Todoo selon des critères",
+            "service2Text3": "Réservations en quelques clics",
+            "serviceTitre3": "QUALITÉ",
+            "service3Text1": "Logement traité avec respect et soin",
+            "service3Text2": "Prestation encadrée par une charte",
+            "service3Text3": "Avis et notations après chaque prestation",
+            "serviceTitre4": "FLEXIBILITÉ",
+            "service4Text1": "Sans engagement et sans frais cachés",
+            "service4Text2": "Large choix d’options proposés",
+            "service4Text3": "Fréquences des ménages selon les besoins",
+            "serviceBtn": "FAIRE UNE DEMANDE"
+        },
+        "Steps": {
+            "title": "DITES ADIEU AUX CORVÉES MÉNAGERES EN UN CLAQUEMENT DE DOIGT",
+            "description1": "est une plateforme de mise en relation unique en son genre. Tout est réfléchi pour vous simplifier la vie",
+            "description2": "Qui aurait cru que c’était aussi facile d’éviter de faire le ménage !",
+            "step1Title": "Indiquez votre code postal",
+            "step1Description": "Notre système sélectionne automatiquement les Todoo, des aides ménagères disponibles selon l’emplacement de votre résidence. Vous aurez accès aux meilleurs préposés en entretien ménager de votre quartier, prêts à répondre à vos besoins !",
+            "step1Link": "FAIRE UNE DEMANDE",
+            "step2Title": "Personnalisez et envoyez la demande",
+            "step2Description": "Répondez à quelques questions concernant votre résidence. Ajoutez des options, choisissez votre fréquence de ménage. Obtenez instantanément une estimation de TIGGIDOO, pour votre future prestation.",
+            "step2Link": "SÉLECTIONNER UN SERVICE",
+            "step3Title": "CHOISISSEZ L’OFFRE QUI VOUS CONVIENT",
+            "step3Description": "C’est le moment de sélectionner votre Todoo préféré. Vous recevrez plusieurs profils d’hommes et de femmes de ménage affichant leur expertise et leurs notes de satisfaction données par des utilisateurs comme vous.",
+            "step3Link": "CHOISIR UN PRO",
+            "step4Title": "RÉSERVEZ ET PAYez EN TOUTE SÉCURITÉ",
+            "step4Description": "Pour réserver votre service d’entretien ménager, vous payez simplement à partir de votre portail privé. Notre plateforme de paiement est totalement sécurisée et votre pro du ménage reçoit sa rémunération qu’après avoir effectué le travail.",
+            "step4Link": "RÉSERVER UN SERVICE"
+        },
+        "Experts": {
+            "title": "CONNAISSEZ-VOUS LES",
+            "text1": "Ce sont des experts de l’entretien ménager résidentiel, des hommes et des femmes de ménage triés sur le volet par notre équipe et notés par des utilisateurs comme vous.",
+            "text2": "vous propose automatiquement les demandes de Todoo les mieux qualifiés selon votre quartier, vos exigences et votre type de résidence.",
+            "text3": "Vous n’avez qu’à choisir le profil que vous préférez, valider votre devis, puis le tour est joué!",
+            "cta": "TROUVER UN TODOO"
+        },
+        "Advantages": {
+            "title": "LES AVANTAGES D’UTILISER LA PLATEFOrmE TIGGIDOo",
+            "text1": "PROFILS QUALIFIÉS",
+            "text2": "PRESTATIONS ENCADRÉES",
+            "text3": "TARIFS RÉGLEMENTÉS",
+            "text4": "ASSITANCE 7/7J"
+        },
+        "Cta": {
+            "title": "C’est Sans frais et sans engagement"
+        },
+        "ProposeServices": {
+            "title": "PROPOSEZ VOS SERVICES DÈS MAINTENANT!",
+            "text1": "La plateforme",
+            "text2": "vous offre une gamme d’outils de gestion intégrés conçus spécialement pour les travailleurs autonomes en entretien ménager résidentiel.Gratuits et efficaces, ils vous feront économiser du temps et surtout, gagner plus d’argent.",
+            "cta": "AUGMENTER MES REVENUS"
+        },
+        "Footer": {
+            "copyright": "© 2021 Plateforme Tiggidoo Inc. - Tous droits réservés"
+        },
+        "Logement": {
+            "sectionTitle1": "LA DÉSCRIPTION DU LOGEMENT",
+            "sectionTitle2": "CONTINUONS AVEC LA PRÉSTATION",
+            "sectionTitle3": "VALIDONS ENFIN VOS INFORMATIONS",
+            "title1": "TYPE DE LOGEMENT",
+            "title2": "TAILLE DU LOGEMENT",
+            "title3": "SPÉCIFICITÉS DU LOGEMENT",
+            "housingType_studio": "Studio",
+            "housingType_condo": "MAISON",
+            "housingType_appartement": "APPARTEMENT",
+            "housingType_loft": "LOFT",
+            "housingType_studio_text1": "Si votre logement est de type studio, alors il doit respecter les éléments suivants :",
+            "housingType_studio_text2": "La cuisine, l’espace salon et l’espace chambre sont dans un même espace",
+            "housingType_studio_text3": "Ne doit pas dépasser 60 mètres carrés.",
+            "housingSpecificity_kitchen": "Cuisine(s)",
+            "housingSpecificity_salon": "Salon(s)",
+            "housingSpecificity_dining_room": "Salle à manger",
+            "housingSpecificity_bedroom": "Chambre(s)",
+            "housingSpecificity_bedroom_desc": "Bureau(x) inclut",
+            "housingSpecificity_bathroom": "Salle(s) de bain",
+            "housingSpecificity_shower": "Douche(s)",
+            "housingSpecificity_bathtub": "Baignoire(s)",
+            "housingSpecificity_washbasin": "Salle(s) d’eau",
+            "housingSpecificity_floor": "Étage(s)",
+            "housingSpecificity_floor_desc": "Un sous-sol est considéré comme un étage",
+            "houseworkPersonalization_dog": "Chien(s)",
+            "houseworkPersonalization_cat": "Chat(s)",
+            "back": "Retour",
+            "footer_text": "L’offre de cette plateforme est à destination de résidence personnelle. Pour un service de ménage pour de la location saisonnière suivez",
+            "footer_link": "ce lien.",
+            "housingCategory_1": "Studio",
+            "housingCategory_2": "Maison",
+            "housingCategory_3": "Appartement",
+            "housingCategory_4": "Loft",
+            "housingSize_1": "Moins que et 500 pieds carrés",
+            "housingSize_2": "Entre 510 et 750 pieds carrés",
+            "housingSize_3": "Entre 710 et 1000 pieds carrés",
+            "housingSize_4": "Entre 1001 et 1250 pieds carrés",
+            "housingSize_5": "Entre 1251 et 1500 pieds carrés",
+            "housingSize_6": "Entre 1501 et 1750 pieds carrés",
+            "housingSize_7": "Entre 1751 et 2000 pieds carrés",
+            "housingSize_8": "Plus que 2001 pieds carrés"
+        },
+        "sideBar": {
+            "demande": "VOTRE DEMANDE",
+            "housing": "LOGEMENT",
+            "estimation": "ESTIMATION",
+            "open_info": "Information",
+            "close_info": "Fermer information",
+            "info_text": "Le prix affiché est une estimation faite à partir des prix moyen du marché de chaque ville. Celle-ci peut évoluer en fonction des spécificités du logement ou de la demande. TIGGIDOO décline toute responsabilité si le prix final est différent de l’estimation.",
+            "demande_submit": "CONTINUER",
+            "see_more": "Voir plus",
+            "see_less": "Voir moins"
+        },
+        "Benefit": {
+            "title1": "FRÉQUENCE DU MÉNAGE",
+            "title2": "PERSONNALISATION DU MÉNAGE",
+            "title3": "DATE ET HEURE DU MÉNAGE",
+            "section1_title1": "One Shot",
+            "section1_subtitle1": "1 seule fois",
+            "section1_title2": "Hebdomadaire",
+            "section1_subtitle2": "1 fois par semaine",
+            "section1_title3": "Bi-mensuel",
+            "section1_subtitle3": "1 semaine sur deux",
+            "section2_desc": "Sélectionnez les options que vous souhaiteriez pour votre prestation. Le détail du prix vous sera communiquer lors des propositions des PROS dans votre espace personnel.",
+            "houseworkPersonalization_oven": "Four",
+            "section2_option1_desc": "Nettoyage complet si un produit décapent est mis à disposition",
+            "houseworkPersonalization_fridge": "Frigo",
+            "section2_option2_desc": "Nettoyage complet si les denrées alimentaires ont étaient enlevés",
+            "houseworkPersonalization_bed": "Lit(S)",
+            "section2_option3_desc": "Nettoyage complet si un produit décapent est mis à disposition",
+            "houseworkPersonalization_vacuum": "Aspi & Mope",
+            "section2_option4_desc": "Le PRO utilise son propre matériel d’entretien ménagé",
+            "houseworkPersonalization_product_ecological": "Produits Eco",
+            "section2_option5_desc": "Le PRO utilise des produits certifiés écologiques et 100% naturels",
+            "houseworkPersonalization_product_standard": "Produits",
+            "section2_option6_desc": "Le PRO utilise des produits d’entretien standards",
+            "section2_agree": "Je m’engage à fournir tous les produits d’entretien nécessaire au bon déroulement de la prestation.",
+            "section3_desc1": "Indiquez le jour de disponibilité pour le ménage, ensuite veuillez indiquez le créneau horaire souhaité.",
+            "section3_desc2": "Dans un premier temps, indiquez vos jours de disponibilité pour le ménage (2 maximum), ensuite veuillez indiquez la date de début du premier ménage, ainsi que les créneaux horaires souhaités.",
+            "section3_option1": "Indiquez le(s) jour(s) de disponibilités (2 max.)",
+            "section3_option2": "Choisissez le(s) créneau(x) horaire(s)",
+            "section3_option3": "Saisissez la première date du ménage",
+            "houseworkPersonalization_dog": "Chien(s)",
+            "houseworkPersonalization_cat": "Chat(s)"
+        },
+        "Days": {
+            "dim": "Dim",
+            "lun": "Lun",
+            "mar": "Mar",
+            "mer": "Mer",
+            "jeu": "Jeu",
+            "ven": "Ven",
+            "sam": "Sam"
+        },
+        "FullDays": {
+            "su": "Dimanche",
+            "mo": "Lundi",
+            "tu": "Mardi",
+            "we": "Mercredi",
+            "th": "Jeudi",
+            "fr": "Vendredi",
+            "sa": "Samedi"
+        },
+        "FullDaysByNumber": [
+            "Dimanche",
+            "Lundi",
+            "Mardi",
+            "Mercredi",
+            "Jeudi",
+            "Vendredi",
+            "Samedi"
+        ],
+        "FullMonthsByNumber": [
+            "Janvier",
+            "Février",
+            "Mars",
+            "Avril",
+            "Mai",
+            "Juin",
+            "Juillet",
+            "Août",
+            "Septembre",
+            "Octobre",
+            "Novembre",
+            "Décembre"
+        ],
+        "Time": {
+            "morning": "Matin (8H -13H)",
+            "afternoon": "Aprem (13H -19H)",
+            "any": "Peu m’importe",
+            "from_the": "A partir du",
+            "from_the_with_date": "A partir du {{date}}",
+            "every": "Les",
+            "date": "Date"
+        },
+        "Validation": {
+            "intro": "Plus qu’un dernier clic et votre demande sera envoyé aux PROS. Vous recevrez alors dans votre espace de connexion la liste des PROS qui proposent leurs services pour votre demande. Alors, vous n’aurez plus qu’à choisir la personne que vous souhaitez et puis valider en réglant directement votre total en ligne.",
+            "bloc1_title": "J’OBTIENS MON RECAP",
+            "bloc1_texte1": "SERVICE DE MÉNAGE",
+            "bloc1_texte2": "LOGEMENT",
+            "bloc1_texte3": "FORMULE",
+            "bloc1_texte4": "OPTIONS",
+            "bloc2_title": "JE RENSEIGNE MES INFORMATIONS",
+            "name": "Prénom",
+            "lastname": "Nom",
+            "email": "Courriel",
+            "phone": "Célulaire",
+            "password": "Mot de passe",
+            "confirm_password": "Confirmation mot de passe",
+            "terms_and_conditions": "J’ai lu et accepté",
+            "terms_and_conditions_link": "les termes et conditions d’utilisation.",
+            "confirm_housing": "Je confirme que le logement est une résidence personnelle, qui ne fait l’objet d’aucune location via des sites prestataires (Airbnb, Booking, Etc.)",
+            "submit": "ENVOYER MA DEMANDE",
+            "error_message": "Il semblerait que certains champs soient manquants",
+            "frequency_selected_1": "One shot",
+            "frequency_selected_2": "Hebdomadaire",
+            "frequency_selected_3": "Bi-mensuel",
+            "frequency_selected_null": "",
+            "password_strength": "Force du mot de passe",
+            "password_strength_message_1": "Mot de passe faible",
+            "password_strength_message_2": "C’est le bon chemin, continuez comme ça!",
+            "password_strength_message_3": "Mot de passe moyen",
+            "password_strength_message_4": "Mot de passe fort",
+            "password_strength_message_5": "Mot de passe très fort"
+        },
+        "Location": {
+            "title": "COMMENÇONS PAR VOTRE CODE POSTAL",
+            "section1_title": "VOUS ÊTES NOUVEAU CLIENT ?",
+            "section1_text1": "Indiquez votre code postal afin de savoir si votre zone est desservie par nos services.",
+            "section1_text2": "SANS ENGAGEMENT",
+            "section1_text3": "PAYEZ PLUS TARD",
+            "section1_btn": "COMMENCER L’ESTIMATION",
+            "postCode": "Code postal",
+            "ou": "Ou",
+            "section2_title": "VOUS ÊTES DÉJÀ CLIENT ?",
+            "section2_text1": "Connectez-vous pour accéder à vos informations, vos prestations ou pour toute nouvelle demande",
+            "section2_text2": "CONNEXION",
+            "section2_btn": "ACCÈDER À MON COMPTE",
+            "footer": "L’offre de cette plateforme est à destination de résidence personnelle. Pour un service de ménage pour de la location saisonnière suivez",
+            "footer_link": "ce lien"
+        },
+        "ThankyouPage": {
+            "title": "MERCI ET BIENVENUE",
+            "bloc1_text1": "MERCI",
+            "bloc1_text2": "VOTRE DEMANDE A BIEN ÉTAIT ENVOYÉ À NOS PROS",
+            "bloc1_text3": "CONNECTEZ-VOUS DÈS MAINTENANT POUR RETROUVER VOTRE DEMANDE ET VALIDEZ LE CHOIX D’UN PRO",
+            "bloc1_text4": "ACCÈDER À MON COMPTE",
+            "bloc2_text1": "ET MAINTENANT ?",
+            "bloc2_text2": "Connectez-vous pour accéder à votre compte en cliquant sur le bouton d’accès.Retrouvez le lien d’accès reçu dans votre courriel. Pensez à vérifier vos SPAM",
+            "bloc2_text3": "Parcourez et commencez à recevoir des réponses de propositions des PROS sur votre espace en ligne",
+            "bloc2_text4": "Sélectionnez le PRO qui vous correspond le plus à votre demande, validez et payez pour réserver votre prestation"
+        },
+        "yes": "Oui",
+        "no": "Non",
+        "HeaderSteps": "Étape",
+        "Error":{
+            "postcode_invalid_format": "Code postal invalide. Le format doit être du type H3G0C7 ou H3G 0C7",
+            "postcode_required": "Code postal est requis"
+        },
+        "Sms_validation":{
+            "title": "Verification of the validation code",
+            "phone": "Phone Number",
+            "text1": "To continue, enter the validation code sent by message on your phone",
+            "text2": "Enter the 6-digit code",
+            "text3": "Don’t receive the text message",
+            "text4": "Return the text message"
+        }
     }
-  },
-  "Nav": {
-    "menu": {
-      "login": "Connexion",
-      "logout": "Déconnecter",
-      "becomeTodo" : "Devenez un Todoo"
-    }
-  },
-  "Footer": {
-    "titleIcons": "Suivez-nous",
-    "copyRight": "2020 Tiggidoo - @ Tous droits réservés",
-    "ul1": {
-      "title": "Découvrir",
-      "li": {
-        "text1": "Découvrez nos services",
-        "text2": "Trouver un professionnel",
-        "text3": "Devenir Pro",
-        "text4": "Connexion"
-      }
-    },
-    "ul2": {
-      "title": "Informations utiles",
-      "li": {
-        "text1": "FAQ",
-        "text2": "Termes & Conditions",
-        "text3": "CGV/CGU"
-      }
-    }
-  },
-  "months": {
-    "January": "JANVIER",
-    "February": "FÉVRIER",
-    "March": "MARS",
-    "April": "AVRIL",
-    "May": "MAI",
-    "June": "JUIN",
-    "July": "JUILLET",
-    "August": "AOÛT",
-    "September": "SEPTEMBRE",
-    "October": "OCTOBRE",
-    "November": "NOVEMBRE",
-    "December": "DÉCEMBRE"
-  },
-  "BecomeProfesional": {
-    "section_1": {
-      "title": "Tiggidoo connecte les professionnels du ménage résidentiel et leurs futurs clients",
-      "paragraph_1": "Sans frais, sans engagement et sans complication, la plateforme Tiggidoo vous permet de recevoir des offres d’emploi et de les gérer comme bon vous semble.",
-      "paragraph_2": "Profitez en plus d’outils de gestion intégrés à votre compte pro conçus spécialement pour vous faciliter la tâche. ",
-      "paragraph_3": "Tiggidoo est la solution idéale pour tous les travailleurs autonomes en entretien ménager qui souhaitent augmenter leurs revenus.",
-      "button": "Devenez un Todoo"
-    },
-    "section_2": {
-      "title": "Une plateforme qui améliore votre organisation au quotidien",
-      "li1":"Inscription gratuite sans engagement",
-      "li2":"Création simple et facile de votre compte pro",
-      "li3":"Gestion de votre calendrier et horaire",
-      "li4":"Facturation automatisée et centralisée",
-      "li5":"Soutien technique de l’équipe Tiggidoo",
-      "button": "Je m’inscris"
-    },
-    "section_3":{
-      "title": "Comment ça fonctionne?",
-      "description_1": "C’est vous le patron! Vous décidez où et quand vous travaillez",
-      "description_2": "Bingo! Votre profil est sélectionné par votre futur client",
-      "step_1": "Soyez immédiatement prévenu par courriel lorsqu’une nouvelle offre est arrivée sur votre compte pro",
-      "step_2": "Visualisez l’offre client que vous êtes libre d’accepter ou de refuser",
-      "step_3": "Effectuez un ménage de qualité, obtenez un avis positif sur votre profil",
-      "step_4": "Obtenez vos honoraires rapidement et de façon sécurisée. "
-    },
-    "section_4": {
-      "title": "Proposez vos services comme aide de ménage avec Tiggidoo",
-      "evaluaton": "Éval moyenne",
-      "service": "Prestation(s)"
-    },
-    "section_5": {
-      "title": "En 3 étapes simples",
-      "step_1": {
-        "title":"Répondez à quelques questions",
-        "description": "Complétez le formulaire d’inscription en ligne. Simple et rapide, il permet à l’équipe Tiggidoo de faire une pré-sélection des futurs Todoo. "
-      },
-      "step_2": {
-        "title":"Participez à une entrevue à distance",
-        "description": "À ce stade ci, une entrevue par vidéoconférence de quelques minutes nous permet de bien préciser les attentes d’un côté comme de l’autre. Nous validons aussi toutes vos informations et répondons à vos questions. "
-      },
-      "step_3": {
-        "title":"Rejoignez enfin la gang des Todoo",
-        "description": "Votre profil est mis en ligne aussitôt que votre inscription est complète. Vous recevez désormais chaque notification par courriel dès qu’une offre de prestation correspond à vos critères de sélection."
-      }
-    },
-    "section_6": {
-      "title": "Prêt à augmenter votre revenu?",
-      "description": "Débutez dès maintenant le processus de recrutement. Vous obtiendrez une réponse en moins de 48h.",
-      "button": "Devenez un Todoo"
-    },
-    "section_7": {
-      "title": "Les 4 critères essentiels pour intégrer la plateforme Tiggidoo",
-      "paragraph_1": "La plateforme Tiggidoo est un intermédiaire entre des personnes à la recherche d’un service de ménage de qualité et des travailleurs autonomes experts en entretien ménager. Le lien de confiance, le respect et l’engagement envers la qualité sont les valeurs fondamentales de notre entreprise. C’est pourquoi vous devez répondre à quelques critères pour devenir un Todoo et recevoir des demandes de prestation via notre plateforme. ",
-      "button": "Devenez un Todoo",
-      "step_1": {
-        "title":"Une identité vérifiée",
-        "description": "Pour des raisons de sécurité évidentes, nous procédons à la vérification de l’identité de tous les travailleurs autonomes qui s’inscrivent sur la plateforme Tiggidoo."
-      },
-      "step_2": {
-        "title":"Un compte bancaire valide",
-        "description": "Vous devez posséder un compte bancaire à votre nom pour le versement de vos honoraires suite à la réalisation de vos prestations d’entretien ménager."
-      },
-      "step_3": {
-        "title":"Un accès à Internet",
-        "description": "D’un ordinateur ou d’un cellulaire, une connexion internet est primordiale pour le bon déroulement de vos activités sur la plateforme Tiggidoo."
-      },
-      "step_4": {
-        "title":"Le respect de notre charte de qualité",
-        "description": "Afin d’offrir un service impeccable à chaque client, vous devez vous engager à respecter nos conditions générales, les termes de chaque prestation et notre charte de qualité."
-      }
-    },
-    "section_8": {
-      "title": "Un service 100% humain",
-      "description": "Vous avez besoin de quelques informations supplémentaires? N’hésitez surtout pas à nous poser vos questions, un humain vous répond avec rapidité et bonne humeur.",
-      "button": "Contactez-nous"
-    }
-  },
-  "ProForm": {
-    "validations": {
-      "firstName": "Le prénom est requis",
-      "lastName": "Le nom est requis",
-      "telephoneFilds": "Le numéro de téléphone doit avoir 10 chiffres",
-      "telephoneEmpty": "Le numéro de téléphone est requis",
-      "email": "Le courriel n'est pas valide",
-      "languages": "Choisir au moins une langue",
-      "refer": "Ce champ est obligatoire",
-      "emailConfirmation": "Email de confirmation non reçu",
-      "integrationPlatform":"Choisir au moins une option",
-      "photo": "Une photo est requise pour l'inscription",
-      "cellPhoneLabelError": "Ce courriel et numéro de téléphone existe déjà",
-      "street": "La rue est obligatoire",
-      "city": "La ville est obligatoire",
-      "province": "La province est obligatoire",
-      "country": "Le pays est obligatoire",
-      "postCode": "Le code postal est obligatoire"
-    },
-    "FormPersonalDetails": {
-      "title": "Rejoins dès aujourd'hui la gang des Todoo!",
-      "description1": "Pour intégrer la plateforme Tiggidoo, merci de remplir ce formulaire. Nous étudierons ta",
-      "description2": "candidature et en moins de 48H tu recevras une réponse de la part de notre équipe",
-      "firstNameLabel": "Prénom",
-      "firstNameInput": "Prénom",
-      "lastNameLabel": "Nom",
-      "lastNameInput": "Nom",
-      "birthDayLabel": "Date de naissance",
-      "cellPhoneLabel": "Numéro de cellulaire",
-      "emaillLabel": "Courriel",
-      "address": {
-        "title": "Adresse",
-        "street": "Rue",
-        "city": "Ville",
-        "province": "Province",
-        "country": "Pays",
-        "postCode": "Code postal"
-      },
-      "groupCheckBox_1": {
-        "title": "Quelles langues parles-tu ?",
-        "checkBoxLabel2": "Anglais",
-        "checkBoxLabel1": "Français",
-        "checkBoxLabel3": "Espagnol",
-        "checkBoxLabel4": "Portugais",
-        "checkBoxLabel5": "Arabe"
-      },
-      "groupCheckBox_2": {
-        "title": "As-tu plus de 18 ans, avec une autorisation de travail au canada ?",
-        "checkBoxLabel1": "Oui",
-        "checkBoxLabel2": "Non"
-      },
-      "groupCheckBox_3": {
-        "title": "As-tu des antécédents criminels ?",
-        "desctiption": "(Une vérification judiciaire sera effectuée.)",
-        "checkBoxLabel1": "Oui",
-        "checkBoxLabel2": "Non"
-      },
-      "services": "Prestations de service",
-      "button": "SUIVANT"
-    },
-    "FormPersonalBackground": {
-      "title": "Quel est ton parcours ?",
-      "groupCheckBox_1": {
-        "title": "As-tu déjà travaillé en tant que préposé à l’entretien ménager ?",
-        "checkBoxLabel1": "Oui",
-        "checkBoxLabel2": "Non"
-      },
-      "referencesTitle": "Indique les coordonnées de deux personnes référentes pour qui tu as travaillé :",
-      "referencesSubTitle": "Nous contacterons ces deux références",
-      "firstContactTitle": "Premier contact",
-      "secondContactTitle": "Deuxième contact",
-      "firstNameLabel": "Prénom",
-      "lastNamelabel": "Nom",
-      "email": "Courriel",
-      "cellPhone": "Cellulaire",
-      "company": "Entreprise",
-      "jobName": "Poste occupé",
-      "finishDate": "Date de départ",
-      "groupCheckBox_2": {
-        "title": "Pourquoi souhaites-tu intégrer la plateforme de Tiggidoo ?",
-        "checkBoxLabel1": "Travail régulier",
-        "checkBoxLabel2": "Travail d’appoint",
-        "checkBoxLabel3": "Revenus supplémentaires",
-        "checkBoxLabel4": "Visibilité",
-        "checkBoxLabel5": "Concept"
-      },
-      "knowUsLabel": "Comment nous as-tu connu?",
-      "buttonBack": "RETOUR",
-      "buttonNext": "SUIVANT"
-    },
-    "FormAdditionalInformation":{
-      "title": "Quelques informations te concernant",
-      "subtitle": "Nous avons besoin de quelques informations te concernant",
-      "groupCheckBox_1":{
-        "title": "As-tu un smartphone avec un accès aux données ?",
-        "checkBoxLabel1": "Oui",
-        "checkBoxLabel2": "Non"
-      },
-      "paragraph": "Chez Tiggidoo, la communication est primordiale. On doit pouvoir se joindre à n’importe quel moment. C’est pourquoi nous insistons sur la nécessité d’avoir un cellulaire intelligent avec des données",
-      "groupCheckBox_2":{
-        "title": "As-tu des allergies quelconques ou des problèmes de santé ?",
-        "checkBoxLabel1": "Oui",
-        "checkBoxLabel2": "Non"
-      },
-      "sicksLabel":"Si oui, préciser ici…",
-      "paragraph_2": "Ne pas préciser l’allergie ou le problème de santé pourrait entraîner un refus d’inscription de notre part",
-      "titlePhoto": "Pour terminer, nous avons besoin de ta photo",
-      "paragraphPhoto": "Joins une photo professionnelle. Elle sera utilisée pour créer ton profil dans ton compte et sur la plateforme",
-      "photoType": "Formats de fichier : png, jpg, jpeg",
-      "titleButton": "Joindre un fichier",
-      "MyPhoto": "Ma photo",
-      "example": "Pour exemple",
-      "buttonBack": "Retour",
-      "buttonNext": "VALIDER L'INSCRIPTION"
-    },
-    "Confirmation": {
-      "title": "Merci",
-      "subTitle": "Votre formulaire est à l’étude par notre équipe",
-      "description1":"L’humain est au coeur de nos valeurs, nous mettons un point d’honneur à étudier minutieusement chaque candidature",
-      "description2":"Nous vous contacterons dès qu’une décision sera effective concernant votre dossier",
-      "description3":"Wait & Clean",
-      "description4":"Merci",
-      "description5":"L’équipe de recrutement de Tiggidoo",
-      "button": "ACCUEIL"
-    }
-  }
 }
