@@ -27,7 +27,7 @@ const theme = createMuiTheme({
     htmlFontSize: 8,
     h1: {
       fontSize: "88px",
-      fontFamily: "Avenir_Black",
+      //fontFamily: "Avenir_Black",
       color: "#000",
 
       '@media (max-width:1600px)': { 
@@ -39,7 +39,7 @@ const theme = createMuiTheme({
     },
     h2: {
       fontSize: "35px",
-      fontFamily: "Avenir_Black",
+      //fontFamily: "Avenir_Black",
       margin: 0,
       textAlign: "center",
       
@@ -52,7 +52,7 @@ const theme = createMuiTheme({
     },
     h3: {
       fontSize: "28px",
-      fontFamily: "Avenir_Black",
+      //fontFamily: "Avenir_Black",
       marginBottom: '29px',
       
       '@media (max-width:599px)': { 
@@ -61,7 +61,7 @@ const theme = createMuiTheme({
     },
     h4: {
       fontSize: "24px",
-      fontFamily: "Avenir_Black",
+      //fontFamily: "Avenir_Black",
       
       '@media (max-width:599px)': {
         fontSize: "14px",
@@ -73,10 +73,10 @@ const theme = createMuiTheme({
       //fontFamily: "sans-serif",
       fontWeight: 'bold',
       fontSize: "25px",
-      fontFamily: "Avenir_Black",
+      //fontFamily: "Avenir_Black",
 
       margin: 0,
-      color: "#fff",
+      //color: "#fff",
 
       '@media (max-width:768px)': { 
         fontSize: "15px",

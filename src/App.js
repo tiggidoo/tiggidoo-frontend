@@ -24,11 +24,11 @@ import ShowNewReservation from "./components/views/pro/request/ShowNewReservatio
 import { Provider } from 'react-redux'
 import store from './store'
 
-import ClientHome from "./components/views/client/pages/ClientHome";
-import ChooseService from "./components/views/client/pages/ChooseService";
-import Localisation from "./components/views/client/pages/Localisation";
-import ThankYouPage from "./components/views/client/pages/ThankYouPage";
-import SmsValidation from "./components/views/client/pages/SmsValidation";
+// import ClientHome from "./components/views/client/pages/ClientHome";
+// import ChooseService from "./components/views/client/pages/ChooseService";
+// import Localisation from "./components/views/client/pages/Localisation";
+// import ThankYouPage from "./components/views/client/pages/ThankYouPage";
+// import SmsValidation from "./components/views/client/pages/SmsValidation";
 
 function App() {
   return (
@@ -51,7 +51,7 @@ function App() {
             {/* <Route exact path="/personal_informations/my_criteria" component={ MyCriteria } /> */}
             <Route exact path="/help" component={ Help } />
             <Route exact path="/" component={BecomePro} />
-
+{/* 
             <Route exact path="/client" component={ ClientHome } />
             <Route exact path="/localisation" component={ Localisation } />
             <Route exact path="/housing" component={ ChooseService } />
@@ -59,7 +59,7 @@ function App() {
             <Route exact path="/validation" component={ ChooseService } />
             <Route exact path="/thankyou" component={ ThankYouPage } />
             <Route exact path="/sms_validation" component={ SmsValidation } />
-
+ */}
           </Switch>
         </div>
         </BrowserRouter>

@@ -93,6 +93,8 @@ const ShowNewReservation = () => {
         dispatchGetHourProToBlockFunction(date)
     }
     
+    console.log('papoa')
+
     return (
         <Dashboard
             user = { pro }
@@ -149,6 +151,7 @@ const ShowNewReservation = () => {
                                 getHourProToBlockFunction={getHourProToBlockFunction}
                                 tymeScheduleActivities = { tymeScheduleActivities }
                                 dispatchGetHourProToBlockFunction={dispatchGetHourProToBlockFunction}
+                                proSelectTime={reservationInfo.pro_select_time}
                             />
                         </Box>
 

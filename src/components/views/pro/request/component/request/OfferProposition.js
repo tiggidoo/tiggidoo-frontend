@@ -170,7 +170,8 @@ const OfferProposition = ({
     housework,
     getHourProToBlockFunction,
     tymeScheduleActivities,
-    dispatchGetHourProToBlockFunction
+    dispatchGetHourProToBlockFunction,
+    proSelectTime
 }) => {
     const classes = useStyle()
 
@@ -238,9 +239,9 @@ const OfferProposition = ({
     const [openPopup, setOpenPopup] = useState(false)
     const [formData, setFormData] = useState({
         id: reservationId,
-        proStartTime: '',
-        proDuration: '',
-        proStartDate: '',
+        proStartTime: proSelectTime.length === 1 ? proSelectTime[0].pro_start_time : '01:00',
+        proDuration: proSelectTime.length === 1 ? proSelectTime[0].pro_duration : '08:00',
+        proStartDate: proSelectTime.length === 1 ? proSelectTime[0].week_date : housework.start_date,
         proVacuumPrice: (activityVacuumPrice === null || activityVacuumPrice === undefined) ? '0' : activityVacuumPrice,
         proProductEcologicalPrice: 0,
         proProductStandardPrice: 0,
@@ -251,6 +252,13 @@ const OfferProposition = ({
         tvq: res.tvq
     })
 
+    let fecha
+    if(proSelectTime.length === 1){
+        fecha = proSelectTime[0].week_date
+    }
+    console.log('Rafina: ', formData.proStartDate)
+
+/*
     useEffect(()=>{
         if(!formData.proStartDate){
             let offreInfo = {
@@ -282,13 +290,21 @@ const OfferProposition = ({
         }
 
     },[statusId, housework, formData])
+    
+    useEffect(() => {
+        console.log('Rafina 2: ', proSelectTime)
+    }, [proSelectTime])
+
+*/
 
     useEffect(() => {
-        console.log('Dispatch Fun 21:')
-        if(reservationType === 1 && tymeScheduleActivities && formData.proStartDate){
-            dispatchGetHourProToBlockFunction(formData.proStartDate)
+        if(statusId === '1'){
+            console.log('INgreso aqui', statusId, tymeScheduleActivities, formData.proStartDate)
+            if(tymeScheduleActivities === null && formData.proStartDate){
+                dispatchGetHourProToBlockFunction(formData.proStartDate)
+            }
         }
-    }, [reservationType, formData.proStartDate, tymeScheduleActivities, dispatchGetHourProToBlockFunction])
+    }, [statusId, formData.proStartDate, tymeScheduleActivities, dispatchGetHourProToBlockFunction])
 
     useEffect(() =>{
         setServiceHour(functionHour(tymeScheduleActivities, formData.proStartDate))
