@@ -1,7 +1,7 @@
 import { makeStyles, Typography } from '@material-ui/core'
 import { Hidden } from '@material-ui/core'
 import { Box } from '@material-ui/core'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { getDateFormatDayMotnYear } from '../../../../../share/librery/librery'
 import config from '../../../../../../config.json'
 

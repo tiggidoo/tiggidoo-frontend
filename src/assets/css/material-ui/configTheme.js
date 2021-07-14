@@ -72,11 +72,11 @@ const theme = createMuiTheme({
       color: "#7a7a7a",
       //fontFamily: "sans-serif",
       fontWeight: 'bold',
-      fontSize: "2.5px",
+      fontSize: "25px",
       fontFamily: "Avenir_Black",
 
       margin: 0,
-      //color: "#fff",
+      color: "#fff",
 
       '@media (max-width:768px)': { 
         fontSize: "15px",
