@@ -1,0 +1,56 @@
+.ClProposeService {
+    padding: 100px 0 0 5%;
+
+    @include breakpoint-reverse(xx-large){
+        padding: 189px 0 0;
+    }
+
+    @include breakpoint(tablet) {
+        padding: 100px 5% 0;
+    }
+
+    @include breakpoint(mobile) {
+        padding: 90px 9px 0;
+    }
+
+    .row {
+        align-items: flex-end;
+        margin-right:0 ;
+        margin-left: 0;
+    }
+
+    &__column {
+        padding-right: 0;
+        padding-bottom: 100px;
+
+        @include breakpoint(tablet) {
+            padding-right: 15px;
+        }
+
+        span {
+            font-family: "Avenir_Black";
+        }
+    }
+
+    &__cta {
+        margin-top: 80px;
+    }
+
+    h2 {
+        text-align: left;
+        margin-bottom: 67px;
+
+        @include breakpoint(mobile) {
+            margin-bottom: 37px;
+        }
+    }
+
+    img {
+        max-width: 600px;
+        width: 100%;
+
+        @include breakpoint-reverse(xx-large) {
+            max-width: 637px;
+        }
+    }
+}

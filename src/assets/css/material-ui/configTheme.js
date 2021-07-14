@@ -26,56 +26,60 @@ const theme = createMuiTheme({
     // Tell Material-UI what's the font-size on the html element is.
     htmlFontSize: 8,
     h1: {
-      fontSize: "4.5rem",
-      fontFamily: "Righteous",
+      fontSize: "88px",
+      fontFamily: "Avenir_Black",
+      color: "#000",
+
       '@media (max-width:1600px)': { 
-        fontSize: "3.4rem",
+        fontSize: "55px",
       },
-      '@media (max-width:1200px)': { 
-        fontSize: "2.5rem",
+      '@media (max-width:599px)': { 
+        fontSize: "29px",
       }
     },
     h2: {
-      fontSize: "3.5rem",
-      fontFamily: "Righteous",
+      fontSize: "35px",
+      fontFamily: "Avenir_Black",
       margin: 0,
-      '@media (max-width:1600px)': { 
-        fontSize: "3rem",
+      textAlign: "center",
+      
+      '@media (max-width:769px)': { 
+        fontSize: "30px",
       },
-      '@media (max-width:1200px)': { 
-        fontSize: "2rem",
+      '@media (max-width:599px)': { 
+        fontSize: "20px",
       }
     },
     h3: {
-      fontSize: "3rem",
-      fontFamily: "sans-serif",
-      margin: 0,
-      '@media (max-width:1600px)': { 
-        fontSize: "2.5rem",
-      },
-      '@media (max-width:1200px)': { 
-        fontSize: "2.1rem",
+      fontSize: "28px",
+      fontFamily: "Avenir_Black",
+      marginBottom: '29px',
+      
+      '@media (max-width:599px)': { 
+        fontSize: "18px",
       }
     },
     h4: {
-      fontSize: "2.5rem",
-      fontFamily: "sans-serif",
-      margin: 0,
-      '@media (max-width:1600px)': { 
-        fontSize: "1.8rem",
-      },
-      '@media (max-width:1366px)': {
-        fontSize: "1.7rem",
+      fontSize: "24px",
+      fontFamily: "Avenir_Black",
+      
+      '@media (max-width:599px)': {
+        fontSize: "14px",
       }
     },
     h5: {
-      fontSize: "2rem",
+      //fontSize: "2rem",
       color: "#7a7a7a",
-      fontFamily: "sans-serif",
+      //fontFamily: "sans-serif",
       fontWeight: 'bold',
+      fontSize: "2.5px",
+      fontFamily: "Avenir_Black",
+
       margin: 0,
+      color: "#fff",
+
       '@media (max-width:768px)': { 
-        fontSize: "1.6rem",
+        fontSize: "15px",
       }
     },
     h6: {
@@ -86,12 +90,11 @@ const theme = createMuiTheme({
       }
     },
     p: {
-      fontSize: '2.4rem',
-      '@media (max-width:1600px)': { 
-        fontSize: "2rem",
-        },
-      '@media (max-width:1200px)': { 
-        fontSize: "1.6rem",
+      fontSize: '25px',
+      fontFamily: "Avenir_Black",
+    
+      '@media (max-width:599px)': { 
+        fontSize: "15px",
       }
     },
   }

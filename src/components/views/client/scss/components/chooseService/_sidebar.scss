@@ -1,0 +1,105 @@
+.sidebar {
+    margin-top: 130px;
+    max-width: 350px;
+    margin-left: auto;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 86px;
+
+    @include breakpoint(tablet) {
+        margin-top: 0;
+        margin-right: auto;
+    }
+
+    h2 {
+        font-size: 24px !important;
+
+        @include breakpoint(mobile) {
+            font-size: 20px !important;
+        }
+    }
+
+    &__submit {
+        color: #fff !important;
+        background-color: $shamrock !important;
+        box-shadow: none !important;
+        padding: 27px 100px !important;
+        width: 100%;
+        border-radius: 0 !important;
+        font-family: "Avenir_Black" !important;
+        margin-top: 20px !important;
+
+        @include breakpoint(mobile) {
+            padding: 14px 63px !important;
+        }
+    }
+}
+
+.demande__housing_specification {
+    border-bottom: 1px solid $gray;
+    min-height: 200px;
+    padding: 49px 10px 0 25px;
+
+    h2::after {
+        content: "";
+        border-bottom: 5px solid $mountain-meadow;
+        width: 141px;
+        display: block;
+        margin-top: 18px;
+    }
+
+    h4 {
+        margin-top: 30px;
+    }
+}
+
+.demande__balance {
+    border-bottom: 1px solid $gray;
+    padding: 12px 20px 0 25px;
+
+    .balance__info {
+        font-size: 16px;
+        text-decoration: underline;
+        color: $dodger-blue_7;
+        text-transform: inherit;
+        font-family: "Avenir_Regular";
+
+        &:hover {
+            background: transparent;
+        }
+
+        &:focus,
+        &:active {
+            outline: none;
+            border: 1px solid $shamrock;
+        }
+
+        & ~ p {
+            color: #717171;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
+}
+
+.balance__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+        font-size: 28px;
+
+        @include breakpoint(mobile) {
+            font-size: 20px;
+        }
+
+        span {
+            color: $dodger-blue_6;
+        }
+    }
+}
+
+.sidebar_inner {
+    background: #fff;
+}

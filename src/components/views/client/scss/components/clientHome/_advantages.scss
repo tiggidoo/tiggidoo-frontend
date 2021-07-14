@@ -1,0 +1,53 @@
+.Cladvantages {
+    background-color: $azure-blue;
+    color: #fff;
+    padding: 90px 5%;
+
+    @include breakpoint(tablet) {
+        padding: 90px 5% 45px;
+    }
+
+    @include breakpoint(mobile) {
+        padding: 90px 5% 40px;
+    }
+
+    h2 {
+        color: #fff;
+        margin-bottom: 89px;
+    }
+
+    p {
+        font-family: "Avenir_Black";
+        font-size: 20px;
+        max-width: 140px;
+
+        @include breakpoint(mobile) {
+            font-size: 14px;
+        }
+    }
+
+    &__row {
+        display: flex;
+        align-items: flex-start;
+
+        @include breakpoint-reverse(mobile) {
+            justify-content: center;
+        }
+
+        @include breakpoint(desktop) {
+            padding-bottom: 42px;
+        }
+
+        @include breakpoint(mobile) {
+            align-items: center;
+        }
+    }
+
+    img {
+        margin-right: 25px;
+
+        @include breakpoint(mobile) {
+            max-width: 30px;
+        }
+    }
+}

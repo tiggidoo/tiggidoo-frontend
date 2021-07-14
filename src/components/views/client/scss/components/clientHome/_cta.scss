@@ -1,0 +1,37 @@
+/*------------------------------------------------------------------
+[CTA section] 
+*/
+.Clcta {
+    background-color: $shamrock;
+    padding: 75px 5%;
+
+    @include breakpoint(desktop) {
+        padding: 75px 2%;
+    }
+
+    .row {
+        align-items: baseline;
+    }
+
+    h2 {
+        color: #fff;
+        text-align: left;
+        font-size: 28px;
+
+        @include breakpoint(tablet) {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        @include breakpoint(mobile) {
+            font-size: 20px;
+            text-align: left;
+        }
+    }
+
+    .post_code__input_container {
+        @include breakpoint(tablet) {
+            margin: auto;
+        }
+    }
+}

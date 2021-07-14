@@ -1,0 +1,147 @@
+.Localisation {
+    margin: 100px auto;
+    max-width: 1300px;
+
+    .col-md-5 {
+        padding: 0;
+    }
+
+    @include breakpoint(tablet) {
+        margin: 48px 30px 53px;
+        min-height: 45vh;
+    }
+
+    @include breakpoint(mobile) {
+        margin: 46px 20px 51px;
+    }
+
+    h3 {
+        color: #000;
+    }
+
+    .Localisation_subtext {
+        display: flex;
+
+        @include breakpoint(tablet) {
+            flex-wrap: wrap;
+        }
+
+        p {
+            font-family: "Avenir_Black";
+            text-transform: uppercase;
+            color: $dodger-blue_6;
+            font-size: 17px;
+
+            @include breakpoint(mobile) {
+                font-size: 13px;
+            }
+
+            &:first-child {
+                margin-right: 30px;
+
+                @include breakpoint(tablet) {
+                    margin-right: 20px;
+                }
+
+                @include breakpoint(mobile) {
+                    margin-right: 18px;
+                }
+            }
+        }
+    }
+
+    .Localisation_seperator__container {
+        align-self: center;
+        text-align: center;
+
+        @include breakpoint(mobile) {
+            margin: 30px auto;
+        }
+
+        span::before {
+            content: "";
+            display: block;
+            border-left: 1px solid $gray;
+            height: 50px;
+            transform: translateX(50%);
+            margin: 20px;
+
+            @include breakpoint(mobile) {
+                display: none;
+            }
+        }
+    }
+
+    .Localisation_seperator {
+        background-color: #fff;
+        border-radius: 50%;
+        width: fit-content;
+        padding: 15px;
+        color: $dodger-blue_6;
+        font-family: "Avenir_Black";
+        text-transform: uppercase;
+        font-size: 20px;
+        margin: auto;
+        text-align: center;
+
+        @include breakpoint(mobile) {
+            font-size: 15px;
+        }
+    }
+
+    .post_code__input_container {
+        margin-bottom: 20px;
+
+        @include breakpoint(tablet) {
+            width: 100%;
+        }
+
+        & input:first-child {
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+
+    .post_code__form {
+        margin-top: 30px;
+        max-width: 400px;
+
+        .btn_green_bg {
+            width: 100%;
+
+            @include breakpoint(tablet) {
+                font-size: 15px;
+                padding: 10px 10px;
+            }
+        }
+    }
+}
+
+.localisation_footer {
+    margin: 30px auto;
+    max-width: 1300px;
+
+    @include breakpoint(tablet) {
+        margin: 30px;
+    }
+
+    @include breakpoint(mobile) {
+        margin: 20px;
+    }
+
+    p {
+        font-size: 15px;
+        color: $monsoon;
+    }
+}
+
+.link {
+    color: $dodger-blue_6;
+    text-decoration: underline;
+}
+
+.btn_green_bg.connect_link {
+    @include breakpoint(tablet) {
+        font-size: 15px;
+    }
+}

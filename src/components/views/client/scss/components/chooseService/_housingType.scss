@@ -1,0 +1,350 @@
+.choose_service {
+    max-width: 1400px;
+    margin: auto !important;
+
+    h3,
+    h2 {
+        @include breakpoint(mobile) {
+            text-align: center !important;
+        }
+    }
+
+    .MuiInputLabel-root {
+        font-family: "Avenir_Regular";
+    }
+}
+
+.HousingType {
+    min-height: 50vh;
+    max-width: 920px;
+    margin: 100px 50px auto;
+    position: relative;
+
+    @include breakpoint(tablet) {
+        margin: 48px 50px auto;
+    }
+
+    @include breakpoint(mobile) {
+        margin: 43px 16px auto;
+    }
+
+    &__title {
+        text-align: left !important;
+        margin-bottom: 30px !important;
+        font-size: 24px !important;
+        color: #000;
+
+        @include breakpoint(tablet) {
+            text-align: center !important;
+        }
+
+        @include breakpoint(mobile) {
+            font-size: 20px !important;
+        }
+    }
+
+    .MuiBottomNavigation-root {
+        height: inherit;
+        background-color: transparent;
+
+        @include breakpoint(tablet) {
+            max-width: 633px;
+            margin: auto
+        }
+
+        @include breakpoint(mobile) {
+            flex-wrap: wrap;
+            // gap: 17px;
+        }
+    }
+
+    &__navigation {
+        justify-content: flex-start !important;
+
+        @include breakpoint(tablet) {
+            justify-content: center !important;
+        }
+    }
+
+    &__button {
+        height: 140px !important;
+        max-height: 140px !important;
+        width: 140px !important;
+        max-width: 140px !important;
+        background: #fff;
+        background-color: #fff !important;
+        display: grid;
+        place-content: center;
+        margin-right: 50px !important;
+
+        @include breakpoint(tablet) {
+            margin-right: 10px !important;
+        }
+
+        @include breakpoint(mobile) {
+            height: 100px !important;
+            max-height: 100px !important;
+            width: 100px !important;
+            max-width: 100px !important;
+            margin: 20px !important;
+        }
+
+        &.MuiBottomNavigationAction-root.Mui-selected {
+            color: $dodger-blue_6;
+            border: 3px solid $dodger-blue_6;
+            font-size: 12px;
+
+            .a {
+                fill: $dodger-blue_6;
+            }
+        }
+
+        svg {
+            max-height: 50px;
+
+            @include breakpoint(mobile) {
+                max-height: 30px;
+            }
+        }
+
+        .MuiButton-startIcon {
+            margin: 0;
+        }
+
+        .MuiBottomNavigationAction-label,
+        .MuiBottomNavigationAction-label.Mui-selected {
+            margin-top: 20px;
+            font-family: "Avenir_Book";
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .MuiBottomNavigationAction-label.Mui-selected {
+            font-family: "Avenir_Black";
+        }
+    }
+
+    .a {
+        fill: #8e8f8d;
+    }
+}
+option {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $gallery;
+    }
+}
+/*------------------------------------------------------------------
+[Studio Srvices] 
+*/
+.StudioServices__choice-container {
+    margin-top: 60px;
+
+    .StudioServices__choice-form {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+        margin-top: 30px;
+
+        @include breakpoint(tablet) {
+            justify-content: center;
+        }
+
+        label {
+            margin-bottom: 20px;
+
+            @include breakpoint(mobile) {
+                font-size: 14px !important;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+
+            img {
+                @include breakpoint(mobile) {
+                    max-width: 20px;
+                }
+            }
+        }
+
+        .MuiInputBase-input {
+            @include breakpoint(mobile) {
+                font-size: 14px !important;
+            }
+        }
+
+        .counter_container,
+        .MuiFormControl-root {
+            margin-right: 52px;
+            margin-bottom: 52px;
+
+            @include breakpoint(tablet) {
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-right: 14.5px;
+                margin-left: 14.5px;
+                margin-bottom: 29px;
+            }
+        }
+    }
+
+    .StudioServices__list {
+        li {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        li::before {
+            content: "";
+            border-radius: 50%;
+            color: $shamrock;
+            background: $shamrock;
+            width: 11px;
+            height: 11px;
+            position: absolute;
+            left: 10px;
+            top: 5px;
+        }
+    }
+}
+
+.MuiSelect-selectMenu {
+    background: #fff;
+}
+
+.MuiInputBase-input {
+    background: #fff !important;
+    border: 2px solid $dodger-blue_6 !important;
+}
+
+.MuiInputLabel-formControl {
+    transform: translate(0, 0) scale(1) !important;
+    position: static !important;
+    margin-bottom: 20px !important;
+    font-size: 20px;
+    font-family: "Avenir_Regular";
+    color: #000 !important;
+
+    img {
+        margin-right: 11px;
+    }
+}
+
+label + .MuiInput-formControl {
+    margin-top: 0 !important;
+}
+
+.MuiSelect-select.MuiSelect-select {
+    padding-left: 24px;
+}
+
+.Mui-error{
+    .MuiInputBase-input {
+        background: #fff !important;
+        border: 2px solid $coral-red !important;
+    }
+
+    &.MuiInputLabel-formControl{
+        color: $coral-red !important;
+    }
+}
+
+/*------------------------------------------------------------------
+[Combo Srvices] 
+*/
+.ComboServices__size {
+    margin-bottom: 69px;
+
+    @include breakpoint(tablet) {
+        text-align: center;
+    }
+
+    @include breakpoint(mobile) {
+        margin-bottom: 45px;
+    }
+}
+
+.homeSize_select {
+    width: 436px;
+
+    @include breakpoint(mobile) {
+        width: 250px;
+    }
+
+    .MuiInputBase-input {
+        border: none !important;
+
+        @include breakpoint(mobile) {
+            font-size: 12px;
+        }
+    }
+
+    .MuiInput-underline:before {
+        border: none !important;
+    }
+
+    svg {
+        fill: $dodger-blue_6;
+    }
+}
+
+/*------------------------------------------------------------------
+[Footer Srvices] 
+*/
+.services_footer {
+    max-width: 1300px;
+    margin: auto;
+
+    @include breakpoint(tablet) {
+        margin: 20px;
+    }
+
+    @include breakpoint(mobile) {
+        margin: 40px 20px;
+    }
+
+    .services_backlink {
+        text-transform: uppercase;
+        color: $dove-gray_3;
+        font-family: "Avenir_Black";
+        font-size: 18px;
+        position: relative;
+        margin-left: 23px;
+
+        @include breakpoint(mobile) {
+            font-size: 15px;
+            margin-left: 20px;
+        }
+
+        &::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid $dove-gray_3;
+            border-left: 2px solid $dove-gray_3;
+            transform: rotate(-38deg);
+            position: absolute;
+            left: -20px;
+            top: 9px;
+
+            @include breakpoint(mobile) {
+                top: 6px;
+            }
+        }
+    }
+
+    p {
+        margin-top: 18px;
+        margin-bottom: 30px;
+        color: $monsoon;
+        font-size: 15px;
+    }
+}

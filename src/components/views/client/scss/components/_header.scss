@@ -1,0 +1,255 @@
+/*------------------------------------------------------------------
+[Header : Cilent Homepage] 
+*/
+.clientNav {
+    background: transparent;
+    transition: ease-in 0.3s;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    padding: 30px 5%;
+    width: 100%;
+
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
+    .navbar-brand{
+        margin-right: 241px;
+
+        @include breakpoint-reverse(xx-large) {
+            margin-right: 226px;
+        }
+
+        @include breakpoint(tablet) {
+            margin-right: 41px;
+        }
+    }
+
+    .NavBar__container {
+        width: 100%;
+        max-width: 1600px;
+        margin: auto;
+        display: flex;
+
+        @include breakpoint(desktop) {
+            flex-wrap: wrap;
+        }
+
+    }
+
+    .NavBar__menu {
+        flex-grow: 1;
+        align-items: center;
+    }
+
+    .NavBar__item {
+        color: #fff !important;
+        font-size: 20px;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+            margin: 0 15px;
+
+            @include breakpoint-reverse(xx-large) {
+                margin: 0 51px;
+            }
+        }
+
+        &.NavBar__language__item {
+            font-family: "Avenir_Light";
+            font-size: 21px;
+            font-weight: 300;
+            margin: 0 30px;
+        }
+
+        &:hover {
+            font-family: "Avenir_Black";
+        }
+    }
+
+    .btn_nav {
+        @include breakpoint-reverse(desktop) {
+            margin-left: auto;
+        }
+    }
+}
+
+// Navbar when scrolled and Burger menu opened
+.clientNav__nav--scrolled,
+.menu_open {
+    background: #fff;
+
+    .NavBar__item {
+        color: $title_color !important;
+    }
+
+    .btn_nav {
+        border: 3px solid $btn_nav_blue;
+
+        &:hover {
+            border: 3px solid #fff;
+        }
+    }
+}
+
+.menu_open {
+    .NavBar__container {
+        gap: 60px;
+    }
+
+    .btn_nav {
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+
+    .NavBar__item:nth-child(n) {
+        margin-bottom: 30px;
+    }
+}
+
+.clientNav__nav--scrolled {
+    padding: 22px 5%;
+
+    @include breakpoint(tablet) {
+        padding: 30px 5%;
+    }
+}
+
+/*------------------------------------------------------------------
+[Header : Choose Service page] 
+*/
+.ServiceNav {
+    background: #fff;
+    padding: 40px 5%;
+    width: 100%;
+    display: block;
+
+    @include breakpoint(mobile) {
+        padding: 30px 5%;
+    }
+
+    .NavBar__container {
+        width: 100%;
+        max-width: 1600px;
+        margin: auto;
+        display: flex;
+
+        &.thankyou_nav {
+            justify-content: space-between;
+        }
+        
+        @include breakpoint(desktop) {
+            flex-wrap: wrap;
+        }
+
+        @include breakpoint(tablet) {
+            flex-wrap: nowrap;
+        }
+
+        @include breakpoint(mobile) {
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .navbar-brand{
+            margin-right: 87px;
+
+            @include breakpoint-reverse(xx-large) {
+                margin-right: 100px;
+            }
+
+            @include breakpoint(tablet) {
+                margin-right: 10px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-right: 30px;
+            }
+        }
+    }
+
+    .MuiStepper-root {
+        padding: 0;
+
+        @include breakpoint(tablet) {
+            margin-top: 0;
+        }
+    }
+
+    .makeStyles-root-2 {
+        width: auto;
+    }
+
+    .NavBar__menu {
+        flex-grow: 1;
+    }
+
+    .NavBar__language__item {
+        margin-left: auto;
+    }
+
+    .Mui-disabled {
+        display: none;
+    }
+
+    .MuiStepConnector-horizontal {
+        display: none;
+    }
+
+    h2 {
+        margin-top: 37px;
+
+        @include breakpoint(mobile) {
+            margin-top: 23px;
+        }
+    }
+
+    .step {
+        @include breakpoint(mobile) {
+            display: block;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+    }
+
+    .navbar-expand {
+        flex-grow: 1;
+    }
+}
+
+// Burger menu
+.navbar-toggler {
+    border: none;
+
+    &:focus,
+    &:active {
+        border: none;
+        outline: none;
+    }
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='4' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    height: 2.5em;
+
+    &:focus,
+    &:active {
+        border: none;
+    }
+}
+
+.menu_open,
+.clientNav__nav--scrolled {
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2835, 121, 240, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='4' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+}
+
+.nav-link {
+    align-self: center;
+}
+
+.NavBar__language__item.active {
+    border: none !important;
+}

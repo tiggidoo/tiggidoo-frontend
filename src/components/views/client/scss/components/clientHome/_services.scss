@@ -1,0 +1,80 @@
+/*------------------------------------------------------------------
+[Services Section] 
+*/
+.ClServices{
+    max-width: 1300px;
+    margin: 165px auto 0;
+
+    @include breakpoint(tablet) {
+        margin: 100px auto 0;
+        padding: 0 20px;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    @include breakpoint(mobile) {
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    
+    &__box{
+        max-width: 370px;
+        height: 530px;
+        box-shadow: 0px 5px 8px #00000029;
+        background: #fff;
+        padding: 50px 43px;
+        margin: 0 auto 10px;
+        transition: all 0.3s ease-out;
+
+        @include breakpoint(tablet) {
+            margin: 0 auto 33px;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 35px 28px;
+            height: fit-content
+        }
+
+        &:hover{
+            transform: translateY(-5px) scale(1.005) translateZ(0);
+            box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+                  0 24px 46px rgba($azure-blue , 0.11);
+        }
+    }
+
+    &__boxTitle{
+        height: 15%;
+        color: $cinder;
+        text-align: center;
+        margin-bottom: 1.5rem;
+
+        @include breakpoint(mobile) {
+            height: 9%;
+        }
+    }
+
+    &__boxImage{
+        text-align: center;
+        
+        img{
+            max-height: 100px ;
+            margin-bottom: 38px;
+        }
+    }
+
+    &__cta{
+        margin-top: 120px;
+        text-align: center;
+
+        @include breakpoint(tablet) {
+            margin-top: 83px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-top: 50px;
+        }
+    }
+}

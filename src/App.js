@@ -21,8 +21,18 @@ import Activities from "./components/views/pro/activity/Activities";
 import Info from "./components/views/pro/personall_data/Info";
 import ShowNewReservation from "./components/views/pro/request/ShowNewReservation";
 
+import { Provider } from 'react-redux'
+import store from './store'
+
+import ClientHome from "./components/views/client/pages/ClientHome";
+import ChooseService from "./components/views/client/pages/ChooseService";
+import Localisation from "./components/views/client/pages/Localisation";
+import ThankYouPage from "./components/views/client/pages/ThankYouPage";
+import SmsValidation from "./components/views/client/pages/SmsValidation";
+
 function App() {
   return (
+    <Provider store={store}>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <div className="App">
@@ -42,10 +52,19 @@ function App() {
             <Route exact path="/help" component={ Help } />
             <Route exact path="/" component={BecomePro} />
 
+            <Route exact path="/client" component={ ClientHome } />
+            <Route exact path="/localisation" component={ Localisation } />
+            <Route exact path="/housing" component={ ChooseService } />
+            <Route exact path="/benefit" component={ ChooseService } />
+            <Route exact path="/validation" component={ ChooseService } />
+            <Route exact path="/thankyou" component={ ThankYouPage } />
+            <Route exact path="/sms_validation" component={ SmsValidation } />
+
           </Switch>
         </div>
         </BrowserRouter>
     </ThemeProvider>
+    </Provider>
   );
 }
 export default App;

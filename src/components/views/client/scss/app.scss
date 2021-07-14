@@ -1,0 +1,31 @@
+//Base
+@import "base/colors";
+@import "base/fonts";
+@import "base/mixins";
+@import "base/global";
+
+//Components
+@import "components/buttons";
+
+@import "components/header";
+@import "components/footer";
+
+@import "components/clientHome/hero";
+@import "components/clientHome/services";
+@import "components/clientHome/steps";
+@import "components/clientHome/experts";
+@import "components/clientHome/advantages";
+@import "components/clientHome/cta";
+@import "components/clientHome/proposeService";
+
+@import "components/chooseService/housingType";
+@import "components/chooseService/stepper";
+@import "components/chooseService/sidebar";
+@import "components/chooseService/counter";
+@import "components/chooseService/benefit";
+@import "components/chooseService/optionsCard";
+@import "components/chooseService/localisation";
+@import "components/chooseService/validation";
+@import "components/chooseService/smsValidation";
+
+@import "components/thankYouPage/thank-you-page";

@@ -1,0 +1,411 @@
+.Validation {
+    margin: 46px 50px auto;
+
+    @include breakpoint(mobile) {
+        margin: 34px 16px auto;
+    }
+
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .Validation_row {
+        margin-top: 30px;
+        margin-bottom: 60px;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .Validation_firstCol {
+        background-color: #fff;
+        margin-right: 40px;
+
+        @include breakpoint(tablet) {
+            margin-bottom: 40px;
+            margin-right: 0;
+        }
+
+        .Validation_col {
+            margin-right: 0 !important;
+            margin-bottom: 0 !important;
+            padding: 30px 0 !important;
+        }
+    }
+
+    .Validation_col {
+        background-color: #fff;
+        padding: 30px 20px;
+
+        &:last-child {
+            padding: 0;
+            background-color: transparent;
+        }
+
+        & > div.MuiBox-root.mb-5 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        &:not(:last-child) {
+            margin-right: 40px;
+
+            @include breakpoint(tablet) {
+                margin-bottom: 40px;
+                margin-right: 0;
+            }
+        }
+
+        .Validation_col {
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .section__title {
+        display: flex;
+        align-items: center;
+
+        h6 {
+            margin-left: 10px;
+        }
+    }
+
+    h6 {
+        color: #0d0e12;
+        font-family: "Avenir_Black" !important;
+        font-size: 17px;
+        text-transform: uppercase;
+
+        @include breakpoint(mobile) {
+            font-size: 14px;
+        }
+    }
+
+    .blue__title {
+        color: $dodger-blue_6;
+        font-family: "Avenir_Black";
+        text-transform: uppercase;
+        font-size: 15px;
+
+        @include breakpoint(mobile) {
+            font-size: 14px;
+        }
+    }
+
+    .validation_recap {
+        margin-top: 40px;
+
+        .blue__title {
+            font-size: 17px;
+
+            @include breakpoint(mobile) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .recap_title {
+        font-size: 20px;
+        margin: 20px auto;
+        text-transform: uppercase;
+
+        @include breakpoint(mobile) {
+            font-size: 16px;
+        }
+    }
+
+    .MuiFormControlLabel-root {
+        align-items: flex-start;
+    }
+
+    .MuiFormControlLabel-label {
+        font-family: "Avenir_Regular";
+        font-size: 17px;
+        color: #000;
+
+        @include breakpoint(mobile) {
+            font-size: 14px;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    .error {
+        .MuiCheckbox-root {
+            color: $coral-red;
+        }
+    }
+
+    .MuiCheckbox-root {
+        padding: 0 9px !important;
+    }
+
+    .terms_link {
+        font-family: "Avenir_Regular";
+        font-size: 17px;
+        color: #000;
+
+        @include breakpoint(mobile) {
+            font-size: 14px;
+        }
+    }
+
+    .validation__submit {
+        color: #fff !important;
+        background-color: $dove-gray_1 !important;
+        box-shadow: none !important;
+        padding: 30px 41px !important;
+        width: 100%;
+        border-radius: 0 !important;
+        font-family: "Avenir_Black";
+
+        @include breakpoint(mobile) {
+            padding: 19px 15px !important;
+            font-size: 14px;
+        }
+    }
+
+    
+
+    .information_form {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 47px;
+        justify-content: center;
+
+        .MuiFormControl-root:nth-child(2n + 1) {
+            margin-right: 14px;
+
+            @include breakpoint(tablet) {
+                margin-left: 14px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-right: 0;
+                margin-left: 0;
+            }
+        }
+
+        .MuiFormControl-root {
+            margin-bottom: 27px;
+        }
+    }
+
+    .MuiInputLabel-formControl {
+        transform: translate(0, 0) !important;
+        position: absolute !important;
+        margin: 16px;
+    }
+
+    .MuiFormControl-root {
+        height: 74px;
+
+        @include breakpoint(mobile) {
+            width: 100%;
+        }
+    }
+
+    .MuiFormLabel-root {
+        font-family: "Avenir_Regular";
+        font-size: 15px;
+        color: $dodger-blue_6 !important;
+
+        @include breakpoint(mobile) {
+            font-size: 12px;
+        }
+    }
+
+    .MuiOutlinedInput-input {
+        padding: 39px 13px 12px 14px;
+        font-family: "Avenir_Regular";
+        font-size: 17px;
+
+        @include breakpoint(mobile) {
+            font-size: 14px;
+        }
+    }
+
+    .MuiInput-underline:after,
+    .MuiInput-underline:before {
+        display: none;
+    }
+
+    .password_container {
+        position: relative;
+    }
+
+    .visibility_button {
+        position: absolute;
+        right: 0;
+        top: 70%;
+    }
+
+    .MuiOutlinedInput-adornedEnd {
+        padding-right: 0;
+    }
+
+    .visibilityOff_icon {
+        fill: $dodger-blue_6;
+    }
+
+    .progress {
+        width: 246px;
+
+        @include breakpoint(mobile) {
+            width: auto;
+        }
+    }
+
+    .progress_bar {
+        width: 100%;
+        margin-left: 6%;
+
+        @include breakpoint(tablet) {
+            margin-left: 91px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-left: 0;
+        }
+    }
+
+    .password_strength {
+        font-family: "Avenir_Heavy";
+        color: #1d1e21;
+        font-size: 15px;
+
+        @include breakpoint(mobile) {
+            font-size: 12px;
+        }
+    }
+
+    .password_strength_message {
+        color: #a5a4a6;
+        font-size: 14px;
+        margin-top: 1rem;
+
+        @include breakpoint(mobile) {
+            font-size: 11px;
+        }
+    }
+
+    .estimation_box {
+        border-top: solid 2px $dove-gray_2;
+    }
+
+    .estimation_box {
+        background-color: #fff;
+        padding: 30px 0;
+
+        .estimation_info {
+            font-size: 14px;
+            color: #717171;
+            text-align: center;
+
+            @include breakpoint(mobile) {
+                font-size: 12px;
+            }
+        }
+
+        .estimation__info_button {
+            font-size: 16px;
+            text-decoration: underline;
+            color: $dodger-blue_7;
+            text-transform: inherit;
+            font-family: "Avenir_Regular";
+
+            @include breakpoint(mobile) {
+                font-size: 13px;
+            }
+
+            &:hover {
+                background: transparent;
+            }
+
+            &:focus,
+            &:active {
+                outline: none;
+                border: 1px solid $shamrock;
+            }
+        }
+    }
+
+    .estimation_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .estimation_title,
+    .estimation_price {
+        font-family: "Avenir_Black";
+        text-transform: uppercase;
+        font-size: 25px;
+
+        @include breakpoint(mobile) {
+            font-size: 17px;
+        }
+    }
+
+    .estimation_price {
+        color: $dodger-blue_6;
+    }
+
+    .MuiLinearProgress-colorPrimary {
+        background-color: #aaaaaa;
+
+        &[aria-valuenow="20"] {
+            .MuiLinearProgress-barColorPrimary {
+                background-color: $coral-red;
+            }
+        }
+
+        &[aria-valuenow="40"],
+        &[aria-valuenow="60"] {
+            .MuiLinearProgress-barColorPrimary {
+                background-color: #f79c09;
+            }
+        }
+
+        &[aria-valuenow="80"],
+        &[aria-valuenow="100"] {
+            .MuiLinearProgress-barColorPrimary {
+                background-color: $shamrock;
+            }
+        }
+    }
+}
+
+.recap_list {
+    color: $dove-gray_2;
+    font-size: 17px;
+
+    @include breakpoint(mobile) {
+        font-size: 14px;
+    }
+}
+
+.error_box {
+    margin-top: 47px;
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border: 1px solid $coral-red;
+}
+
+.error_icon {
+    max-width: 30px;
+    height: auto;
+}
+
+.error_message {
+    color: $coral-red;
+    text-align: center;
+}

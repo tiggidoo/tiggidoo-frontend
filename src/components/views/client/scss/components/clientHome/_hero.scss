@@ -1,0 +1,185 @@
+/*------------------------------------------------------------------
+[Hero] 
+*/
+.ClHero {
+    background-image: url("../../../../../../images/arriere-plan.svg");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: right top;
+
+    @include breakpoint(tablet) {
+        padding: 0 20px;
+    }
+
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
+
+    img {
+        height: auto;
+        width: 100%;
+    }
+
+    &__img {
+        max-width: 700px;
+        height: auto;
+        margin-top: 143px;
+
+        @include breakpoint-reverse(xx-large) {
+            margin-top: 134px;
+            max-width: 750px;
+        }
+    }
+
+    .post_code__container {
+        position: relative;
+
+        @include breakpoint(tablet) {
+            margin-top: 40px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-top: 20px;
+        }
+
+        .post_code__title {
+            text-transform: uppercase;
+            font-family: "Avenir_Black";
+        }
+
+        .btn_green_bg {
+            @include breakpoint-reverse(tablet) {
+                position: absolute;
+                z-index: 2;
+                right: 13px;
+
+                &:hover {
+                    padding: 22px 42px;
+                    transform: translateX(13px);
+                    background: $bg_green;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .post_code__login_container {
+        margin-top: 66px;
+        font-size: 16px;
+        text-transform: uppercase;
+
+        @include breakpoint(tablet) {
+            margin-top: 40px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-top: 20px;
+            font-size: 10px;
+        }
+
+        .post_code__link {
+            font-family: "Avenir_Black";
+            text-decoration: underline;
+        }
+    }
+
+    .row {
+        margin-top: 82px;
+
+        @include breakpoint(tablet) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+
+    .container{
+        @include breakpoint(mobile) {
+            padding: 5rem 2.5rem 2rem;
+        }
+    }
+}
+
+.post_code__input_container {
+    background: #fff;
+    padding: 10px 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+    @include breakpoint-reverse(tablet) {
+        height: 74px;
+    }
+
+    @include breakpoint(tablet) {
+        max-width: 450px;
+    }
+
+    @include breakpoint(mobile) {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    input {
+        border: none;
+
+        &::placeholder {
+            color: $gray_2;
+            font-size: 15px;
+            text-transform: uppercase;
+
+            @include breakpoint-reverse(xx-large) {
+                font-size: 20px;
+            }
+
+            @include breakpoint(desktop) {
+                font-size: 12px;
+            }
+
+            @include breakpoint(mobile) {
+                font-size: 11px;
+            }
+        }
+
+        &:first-child {
+            width: 60%;
+            margin-right: 60px;
+            padding: 12px;
+
+            @include breakpoint-reverse(xx-large) {
+                margin-right: 100px;
+            }
+
+            @include breakpoint(desktop) {
+                margin-right: 10px;
+            }
+
+            @include breakpoint(mobile) {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    .btn_blue_bg {
+        @include breakpoint-reverse(tablet) {
+            position: absolute;
+            z-index: 2;
+            right: 29px;
+
+            &:hover {
+                padding: 22px 42px;
+                transform: translateX(14px);
+                background: $btn_bg_blue;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.post_code__link_container{
+    @include breakpoint(mobile) {
+        display: block;
+    }
+}

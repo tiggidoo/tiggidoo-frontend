@@ -1,0 +1,299 @@
+/*------------------------------------------------------------------
+[Section Steps] 
+*/
+.ClSteps {
+    margin-top: 188px;
+    background-image: url("../../../../../../images/cl_steps_section_bg.svg");
+    background-repeat: no-repeat;
+    background-size: initial;
+
+    @include breakpoint-reverse(xx-large) {
+        background-size: contain;
+    }
+
+    @include breakpoint(tablet) {
+        margin-top: 100px;
+    }
+
+    @include breakpoint(mobile) {
+        margin-top: 80px;
+    }
+
+    &__wraper {
+        max-width: 1300px;
+        margin: auto;
+
+        @include breakpoint(desktop) {
+            max-width: 1000px;
+        }
+
+        @include breakpoint(mobile) {
+            max-width: 300px;
+        }
+    }
+
+    &__intro {
+        max-width: 843px;
+        margin: auto;
+
+        @include breakpoint(tablet) {
+            padding: 0 15px;
+        }
+    }
+
+    &__description {
+        span {
+            font-family: "Avenir_Black";
+        }
+    }
+
+    &__container {
+        margin: 120px auto;
+
+        @include breakpoint(tablet) {
+            margin: 100px 45px;
+        }
+
+        @include breakpoint(mobile) {
+            margin: 50px 10px 0;
+        }
+
+        img {
+            max-width: 500px;
+            width: 100%;
+            margin-top: 50px;
+
+            @include breakpoint-reverse(xx-large) {
+                max-width: 576px;
+            }
+
+            @include breakpoint(desktop) {
+                max-width: 400px;
+            }
+
+            @include breakpoint(tablet) {
+                margin-top: 127px;
+            }
+
+            @include breakpoint(mobile) {
+                display: none;
+                max-width: 320px;
+            }
+        }
+
+        .col-lg-6 {
+            min-height: 700px;
+
+            &:nth-child(1),
+            &:nth-child(2) {
+                min-height: 539px;
+
+                @include breakpoint(mobile) {
+                    min-height: fit-content;
+                }
+            }
+
+            @include breakpoint(mobile) {
+                min-height: fit-content;
+            }
+
+            &:nth-child(1),
+            &:nth-child(5) {
+                padding-left: 38px;
+
+                @include breakpoint(mobile) {
+                    padding-left: 28px;
+                }
+            }
+
+            &:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(5)), &:nth-child(5) .dashed_top {
+                padding-top: 100px;
+
+                @include breakpoint(mobile) {
+                    padding-top: 0;
+                }
+            }
+
+            &:nth-child(4),
+            &:nth-child(8) {
+                padding-left: 38px;
+
+                @include breakpoint(mobile) {
+                    padding-left: 28px;
+                }
+            }
+
+            &:nth-child(7),
+            &:nth-child(8) {
+                min-height: fit-content;
+            }
+
+            &:nth-child(1) {
+                @include breakpoint(mobile) {
+                    order: 1;
+                }
+            }
+
+            &:nth-child(2) {
+                @include breakpoint(mobile) {
+                    order: 2;
+                }
+            }
+
+            &:nth-child(3) {
+                @include breakpoint(mobile) {
+                    order: 4;
+                }
+            }
+
+            &:nth-child(4) {
+                @include breakpoint(mobile) {
+                    order: 3;
+                }
+            }
+
+            &:nth-child(5) {
+                @include breakpoint(mobile) {
+                    order: 5;
+                }
+            }
+
+            &:nth-child(6) {
+                @include breakpoint(mobile) {
+                    order: 6;
+                }
+            }
+
+            &:nth-child(7) {
+                @include breakpoint(mobile) {
+                    order: 8;
+                }
+            }
+
+            &:nth-child(8) {
+                margin-bottom: 177px;
+
+                @include breakpoint(tablet) {
+                    margin-bottom: 0;
+                }
+
+                @include breakpoint(mobile) {
+                    order: 7;
+                }
+            }
+        }
+    }
+
+    &__box {
+        @include breakpoint(tablet) {
+            margin-bottom: 50px;
+        }
+
+        @include breakpoint(mobile) {
+            margin-bottom: 30px;
+        }
+    }
+
+    .step_indicator {
+        color: $dodger-blue_5;
+        font-size: 93px;
+        position: relative;
+
+        @include breakpoint(mobile) {
+            font-size: 43px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background-color: $dodger-blue_6;
+            border: 1px solid $dodger-blue_6;
+            width: 16px;
+            height: 16px;
+            z-index: 2;
+            top: 57px;
+            left: -45px;
+
+            @include breakpoint(mobile) {
+                width: 10px;
+                height: 10px;
+                left: -25px;
+                top: 47px;
+            }
+        }
+
+        .step_indicator__circle_one,
+        .step_indicator__circle_two {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .step_indicator__circle_one {
+            background-color: #77b0f8;
+            width: 38px;
+            height: 38px;
+            top: 46px;
+            left: -56px;
+
+            @include breakpoint(mobile) {
+                width: 20px;
+                height: 20px;
+                left: -30px;
+                top: 42px;
+            }
+        }
+
+        .step_indicator__circle_two {
+            background-color: #4195ff;
+            width: 55px;
+            height: 55px;
+            opacity: 0.31;
+            top: 37px;
+            left: -65px;
+            box-shadow: 0 0 0 0 rgba(#4195ff, 0.1);
+            -webkit-animation: stepIndicator 3s infinite;
+            animation: stepIndicator 3s infinite;
+            opacity: 0.2;
+
+            @include breakpoint(mobile) {
+                width: 30px;
+                height: 30px;
+                left: -35px;
+            }
+        }
+    }
+}
+
+// Animation of scroll down button
+@-webkit-keyframes stepIndicator {
+    0% {
+        opacity: 0.2;
+    }
+    30% {
+        opacity: 0.5;
+    }
+    60% {
+        box-shadow: 0 0 0 60px rgba(#4195ff, 0.1);
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+@keyframes stepIndicator {
+    0% {
+        opacity: 0.2;
+    }
+    30% {
+        opacity: 0.5;
+    }
+    60% {
+        box-shadow: 0 0 0 60px rgba(#4195ff, 0.1);
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}

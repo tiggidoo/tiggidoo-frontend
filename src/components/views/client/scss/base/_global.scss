@@ -1,0 +1,182 @@
+/*------------------------------------------------------------------
+[Variables] 
+*/
+
+/*------------------------------------------------------------------
+[Resets] 
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Avenir_Regular";
+    background-color: $body_bg_color;
+    color: $body_text_color;
+    font-size: 18px;
+
+    @include breakpoint(mobile) {
+        font-size: 15px;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+/*------------------------------------------------------------------
+[Typography] 
+*/
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Avenir_Black";
+    text-transform: uppercase;
+}
+
+h2 {
+    color: $title_color;
+}
+
+h3 {
+    color: $azure-blue;
+}
+
+h4 {
+    color: $title_color;
+}
+
+h5 {
+    text-transform: inherit;
+}
+
+h6 {
+    font-family: "Avenir_Regular" !important;
+}
+
+p {
+    font-family: "Avenir_Regular";
+    font-size: 18px;
+
+    @include breakpoint(mobile) {
+        font-size: 15px;
+    }
+}
+
+/*------------------------------------------------------------------
+[Utilities] 
+*/
+.green_text {
+    color: $bg_green !important;
+}
+
+.blue_text {
+    color: $azure-blue !important;
+}
+
+.check_mark_list {
+    li {
+        position: relative;
+        padding-left: 17px;
+
+        &:not(:last-child()) {
+            margin-bottom: 38px;
+
+            @include breakpoint(mobile) {
+                margin-bottom: 20px;
+            }
+        }
+
+        &::before {
+            content: "";
+            color: $azure-blue;
+            width: 10px;
+            height: 17px;
+            position: absolute;
+            left: -17px;
+            border-right: 3px solid $azure-blue;
+            border-bottom: 3px solid $azure-blue;
+            transform: rotate(45deg);
+
+            @include breakpoint(mobile) {
+                left: -10px;
+            }
+        }
+    }
+}
+
+.error {
+    font-size: 20px;
+    color: $coral-red !important;
+}
+
+.main_wrapper {
+    max-width: 1600px;
+    margin: auto !important;
+}
+
+.animated_icon {
+    &:hover {
+        animation: swing; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 1s; /* don't forget to set a duration! */
+    }
+}
+
+@keyframes swing {
+    20% {
+        transform: rotate(15deg);
+    }
+    40% {
+        transform: rotate(-10deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    80% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.dashed_left {
+    background-image: linear-gradient(to bottom, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: left;
+    background-size: 2px 40px;
+    background-repeat: repeat-y;
+}
+
+.dashed_right {
+    background-image: linear-gradient(to bottom, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: right;
+    background-size: 2px 40px;
+    background-repeat: repeat-y;
+}
+
+.dashed_top {
+    background-image: linear-gradient(to right, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: top;
+    background-size: 40px 2px;
+    background-repeat: repeat-X;
+}
+
+.dashed_bottom {
+    background-image: linear-gradient(to right, $dove-gray_1 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: bottom;
+    background-size: 40px 2px;
+    background-repeat: repeat-X;
+}
+
+.dashed_bottom,
+.dashed_top,
+.dashed_right,
+.dashed_left {
+    @include breakpoint(mobile) {
+        background-image: none;
+    }
+}

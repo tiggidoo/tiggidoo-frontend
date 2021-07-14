@@ -1,0 +1,89 @@
+.counter_container {
+    max-width: 180px;
+
+    @include breakpoint(mobile) {
+        max-width: 100px;
+        min-height: 120px;
+    }
+
+    h6 {
+        font-size: 18px;
+        font-family: "Avenir_Regular";
+
+        @include breakpoint(mobile) {
+            font-size: 13px;
+        }
+    }
+
+    .counter_header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 13px;
+
+        @include breakpoint(mobile) {
+            flex-direction: column;
+        }
+
+        img {
+            margin-right: 10px;
+
+            @include breakpoint(mobile) {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .counter {
+        display: flex;
+        font-size: 25px;
+
+        @include breakpoint(mobile) {
+            font-size: 15px;
+        }
+
+        p {
+            padding: 10px 20px;
+            background: #fff;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+
+            @include breakpoint(mobile) {
+                padding: 9px;
+            }
+        }
+
+        .btn_blue_bg {
+            padding: 10px 20px;
+            width: 56px;
+
+            @include breakpoint(mobile) {
+                padding: 3px 10px;
+            }
+        }
+    }
+
+    img {
+        max-height: 20px;
+        width: auto;
+
+        @include breakpoint(mobile) {
+            max-height: 18px;
+        }
+    }
+
+    .counter_description {
+        font-size: 14px;
+
+        @include breakpoint(tablet) {
+            max-width: 159px;
+        }
+
+        @include breakpoint(mobile) {
+            font-size: 11px;
+        }
+    }
+}
