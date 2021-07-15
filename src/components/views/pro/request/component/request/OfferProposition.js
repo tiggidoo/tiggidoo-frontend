@@ -239,8 +239,8 @@ const OfferProposition = ({
     const [openPopup, setOpenPopup] = useState(false)
     const [formData, setFormData] = useState({
         id: reservationId,
-        proStartTime: proSelectTime.length === 1 ? proSelectTime[0].pro_start_time : '01:00',
-        proDuration: proSelectTime.length === 1 ? proSelectTime[0].pro_duration : '08:00',
+        proStartTime: proSelectTime.length === 1 ? proSelectTime[0].pro_start_time : '08:00:00',
+        proDuration: proSelectTime.length === 1 ? proSelectTime[0].pro_duration : '01:00:00',
         proStartDate: proSelectTime.length === 1 ? proSelectTime[0].week_date : housework.start_date,
         proVacuumPrice: (activityVacuumPrice === null || activityVacuumPrice === undefined) ? '0' : activityVacuumPrice,
         proProductEcologicalPrice: 0,
@@ -252,54 +252,18 @@ const OfferProposition = ({
         tvq: res.tvq
     })
 
-    let fecha
-    if(proSelectTime.length === 1){
-        fecha = proSelectTime[0].week_date
-    }
-    console.log('Rafina: ', formData.proStartDate)
-
-/*
-    useEffect(()=>{
-        if(!formData.proStartDate){
-            let offreInfo = {
-                proStartDate: housework.time[0].week_date,
-                proStartTime: housework.time[0].pro_start_time,
-                proDuration: housework.time[0].pro_duration,
-                period: housework.time[0].period
-            }           
-
-            if(!(statusId === null || statusId === 1)){
-                if(housework.frequency.id !== 1){
-                    if(housework.time[1].pro_start_time !== null){
-                        offreInfo = {
-                            proStartDate: housework.time[1].week_date,
-                            proStartTime: housework.time[1].pro_start_time,
-                            proDuration: housework.time[1].pro_duration,
-                            period: housework.time[1].period
-                        }
-                    }
-                }
-            }    
-            
+    useEffect(() => {
+        if(serviceHour && proSelectTime.length === 0){
             setFormData({
                 ...formData,
-                proStartTime: offreInfo.proStartTime,
-                proDuration: offreInfo.proDuration,
-                proStartDate: offreInfo.proStartDate
+                proStartTime: serviceHour[0].id
             })
         }
-
-    },[statusId, housework, formData])
-    
-    useEffect(() => {
-        console.log('Rafina 2: ', proSelectTime)
-    }, [proSelectTime])
-
-*/
+    },[serviceHour, proSelectTime])
 
     useEffect(() => {
         if(statusId === '1'){
-            console.log('INgreso aqui', statusId, tymeScheduleActivities, formData.proStartDate)
+
             if(tymeScheduleActivities === null && formData.proStartDate){
                 dispatchGetHourProToBlockFunction(formData.proStartDate)
             }

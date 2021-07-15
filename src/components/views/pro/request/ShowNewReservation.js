@@ -93,8 +93,6 @@ const ShowNewReservation = () => {
         dispatchGetHourProToBlockFunction(date)
     }
     
-    console.log('papoa')
-
     return (
         <Dashboard
             user = { pro }
