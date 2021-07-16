@@ -376,20 +376,7 @@
             }
         }
     }
-
-    .makeStyles-phoneInput-73{
-        margin-right: 0;
-
-        @include breakpoint(tablet) {
-            margin: 0;
-        }
-
-        @include breakpoint(mobile) {
-            margin-bottom: 27px;
-            width: 100%;
-        }
-    }
-
+    
     .react-tel-input {
         box-shadow: none !important;
         border-radius: 0 !important;

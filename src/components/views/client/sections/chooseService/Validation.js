@@ -98,6 +98,8 @@ const Validation = ({ t }) => {
 
         setErrors(errors);
 
+        console.log(errors.telephone);
+
         return errors;
     };
 

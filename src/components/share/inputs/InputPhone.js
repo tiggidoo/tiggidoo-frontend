@@ -75,7 +75,7 @@ export default function InputPhone(props) {
         size={size}
         onChange={onChange}
         defaultValue={defaultValue}
-        // className={customizedClass}
+        className={customizedClass}
         InputProps={{
           inputComponent: TextMaskCustom
         }}

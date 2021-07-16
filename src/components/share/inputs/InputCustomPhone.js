@@ -6,32 +6,37 @@ import 'react-phone-input-2/lib/style.css';
 
 const useStyle = makeStyles((theme) => ({
     phoneInput: {
-        '& .react-tel-input':{
+        marginRight: 0,
+        '@media (max-width:599px)': {
+            marginBottom: "27px",
+            width: '100%',
+        },
+        '& .react-tel-input': {
             boxShadow: '-1px 4px 6px 3px #80808047',
             borderRadius: '5px'
         },
-        '& .react-tel-input .form-control':{
+        '& .react-tel-input .form-control': {
             height: '45px',
             width: '100%'
         },
         '& .react-tel-input .form-control:focus': {
             boxShadow: '0 0 0 0.2rem rgb(40 128 251)',
             border: '0px solid #dc3545',
-            '.react-tel-input .flag-dropdown':{
+            '.react-tel-input .flag-dropdown': {
                 border: '1px solid #cacaca'
             }
         }
     },
     errors: {
-        '& .react-tel-input .flag-dropdown':{
-            border: '1px solid #dc3545'
+        '& .react-tel-input .flag-dropdown': {
+            border: '2px solid #ff3e3e'
         },
-        '& .react-tel-input .form-control':{
-            border: '1px solid #dc3545'
+        '& .react-tel-input .form-control': {
+            border: '2px solid #ff3e3e'
         }
     },
     errorMessage: {
-        color: '#dc3545',
+        color: '#ff3e3e',
         paddingTop: '5px',
         fontSize: '1.6rem',
     }
@@ -40,8 +45,7 @@ const useStyle = makeStyles((theme) => ({
 
 
 const InputCustomPhone = (
-    { name, country, value, regions, enableSearch, disableCountryCode, disableDropdown, onChange, error }) => 
-{
+    { name, country, value, regions, enableSearch, disableCountryCode, disableDropdown, onChange, error }) => {
     const classes = useStyle();
 
     // const handleChange = (e, formattedValue, country, value, name) => {
@@ -49,20 +53,22 @@ const InputCustomPhone = (
     //      onChange(e, formattedValue, country, value, name);
     //  }
 
+    console.log("error")
+    console.log(error)
 
     let customizedClass = classes.phoneInput;
-    if (error.length > 0) {
+    if (error) {
         customizedClass = customizedClass + ' ' + classes.errors;
     }
 
     return (
         <Box className={customizedClass} mr={1}>
             <PhoneInput
-                id= { name }
-                name= { name }
+                id={name}
+                name={name}
                 country={country}
                 regions={regions}
-                value={ value }
+                value={value}
                 placeholder='(123) 456-7890'
                 disableCountryCode={disableCountryCode}
                 disableDropdown={disableDropdown}
@@ -74,8 +80,8 @@ const InputCustomPhone = (
                 }}
                 inputExtraProps={{
                     name: { name },
-                  }}
-            /> 
+                }}
+            />
             {(error.length > 0) && (
                 <span className={classes.errorMessage}>{error}</span>
             )}
