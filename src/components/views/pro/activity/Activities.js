@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Box, AppBar, Tabs, Tab, makeStyles, Hidden, MenuItem, Menu, ListItemText, withStyles } from '@material-ui/core'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Dashboard from '../../../layout/Dashboard'
 import MyActivity from './my_activities/MyActivity';
 import MyAvailabilities from './my_availabilities/MyAvailabilities'
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@material-ui/icons/Menu'
+import { getScheduledActivitiesPro } from '../../../../store/actions/proAction'
+import moment from "moment"
 
 const useStyle = makeStyles((theme) => ({
   appBarArea: {
@@ -39,6 +41,9 @@ const useStyle = makeStyles((theme) => ({
   },
   workArea:{
     padding: '48px 0px 0px 48px !important',
+    '@media(max-width: 1366px)':{
+      padding: '32px 0px 0px 16px !important',
+    },
     '@media(max-width: 600px)':{
       padding: '32px 0px 0px 0px !important',
     }
@@ -114,12 +119,26 @@ const Activities = () => {
   const classes = useStyle()
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
+  const dispatch = useDispatch()
 
-  const { auth:{pro, access_token, isLoggedIn} } = useSelector(
+  const { auth:{pro, access_token, isLoggedIn}, activitiesPro } = useSelector(
     state => ({
-        auth: state.auth
+        auth: state.auth,
+        activitiesPro: state.reservation.scheduledActivitiesPro
     })
   ) 
+
+  const [selectedDate, setSelectedDate] = useState(moment().add('days', 1));
+  const onChangeDate = (day) => {
+      let numWeeks = 4;
+      let now = new Date();
+      now.setDate(now.getDate() + numWeeks * 7);
+      setSelectedDate(day);
+  }
+  
+  useEffect(() => {
+    dispatch(getScheduledActivitiesPro(access_token, selectedDate.format("YYYY-MM-DD")))
+  },[access_token, selectedDate, dispatch])
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
@@ -139,53 +158,60 @@ const Activities = () => {
     setAnchorEl(null);
   };
 
+  console.log('Imprimientod desde elpadre')
+
   return (
       <Dashboard
           user = { pro }
           token = { access_token }
           isLoggedIn = {isLoggedIn}
       >
-          <Box className={classes.appBarArea}>
-              <Hidden xsDown>
-                <AppBar position="static">
-                    <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant="fullWidth">
-                        <Tab label="My Activity" {...a11yProps(0)} />
-                        <Tab label="My availabilities" {...a11yProps(1)} />
-                    </Tabs>
-                </AppBar>
-              </Hidden>
-              <Hidden smUp>
-                <Box className={classes.menuMovile}>
-                  <MenuIcon onClick={handleClick} style={{background: '#2ebe9f', color: '#fff'}} />
-                  <StyledMenu
-                    id="customized-menu"
-                    anchorEl={anchorEl}
-                    keepMounted
-                    open={Boolean(anchorEl)}
-                    onClose={handleClose}
-                  >
-                    <StyledMenuItem>
-                      <ListItemText primary="My Activity" onClick={e => onChangeMovile(e, 0)}/>
-                    </StyledMenuItem>
-                    <StyledMenuItem>
-                      <ListItemText primary="My availabilities" onClick={e => onChangeMovile(e, 1)} />
-                    </StyledMenuItem>
-                  </StyledMenu>
+        <Box className={classes.appBarArea}>
+            <Hidden xsDown>
+              <AppBar position="static">
+                  <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant="fullWidth">
+                      <Tab label="My Activity" {...a11yProps(0)} />
+                      <Tab label="My availabilities" {...a11yProps(1)} />
+                  </Tabs>
+              </AppBar>
+            </Hidden>
+            <Hidden smUp>
+              <Box className={classes.menuMovile}>
+                <MenuIcon onClick={handleClick} style={{background: '#2ebe9f', color: '#fff'}} />
+                <StyledMenu
+                  id="customized-menu"
+                  anchorEl={anchorEl}
+                  keepMounted
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <StyledMenuItem>
+                    <ListItemText primary="My Activity" onClick={e => onChangeMovile(e, 0)}/>
+                  </StyledMenuItem>
+                  <StyledMenuItem>
+                    <ListItemText primary="My availabilities" onClick={e => onChangeMovile(e, 1)} />
+                  </StyledMenuItem>
+                </StyledMenu>
 
-                </Box>
-              </Hidden>
+              </Box>
+            </Hidden>
 
-              <TabPanel value={value} index={0}>
-                <Box className={classes.workArea}>
-                  <MyActivity availability={pro.availability}/>
-                </Box>
-              </TabPanel>
-              <TabPanel value={value} index={1}>
-                <Box className={classes.workArea}>
-                  <MyAvailabilities pro={pro} token={access_token}/>
-                </Box>
-              </TabPanel>
-          </Box>
+            <TabPanel value={value} index={0}>
+              <Box className={classes.workArea}>
+                <MyActivity 
+                  availability={pro.availability} 
+                  activitiesPro={activitiesPro} 
+                  selectedDate={selectedDate}
+                  onChangeDate={onChangeDate}
+                  />
+              </Box>
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <Box className={classes.workArea}>
+                <MyAvailabilities pro={pro} token={access_token}/>
+              </Box>
+            </TabPanel>
+        </Box>
       </Dashboard>
     )
 }

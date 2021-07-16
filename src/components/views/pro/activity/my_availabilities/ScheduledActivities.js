@@ -4,7 +4,6 @@ import SelectInput from '../../../../share/inputs/SelectInput';
 import moment from 'moment'
 import config from '../../../../../config.json'
 
-
 const useStyle = makeStyles((theme) => ({
     numberStyle: {
         color: '#6d6d6d', 
@@ -17,18 +16,29 @@ const useStyle = makeStyles((theme) => ({
         flexDirection:'column',
         maxWidth: '70px', 
         width: '100%',
-        margin: theme.spacing(0, 1, 1, 0)
+        margin: '0 8px 8px 0',
+        '@media(max-width: 1200px)':{
+            margin: '0 8px 4px 0',
+        }
     },
     dayAread: {
         color: '#6d6d6d', 
         fontWeight: 'bold', 
         fontSize: '12px', 
-        lineHeight: '1'
+        lineHeight: '1',
+        '@media(max-width: 1200px)':{
+            fontSize: '10px', 
+        }
     },
     ampmStyle: {
         color: '#2880fb', 
         fontSize: '9px', 
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        alignSelf: 'flex-end',
+        margin: '0 8px 8px 0',
+        '@media(max-width: 1200px)':{
+            margin: '0 4px 4px 0'
+        }
     },
     selectInput:{
         margin: theme.spacing(0,0,2,2),
@@ -179,7 +189,7 @@ const ScheduledActivities = ({ enableTime }) => {
                     htmlDay.push(
                         <Box key={i}>
                             <Box className={classes.numberStyle}>{ week[i].day < 10 ? `0${week[i].day}` : week[i].day }</Box>
-                            <Box className={styleBarColorAm} style={{marginBottom: '5px'}}></Box>
+                            <Box className={styleBarColorAm} style={{marginBottom: '2px'}}></Box>
                             <Box className={styleBarColorPm}></Box>
                         </Box>
                     )
@@ -205,7 +215,7 @@ const ScheduledActivities = ({ enableTime }) => {
 
             html.push(
                 <Box key={index} display="flex" flexDirection="row" >
-                    <Box className={classes.ampmStyle} mr={1} mb={1} alignSelf="flex-end">
+                    <Box className={classes.ampmStyle}>
                         <Box>AM</Box>
                         <Box>PM</Box>
                     </Box>
@@ -229,7 +239,7 @@ const ScheduledActivities = ({ enableTime }) => {
                         data={etatCandidate}
                         onChange={(e) => handleChange(e)}
                         defaultValue={selectedPeriod}
-                        disabled={true}
+                        disabled={false}
                     />                
                 </Box>
                 {

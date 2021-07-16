@@ -97,7 +97,18 @@ const theme = createMuiTheme({
         fontSize: "15px",
       }
     },
-  }
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1630,
+      xxl: 1920
+    }
+  }  
+  // Breakpoints bootstrap v5 xs: 0, sm: 576, md: 768, lg: 992, xl:1200, xxl: 1400
 });
 
 export default theme;

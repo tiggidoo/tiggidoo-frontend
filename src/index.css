@@ -43,17 +43,20 @@ p {
   font-size: 1.6rem;
 }
 
+/* 
 @media (max-width: 768px) {
   .container {
     max-width: 100%;
   }
 }
+ */
 
 @media (min-width: 1200px) {
+/*   
   .container {
     max-width: 1170px;
   }
-
+ */
   h2 {
     font-size: 3rem;
   }
@@ -68,10 +71,12 @@ p {
 }
 
 @media (min-width: 1600px) {
+
+/*   
   .container {
     max-width: 1530px;
   }
-
+ */
   h1 {
     font-size: 4.5rem;
   }

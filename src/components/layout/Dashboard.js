@@ -46,7 +46,7 @@ const Dashboard = ({children, user, token, isLoggedIn}) => {
     return (
         <BodyWrapper>
             <Header isLoggedIn={isLoggedIn} name={name} urlAvatar={urlAvatar} />
-            <Container className={classes.container} maxWidth="lg">
+            <Container maxWidth="xl">
                 <Box className={classes.workArea}>
                     
                     <NavBar urlAvatar={urlAvatar} />

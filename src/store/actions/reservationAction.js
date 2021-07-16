@@ -17,8 +17,6 @@ export const getListRequest = (token, statusId) => async dispatch=>{
             statusId: parseInt(statusId, 10)
         }
 
-        console.log('este es el status:  ', data);
-
         await axios.post(`${config.API_SERVER}/api/pro/reservation/list`, data, headers)
         .then((res) =>{
             dispatch({
@@ -83,8 +81,6 @@ export const sendReservationPro = (token, formData) => async dispatch => {
         }
 
         const data = JSON.stringify(content);
-
-        console.log('This is the data.', data)
 
         await axios.post(`${config.API_SERVER}/api/pro/reservation/valid`, data, headers)
         .then((res) => {

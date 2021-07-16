@@ -1,4 +1,4 @@
-import { UPDATE_MY_CRITERIA, GET_TIME_SCHEDULED_ACTIVITIES } from './typesAction';
+import { UPDATE_MY_CRITERIA, GET_TIME_SCHEDULED_ACTIVITIES, GET_SCHEDULED_ACTIVITIES } from './typesAction';
 import axios from 'axios';
 import { setAlert } from './alertAction';
 import config from '../../config.json';
@@ -150,6 +150,35 @@ export const getTimeSheetPro = (token, date) => async dispatch => {
                 dispatch({
                     type: GET_TIME_SCHEDULED_ACTIVITIES,
                     payload: res.data.timeSheet
+                })
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+
+    }catch(error){
+        console.log(error)
+    }
+}
+
+export const getScheduledActivitiesPro = (token, date) => async dispatch => {
+    try{
+
+        const headers = {
+            headers: {'Authorization': `Bearer ${token}`}
+        }
+
+        const data = {
+            date: date
+        }
+
+        await axios.post(`${config.API_SERVER}/api/pro/calender/schedules`, data, headers)
+        .then((res) => {
+            if(res.status === 200){
+                dispatch({
+                    type: GET_SCHEDULED_ACTIVITIES,
+                    payload: res.data.reservations
                 })
             }
         })

@@ -1,9 +1,9 @@
 import { Box, makeStyles, Typography, Hidden, Fab } from '@material-ui/core'
-import ArrowForwardRoundedIcon from '@material-ui/icons/ArrowForwardRounded';
+import ArrowForwardRoundedIcon from '@material-ui/icons/ArrowForwardRounded'
 import { formateDateSlashes } from '../../../../share/librery/librery'
 import React from 'react'
-import { Link } from 'react-router-dom';
-import DoneAllIcon from '@material-ui/icons/DoneAll';
+import { Link } from 'react-router-dom'
+import DoneAllIcon from '@material-ui/icons/DoneAll'
 
 const useStyle = makeStyles((theme) => ({
     resArea: {

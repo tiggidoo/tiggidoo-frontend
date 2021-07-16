@@ -67,6 +67,7 @@ export const estimationPersonalDataUpdate = payload => dispatch => {
 };
 
 export const fetchEstimation = requestBody => dispatch => {
+    console.log('Este es el body: ---: ', requestBody)
     axios.post('https://www.api-tiggidoo.com/api/housing/estimation', requestBody)
         .then(request => dispatch({
             type: FETCH_ESTIMATION,
