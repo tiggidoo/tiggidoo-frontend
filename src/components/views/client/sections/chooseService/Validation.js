@@ -155,20 +155,25 @@ const Validation = ({ t }) => {
 
     const displayFormula = () => {
         const houseworkFrequencyId = store.getState().estimation.settings.houseworkFrequencyId;
-        // const houseworkWeekTime = store.getState().estimation.settings.houseworkWeekTime;
+        const houseworkWeekTime = store.getState().estimation.settings.houseworkWeekTime;
         const startDate = store.getState().estimation.settings.startDate;
 
         let elements = [];
 
         elements.push(<li key="1">{t(`Client.Validation.frequency_selected_${houseworkFrequencyId}`)}</li>);
 
-        // if (Object.keys(houseworkWeekTime).length === 1) {
-        //     elements.push(<li key="2">{t('Client.Validation.day_selected', { [Object.keys(houseworkWeekTime)[0]]: Object.values(houseworkWeekTime)[0] })}</li>);
-        // } else {
-        //     elements.push(<li key="2">{t('Client.Validation.days_selected', { [Object.keys(houseworkWeekTime)[0]]: Object.values(houseworkWeekTime)[0], [Object.keys(houseworkWeekTime)[1]]: Object.values(houseworkWeekTime)[1] })}</li>);
-        // }
+        if (startDate) {
+            if (houseworkFrequencyId === 1 && houseworkWeekTime[0].period !== '') {
+                elements.push(<li key="2">{t('Client.Time.the_with_date', { date: startDateToTextualDate(houseworkWeekTime[0].weekDate) })} ({t(`Client.Time.period_${houseworkWeekTime[0].period}`)})</li>);
+            } else if (houseworkWeekTime[0].period !== '') {
+                elements.push(<li key="2">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(houseworkWeekTime[0].weekDate) })} ({t(`Client.Time.period_${houseworkWeekTime[0].period}`)})</li>);
 
-        if (startDate) elements.push(<li key="3">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(startDate) })}</li>);
+                if (houseworkWeekTime.length > 1 && houseworkWeekTime[1].period !== '') {
+                    elements.push(<li key="3">{t('Client.Time.or')}</li>);
+                    elements.push(<li key="4">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(houseworkWeekTime[1].weekDate) })} ({t(`Client.Time.period_${houseworkWeekTime[1].period}`)})</li>);
+                }
+            }
+        }
 
         return elements;
     };
