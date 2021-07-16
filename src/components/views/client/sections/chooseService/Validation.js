@@ -323,17 +323,6 @@ const Validation = ({ t }) => {
                                 variant="outlined"
                                 error={errors?.email ? true : false}
                             />
-                            {/* <TextField
-                                name="telephone"
-                                value={personalData.telephone}
-                                onChange={handlePersonalDataChange}
-                                type="phone"
-                                label={t("Client.Validation.phone")}
-                                variant="outlined"
-                                error={errors?.telephone ? true : false}
-                            /> */}
-
-                                
                             <InputCustomPhone
                                 name="telephone"
                                 value={personalData.telephone}
