@@ -22,13 +22,14 @@ import { findClosestDate } from '../../utils/date';
 
 const weekDay = { su: 1, mo: 2, tu: 3, we: 4, th: 5, fr: 6, sa: 7 };
 const reverseWeekDay = ['', 'su', 'mo', 'tu', 'we', 'th', 'fr', 'sa'];
+const initialDays = { su: false, mo: false, tu: false, we: false, th: false, fr: false, sa: false, selected: 0 };
 
 const Benefit = ({ t }) => {
     const store = useStore();
     const dispatch = useDispatch();
 
     const [frequency, setFrequency] = useState(0);
-    const [days, setDays] = useState({ su: false, mo: false, tu: false, we: false, th: false, fr: false, sa: false, selected: 0 });
+    const [days, setDays] = useState(initialDays);
     const [date, setDate] = useState(store.getState().estimation.settings.startDate ?? null);
     const [hours, setHours] = useState([]);
     const [errors, setErrors] = useState({});
@@ -67,11 +68,20 @@ const Benefit = ({ t }) => {
     }, []);
 
     const handleFrequencyChange = (event, value) => {
-        const requestBody = { ...store.getState().estimation.settings, houseworkFrequencyId: value + 1 };
+        const requestBody = {
+            ...store.getState().estimation.settings,
+            houseworkFrequencyId: value + 1,
+            houseworkWeekTime: [],
+            startDate: null
+        };
+
+        setFrequency(value);
+        setDays(initialDays);
+        setHours([]);
+        setDate(null);
 
         estimationBenefitUpdate(requestBody)(dispatch);
         fetchEstimation(requestBody)(dispatch);
-        setFrequency(value);
     };
 
     const handleDayChange = (event, value) => {
@@ -106,7 +116,7 @@ const Benefit = ({ t }) => {
         });
 
         setHours(requestBody.houseworkWeekTime);
-        estimationBenefitUpdate(requestBody)(dispatch);
+        estimationBenefitUpdate({ ...requestBody, ...{ houseworkWeekTime: requestBody.houseworkWeekTime }})(dispatch);
     };
 
     const handleDateChange = (event, value) => {

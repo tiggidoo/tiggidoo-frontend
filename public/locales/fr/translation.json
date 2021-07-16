@@ -468,10 +468,15 @@
             "morning": "Matin (8H -13H)",
             "afternoon": "Aprem (13H -19H)",
             "any": "Peu m’importe",
+            "the_with_date": "Le {{date}}",
             "from_the": "A partir du",
             "from_the_with_date": "A partir du {{date}}",
             "every": "Les",
-            "date": "Date"
+            "date": "Date",
+            "or": "Ou",
+            "period_1": "entre 8h et 13h",
+            "period_2": "entre 13h et 19h",
+            "period_3": "entre 8h et 19h"
         },
         "Validation": {
             "intro": "Plus qu’un dernier clic et votre demande sera envoyé aux PROS. Vous recevrez alors dans votre espace de connexion la liste des PROS qui proposent leurs services pour votre demande. Alors, vous n’aurez plus qu’à choisir la personne que vous souhaitez et puis valider en réglant directement votre total en ligne.",
