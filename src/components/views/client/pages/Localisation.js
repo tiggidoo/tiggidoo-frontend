@@ -2,6 +2,7 @@
 import '../scss/app.scss';
 
 import { withTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
@@ -20,6 +21,10 @@ function Localisation({ t }) {
     const store = useStore();
     const dispatch = useDispatch();
     const history = useHistory();
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const { errors, values, handleChange, handleSubmit } = Form({
         initValues: { postCode: '' },

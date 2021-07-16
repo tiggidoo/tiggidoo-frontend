@@ -26,6 +26,8 @@ const HousingType = ({ t }) => {
 
         estimationHousingUpdate(requestBody)(dispatch);
         fetchEstimation(requestBody)(dispatch);
+
+        window.scrollTo(0, 0)
     }, []);
 
     const handleHousingChange = (event, value) => {

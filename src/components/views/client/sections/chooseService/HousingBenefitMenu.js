@@ -14,7 +14,7 @@ import HousingType from '../../sections/chooseService/HousingType';
 import Demande from '../../section-parts/Demande';
 import Balance from '../../section-parts/Balance';
 import Benefit from '../../sections/chooseService/Benefit';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const HousingBenefitMenu = ({ t }) => {
     const history = useHistory();
@@ -23,6 +23,10 @@ const HousingBenefitMenu = ({ t }) => {
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState({});
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     if (location.pathname === '/housing' && !store.getState().estimation.settings.address) {
         history.push('localisation');
@@ -83,7 +87,7 @@ const HousingBenefitMenu = ({ t }) => {
         const errors = validateCurrentStep();
 
         setErrors(errors);
-        
+
         if (Object.keys(errors).length !== 0) return;
 
         changeStep();
@@ -109,13 +113,13 @@ const HousingBenefitMenu = ({ t }) => {
 
                 <Col xl={3} lg={12} md={12} sm={12}>
                     <div className="sidebar">
-                        <div className="sidebar_inner"> 
-                        <Demande />
-                        <Balance />
+                        <div className="sidebar_inner">
+                            <Demande />
+                            <Balance />
 
-                        <Button variant="contained" className="sidebar__submit" onClick={goToNextStep}>
-                            {t("Client.sideBar.demande_submit")}
-                        </Button>
+                            <Button variant="contained" className="sidebar__submit" onClick={goToNextStep}>
+                                {t("Client.sideBar.demande_submit")}
+                            </Button>
                         </div>
                         {Object.keys(errors).length !== 0 &&
                             <Box className="error_box">
@@ -132,7 +136,7 @@ const HousingBenefitMenu = ({ t }) => {
                         }
                     </div>
 
-                   
+
                 </Col>
             </Row>
 
