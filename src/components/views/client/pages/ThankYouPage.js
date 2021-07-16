@@ -2,6 +2,7 @@
 import '../scss/app.scss';
 
 import { withTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import { useStore } from 'react-redux';
@@ -14,6 +15,10 @@ import { Typography, Box } from '@material-ui/core';
 
 function ThankYouPage({ t }) {
     const store = useStore();
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <div>

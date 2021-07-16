@@ -1,6 +1,6 @@
 import { withTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import { useDispatch, useStore } from 'react-redux';
@@ -31,6 +31,10 @@ const Validation = ({ t }) => {
     const location = useLocation();
     const store = useStore();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const [personalData, setPersonalData] = useState({
         firstName: '',
@@ -129,7 +133,7 @@ const Validation = ({ t }) => {
 
         for (const specificity in specificities) {
             if (specificities[specificity] !== 0) {
-                elements.push(<li style={{display: maxDisplayedElement < 1 && !displayMore ? 'none' : 'block'}} key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
+                elements.push(<li style={{ display: maxDisplayedElement < 1 && !displayMore ? 'none' : 'block' }} key={specificity}>{specificities[specificity]} {t(`Client.Logement.housingSpecificity_${specificity}`)}</li>);
                 maxDisplayedElement--;
             }
         }
@@ -246,14 +250,14 @@ const Validation = ({ t }) => {
                                         t(`Client.Logement.housingSize_${store.getState().estimation.settings.housingSizeId}`).toLowerCase()
                                     }
                                 </li>
-                                
+
                                 {displaySpecificities()}
 
                                 <Button className="see_more_btn" onClick={() => setDisplayMore(!displayMore)}>
                                     {displayMore ? (
-                                        <p className="see_more_text">{ t("Client.sideBar.see_less") }</p> 
-                                    ):(
-                                        <p className="see_more_text">{t("Client.sideBar.see_more")}</p> 
+                                        <p className="see_more_text">{t("Client.sideBar.see_less")}</p>
+                                    ) : (
+                                        <p className="see_more_text">{t("Client.sideBar.see_more")}</p>
                                     )}
                                 </Button>
                             </ul>
@@ -332,7 +336,7 @@ const Validation = ({ t }) => {
                                 name="telephone"
                                 country="ca"
                                 onChange={handlePersonalDataChange}
-                                value={personalData.telephone}      
+                                value={personalData.telephone}
                                 disableCountryCode={false}
                                 disableDropdown={false}
                                 enableSearch={true}

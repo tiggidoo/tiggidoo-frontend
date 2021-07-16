@@ -65,6 +65,8 @@ const Benefit = ({ t }) => {
 
         estimationBenefitUpdate(requestBody)(dispatch);
         fetchEstimation(requestBody)(dispatch);
+
+        window.scrollTo(0, 0)
     }, []);
 
     const handleFrequencyChange = (event, value) => {
