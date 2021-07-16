@@ -24,6 +24,7 @@ import { VisibilityIcon } from '../../section-parts/icons/VisibilityIcon';
 import { VisibilityOffIcon } from '../../section-parts/icons/VisibilityOffIcon';
 
 import { startDateToTextualDate } from '../../utils/date';
+import InputCustomPhone from '../../../../share/inputs/InputCustomPhone';
 
 const Validation = ({ t }) => {
     const history = useHistory();
@@ -322,7 +323,7 @@ const Validation = ({ t }) => {
                                 variant="outlined"
                                 error={errors?.email ? true : false}
                             />
-                            <TextField
+                            {/* <TextField
                                 name="telephone"
                                 value={personalData.telephone}
                                 onChange={handlePersonalDataChange}
@@ -330,7 +331,17 @@ const Validation = ({ t }) => {
                                 label={t("Client.Validation.phone")}
                                 variant="outlined"
                                 error={errors?.telephone ? true : false}
-                            />
+                            /> */}
+
+                                
+                            <InputCustomPhone
+                                name="telephone"
+                                value={personalData.telephone}
+                                onChange={handlePersonalDataChange}
+                                type="phone"
+                                label={t("Client.Validation.phone")}
+                                error={errors?.telephone ? true : false}
+                            ></InputCustomPhone>
 
                             <FormControl variant="outlined">
                                 <InputLabel htmlFor="standard-adornment-password">{t("Client.Validation.password")}</InputLabel>
