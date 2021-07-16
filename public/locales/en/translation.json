@@ -465,10 +465,15 @@
             "morning": "Mornig (8H -13H)",
             "afternoon": "Afternoon (13H -19H)",
             "any": "I do not care",
+            "the_with_date": "The {{date}}",
             "from_the": "From the",
             "from_the_with_date": "From the {{date}}",
             "every": "Every",
-            "date": "Date"
+            "date": "Date",
+            "or": "Or",
+            "period_1": "between 8am and 1pm",
+            "period_2": "between 1pm and 7pm",
+            "period_3": "between 8am and 7pm"
         },
         "Validation": {
             "intro": "Just one last click and your request will be sent to the PROS. You will receive proposals in your login area from the PROS who are offering their services in response to your request. Finally, all you have to do is choose the person you want and confirm by completing your payment online.",

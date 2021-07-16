@@ -31,12 +31,25 @@ const Demande = ({ t }) => {
 
     const displayFormula = () => {
         const houseworkFrequencyId = settings.houseworkFrequencyId;
+        const houseworkWeekTime = settings.houseworkWeekTime;
         const startDate = settings.startDate;
 
         let elements = [];
 
         elements.push(<li key="1">{t(`Client.Validation.frequency_selected_${houseworkFrequencyId}`)}</li>);
-        if (startDate) elements.push(<li key="3">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(startDate) })}</li>);
+
+        if (startDate) {
+            if (houseworkFrequencyId === 1 && houseworkWeekTime[0].period !== '') {
+                elements.push(<li key="2">{t('Client.Time.the_with_date', { date: startDateToTextualDate(houseworkWeekTime[0].weekDate) })} ({t(`Client.Time.period_${houseworkWeekTime[0].period}`)})</li>);
+            } else if (houseworkWeekTime[0].period !== '') {
+                elements.push(<li key="2">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(houseworkWeekTime[0].weekDate) })} ({t(`Client.Time.period_${houseworkWeekTime[0].period}`)})</li>);
+
+                if (houseworkWeekTime.length > 1 && houseworkWeekTime[1].period !== '') {
+                    elements.push(<li key="3">{t('Client.Time.or')}</li>);
+                    elements.push(<li key="4">{t('Client.Time.from_the_with_date', { date: startDateToTextualDate(houseworkWeekTime[1].weekDate) })} ({t(`Client.Time.period_${houseworkWeekTime[1].period}`)})</li>);
+                }
+            }
+        }
 
         return elements;
     };
