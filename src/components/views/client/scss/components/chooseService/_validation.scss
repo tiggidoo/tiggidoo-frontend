@@ -169,8 +169,6 @@
         }
     }
 
-    
-
     .information_form {
         display: flex;
         flex-wrap: wrap;
@@ -378,6 +376,37 @@
             }
         }
     }
+    
+    .react-tel-input {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        font-family: "Avenir_Regular";
+        font-size: 17px;
+        position: relative;
+        width: 220px;
+
+        @include breakpoint(mobile) {
+            width: 100%;
+        }
+
+        .form-control {
+            font-size: 17px;
+            border: 2px solid #2880f9;
+            height: 74px !important;
+            border-radius: 0;
+        }
+
+        .flag-dropdown {
+            border-radius: 0;
+        }
+
+        .selected-flag {
+            // border: 2px solid #2880f9;
+            // border-right: none;
+            border-radius: 0;
+            height: 74px !important;
+        }
+    }
 }
 
 .recap_list {
@@ -408,4 +437,8 @@
 .error_message {
     color: $coral-red;
     text-align: center;
+}
+
+input:-internal-autofill-selected {
+    border-radius: 0 !important;
 }

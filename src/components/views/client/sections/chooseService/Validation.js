@@ -24,6 +24,7 @@ import { VisibilityIcon } from '../../section-parts/icons/VisibilityIcon';
 import { VisibilityOffIcon } from '../../section-parts/icons/VisibilityOffIcon';
 
 import { startDateToTextualDate } from '../../utils/date';
+import InputCustomPhone from '../../../../share/inputs/InputCustomPhone';
 
 const Validation = ({ t }) => {
     const history = useHistory();
@@ -51,11 +52,14 @@ const Validation = ({ t }) => {
     }
 
     const handlePersonalDataChange = (event) => {
-        const name = event.target.name;
+        let name = event.target.name;
         let value = event.target.value;
 
         if (name === 'email') value = value.trim().replace(/\s/g, '');
-        if (name === 'telephone') value = value.trim().replace(/\D/g, '');
+        if (name === '') {
+            name = 'telephone';
+            value = `+${value.trim().replace(/\D/g, '')}`;
+        }
 
         setPersonalData({ ...personalData, [name]: value });
     };
@@ -84,7 +88,7 @@ const Validation = ({ t }) => {
         if (email === '') errors.email = true;
         if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) errors.email = true;
         if (telephone === '') errors.telephone = true;
-        if (telephone.length !== 10) errors.telephone = true;
+        if (telephone.length < 11) errors.telephone = true;
         if (password === '') errors.password = true;
         if (confirmPassword === '') errors.confirmPassword = true;
         if (password !== confirmPassword) errors.password = errors.confirmPassword = true;
@@ -94,6 +98,8 @@ const Validation = ({ t }) => {
 
         setErrors(errors);
 
+        console.log(errors.telephone);
+
         return errors;
     };
 
@@ -101,7 +107,6 @@ const Validation = ({ t }) => {
         if (Object.keys(dataValidation()).length !== 0) return;
 
         const requestBody = { ...store.getState().estimation.settings, ...personalData, lag: 'fr' };
-        requestBody.telephone = `+1${requestBody.telephone}`;
 
         estimationPersonalDataUpdate(requestBody)(dispatch);
 
@@ -322,13 +327,16 @@ const Validation = ({ t }) => {
                                 variant="outlined"
                                 error={errors?.email ? true : false}
                             />
-                            <TextField
+
+                            <InputCustomPhone
                                 name="telephone"
-                                value={personalData.telephone}
+                                country="ca"
                                 onChange={handlePersonalDataChange}
-                                type="phone"
-                                label={t("Client.Validation.phone")}
-                                variant="outlined"
+                                value={personalData.telephone}      
+                                disableCountryCode={false}
+                                disableDropdown={false}
+                                enableSearch={true}
+                                regions={['north-america', 'europe']}
                                 error={errors?.telephone ? true : false}
                             />
 
